@@ -2,93 +2,70 @@
 
 ## Introduction
 
-Fire Escape is a 2D game currently in development, created as a student project for the Fund Game Design Concepts class (GDD 2150 001) at UCCS. This game puts you in the boots of a brave firefighter, tasked with rescuing civilians and their precious belongings from raging infernos.  Developed to explore the game prompt of "Tragedy", Fire Escape aims to deliver a challenging and emotionally engaging experience.
+Fire Escape is a 2D game currently in development, created as a student project for the Fund Game Design Concepts class (GDD 2150 001) at UCCS. This game puts you in the boots of a brave firefighter, tasked with rescuing civilians and their precious belongings from raging infernos. Developed to explore the game prompt of "Tragedy", Fire Escape aims to deliver a challenging and emotionally engaging experience.
 
 ## Created By
 
-*   Fund Game Design Concepts - 2025Sp GDD 2150 001 class in UCCS.
+* Fund Game Design Concepts - 2025Sp GDD 2150 001 class in UCCS.
 
 ## Game Engine
 
-*   **Current Engine:** GameMaker 2
-*   **Potential Future Engine:** Unity (Consideration for future development)
+* **Current Engine:** Unity
 
 ## Game Overview
 
 Fire Escape is a game centered around the theme of firefighting and rescue. Players will take on the role of a firefighter and navigate through burning buildings to:
 
-*   **Save People:**  Your primary objective is to locate and safely extract civilians trapped within the fire.
-*   **Rescue Belongings:** In addition to saving lives, you will also be tasked with recovering valuable belongings that people desperately want to save from the flames.
-*   **Tragedy Theme:**  The game is designed to explore the "Tragedy" prompt, aiming to create a compelling narrative and gameplay that reflects the challenging and often heartbreaking realities faced by firefighters.
+* Split-screen Couch coop game, with 2 players or player and AI.
+* Top-Down perspective.
+* Save people, put out fires.
 
 # Project Standards and Conventions
 
-This README outlines the basic programming standards and naming conventions for this project, developed using GameMaker Language (GML). Following these guidelines ensures consistency, readability, and maintainability across the codebase. Please stick to these conventions strictly to keep everything uniform.
+This README outlines the basic programming standards and naming conventions for this project, developed using C# within the Unity environment. Following these guidelines ensures consistency, readability, and maintainability across the codebase. Please stick to these conventions strictly to keep everything uniform.
 
 ## Naming Conventions
 
-Consistent naming makes it easy to identify the type and purpose of assets and variables. Below are the standards for naming different elements in this project.
+Consistent naming makes it easy to identify the type and purpose of assets and scripts. Below are the standards for naming different elements in this project.
 
-### Objects
+### Game Objects
 
-* **Prefix:** `obj_`
-* **Format:** Use lowercase letters, with underscores to separate words.
-* **Examples:** `obj_chair`, `obj_chair_large`, `obj_player`
-
-### Sprites
-
-* **Prefix:** `spr_`
-* **Format:** Use lowercase letters, with underscores to separate words.
-* **Examples:** `spr_chair`, `spr_chair_large`, `spr_player_idle`
+* **Format:** Use PascalCase (e.g., `FireExtinguisher`, `PlayerCharacter`).
+* **Prefix:** Consider using prefixes to group related objects in the hierarchy (e.g., `NPC_Civilian`, `FX_Explosion`).
 
 ### Scripts
 
-* **Format:** Use descriptive names in lowercase, with underscores to separate words.
-* **Examples:** `move_player`, `calculate_score`, `update_health`
+* **Format:** Use PascalCase (e.g., `PlayerMovement`, `FireController`).
+* **File Name:** The script file name should match the class name.
 
-### Rooms
+### Sprites/Textures
 
-* **Prefix:** `rm_`
-* **Format:** Use lowercase letters, with underscores to separate words.
-* **Examples:** `rm_level1`, `rm_boss_fight`, `rm_main_menu`
+* **Format:** Use lowercase letters, with underscores to separate words (e.g., `player_idle`, `fire_particle`).
+* **Prefix:** Consider using prefixes to group related objects in the hierarchy (e.g., `sprite_player_idle`, `sprite_fire_particle`).
 
-### Sounds
+### Scenes
 
-* **Prefix:** `snd_`
-* **Format:** Use lowercase letters, with underscores to separate words.
-* **Examples:** `snd_jump`, `snd_explosion`, `snd_background_music`
+* **Prefix:** `Scene_`
+* **Format:** Use PascalCase (e.g., `Scene_Level1`, `Scene_MainMenu`).
 
-### Fonts
+### Audio Clips
 
-* **Prefix:** `fnt_`
-* **Format:** Use lowercase letters, with underscores to separate words.
-* **Examples:** `fnt_main`, `fnt_title`, `fnt_score`
+* **Prefix:** `Audio_`
+* **Format:** Use PascalCase (e.g., `Audio_Jump`, `Audio_Explosion`).
 
-### Timelines
+### Materials
 
-* **Prefix:** `tml_`
-* **Format:** Use lowercase letters, with underscores to separate words.
-* **Examples:** `tml_intro`, `tml_cutscene1`, `tml_game_over`
-
-### Paths
-
-* **Prefix:** `pth_`
-* **Format:** Use lowercase letters, with underscores to separate words.
-* **Examples:** `pth_enemy_patrol`, `pth_player_movement`, `pth_boss_route`
+* **Prefix:** `Mat_`
+* **Format:** Use PascalCase (e.g., `Mat_FloorTile`, `Mat_Fire`).
 
 ### Variables
 
-* **Format:** Use descriptive names in lowercase, with underscores to separate words.
-* **Examples:** `player_health`, `is_jumping`, `enemy_speed`
+* **Variables:** Use camelCase (e.g., `playerHealth`, `isJumping`).
+* **Constants:** Use all uppercase with underscores to separate words (e.g., `MAX_HEALTH`, `JUMP_FORCE`).
 
 ## Code Formatting
 
 Good formatting improves code readability. Here’s how to keep it clean.
-
-### Indentation
-
-* Use 4 spaces for indentation.
-* Stay consistent across all scripts and objects.
 
 ### Spacing
 
@@ -97,82 +74,76 @@ Good formatting improves code readability. Here’s how to keep it clean.
 
 ### Comments
 
-* Use comments to explain tricky logic or key sections.
+* Use comments to explain complex logic or key sections.
 * Keep them short and clear.
-* **Example:** `// Check if player is on ground before jumping`
+* Use `//` for single-line comments and `/* ... */` for multi-line comments.
+* **Example:** `// Check if player is grounded before jumping`
 
 ### Regions
 
 * Use `#region` and `#endregion` to group related code in scripts.
 * **Example:**
 
-    ```gml
+    ```csharp
     #region Movement
-    x += speed;
-    if (place_meeting(x, y, obj_wall)) {
-        x -= speed;
+    transform.Translate(Vector3.right * speed * Time.deltaTime);
+    if (Physics2D.OverlapBox(transform.position, collisionSize, 0, wallLayer))
+    {
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
     #endregion
     ```
 
-## Best Practices
-
-These tips will help keep your code efficient and organized.
-
-### Use of Parent Objects
-
-* Use parent objects for shared properties or behaviors.
-* Name them with a `_parent` suffix.
-* **Example:** `obj_enemy_parent`
-
 ### Initialization of Variables
 
-* Set up instance variables in the Create event of each object.
+* Initialize variables in the `Start()` or `Awake()` methods of your scripts.
 * **Example:**
 
-    ```gml
-    player_health = 100;
-    is_jumping = false;
+    ```csharp
+    public class PlayerController : MonoBehaviour
+    {
+        public int MaxHealth = 100;
+        private int _currentHealth;
+        private bool _isJumping;
+
+        void Start()
+        {
+            _currentHealth = MaxHealth;
+            _isJumping = false;
+        }
+    }
     ```
 
 ### Constants
 
-* Define constants for repeated or meaningful values.
-* **Example:** `const MAX_HEALTH = 100;`
-
-## Minimizing Merge Conflicts (GML Specific)
-
-Due to the nature of GameMaker Language and its project files, merge conflicts can be particularly challenging. To minimize these conflicts, we recommend the following workflow:
-
-1.  **Local Development:**
-    * Each developer should maintain their own separate, local GameMaker project file for active development.
-    * This file is where all coding and asset creation occurs.
-2.  **GitHub Repository:**
-    * A single, shared GameMaker project file should reside in the GitHub repository. This is the "main" project.
-3.  **Workflow:**
-    * **Pull First:** Before making any changes, always `git pull` the latest version of the repository to your local machine.
-    * **Local Changes:** Make your changes in your local GameMaker project.
-    * **Create Local Package:** Once your changes are complete and tested, create a local package (.yyz) of your project. This will export your project into a single file.
-    * **Import into GitHub File:** Open the "main" GameMaker project file from the GitHub repository. Import the local package into this file. This will merge your changes into the shared project.
-    * **Commit and Push:** Commit and push the updated "main" GameMaker project file to the GitHub repository.
-    * **Descriptive Commits:** when committing, make sure that the commit messages are very descriptive, so that if a problem occurs, it is easy to find.
-
-This workflow minimizes merge conflicts because:
-
-* **Isolated Development:** Developers work in their own environments, reducing the chance of simultaneous edits to the same files.
-* **Package Merging:** Importing a package into the main project handles most merging automatically, reducing manual conflict resolution.
-* **Single Point of Integration:** the github file becomes the single point of integration, making it easier to track changes.
-
+* Define constants using the `const` keyword for values that won't change at runtime.
+* **Example:** `public const int MAX_HEALTH = 100;`
 
 ### Version Control
 
 * Write clear, descriptive commit messages.
 * Explain what you changed and why.
-* **Example:** `Added collision check for obj_chair to fix player overlap bug`
+* **Example:** `Added collision check for chair prefab to fix player overlap bug`
+
+## Minimizing Merge Conflicts
+
+To minimize merge conflicts, especially when working with Unity's scene and project files, we recommend the following workflow:
+
+1.  **Local Development:**
+    * Each programmer should work on their own branch of the project.
+    * Focus on specific features or bug fixes within your branch.
+2.  **GitHub Repository:**
+    * The main branch should represent the stable version of the game.
+3.  **Workflow:**
+    * **Pull First:** Before starting any work, always `git pull` the latest changes from the main branch to your local branch.
+    * **Local Changes:** Make your changes within your local branch.
+    * **Commit Frequently:** Commit your changes regularly with descriptive messages.
+    * **Rebase or Merge:** When your feature is complete, rebase your branch onto the main branch (preferred for a clean history) or merge your branch into the main branch. Resolve any merge conflicts carefully.
+    * **Descriptive Commits:** When committing, make sure that the commit messages are very descriptive, so that if a problem occurs, it is easy to find.
 
 ## Additional Notes
 
-* Refer to the [GameMaker Documentation](https://manual.yoyogames.com/#t=Content.htm) for GML syntax or function details.
+* Refer to the [Unity Documentation](https://docs.unity3d.com/) for C# syntax or Unity API details.
 * These standards might evolve—check back for updates!
 
 
@@ -187,9 +158,9 @@ This workflow minimizes merge conflicts because:
 
 
 **Programmer Lead - Kenyou Teoh & Brian McLatchie**
--
--
--
+- Tyler Austin
+- Gabe
+- Rafael
 -
 -
 -
