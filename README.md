@@ -198,7 +198,7 @@ This workflow minimizes merge conflicts because:
 -
 -
 
-**Design Lead**
+**Design Lead - Alex**
 -
 -
 -
@@ -210,7 +210,7 @@ This workflow minimizes merge conflicts because:
 -
 -
 
-**Music Lead**
+**Art Lead - Nick**
 -
 -
 -
@@ -222,7 +222,7 @@ This workflow minimizes merge conflicts because:
 -
 -
 
-**Art Lead**
+**Music Lead - Henry**
 -
 -
 -
