@@ -162,6 +162,6 @@ To minimize merge conflicts, particularly when working with Unity's scene and pr
 
 **Design Lead - Alex**
 
-**Art Lead - Nick**
+**Art Lead - Nick Knehs**
 
-**Music Lead - Henry**
+**Music Lead - Henry C**
