@@ -158,6 +158,7 @@ To minimize merge conflicts, particularly when working with Unity's scene and pr
 - Tyler Austin
 - Gabe
 - Rafael
+- Brandon
 
 **Design Lead - Alex**
 
