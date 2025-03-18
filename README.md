@@ -162,7 +162,12 @@ To minimize merge conflicts, particularly when working with Unity's scene and pr
 - Alex
 
 **Design Lead - Alex DeRooy**
+- SophiaK
+- Sebastian
 
 **Art Lead - Nick Knehs**
+- Elle
+- Kaya
+- Star Grace
 
 **Music Lead - Henry C**
