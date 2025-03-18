@@ -170,4 +170,8 @@ To minimize merge conflicts, particularly when working with Unity's scene and pr
 - Kaya
 - Star Grace
 
-**Music Lead - Henry C**
+**Sound Lead - Henry C**
+- Kalista
+- Mono
+- Ryan M
+- Nico
