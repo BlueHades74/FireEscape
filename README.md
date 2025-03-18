@@ -159,8 +159,9 @@ To minimize merge conflicts, particularly when working with Unity's scene and pr
 - Gabe
 - Rafael
 - Brandon
+- Alex
 
-**Design Lead - Alex**
+**Design Lead - Alex DeRooy**
 
 **Art Lead - Nick Knehs**
 
