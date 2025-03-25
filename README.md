@@ -22,133 +22,166 @@ Fire Escape is centered around firefighting and rescue. Players will navigate bu
 
 # Project Standards and Conventions
 
-This README outlines the basic programming standards and naming conventions for this project, developed using C# within the Unity environment. Adhering to these guidelines ensures consistency, readability, and maintainability across the codebase. Please strictly follow these conventions to maintain uniformity.
+This README outlines the recommended programming standards and naming conventions for this project, developed using C# within the Unity environment. These guidelines are based on common C# and Unity practices to ensure consistency, readability, and maintainability across the codebase. Please adhere to these conventions.
 
 ## Naming Conventions
 
-Consistent naming facilitates the identification of asset and script types and purposes. Below are the standards for naming different elements within this project.
+Consistent naming helps in understanding the codebase and navigating the project assets.
 
 ### Game Objects
 
-* **Format:** PascalCase (e.g., `FireExtinguisher`, `PlayerCharacter`).
-* **Prefix:** Consider using prefixes to group related objects in the hierarchy (e.g., `NPC_Civilian`, `FX_Explosion`).
+* **Format:** PascalCase (e.g., `PlayerCharacter`, `FireHydrant`, `RescueTarget`).
+* **Organization:** Use empty GameObjects as folders in the hierarchy to group related objects (e.g., create an empty `Environment` object and place floor tiles, walls under it).
 
 ### Scripts
 
-* **Format:** PascalCase (e.g., `PlayerMovement`, `FireController`).
-* **File Name:** The script file name must match the class name.
+* **Format:** PascalCase (e.g., `PlayerMovement`, `FireController`, `GameManager`).
+* **File Name:** The script file name **must** match the public `MonoBehaviour` class name inside it for Unity to correctly attach the script.
 
-### Sprites/Textures
+### Asset Files (Sprites, Textures, Audio Clips, Materials, etc.)
 
-* **Format:** lowercase with underscores (e.g., `player_idle`, `fire_particle`).
+* **Format:** PascalCase or camelCase (e.g., `PlayerIdle`, `FireParticle`, `ButtonNormal`, `MainTheme`, `CharacterMaterial`).
+* **Organization:** Use clear folder structures within your `Assets` directory (e.g., `Assets/Sprites/Characters`, `Assets/Audio/SFX`, `Assets/Materials`).
 
 ### Scenes
 
-* **Prefix:** `Scene_`
-* **Format:** PascalCase (e.g., `Scene_Level1`, `Scene_MainMenu`).
+* **Format:** PascalCase (e.g., `MainMenu`, `Level01`, `CharacterSelection`).
 
-### Audio Clips
+### Variables and Methods
 
-* **Prefix:** `Audio_`
-* **Format:** PascalCase (e.g., `Audio_Jump`, `Audio_Explosion`).
-
-### Materials
-
-* **Prefix:** `Mat_`
-* **Format:** PascalCase (e.g., `Mat_FloorTile`, `Mat_Fire`).
-
-### Variables
-
-* **Variables:** camelCase (e.g., `playerHealth`, `isJumping`).
-* **Constants:** ALL_CAPS_WITH_UNDERSCORES (e.g., `MAX_HEALTH`, `JUMP_FORCE`).
+* **Public/Serialized Fields:** `camelCase` (e.g., `moveSpeed`, `playerHealth`). These are visible in the Unity Inspector.
+* **Private/Protected Fields:** `_camelCase` (prefix with underscore) or `camelCase`. Using `_` helps distinguish private fields from local variables and public fields (e.g., `_currentHealth`, `_jumpForce`). Consistency within the project is key.
+* **Method Parameters:** `camelCase` (e.g., `TakeDamage(int damageAmount)`).
+* **Local Variables:** `camelCase` (e.g., `float timeElapsed = 0;`).
+* **Methods:** PascalCase (e.g., `MovePlayer()`, `CalculateScore()`).
+* **Properties:** PascalCase (e.g., `public int CurrentScore { get; private set; }`).
+* **Constants:** `ALL_CAPS_WITH_UNDERSCORES` (e.g., `MAX_HEALTH`, `DEFAULT_SPEED`). Use `const` for compile-time constants and `static readonly` for runtime constants.
 
 ## Code Formatting
 
-Maintaining good formatting enhances code readability. Here's how to ensure cleanliness.
+Clean formatting enhances readability and maintainability.
 
 ### Spacing
 
-* Add spaces around operators and after commas.
-* **Example:** `x = 5 + 3;` (not `x=5+3;`)
+* Use spaces around operators (`=`, `+`, `-`, `*`, `/`, `==`, etc.) and after commas.
+* **Example:** `x = speed * Time.deltaTime;` (not `x=speed*Time.deltaTime;`)
+* Use single spaces, not tabs, for indentation (configurable in your IDE, often set to 4 spaces).
 
 ### Comments
 
-* Use comments to explain complex logic or key sections.
-* Keep comments concise and clear.
-* Use `//` for single-line comments and `/* ... */` for multi-line comments.
-* **Example:** `// Check if player is grounded before jumping`
+* Use `//` for single-line comments.
+* Use `/* ... */` for multi-line comments (less common than multiple `//`).
+* Use `///` XML documentation comments for public methods, classes, and properties to explain their purpose, parameters, and return values. These integrate with IDE tooltips.
+    ```csharp
+    /// <summary>
+    /// Makes the player character jump if grounded.
+    /// </summary>
+    /// <param name="jumpForce">The force to apply upwards.</param>
+    public void Jump(float jumpForce)
+    {
+        // Check if player is grounded before jumping
+        if (_isGrounded)
+        {
+           _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+    }
+    ```
+* Keep comments concise, clear, and focused on *why* something is done, rather than *what* it does (the code should explain the 'what').
 
 ### Regions
 
-* Use `#region` and `#endregion` to group related code in scripts.
-* **Example:**
+* Use `#region` and `#endregion` sparingly. They can help organize very large classes, but often indicate that a class might be doing too much and could be refactored into smaller, more focused classes. Prefer smaller classes and methods over extensive use of regions.
+
+### Initialization
+
+* Initialize variables where they are declared if possible (e.g., `public float speed = 5.0f;`).
+* Use `Awake()` primarily for getting component references (`GetComponent<T>()`) on the same GameObject or initializing state *before* any other script's `Start()` runs.
+* Use `Start()` for initialization that might depend on other objects or components having already run their `Awake()` methods.
 
     ```csharp
-    #region Movement
-    transform.Translate(Vector3.right * speed * Time.deltaTime);
-    if (Physics2D.OverlapBox(transform.position, collisionSize, 0, wallLayer))
+    using UnityEngine;
+
+    public class PlayerHealth : MonoBehaviour
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-    }
-    #endregion
-    ```
-
-### Initialization of Variables
-
-* Initialize variables in the `Start()` or `Awake()` methods of your scripts.
-* **Example:**
-
-    ```csharp
-    public class PlayerController : MonoBehaviour
-    {
-        public int MaxHealth = 100;
+        [SerializeField] private int maxHealth = 100; // Initialized directly, adjustable in Inspector
         private int _currentHealth;
-        private bool _isJumping;
+        private Rigidbody2D _rigidbody; // Reference to a component
 
+        // Awake is called before the first frame update and before any Start methods
+        void Awake()
+        {
+            // Good place for getting component references on the same GameObject
+            _rigidbody = GetComponent<Rigidbody2D>();
+            if (_rigidbody == null)
+            {
+                Debug.LogError("Rigidbody2D component missing from this GameObject");
+            }
+        }
+
+        // Start is called before the first frame update, after all Awake methods have run
         void Start()
         {
-            _currentHealth = MaxHealth;
-            _isJumping = false;
+            // Good place for setting initial state based on parameters or other objects
+            _currentHealth = maxHealth;
         }
     }
     ```
 
 ### Constants
 
-* Define constants using the `const` keyword for values that will not change at runtime.
-* **Example:** `public const int MAX_HEALTH = 100;`
+* Define compile-time constants using `const` (value must be known at compile time).
+* Define runtime constants (or values set once at startup) using `static readonly`.
+* **Example:**
+    ```csharp
+    public const int MAX_SCORE = 9999;
+    public static readonly Color DEFAULT_COLOR = Color.blue;
+    ```
 
-### Version Control
+## Version Control (Git)
 
-* Write clear and descriptive commit messages.
-* Explain the changes made and the reasoning behind them.
-* **Example:** `Added collision check for chair prefab to fix player overlap bug`
+Effective version control is crucial for collaboration.
 
-## Minimizing Merge Conflicts
+### Setup
 
-To minimize merge conflicts, particularly when working with Unity's scene and project files, we recommend the following workflow:
+* **`.gitignore`:** Use a standard Unity `.gitignore` template (easily found online) to prevent committing unnecessary library files, logs, temporary files, etc.
+* **Asset Serialization:** Set `Edit -> Project Settings -> Editor -> Asset Serialization` to `Force Text`. This makes scene (`.unity`) and prefab (`.prefab`) files text-based and easier (though still challenging) to merge.
+* **Visible Meta Files:** Ensure `Edit -> Project Settings -> Editor -> Version Control -> Mode` is set to `Visible Meta Files`. These `.meta` files are essential and **must** be committed.
 
-1.  **Local Development:**
-    * Each programmer should work on their own branch of the project.
-    * Focus on specific features or bug fixes within your branch.
-2.  **GitHub Repository:**
-    * The `main` branch should represent the stable version of the game.
-3.  **Workflow:**
-    * **Pull First:** Before starting any work, always `git pull` the latest changes from the `main` branch to your local branch.
-    * **Local Changes:** Make your changes within your local branch.
-    * **Commit Frequently:** Commit your changes regularly with descriptive messages.
-    * **Rebase or Merge:** When your feature is complete, rebase your branch onto the `main` branch (preferred for a clean history) or merge your branch into the `main` branch. Resolve any merge conflicts carefully.
-    * **Descriptive Commits:** When committing, ensure commit messages are very descriptive, making it easier to identify the source of any issues.
+### Workflow
+
+1.  **Branching:**
+    * Keep the `main` (or `master`) branch clean and representing a stable version.
+    * Create new branches for each feature, bugfix, or task (e.g., `feature/player-movement`, `bugfix/collision-issue`).
+2.  **Committing:**
+    * Commit frequently with clear, descriptive messages.
+    * Commit messages should be in the imperative mood (e.g., "Fix collision bug", "Add player jump ability").
+    * Explain *what* the commit does and *why*.
+    * **Example:** `feat: Implement basic player movement using Rigidbody2D` or `fix: Prevent player from falling through floor on Level 1`
+3.  **Syncing:**
+    * **Pull Frequently:** Before starting work and before pushing, always update your local branch with changes from the remote repository (`git pull` or `git fetch` followed by `git merge`/`git rebase`).
+    * **Push Regularly:** Push your feature branch regularly to back it up and allow others visibility (if needed).
+4.  **Merging:**
+    * When a feature is complete and tested, create a Pull Request (PR) on GitHub (or equivalent) to merge your branch into `main`.
+    * Code reviews are recommended before merging.
+    * Resolve merge conflicts carefully. **Communicate** with teammates if you have conflicts in scene or prefab files, as these are difficult to merge automatically. Often, one person needs to manually integrate changes from both conflicting versions.
+
+### Minimizing Scene/Prefab Conflicts
+
+* **Communicate:** Talk to your team before making significant changes to shared scenes or prefabs.
+* **Work on Different Scenes/Prefabs:** If possible, have developers work on different scenes or prefabs simultaneously.
+* **Use Prefab Variants:** For variations of prefabs, use Unity's Prefab Variant system.
+* **Break Down Scenes:** Consider breaking large scenes into smaller chunks loaded additively, reducing the chance of multiple people needing to edit the *same* scene file.
 
 ## Additional Notes
 
-* Refer to the [Unity Documentation](https://docs.unity3d.com/) for C# syntax and Unity API details.
-* These standards are subject to evolution; please check back for updates.
+* Refer to the official [Unity User Manual](https://docs.unity3d.com/Manual/index.html) and [Scripting Reference](https://docs.unity3d.com/ScriptReference/index.html).
+* Consult C# documentation for language features.
+* These standards may evolve; check this document for updates.
 
 ## Timeline
 
 * 3/12/2025 - Project started.
-* 3/17/2015 - Groups assigned.
+* 3/17/2025 - Groups assigned.
 
 ## Credits
 
