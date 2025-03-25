@@ -137,40 +137,54 @@ Clean formatting enhances readability and maintainability.
     public static readonly Color DEFAULT_COLOR = Color.blue;
     ```
 
-## Version Control (Git)
+## Contribution Workflow using Unity Packages
 
-Effective version control is crucial for collaboration.
+To manage contributions effectively while managing repository size, we will use a workflow combining Unity Packages (`.unitypackage`) with Git/GitHub for submission tracking. Programmers will submit their work as packages committed to dedicated branches. The Programming Leads (Kenyou Teoh & Brian McLatchie) will then integrate these packages into the main project repository, which they manage using Git and GitHub Desktop.
 
-### Setup
+### Programmer Workflow
 
-* **`.gitignore`:** Use a standard Unity `.gitignore` template (easily found online) to prevent committing unnecessary library files, logs, temporary files, etc.
-* **Asset Serialization:** Set `Edit -> Project Settings -> Editor -> Asset Serialization` to `Force Text`. This makes scene (`.unity`) and prefab (`.prefab`) files text-based and easier (though still challenging) to merge.
-* **Visible Meta Files:** Ensure `Edit -> Project Settings -> Editor -> Version Control -> Mode` is set to `Visible Meta Files`. These `.meta` files are essential and **must** be committed.
+1.  **Get Base Project & Setup:**
+    * Obtain the latest version of the Unity project from the Programming Leads (e.g., download a ZIP from a shared link, or clone the central GitHub repository if instructed, but remember you **will not** push code changes directly to `main`).
+    * Ensure you have GitHub Desktop installed and configured with your GitHub account.
+    * If you cloned the repository, make sure your local copy is up-to-date with the `main` branch before starting work.
+2.  **Create Your Branch:**
+    * Using GitHub Desktop, create a **new branch** from the latest `main` branch. Name it descriptively, including your name and the feature/fix (e.g., `SophiaK/AddRescueCivilians`, `Brandon/FixFireSpreadBug`).
+    * Switch to your newly created branch. You will commit your package to this branch.
+3.  **Local Development:**
+    * Work on your assigned features or bug fixes within your local copy of the project (on your branch). Create/modify scripts, prefabs, scenes, etc., following the project's standards.
+4.  **Export Changes as `.unitypackage`:**
+    * When your task is complete and tested locally, export **only your changes** as a `.unitypackage` file.
+    * In Unity: `Assets -> Export Package...`.
+    * **Carefully select** only the assets you **created or modified**.
+    * **Crucially, check "Include dependencies"**.
+    * Do **NOT** export the entire project or standard Unity packages.
+    * Name your package descriptively (e.g., `SophiaK_RescueCivilians_v1.unitypackage`).
+5.  **Commit Package to Your Branch:**
+    * Create a specific folder in your local project structure for submitting packages if one doesn't exist (e.g., `Assets/_PackagesForReview/YourName/`). Discuss the exact location with the leads. **This folder must NOT be in the project's `.gitignore` file.**
+    * Place your exported `.unitypackage` file into this designated folder.
+    * Using GitHub Desktop, you should see the new package file as an uncommitted change.
+    * Stage the `.unitypackage` file.
+    * Commit **only the `.unitypackage` file** to your branch with a clear message indicating the purpose of the package (e.g., `feat: Add rescue civilian functionality package`, `fix: Package for fire spread bug`).
+6.  **Push Branch & Notify Leads:**
+    * Using GitHub Desktop, **push** your branch (including the commit with the `.unitypackage`) to the central GitHub repository (`origin`).
+    * Notify one of the Programming Leads (Kenyou Teoh or Brian McLatchie) that your branch (`YourName/YourFeature`) is ready for review and contains the `.unitypackage` for integration. Provide the branch name.
+7.  **Await Integration & Updates:** The Programming Leads will review your branch, download the package, and integrate it. Wait for updated versions of the base project from the leads before starting tasks dependent on recent changes.
 
-### Workflow
+### Programming Lead Workflow (Overview)
 
-1.  **Branching:**
-    * Keep the `main` (or `master`) branch clean and representing a stable version.
-    * Create new branches for each feature, bugfix, or task (e.g., `feature/player-movement`, `bugfix/collision-issue`).
-2.  **Committing:**
-    * Commit frequently with clear, descriptive messages.
-    * Commit messages should be in the imperative mood (e.g., "Fix collision bug", "Add player jump ability").
-    * Explain *what* the commit does and *why*.
-    * **Example:** `feat: Implement basic player movement using Rigidbody2D` or `fix: Prevent player from falling through floor on Level 1`
-3.  **Syncing:**
-    * **Pull Frequently:** Before starting work and before pushing, always update your local branch with changes from the remote repository (`git pull` or `git fetch` followed by `git merge`/`git rebase`).
-    * **Push Regularly:** Push your feature branch regularly to back it up and allow others visibility (if needed).
-4.  **Merging:**
-    * When a feature is complete and tested, create a Pull Request (PR) on GitHub (or equivalent) to merge your branch into `main`.
-    * Code reviews are recommended before merging.
-    * Resolve merge conflicts carefully. **Communicate** with teammates if you have conflicts in scene or prefab files, as these are difficult to merge automatically. Often, one person needs to manually integrate changes from both conflicting versions.
+1.  **Review Submitted Branches:** Monitor notifications or check GitHub for branches pushed by programmers that are ready for review.
+2.  **Download & Integrate Package:** Check out the programmer's submitted branch locally or browse it on GitHub. Download the `.unitypackage` file from the designated folder within that branch. Switch back to the local `main` branch (ensure it's up-to-date) and import the package (`Assets -> Import Package -> Custom Package...`).
+3.  **Resolve Conflicts:** Handle any conflicts arising during import (scripts, prefabs, scenes). This might require communication with the programmer.
+4.  **Test Integration:** Thoroughly test the project to ensure the imported package works correctly and doesn't break existing functionality.
+5.  **Commit Integrated Changes to `main`:** Once satisfied, commit the .unitypackage to the `main` branch using descriptive messages via GitHub Desktop. Push the updated `main` branch.
+6.  **Distribute Updates:** Periodically inform programmers how to get the updated base project (e.g., by pulling the latest `main` branch if they cloned, or by providing a new download link).
 
-### Minimizing Scene/Prefab Conflicts
+### Minimizing Conflicts with Packages
 
-* **Communicate:** Talk to your team before making significant changes to shared scenes or prefabs.
-* **Work on Different Scenes/Prefabs:** If possible, have developers work on different scenes or prefabs simultaneously.
-* **Use Prefab Variants:** For variations of prefabs, use Unity's Prefab Variant system.
-* **Break Down Scenes:** Consider breaking large scenes into smaller chunks loaded additively, reducing the chance of multiple people needing to edit the *same* scene file.
+* **Communicate:** Crucial! Discuss plans with Leads and teammates **before** modifying shared assets. Knowing who is working on what helps prevent conflicting packages.
+* **Small, Focused Packages:** Submit smaller packages addressing single features or bugs.
+* **Update Base Frequently:** Programmers should try to work from the most recent base project version provided by the leads to reduce divergence.
+* **Lead Conflict Resolution:** Leads manage the final conflict resolution during integration into the `main` branch.
 
 ## Additional Notes
 
