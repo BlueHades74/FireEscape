@@ -149,7 +149,7 @@ To manage contributions effectively, we will use a workflow combining direct Git
     * Make sure your local copy is up-to-date with the remote `main` branch before starting work (Use `Workspace origin` / `Pull origin` in GitHub Desktop and ensure your local `main` is synced with `origin/main`).
 
 2.  **Create Your Branch:**
-    * Using GitHub Desktop, create a **new branch** from the latest `main` branch. Name it descriptively, including your name and the feature/fix (e.g., `SophiaK/AddRescueCivilians`, `Brandon/FixFireSpreadBug`).
+    * Using GitHub Desktop, create a **new branch** from the latest `main` branch. Name it descriptively, including your name and the feature/fix (e.g., `SophiaK-AddRescueCivilians`, `Brandon-FixFireSpreadBug`).
     * Switch to (`checkout`) your newly created branch. You will commit your code and asset changes directly to this branch.
 
 3.  **Local Development:**
