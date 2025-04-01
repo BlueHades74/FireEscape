@@ -16,7 +16,7 @@ Fire Escape is a 2D game currently in development as a student project for the F
 
 Fire Escape is centered around firefighting and rescue. Players will navigate burning buildings to:
 
-* Engage in Split-screen Couch Co-op gameplay, supporting 2 players or a player and AI.
+* Engage in Co-op gameplay, supporting 4 player and AI.
 * Experience a Top-Down perspective.
 * Save people and extinguish fires.
 
