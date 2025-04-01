@@ -188,7 +188,6 @@ To manage contributions effectively, we will use a workflow combining direct Git
 
 ### Additional Notes
 
-* A robust `.gitignore` file tailored for Unity is essential for this workflow to keep the repository clean.
 * Refer to the official [Unity User Manual](https://docs.unity3d.com/Manual/index.html) and [Scripting Reference](https://docs.unity3d.com/ScriptReference/index.html).
 * Consult C# documentation for language features.
 * These standards may evolve; always refer to the latest version of this document in the `main` branch.
