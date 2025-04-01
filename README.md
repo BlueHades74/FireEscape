@@ -210,6 +210,8 @@ To manage contributions effectively, we will use a workflow combining direct Git
 * **Design Lead:** Alex DeRooy
     * SophiaK
     * Sebastian
+    * Logan
+    * Nico
 * **Art Lead:** Nick Knehs
     * Elle
     * Kaya
@@ -218,4 +220,4 @@ To manage contributions effectively, we will use a workflow combining direct Git
     * Kalista
     * Mono
     * Ryan M
-    * Nico
+
