@@ -208,6 +208,7 @@ Before starting, ensure you have the following set up:
 * Refer to the official [Unity User Manual](https://docs.unity3d.com/Manual/index.html) and [Scripting Reference](https://docs.unity3d.com/ScriptReference/index.html).
 * Consult C# documentation for language features.
 * These standards may evolve; always refer to the latest version of this document in the `main` branch.
+* TL;DR: https://www.youtube.com/watch?v=LYdhjY0NFf4
 
 
 
