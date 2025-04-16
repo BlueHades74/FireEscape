@@ -28,5 +28,12 @@ namespace FireEscape.UI
         {
             Application.Quit();
         }
+        /// <summary>
+        /// Loads the credit image when the player clicks the "Credits" button.
+        /// </summary>
+        public void ShowCredits()
+        {
+
+        }
     }
 }
