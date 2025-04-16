@@ -216,6 +216,7 @@ Before starting, ensure you have the following set up:
 
 * 2025-03-12: Project started.
 * 2025-03-17: Groups assigned.
+* 2025-04-16: Design document drafted.
 
 ## Credits
 
