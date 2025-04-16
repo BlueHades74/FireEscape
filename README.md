@@ -216,27 +216,28 @@ Before starting, ensure you have the following set up:
 
 * 2025-03-12: Project started.
 * 2025-03-17: Groups assigned.
+* 2025-04-16: Design document drafted.
 
 ## Credits
 
 * **Producer:** Joshua Grussendorf
 * **Programming Lead:** Kenyou Teoh & Brian McLatchie
     * Tyler Austin
-    * Gabe
-    * Rafael
-    * Brandon
-    * Alex
+    * Gabe Wenchell
+    * Rafael Gonzalez Atiles
+    * Brandon Sith
+    * Alex Workman
 * **Design Lead:** Alex DeRooy
-    * SophiaK
+    * Sophia Kalua
     * Sebastian
     * Logan
-    * Nico
+    * Nicolas Suazo
 * **Art Lead:** Nick Knehs
-    * Elle
+    * Elle Hoeper
     * Kaya
-    * Star Grace
+    * Star Grace Carpenter
 * **Sound Lead:** Henry C
-    * Kalista
-    * Mono
+    * Kalista Hough
+    * Treyvonn
     * Ryan M
 
