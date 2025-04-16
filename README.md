@@ -217,12 +217,12 @@ Before starting, ensure you have the following set up:
     * Alex Workman
 * **Design Lead:** Alex DeRooy
     * Sophia Kalua
-    * Sebastian 
+    * Sebastian Rosul
     * Logan Shade
     * Nicolas Suazo
 * **Art Lead:** Nick Knehs
     * Elle Hoeper
-    * Kaya
+    * Kaya Andrews
     * Star Grace Carpenter
 * **Sound Lead:** Henry C
     * Kalista Hough
