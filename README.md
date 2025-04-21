@@ -1,9 +1,5 @@
 # Fire Escape
 
-## Introduction
-
-Fire Escape is a 2D game currently in development as a student project for the Fund Game Design Concepts class (GDD 2150 001) at UCCS. Players take on the role of a brave firefighter, tasked with rescuing civilians and their precious belongings from raging infernos. Developed to explore the game prompt of "Tragedy", Fire Escape aims to deliver a challenging and emotionally engaging experience.
-
 ## Created By
 
 * Fund Game Design Concepts - 2025Sp GDD 2150 001 class at UCCS.
@@ -11,14 +7,6 @@ Fire Escape is a 2D game currently in development as a student project for the F
 ## Game Engine
 
 * **Current Engine:** Unity
-
-## Game Overview
-
-Fire Escape is centered around firefighting and rescue. Players will navigate burning buildings to:
-
-* Engage in Co-op gameplay, supporting 4 player and AI.
-* Experience a Top-Down perspective.
-* Save people and extinguish fires.
 
 ## Project Standards and Conventions
 
@@ -216,27 +204,28 @@ Before starting, ensure you have the following set up:
 
 * 2025-03-12: Project started.
 * 2025-03-17: Groups assigned.
+* 2025-04-16: Design document drafted.
 
 ## Credits
 
 * **Producer:** Joshua Grussendorf
 * **Programming Lead:** Kenyou Teoh & Brian McLatchie
     * Tyler Austin
-    * Gabe
-    * Rafael
-    * Brandon
-    * Alex
+    * Gabe Wenchell
+    * Rafael Gonzalez Atiles
+    * Brandon Sith
+    * Alex Workman
 * **Design Lead:** Alex DeRooy
-    * SophiaK
-    * Sebastian
-    * Logan
-    * Nico
+    * Sophia Kalua
+    * Sebastian Rosul
+    * Logan Shade
+    * Nicolas Suazo
 * **Art Lead:** Nick Knehs
-    * Elle
-    * Kaya
-    * Star Grace
+    * Elle Hoeper
+    * Kaya Andrews
+    * Star Grace Carpenter
 * **Sound Lead:** Henry C
-    * Kalista
-    * Mono
+    * Kalista Hough
+    * Treyvonn Jackson
     * Ryan M
 
