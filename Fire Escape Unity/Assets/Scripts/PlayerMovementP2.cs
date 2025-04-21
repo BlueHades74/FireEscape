@@ -43,7 +43,7 @@ public class PlayerMovementP2 : MonoBehaviour
     {
         //InputAction move = inputActions.FindAction("Movement");
         Debug.Log("Inside");
-        Debug.Log(inputActions.PlayerGameplay2.Movement.ReadValue<Vector2>());
-        rb.linearVelocity = inputActions.PlayerGameplay2.Movement.ReadValue<Vector2>() * playerMoveSpeed;
+        Debug.Log(inputActions.Player.P2Movement.ReadValue<Vector2>());
+        rb.linearVelocity = inputActions.Player.P2Movement.ReadValue<Vector2>() * playerMoveSpeed;
     }
 }
