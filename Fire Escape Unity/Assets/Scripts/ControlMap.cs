@@ -108,6 +108,24 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""P1Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""daa28ea3-5661-497c-87a7-d0ab065bb22a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""P2Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""04826812-bb67-4c8e-b53f-0fe23a237b28"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -128,7 +146,7 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""P1Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -139,7 +157,7 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""P1Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -150,7 +168,7 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""P1Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -161,10 +179,21 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""P1Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0247fd01-286d-48b4-a960-995b8ce5a459"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""P1Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""2D Vector"",
@@ -183,7 +212,7 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""P2Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -194,7 +223,7 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""P2Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -205,7 +234,7 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""P2Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -216,18 +245,73 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""P2Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4599c63-6cfd-4000-a59f-83ab0acc9547"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""P2Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93946cb3-fd97-4313-922f-7401f51f8d8d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""P1Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0e3a604-e41d-4a65-81e5-68b48a547497"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""P1Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75ab91fa-5e6f-4fd7-8c68-1071929e9d9c"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""P2Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e84c1cd-0af4-433c-8cc3-ca917e234ca7"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""P2Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""WASD"",
-            ""bindingGroup"": ""WASD"",
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -237,11 +321,11 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Arrows"",
-            ""bindingGroup"": ""Arrows"",
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Keyboard>"",
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -253,6 +337,8 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_P1Movement = m_Player.FindAction("P1Movement", throwIfNotFound: true);
         m_Player_P2Movement = m_Player.FindAction("P2Movement", throwIfNotFound: true);
+        m_Player_P1Interact = m_Player.FindAction("P1Interact", throwIfNotFound: true);
+        m_Player_P2Interact = m_Player.FindAction("P2Interact", throwIfNotFound: true);
     }
 
     ~@ControlMap()
@@ -335,6 +421,8 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_P1Movement;
     private readonly InputAction m_Player_P2Movement;
+    private readonly InputAction m_Player_P1Interact;
+    private readonly InputAction m_Player_P2Interact;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -354,6 +442,14 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/P2Movement".
         /// </summary>
         public InputAction @P2Movement => m_Wrapper.m_Player_P2Movement;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/P1Interact".
+        /// </summary>
+        public InputAction @P1Interact => m_Wrapper.m_Player_P1Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/P2Interact".
+        /// </summary>
+        public InputAction @P2Interact => m_Wrapper.m_Player_P2Interact;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -386,6 +482,12 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
             @P2Movement.started += instance.OnP2Movement;
             @P2Movement.performed += instance.OnP2Movement;
             @P2Movement.canceled += instance.OnP2Movement;
+            @P1Interact.started += instance.OnP1Interact;
+            @P1Interact.performed += instance.OnP1Interact;
+            @P1Interact.canceled += instance.OnP1Interact;
+            @P2Interact.started += instance.OnP2Interact;
+            @P2Interact.performed += instance.OnP2Interact;
+            @P2Interact.canceled += instance.OnP2Interact;
         }
 
         /// <summary>
@@ -403,6 +505,12 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
             @P2Movement.started -= instance.OnP2Movement;
             @P2Movement.performed -= instance.OnP2Movement;
             @P2Movement.canceled -= instance.OnP2Movement;
+            @P1Interact.started -= instance.OnP1Interact;
+            @P1Interact.performed -= instance.OnP1Interact;
+            @P1Interact.canceled -= instance.OnP1Interact;
+            @P2Interact.started -= instance.OnP2Interact;
+            @P2Interact.performed -= instance.OnP2Interact;
+            @P2Interact.canceled -= instance.OnP2Interact;
         }
 
         /// <summary>
@@ -436,30 +544,30 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
     public PlayerActions @Player => new PlayerActions(this);
-    private int m_WASDSchemeIndex = -1;
+    private int m_KeyboardSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
-    public InputControlScheme WASDScheme
+    public InputControlScheme KeyboardScheme
     {
         get
         {
-            if (m_WASDSchemeIndex == -1) m_WASDSchemeIndex = asset.FindControlSchemeIndex("WASD");
-            return asset.controlSchemes[m_WASDSchemeIndex];
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
-    private int m_ArrowsSchemeIndex = -1;
+    private int m_GamepadSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
     /// </summary>
     /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
-    public InputControlScheme ArrowsScheme
+    public InputControlScheme GamepadScheme
     {
         get
         {
-            if (m_ArrowsSchemeIndex == -1) m_ArrowsSchemeIndex = asset.FindControlSchemeIndex("Arrows");
-            return asset.controlSchemes[m_ArrowsSchemeIndex];
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
     /// <summary>
@@ -483,5 +591,19 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP2Movement(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "P1Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP1Interact(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "P2Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP2Interact(InputAction.CallbackContext context);
     }
 }
