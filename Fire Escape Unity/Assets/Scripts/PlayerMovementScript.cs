@@ -5,24 +5,16 @@ public class PlayerMovementScript : MonoBehaviour
 {
     [SerializeField]
     private float playerMoveSpeed;
-    [SerializeField]
-    private int playerIndex;
 
     private Rigidbody2D rb;
 
-    private ControlMap inputActions;
-
-    private void Awake()
-    {
-        //Set our variables
-        rb = GetComponent<Rigidbody2D>();
-        inputActions = new ControlMap();
-    }
+    private PlayerInputController inputs;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //Set our variables
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,38 +26,35 @@ public class PlayerMovementScript : MonoBehaviour
     /// <summary>
     /// When the object is enabled we need to subscribe to the required events
     /// </summary>
-    private void OnEnable()
+    public void OnEnable()
     {
-        inputActions.Enable();
-
-        if (playerIndex == 0 )
+        inputs = GetComponent<PlayerInputController>();
+        if (inputs.PlayerIndex == 0)
         {
-            inputActions.Player.P1Movement.performed += OnPlayerMovement;
-            inputActions.Player.P1Movement.canceled += OnPlayerMovement;
+            inputs.InputActions.Player.P1Movement.performed += OnPlayerMovement;
+            inputs.InputActions.Player.P1Movement.canceled += OnPlayerMovement;
         }
         else
         {
-            inputActions.Player.P2Movement.performed += OnPlayerMovement;
-            inputActions.Player.P2Movement.canceled += OnPlayerMovement;
+            inputs.InputActions.Player.P2Movement.performed += OnPlayerMovement;
+            inputs.InputActions.Player.P2Movement.canceled += OnPlayerMovement;
         }
     }
 
     /// <summary>
     /// When disabled we need to unsubscribe from the events.
     /// </summary>
-    private void OnDisable()
+    public void DisableInputs(int playerIndex, ControlMap inputActions)
     {
-        inputActions.Disable();
-
-        if (playerIndex == 0)
+        if (inputs.PlayerIndex == 0)
         {
-            inputActions.Player.P1Movement.performed -= OnPlayerMovement;
-            inputActions.Player.P1Movement.canceled -= OnPlayerMovement;
+            inputs.InputActions.Player.P1Movement.performed -= OnPlayerMovement;
+            inputs.InputActions.Player.P1Movement.canceled -= OnPlayerMovement;
         }
         else
         {
-            inputActions.Player.P2Movement.performed -= OnPlayerMovement;
-            inputActions.Player.P2Movement.canceled -= OnPlayerMovement;
+            inputs.InputActions.Player.P2Movement.performed -= OnPlayerMovement;
+            inputs.InputActions.Player.P2Movement.canceled -= OnPlayerMovement;
         }
     }
 
@@ -75,6 +64,7 @@ public class PlayerMovementScript : MonoBehaviour
     /// <param name="context"></param>
     private void OnPlayerMovement(InputAction.CallbackContext context)
     {
+        Debug.Log(inputs.PlayerIndex);
         rb.linearVelocity = context.ReadValue<Vector2>() * playerMoveSpeed;
     }
 }

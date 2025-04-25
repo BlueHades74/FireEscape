@@ -10,10 +10,10 @@ public class PlayerEventSystem : MonoBehaviour
         current = this;
     }
 
-    public event Action OnObjectPickedUp;
+    public event Action<Vector3> OnObjectPickedUp;
 
-    public void ObjectPickedUp()
+    public void ObjectPickedUp(Vector3 transform)
     {
-        OnObjectPickedUp?.Invoke();
+        OnObjectPickedUp?.Invoke(transform);
     }
 }

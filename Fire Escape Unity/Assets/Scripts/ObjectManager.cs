@@ -39,31 +39,34 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
-    private void TryTogglePickup()
+    private void TryTogglePickup(Vector3 nearbyPlayer)
     {
-        if (isHeld)
+        if (nearbyPlayer == playerTransform?.position)
         {
-            // Drop self
-            isHeld = false;
-            transform.SetParent(null);
-            currentlyHeldNPC = null;
-            spriteRenderer.color = originalColor;
-            Debug.Log($"{name} DROPPED!");
-        }
-        else if (isPlayerNearby && playerTransform != null)
-        {
-            // If another NPC is held, drop it first
-            if (currentlyHeldNPC != null)
+            if (isHeld)
             {
-                currentlyHeldNPC.Drop();
+                // Drop self
+                isHeld = false;
+                transform.SetParent(null);
+                currentlyHeldNPC = null;
+                spriteRenderer.color = originalColor;
+                Debug.Log($"{name} DROPPED!");
             }
+            else if (isPlayerNearby && playerTransform != null)
+            {
+                // If another NPC is held, drop it first
+                if (currentlyHeldNPC != null)
+                {
+                    currentlyHeldNPC.Drop();
+                }
 
-            // Pick up self
-            isHeld = true;
-            spriteRenderer.color = originalColor;
-            transform.SetParent(playerTransform);
-            currentlyHeldNPC = this;
-            Debug.Log($"{name} PICKED UP!");
+                // Pick up self
+                isHeld = true;
+                spriteRenderer.color = originalColor;
+                transform.SetParent(playerTransform);
+                currentlyHeldNPC = this;
+                Debug.Log($"{name} PICKED UP!");
+            }
         }
     }
 
