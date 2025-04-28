@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    private static ObjectManager currentlyHeldNPC = null;
+    private ObjectManager currentlyHeldNPC = null;
     private Transform playerTransform;
     private bool isPlayerNearby = false;
     private bool isHeld = false;
@@ -78,15 +78,22 @@ public class ObjectManager : MonoBehaviour
         Debug.Log($"{name} DROPPED (swapped)!");
     }
 
+    public void DropItem()
+    {
+        Drop();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = true;
-            playerTransform = other.transform;
 
             if (!isHeld && spriteRenderer != null)
+            {
+                playerTransform = other.transform;
                 spriteRenderer.color = highlightColor;
+            }
         }
     }
 

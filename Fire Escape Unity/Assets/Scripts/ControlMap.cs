@@ -126,6 +126,24 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""P1Action"",
+                    ""type"": ""Button"",
+                    ""id"": ""86fd836b-cf93-4d22-beb3-e78efb0ebb06"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""P2Action"",
+                    ""type"": ""Button"",
+                    ""id"": ""c93a0c17-cbdd-46d8-af0e-4cb4f5460405"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -304,6 +322,50 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""action"": ""P2Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31fc7157-7056-4ae2-8d8c-c67f66ddcee5"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""P1Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""015ffe43-f1ce-4106-b86c-975c5b55736d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""P1Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5d0e619-155f-47e9-b217-59b2c10a7937"",
+                    ""path"": ""<Keyboard>/slash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""P2Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1524d14e-c924-4aa4-8205-0ca882105512"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""P2Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -339,6 +401,8 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
         m_Player_P2Movement = m_Player.FindAction("P2Movement", throwIfNotFound: true);
         m_Player_P1Interact = m_Player.FindAction("P1Interact", throwIfNotFound: true);
         m_Player_P2Interact = m_Player.FindAction("P2Interact", throwIfNotFound: true);
+        m_Player_P1Action = m_Player.FindAction("P1Action", throwIfNotFound: true);
+        m_Player_P2Action = m_Player.FindAction("P2Action", throwIfNotFound: true);
     }
 
     ~@ControlMap()
@@ -423,6 +487,8 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_P2Movement;
     private readonly InputAction m_Player_P1Interact;
     private readonly InputAction m_Player_P2Interact;
+    private readonly InputAction m_Player_P1Action;
+    private readonly InputAction m_Player_P2Action;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -450,6 +516,14 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/P2Interact".
         /// </summary>
         public InputAction @P2Interact => m_Wrapper.m_Player_P2Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/P1Action".
+        /// </summary>
+        public InputAction @P1Action => m_Wrapper.m_Player_P1Action;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/P2Action".
+        /// </summary>
+        public InputAction @P2Action => m_Wrapper.m_Player_P2Action;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -488,6 +562,12 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
             @P2Interact.started += instance.OnP2Interact;
             @P2Interact.performed += instance.OnP2Interact;
             @P2Interact.canceled += instance.OnP2Interact;
+            @P1Action.started += instance.OnP1Action;
+            @P1Action.performed += instance.OnP1Action;
+            @P1Action.canceled += instance.OnP1Action;
+            @P2Action.started += instance.OnP2Action;
+            @P2Action.performed += instance.OnP2Action;
+            @P2Action.canceled += instance.OnP2Action;
         }
 
         /// <summary>
@@ -511,6 +591,12 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
             @P2Interact.started -= instance.OnP2Interact;
             @P2Interact.performed -= instance.OnP2Interact;
             @P2Interact.canceled -= instance.OnP2Interact;
+            @P1Action.started -= instance.OnP1Action;
+            @P1Action.performed -= instance.OnP1Action;
+            @P1Action.canceled -= instance.OnP1Action;
+            @P2Action.started -= instance.OnP2Action;
+            @P2Action.performed -= instance.OnP2Action;
+            @P2Action.canceled -= instance.OnP2Action;
         }
 
         /// <summary>
@@ -605,5 +691,19 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnP2Interact(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "P1Action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP1Action(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "P2Action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnP2Action(InputAction.CallbackContext context);
     }
 }
