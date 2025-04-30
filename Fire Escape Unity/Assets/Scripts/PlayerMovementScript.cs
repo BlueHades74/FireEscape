@@ -5,46 +5,66 @@ public class PlayerMovementScript : MonoBehaviour
 {
     [SerializeField]
     private float playerMoveSpeed;
-    [SerializeField]
-    private string map;
 
     private Rigidbody2D rb;
 
-    private ControlMap inputActions;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        inputActions = new ControlMap();
-    }
+    private PlayerInputController inputs;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //Set our variables
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        OnPlayerMovement();
+        
     }
 
-    private void OnEnable()
+    /// <summary>
+    /// When the object is enabled we need to subscribe to the required events
+    /// </summary>
+    public void OnEnable()
     {
-        inputActions.Enable();
+        inputs = GetComponent<PlayerInputController>();
+        if (inputs.PlayerIndex == 0)
+        {
+            inputs.InputActions.Player.P1Movement.performed += OnPlayerMovement;
+            inputs.InputActions.Player.P1Movement.canceled += OnPlayerMovement;
+        }
+        else
+        {
+            inputs.InputActions.Player.P2Movement.performed += OnPlayerMovement;
+            inputs.InputActions.Player.P2Movement.canceled += OnPlayerMovement;
+        }
     }
 
-    private void OnDisable()
+    /// <summary>
+    /// When disabled we need to unsubscribe from the events.
+    /// </summary>
+    public void DisableInputs(int playerIndex, ControlMap inputActions)
     {
-        inputActions.Disable();
+        if (inputs.PlayerIndex == 0)
+        {
+            inputs.InputActions.Player.P1Movement.performed -= OnPlayerMovement;
+            inputs.InputActions.Player.P1Movement.canceled -= OnPlayerMovement;
+        }
+        else
+        {
+            inputs.InputActions.Player.P2Movement.performed -= OnPlayerMovement;
+            inputs.InputActions.Player.P2Movement.canceled -= OnPlayerMovement;
+        }
     }
 
-    private void OnPlayerMovement()
+    /// <summary>
+    /// Has the player move.
+    /// </summary>
+    /// <param name="context"></param>
+    private void OnPlayerMovement(InputAction.CallbackContext context)
     {
-        //InputAction move = inputActions.FindAction("Movement");
-        Debug.Log("Inside");
-        Debug.Log(inputActions.Player.P1Movement.ReadValue<Vector2>());
-        rb.linearVelocity = inputActions.Player.P1Movement.ReadValue<Vector2>() * playerMoveSpeed;
+        Debug.Log(inputs.PlayerIndex);
+        rb.linearVelocity = context.ReadValue<Vector2>() * playerMoveSpeed;
     }
 }
