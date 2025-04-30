@@ -1,79 +1,23 @@
 using UnityEngine;
+using TMPro;
 
 public class ObjectManager : MonoBehaviour
 {
-    private static ObjectManager currentlyHeldNPC = null;
-    private Transform playerTransform;
+    public Transform playerTransform;
+
+    [Header("Interaction Prompt")]
+    public GameObject interactPromptPrefab;
+    private GameObject promptInstance;
+
+    [Header("Dialogue UI")]
+    public GameObject dialoguePanel;
+    public TextMeshProUGUI dialogueText;
+    [TextArea(2, 4)]
+    public string[] dialogueLines;
+
+    private int currentLine = 0;
+    private bool isTalking = false;
     private bool isPlayerNearby = false;
-    private bool isHeld = false;
-
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
-    public Color highlightColor = Color.yellow;
-
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
-
-        if (PlayerEventSystem.current != null)
-        {
-            PlayerEventSystem.current.OnObjectPickedUp += TryTogglePickup;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (PlayerEventSystem.current != null)
-        {
-            PlayerEventSystem.current.OnObjectPickedUp -= TryTogglePickup;
-        }
-    }
-
-    private void Update()
-    {
-        if (isHeld && playerTransform != null)
-        {
-            // Follow the player
-            transform.position = playerTransform.position + new Vector3(0, 0.2f, 0);
-        }
-    }
-
-    private void TryTogglePickup()
-    {
-        if (isHeld)
-        {
-            // Drop self
-            isHeld = false;
-            transform.SetParent(null);
-            currentlyHeldNPC = null;
-            spriteRenderer.color = originalColor;
-            Debug.Log($"{name} DROPPED!");
-        }
-        else if (isPlayerNearby && playerTransform != null)
-        {
-            // If another NPC is held, drop it first
-            if (currentlyHeldNPC != null)
-            {
-                currentlyHeldNPC.Drop();
-            }
-
-            // Pick up self
-            isHeld = true;
-            spriteRenderer.color = originalColor;
-            transform.SetParent(playerTransform);
-            currentlyHeldNPC = this;
-            Debug.Log($"{name} PICKED UP!");
-        }
-    }
-
-    private void Drop()
-    {
-        isHeld = false;
-        transform.SetParent(null);
-        currentlyHeldNPC = null;
-        Debug.Log($"{name} DROPPED (swapped)!");
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -82,8 +26,15 @@ public class ObjectManager : MonoBehaviour
             isPlayerNearby = true;
             playerTransform = other.transform;
 
-            if (!isHeld && spriteRenderer != null)
-                spriteRenderer.color = highlightColor;
+            if (interactPromptPrefab != null && promptInstance == null)
+            {
+                promptInstance = Instantiate(
+                    interactPromptPrefab,
+                    transform.position + Vector3.up * 1.5f,
+                    Quaternion.identity
+                );
+                promptInstance.transform.SetParent(transform);
+            }
         }
     }
 
@@ -93,11 +44,59 @@ public class ObjectManager : MonoBehaviour
         {
             isPlayerNearby = false;
 
-            if (!isHeld && spriteRenderer != null)
-                spriteRenderer.color = originalColor;
+            if (promptInstance != null)
+            {
+                Destroy(promptInstance);
+                promptInstance = null;
+            }
 
-            if (!isHeld)
-                playerTransform = null;
+            if (dialoguePanel != null)
+            {
+                dialoguePanel.SetActive(false);
+                isTalking = false;
+                currentLine = 0;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F))
+        {
+            if (!isTalking)
+            {
+                StartDialogue();
+            }
+            else
+            {
+                ContinueDialogue();
+            }
+        }
+    }
+
+    private void StartDialogue()
+    {
+        if (dialoguePanel != null && dialogueLines.Length > 0)
+        {
+            dialoguePanel.SetActive(true);
+            dialogueText.text = dialogueLines[0];
+            currentLine = 0;
+            isTalking = true;
+        }
+    }
+
+    private void ContinueDialogue()
+    {
+        currentLine++;
+        if (currentLine < dialogueLines.Length)
+        {
+            dialogueText.text = dialogueLines[currentLine];
+        }
+        else
+        {
+            dialoguePanel.SetActive(false);
+            isTalking = false;
+            currentLine = 0;
         }
     }
 }
