@@ -24,12 +24,16 @@ public class Timer : MonoBehaviour
         timeFormats.Add(TimerFormat.Whole, "0");
         timeFormats.Add(TimerFormat.TenthDecimal, "0.0");
         timeFormats.Add(TimerFormat.HundrethsDecimal, "0.00");
+        timeFormats.Add(TimerFormat.Minutes, "{0:00}:{1:00}", minutes, seconds);
     }
 
     // Update is called once per frame
     void Update()
     {
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
+
+        int minutes = Mathf.FloorToInt(currentTime / 60);
+        int seconds = Mathf.FloorToInt(currentTime % 60);
 
         if (hasLimit && ((countDown && currentTime <= timerLimit || (!countDown && currentTime >= timerLimit))))
 
@@ -54,4 +58,5 @@ public enum TimerFormat
     Whole,
     TenthDecimal,
     HundrethsDecimal,
+    Minutes,
 }
