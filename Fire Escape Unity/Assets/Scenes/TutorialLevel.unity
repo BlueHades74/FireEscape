@@ -3091,14 +3091,6 @@ PrefabInstance:
       propertyPath: grid
       value: 
       objectReference: {fileID: 1046756181}
-    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
-      propertyPath: rangePrefab
-      value: 
-      objectReference: {fileID: 6077175470507983490, guid: dfb331bb175a9ab408dd31cb3ce71a3d, type: 3}
-    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
-      propertyPath: waterColliderPrefab
-      value: 
-      objectReference: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
     - target: {fileID: 2087138627927326762, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -6430,8 +6422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 403133451}
-  - {fileID: 1503759489}
+  - {fileID: 0}
+  - {fileID: 0}
   offset: {x: 0, y: 0, z: -10}
   smoothTime: 0.7
   minZoom: 20
@@ -8050,6 +8042,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7663093318945572397, guid: b14d1f10af055e04784784c145a0fcd9, type: 3}
+    - target: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5709313080624895421, guid: b14d1f10af055e04784784c145a0fcd9, type: 3}
+    - target: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: 'sprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1829007786271967158, guid: b14d1f10af055e04784784c145a0fcd9, type: 3}
+    - target: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: 'sprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: -4036118412402054983, guid: b14d1f10af055e04784784c145a0fcd9, type: 3}
     - target: {fileID: 1780741788727322148, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -8098,14 +8106,6 @@ PrefabInstance:
       propertyPath: grid
       value: 
       objectReference: {fileID: 1046756181}
-    - target: {fileID: 8731375224208401088, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
-      propertyPath: rangePrefab
-      value: 
-      objectReference: {fileID: 6077175470507983490, guid: dfb331bb175a9ab408dd31cb3ce71a3d, type: 3}
-    - target: {fileID: 8731375224208401088, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
-      propertyPath: waterColliderPrefab
-      value: 
-      objectReference: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
