@@ -11,6 +11,11 @@ public class ObjectManager : MonoBehaviour
     private Color originalColor;
     public Color highlightColor = Color.yellow;
 
+    [SerializeField]
+    private string action = null;
+
+    public string Action { get => action; }
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
