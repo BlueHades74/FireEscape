@@ -47,17 +47,23 @@ public class CheckChildrenScript : MonoBehaviour
         
         try
         {
-            actionItem = GetComponentInChildren<ActionItemScript>().gameObject;
+            actionItem = GetComponentInChildren<ObjectManager>().gameObject;
+            if (actionItem.GetComponent<ObjectManager>().Action == null)
+            {
+                actionItem = null;
+            }
         }
         catch { }
 
         if (actionItem != null)
         {
-            Debug.Log(actionItem.name);
+            GetComponent<PlayerActionScript>().enabled = true;
+            GetComponent<PlayerActionScript>().ReceiveActionItem(actionItem);
         }
         else
         {
             Debug.Log("No action item");
+            GetComponent<PlayerActionScript>().enabled = false;
         }
     }
 }

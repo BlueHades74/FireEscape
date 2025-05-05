@@ -69,6 +69,7 @@ public class PlayerMovementScript : MonoBehaviour
     /// <param name="context"></param>
     private void OnPlayerMovement(InputAction.CallbackContext context)
     {
+        SetFacingDirection(context.ReadValue<Vector2>());
         rb.linearVelocity = context.ReadValue<Vector2>() * playerMoveSpeed;
     }
 
