@@ -14,6 +14,8 @@ public class PlayerMovementScript : MonoBehaviour
 
     public Vector2 FacingDirection { get => facingDirection; }
 
+    public AudioSource footstepAudioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,10 +23,16 @@ public class PlayerMovementScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        // Play the footstep sound if the player is moving
+        if (!rb.linearVelocity.Equals(Vector2.zero))
+        {
+            footstepAudioSource.enabled = true;
+        } else
+        {
+            footstepAudioSource.enabled = false;
+        }
     }
 
     /// <summary>
