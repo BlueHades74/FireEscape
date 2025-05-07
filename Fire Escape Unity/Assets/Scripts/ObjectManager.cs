@@ -14,6 +14,8 @@ public class ObjectManager : MonoBehaviour
     [SerializeField]
     private string action = null;
 
+    [SerializeField]
+    private EventChannel eventChannel;
     public string Action { get => action; }
 
     private void Start()
@@ -21,18 +23,17 @@ public class ObjectManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
 
-        if (PlayerEventSystem.current != null)
-        {
-            PlayerEventSystem.current.OnObjectPickedUp += TryTogglePickup;
-        }
+        
     }
 
-    private void OnDestroy()
+    public void OnEnable()
     {
-        if (PlayerEventSystem.current != null)
-        {
-            PlayerEventSystem.current.OnObjectPickedUp -= TryTogglePickup;
-        }
+        eventChannel.OnObjectPickedUp += TryTogglePickup;
+    }
+    public void OnDisable()
+    {
+        eventChannel.OnObjectPickedUp -= TryTogglePickup;
+
     }
 
     private void Update()
