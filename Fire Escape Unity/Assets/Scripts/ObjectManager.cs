@@ -1,12 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class ObjectManager : MonoBehaviour
 {
+    [Header("Interaction Settings")]
+    public float interactionRadius = 2.5f;
     public Transform playerTransform;
 
-    [Header("Interaction Prompt")]
+    [Header("Prompt Settings")]
     public GameObject interactPromptPrefab;
+    public Vector3 promptOffset = new Vector3(0, 1.5f, 0);
     private GameObject promptInstance;
 
     [Header("Dialogue UI")]
@@ -17,51 +20,34 @@ public class ObjectManager : MonoBehaviour
 
     private int currentLine = 0;
     private bool isTalking = false;
-    private bool isPlayerNearby = false;
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNearby = true;
-            playerTransform = other.transform;
-
-            if (interactPromptPrefab != null && promptInstance == null)
-            {
-                promptInstance = Instantiate(
-                    interactPromptPrefab,
-                    transform.position + Vector3.up * 1.5f,
-                    Quaternion.identity
-                );
-                promptInstance.transform.SetParent(transform);
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNearby = false;
-
-            if (promptInstance != null)
-            {
-                Destroy(promptInstance);
-                promptInstance = null;
-            }
-
-            if (dialoguePanel != null)
-            {
-                dialoguePanel.SetActive(false);
-                isTalking = false;
-                currentLine = 0;
-            }
-        }
-    }
 
     private void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F))
+        if (playerTransform == null) return;
+
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        bool inRange = distance <= interactionRadius;
+
+        // Show prompt if in range and not talking
+        if (inRange && !isTalking && promptInstance == null)
+        {
+            ShowPrompt();
+        }
+
+        // Hide prompt if out of range
+        if (!inRange && promptInstance != null)
+        {
+            HidePrompt();
+        }
+
+        // Keep prompt hovering above NPC
+        if (promptInstance != null)
+        {
+            promptInstance.transform.position = transform.position + promptOffset;
+        }
+
+        // Handle input to start or continue dialogue
+        if (inRange && Input.GetKeyDown(KeyCode.F))
         {
             if (!isTalking)
             {
@@ -74,14 +60,59 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerTransform = other.transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerTransform = null;
+            HidePrompt();
+            EndDialogue();
+        }
+    }
+
+    private void ShowPrompt()
+    {
+        if (interactPromptPrefab != null && promptInstance == null)
+        {
+            promptInstance = Instantiate(
+                interactPromptPrefab,
+                transform.position + promptOffset,
+                Quaternion.identity,
+                transform // ✅ Attach to NPC so it moves with them
+            );
+        }
+    }
+
+    private void HidePrompt()
+    {
+        if (promptInstance != null)
+        {
+            Destroy(promptInstance);
+            promptInstance = null;
+        }
+    }
+
     private void StartDialogue()
     {
-        if (dialoguePanel != null && dialogueLines.Length > 0)
+        if (dialoguePanel != null && dialogueText != null && dialogueLines.Length > 0)
         {
+            isTalking = true;
+            HidePrompt();
             dialoguePanel.SetActive(true);
             dialogueText.text = dialogueLines[0];
             currentLine = 0;
-            isTalking = true;
+        }
+        else
+        {
+            Debug.LogWarning("DialoguePanel, dialogueText, or dialogueLines missing.");
         }
     }
 
@@ -94,9 +125,25 @@ public class ObjectManager : MonoBehaviour
         }
         else
         {
-            dialoguePanel.SetActive(false);
-            isTalking = false;
-            currentLine = 0;
+            EndDialogue();
+
+            // If still in range, show prompt again
+            if (playerTransform != null &&
+                Vector3.Distance(transform.position, playerTransform.position) <= interactionRadius)
+            {
+                ShowPrompt();
+            }
         }
+    }
+
+    private void EndDialogue()
+    {
+        if (dialoguePanel != null)
+        {
+            dialoguePanel.SetActive(false);
+        }
+
+        isTalking = false;
+        currentLine = 0;
     }
 }
