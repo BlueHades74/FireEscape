@@ -6419,6 +6419,7 @@ GameObject:
   - component: {fileID: 1331509230}
   - component: {fileID: 1331509229}
   - component: {fileID: 1331509232}
+  - component: {fileID: 1331509233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6467,7 +6468,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 34
   orthographic: 1
   orthographic size: 5
   m_Depth: -1
@@ -6544,6 +6545,26 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1331509233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331509228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47737d7466f4c94288b7a4b5a4a410b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  offset: {x: 0, y: 0, z: -10}
+  smoothTime: 0.7
+  minZoom: 20
+  maxZoom: 8
+  zoomLimiter: 20
 --- !u!1 &1354306470
 GameObject:
   m_ObjectHideFlags: 0
@@ -8236,6 +8257,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7663093318945572397, guid: b14d1f10af055e04784784c145a0fcd9, type: 3}
+    - target: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5709313080624895421, guid: b14d1f10af055e04784784c145a0fcd9, type: 3}
+    - target: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: 'sprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1829007786271967158, guid: b14d1f10af055e04784784c145a0fcd9, type: 3}
+    - target: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: 'sprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: -4036118412402054983, guid: b14d1f10af055e04784784c145a0fcd9, type: 3}
     - target: {fileID: 1780741788727322148, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
       propertyPath: m_Name
       value: Player 2

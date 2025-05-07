@@ -12,6 +12,12 @@ public class PlayerMovementScript : MonoBehaviour
 
     private Vector2 facingDirection;
 
+    private SpriteRenderer playerSprite;
+
+    [SerializeField] Sprite[] sprites;
+
+    private int spriteIndex = 0;
+
     public Vector2 FacingDirection { get => facingDirection; }
 
     public AudioSource footstepAudioSource;
@@ -21,6 +27,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         //Set our variables
         rb = GetComponent<Rigidbody2D>();
+        playerSprite = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -77,17 +84,39 @@ public class PlayerMovementScript : MonoBehaviour
     /// <param name="context"></param>
     private void OnPlayerMovement(InputAction.CallbackContext context)
     {
-        SetFacingDirection(context.ReadValue<Vector2>());
+        SetFacingDirection(context.ReadValue<Vector2>(), spriteIndex);
         rb.linearVelocity = context.ReadValue<Vector2>() * playerMoveSpeed;
     }
 
-    private void SetFacingDirection (Vector2 direction)
+    private void SetFacingDirection (Vector2 direction, int spriteIndex)
     {
         if (direction != Vector2.zero)
         {
             direction = TurnVectorIntoSingleDirection(direction);
 
             facingDirection = direction;
+
+            // Use the direction vector to set sprite index
+            if (direction.x < 0)
+            {
+                spriteIndex = 1;
+            } else if (direction.x > 0)
+            {
+                spriteIndex = 2;
+            } else if (direction.y < 0)
+            {
+                spriteIndex = 0;
+            } else if (direction.y > 0)
+            {
+                spriteIndex = 3;
+            } else
+            {
+                spriteIndex = 0;
+            }
+
+            // set sprite index for player
+            playerSprite.sprite = sprites[spriteIndex];
+
             Debug.Log(facingDirection);
         }
     }
@@ -100,6 +129,7 @@ public class PlayerMovementScript : MonoBehaviour
             case (> 0):
                 direction.x = Mathf.Sign(direction.x) * 1;
                 direction.y = 0;
+                
                 break;
 
             case (0):
@@ -120,6 +150,7 @@ public class PlayerMovementScript : MonoBehaviour
             case (< 0):
                 direction.x = 0;
                 direction.y = Mathf.Sign(direction.y) * 1;
+                
                 break;
         }
 
