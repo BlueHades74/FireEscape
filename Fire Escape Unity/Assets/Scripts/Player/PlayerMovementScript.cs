@@ -16,12 +16,15 @@ public class PlayerMovementScript : MonoBehaviour
 
     public Vector2 FacingDirection { get => facingDirection; }
 
+    private AudioSource footstepAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Set our variables
         rb = GetComponent<Rigidbody2D>();
         originalMoveSpeed = playerMoveSpeed;
+        footstepAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,8 +75,22 @@ public class PlayerMovementScript : MonoBehaviour
     /// <param name="context"></param>
     private void OnPlayerMovement(InputAction.CallbackContext context)
     {
-        SetFacingDirection(context.ReadValue<Vector2>());
-        rb.linearVelocity = context.ReadValue<Vector2>() * playerMoveSpeed;
+        Vector2 moveInput = context.ReadValue<Vector2>();
+        SetFacingDirection(moveInput);
+        rb.linearVelocity = moveInput * playerMoveSpeed;
+
+        if (footstepAudio != null) {
+            if (moveInput != Vector2.zero)
+            {
+                if (!footstepAudio.isPlaying)
+                    footstepAudio.Play();
+            }
+            else
+            {
+                if (footstepAudio.isPlaying)
+                    footstepAudio.Stop();
+            }
+        }
     }
 
     /// <summary>
