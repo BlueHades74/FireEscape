@@ -13,8 +13,11 @@ public class ObjectManager : MonoBehaviour
 
     [SerializeField]
     private string action = null;
+    [SerializeField]
+    private Sprite imageUI;
 
     public string Action { get => action; }
+    public Sprite ImageUI { get => imageUI; }
 
     private void Start()
     {

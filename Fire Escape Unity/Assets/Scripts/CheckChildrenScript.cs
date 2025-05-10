@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class CheckChildrenScript : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class CheckChildrenScript : MonoBehaviour
             previousChildCount = transform.childCount;
             CheckForDoubleObject();
             CheckForActionItem();
+            CheckForNewHeldSprite();
 
         }
     }
@@ -65,5 +67,29 @@ public class CheckChildrenScript : MonoBehaviour
             Debug.Log("No action item");
             GetComponent<PlayerActionScript>().enabled = false;
         }
+    }
+
+    private void CheckForNewHeldSprite()
+    {
+        GameObject item = null;
+
+        try
+        {
+            item = GetComponentInChildren<ObjectManager>().gameObject;
+            if (item.GetComponent<ObjectManager>().ImageUI == null)
+            {
+                item = null;
+            }
+        }
+        catch { }
+
+        if (item == null)
+        {
+            ItemEventsScript.OnItemChanged.Invoke(GetComponent<PlayerInputController>().PlayerIndex + 1, null);
+        }
+        else
+        {
+            ItemEventsScript.OnItemChanged.Invoke(GetComponent<PlayerInputController>().PlayerIndex + 1, item.GetComponent<ObjectManager>().ImageUI);
+        }    
     }
 }
