@@ -5,8 +5,6 @@ public class PlayerInteraction : MonoBehaviour
 {
     private PlayerInputController inputs;
 
-    [SerializeField]
-    private EventChannel eventChannel;
     private void Start()
     {
         
@@ -44,7 +42,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext context)
     {
-        eventChannel.ObjectPickedUp(transform.position);
+        PlayerEventSystem.current.ObjectPickedUp(transform.position);
     }
 }
 

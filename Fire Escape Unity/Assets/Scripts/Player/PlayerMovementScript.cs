@@ -6,40 +6,28 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField]
     private float playerMoveSpeed;
 
+    private float originalMoveSpeed;
+
     private Rigidbody2D rb;
 
     private PlayerInputController inputs;
 
     private Vector2 facingDirection;
 
-    private SpriteRenderer playerSprite;
-
-    [SerializeField] Sprite[] sprites;
-
-    private int spriteIndex = 0;
-
     public Vector2 FacingDirection { get => facingDirection; }
-
-    public AudioSource footstepAudioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Set our variables
         rb = GetComponent<Rigidbody2D>();
-        playerSprite = GetComponent<SpriteRenderer>();
+        originalMoveSpeed = playerMoveSpeed;
     }
 
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        // Play the footstep sound if the player is moving
-        if (!rb.linearVelocity.Equals(Vector2.zero))
-        {
-            footstepAudioSource.enabled = true;
-        } else
-        {
-            footstepAudioSource.enabled = false;
-        }
+        
     }
 
     /// <summary>
@@ -84,43 +72,30 @@ public class PlayerMovementScript : MonoBehaviour
     /// <param name="context"></param>
     private void OnPlayerMovement(InputAction.CallbackContext context)
     {
-        SetFacingDirection(context.ReadValue<Vector2>(), spriteIndex);
+        SetFacingDirection(context.ReadValue<Vector2>());
         rb.linearVelocity = context.ReadValue<Vector2>() * playerMoveSpeed;
     }
 
-    private void SetFacingDirection (Vector2 direction, int spriteIndex)
+    /// <summary>
+    /// This sets a direction that the user is facing.
+    /// </summary>
+    /// <param name="direction"></param>
+    private void SetFacingDirection (Vector2 direction)
     {
         if (direction != Vector2.zero)
         {
             direction = TurnVectorIntoSingleDirection(direction);
 
             facingDirection = direction;
-
-            // Use the direction vector to set sprite index
-            if (direction.x < 0)
-            {
-                spriteIndex = 1;
-            } else if (direction.x > 0)
-            {
-                spriteIndex = 2;
-            } else if (direction.y < 0)
-            {
-                spriteIndex = 0;
-            } else if (direction.y > 0)
-            {
-                spriteIndex = 3;
-            } else
-            {
-                spriteIndex = 0;
-            }
-
-            // set sprite index for player
-            playerSprite.sprite = sprites[spriteIndex];
-
             Debug.Log(facingDirection);
         }
     }
 
+    /// <summary>
+    /// This does the math to choose a facing direction.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     private static Vector2 TurnVectorIntoSingleDirection(Vector2 direction)
     {
         float difference = Mathf.Abs(direction.x) - Mathf.Abs(direction.y);
@@ -129,7 +104,6 @@ public class PlayerMovementScript : MonoBehaviour
             case (> 0):
                 direction.x = Mathf.Sign(direction.x) * 1;
                 direction.y = 0;
-                
                 break;
 
             case (0):
@@ -150,10 +124,18 @@ public class PlayerMovementScript : MonoBehaviour
             case (< 0):
                 direction.x = 0;
                 direction.y = Mathf.Sign(direction.y) * 1;
-                
                 break;
         }
 
         return direction;
+    }
+
+    /// <summary>
+    /// Changes the movement speed by multiplying the original with some other value
+    /// </summary>
+    /// <param name="multiplier"></param>
+    public void SetMovementByOriginalTimesParameter(float multiplier)
+    {
+        playerMoveSpeed = originalMoveSpeed * multiplier;
     }
 }

@@ -14,8 +14,6 @@ public class ObjectManager : MonoBehaviour
     [SerializeField]
     private string action = null;
 
-    [SerializeField]
-    private EventChannel eventChannel;
     public string Action { get => action; }
 
     private void Start()
@@ -26,14 +24,28 @@ public class ObjectManager : MonoBehaviour
         
     }
 
-    public void OnEnable()
+    private void OnDestroy()
     {
-        eventChannel.OnObjectPickedUp += TryTogglePickup;
+        if (PlayerEventSystem.current != null)
+        {
+            PlayerEventSystem.current.OnObjectPickedUp -= TryTogglePickup;
+        }
     }
-    public void OnDisable()
-    {
-        eventChannel.OnObjectPickedUp -= TryTogglePickup;
 
+    private void OnEnable()
+    {
+        if (PlayerEventSystem.current != null)
+        {
+            PlayerEventSystem.current.OnObjectPickedUp += TryTogglePickup;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (PlayerEventSystem.current != null)
+        {
+            PlayerEventSystem.current.OnObjectPickedUp -= TryTogglePickup;
+        }
     }
 
     private void Update()

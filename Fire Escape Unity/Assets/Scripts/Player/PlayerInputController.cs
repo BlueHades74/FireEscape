@@ -13,12 +13,14 @@ public class PlayerInputController : MonoBehaviour
 
     private void Awake()
     {
+        //Make a input map
         inputActions = new ControlMap();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Enable the scripts that use the control map
         GetComponent<PlayerMovementScript>().enabled = true;
         GetComponent<PlayerInteraction>().enabled = true;
     }
@@ -32,7 +34,6 @@ public class PlayerInputController : MonoBehaviour
     private void OnEnable()
     {
         inputActions?.Enable();
-        
     }
 
     private void OnDisable()

@@ -32,9 +32,20 @@ public class PlayerActionScript : MonoBehaviour
             case ("Bucket"):
                 BucketHave();
                 break;
+
+            case ("Ladder"):
+                LadderHave();
+                break;
+
+            case ("LadderHoleRemove"):
+                RemoveLadder();
+                break;
         }
     }
 
+    /// <summary>
+    /// Subscribing.
+    /// </summary>
     public void OnEnable()
     {
         inputs = GetComponent<PlayerInputController>();
@@ -48,6 +59,9 @@ public class PlayerActionScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Unsubscribing.
+    /// </summary>
     private void OnDisable()
     {
         inputs = GetComponent<PlayerInputController>();
@@ -69,6 +83,10 @@ public class PlayerActionScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Executes an action.
+    /// </summary>
+    /// <param name="context"></param>
     private void OnAction(InputAction.CallbackContext context)
     {
 
@@ -82,9 +100,18 @@ public class PlayerActionScript : MonoBehaviour
             case ("Bucket"):
                 BucketUse(); 
                 break;
+
+            case ("Ladder"):
+                LadderUse();
+                break;
+
         }
     }
 
+    /// <summary>
+    /// Receives and recognizes what action item they are holding
+    /// </summary>
+    /// <param name="actionItemSent"></param>
     public void ReceiveActionItem(GameObject actionItemSent)
     {
         actionItem = actionItemSent;
@@ -94,12 +121,18 @@ public class PlayerActionScript : MonoBehaviour
         switch (action)
         {
             case ("Bucket"):
-                waterRangeDisplay = Instantiate<GameObject>(rangePrefab, transform.position, Quaternion.identity);
+                if (actionItem.GetComponent<WaterBucketScript>().IsFilled == true)
+                {
+                    waterRangeDisplay = Instantiate<GameObject>(rangePrefab, transform.position, Quaternion.identity);
+                }
                 break;
         }
     }
 
-    public void AxeUse()
+    /// <summary>
+    /// Slices with the axe
+    /// </summary>
+    private void AxeUse()
     {
         Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
         RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f);
@@ -116,21 +149,108 @@ public class PlayerActionScript : MonoBehaviour
         }
     }
 
-    public void BucketUse()
+    /// <summary>
+    /// Splashes water with the bucket and/or fills the bucket with water.
+    /// </summary>
+    private void BucketUse()
     {
-
-        for (int i = 0; i < waterRangeDisplay.transform.childCount; i++)
+        if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
         {
-            var childLocation = waterRangeDisplay.transform.GetChild(i).transform.position;
-            Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
+            for (int i = 0; i < waterRangeDisplay.transform.childCount; i++)
+            {
+                var childLocation = waterRangeDisplay.transform.GetChild(i).transform.position;
+                Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
+            }
+            actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
+            Destroy(waterRangeDisplay);
+        }
+        else
+        {
+            Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f);
+            Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
+
+            Debug.Log(hit.collider);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject.tag == "DropOff")
+                {
+                    actionItem.GetComponent<WaterBucketScript>().FillBucket();
+                    waterRangeDisplay = Instantiate<GameObject>(rangePrefab, transform.position, Quaternion.identity);
+                }
+            }
         }
     }
 
-    public void BucketHave()
+    /// <summary>
+    /// Places the Ladder Down.
+    /// </summary>
+    private void LadderUse()
     {
-        Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-        Vector3Int waterSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
+        Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        RaycastHit2D[] hits = new RaycastHit2D[10];
+        Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, contactFilter, hits, 1.5f);
+        Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
 
-        waterRangeDisplay.transform.position = grid.CellToWorld(waterSpawnLocation);
+        foreach (RaycastHit2D hit in hits)
+        {
+            Debug.Log(hit.collider);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject.tag == "Hole")
+                {
+                    //hit.collider.gameObject.GetComponentInChildren<LadderCoverPit>().ReceiveLadder(actionItem.GetComponent<LadderPickupLogic>().Ladder);
+                    hit.collider.gameObject.GetComponent<LadderCoverPit>().ReceiveLadder(actionItem.GetComponent<LadderPickupLogic>().Ladder);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// For when the player has the bucket, does the grid thing.
+    /// </summary>
+    private void BucketHave()
+    {
+        if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
+        {
+            Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+            Vector3Int waterSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
+
+            waterRangeDisplay.transform.position = grid.CellToWorld(waterSpawnLocation);
+        }
+    }
+
+    /// <summary>
+    /// For when the player has the ladder in hand, sets its position and the player's movement speed.
+    /// </summary>
+    private void LadderHave()
+    {
+        GameObject ladder = actionItem.GetComponent<LadderPickupLogic>().Ladder;
+
+        Vector3 position = Vector3.zero;
+        position.x = Mathf.Clamp(transform.position.x, ladder.transform.position.x - 1.3f, ladder.transform.position.x + 1.3f);
+        position.y = Mathf.Clamp(transform.position.y, ladder.transform.position.y - 1.3f, ladder.transform.position.y + 1.3f);
+
+        transform.position = position;
+
+        if (ladder.GetComponent<LadderScript>().IsFullyPickedUp == true)
+        {
+            GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0.4f);
+        }
+        else
+        {
+            GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
+        }
+    }
+
+    /// <summary>
+    /// When the player is trying to remove the ladder from the hole.
+    /// </summary>
+    private void RemoveLadder()
+    {
+        GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
     }
 }
