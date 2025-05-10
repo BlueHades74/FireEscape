@@ -17,18 +17,15 @@ public class ImageUIHandlerScript : MonoBehaviour
 
     private void UpdateItemUI(int PlayerID, Sprite? ItemSprite)
     {
-        if (ItemSprite != null || ItemSprite == null)
+        if (PlayerID == 1)
         {
-            if (PlayerID == 1)
-            {
-                Player1ItemImage.sprite = ItemSprite;
-                Player1ItemImage.enabled = ItemSprite != null;
-            }
-            else if (PlayerID == 2)
-            {
-                Player2ItemImage.sprite = ItemSprite;
-                Player2ItemImage.enabled = ItemSprite != null;
-            }
+            Player1ItemImage.sprite = ItemSprite;
+            Player1ItemImage.enabled = ItemSprite != null;
+        }
+        else if (PlayerID == 2)
+        {
+            Player2ItemImage.sprite = ItemSprite;
+            Player2ItemImage.enabled = ItemSprite != null;
         }
     }
 }
