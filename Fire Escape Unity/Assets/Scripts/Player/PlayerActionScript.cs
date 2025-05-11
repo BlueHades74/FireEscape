@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerActionScript : MonoBehaviour
 {
@@ -39,6 +40,10 @@ public class PlayerActionScript : MonoBehaviour
 
             case ("LadderHoleRemove"):
                 RemoveLadder();
+                break;
+
+            case ("2PDebris"):
+                Debris2PHave(); 
                 break;
         }
     }
@@ -252,5 +257,50 @@ public class PlayerActionScript : MonoBehaviour
     private void RemoveLadder()
     {
         GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
+    }
+
+    private void Debris2PHave()
+    {
+        GameObject debris = actionItem.GetComponent<DebrisPickup>().OriginalParent;
+
+        if (debris.GetComponent<DebrisScript>().IsCarriedByTwoPlayers == false)
+        {
+            GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
+        }
+        else
+        {
+            GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0.7f);
+        }
+
+        Vector3 position = Vector3.zero;
+
+        if ((debris.transform.rotation.z < 0.1 && debris.transform.rotation.z > -0.1))
+        {
+            if (debris.transform.position.x > transform.position.x)
+            {
+                position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 1.9f, debris.transform.position.x - 1.8f);
+            }
+            else
+            {
+                position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x + 1.8f, debris.transform.position.x + 1.9f);
+            }
+
+            position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 1, debris.transform.position.y + 1);
+        }
+        else
+        {
+            if (debris.transform.position.y > transform.position.y)
+            {
+                position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 1.9f, debris.transform.position.y - 1.8f);
+            }
+            else
+            {
+                position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y + 1.8f, debris.transform.position.y + 1.9f);
+            }
+
+            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 1, debris.transform.position.x + 1);
+        }    
+
+        transform.position = position;
     }
 }
