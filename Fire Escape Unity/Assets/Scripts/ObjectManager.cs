@@ -13,34 +13,24 @@ public class ObjectManager : MonoBehaviour
 
     [SerializeField]
     private string action = null;
+    [SerializeField]
+    private Sprite imageUI;
 
     public string Action { get => action; }
+    public Sprite ImageUI { get => imageUI; }
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
 
-        
-    }
-
-    private void OnDestroy()
-    {
-        if (PlayerEventSystem.current != null)
-        {
-            PlayerEventSystem.current.OnObjectPickedUp -= TryTogglePickup;
-        }
-    }
-
-    private void OnEnable()
-    {
         if (PlayerEventSystem.current != null)
         {
             PlayerEventSystem.current.OnObjectPickedUp += TryTogglePickup;
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         if (PlayerEventSystem.current != null)
         {
