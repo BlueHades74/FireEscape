@@ -24,6 +24,9 @@ public class CheckChildrenScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if the player is carrying more than one item
+    /// </summary>
     private void CheckForDoubleObject()
     {
         int objectcount = 0;
@@ -43,9 +46,13 @@ public class CheckChildrenScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check to see if the item has an action attached
+    /// </summary>
     private void CheckForActionItem()
     {
         GameObject actionItem = null;
+        GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(1);
         
         try
         {
@@ -69,6 +76,9 @@ public class CheckChildrenScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sees if the item has a held sprite.
+    /// </summary>
     private void CheckForNewHeldSprite()
     {
         GameObject item = null;

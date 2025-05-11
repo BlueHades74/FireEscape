@@ -225,6 +225,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &46904633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1780741788727322148, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+  m_PrefabInstance: {fileID: 460973343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &77891419
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +281,11 @@ MonoBehaviour:
   player2Camera: {fileID: 722417105}
   splitDistance: 10
   followSpeed: 5
+--- !u!1 &144434911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2087138627927326762, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+  m_PrefabInstance: {fileID: 249220023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &183532416
 GameObject:
   m_ObjectHideFlags: 0
@@ -11758,6 +11768,10 @@ PrefabInstance:
       value: LadderHoleRemove
       objectReference: {fileID: 0}
     - target: {fileID: 59090919725722208, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: imageUI
+      value: 
+      objectReference: {fileID: -6026398702374445051, guid: 79bfb423a68a38949bf464a8bc46a8c3, type: 3}
+    - target: {fileID: 59090919725722208, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
       propertyPath: highlightColor.a
       value: 0.15686275
       objectReference: {fileID: 0}
@@ -11814,6 +11828,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1446797010}
     - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: players.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
       propertyPath: 'pickups.Array.data[0]'
       value: 
       objectReference: {fileID: 1138777946}
@@ -11821,6 +11839,14 @@ PrefabInstance:
       propertyPath: 'pickups.Array.data[1]'
       value: 
       objectReference: {fileID: 1138777944}
+    - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: 'players.Array.data[0]'
+      value: 
+      objectReference: {fileID: 144434911}
+    - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: 'players.Array.data[1]'
+      value: 
+      objectReference: {fileID: 46904633}
     - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
       propertyPath: 'originalLadderPickups.Array.data[0]'
       value: 
@@ -11853,6 +11879,10 @@ PrefabInstance:
       propertyPath: action
       value: LadderHoleRemove
       objectReference: {fileID: 0}
+    - target: {fileID: 9207529168598746135, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: imageUI
+      value: 
+      objectReference: {fileID: -6026398702374445051, guid: 79bfb423a68a38949bf464a8bc46a8c3, type: 3}
     - target: {fileID: 9207529168598746135, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
       propertyPath: highlightColor.a
       value: 0.15686275
@@ -12005,7 +12035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.15686275}
   action: Ladder
-  imageUI: {fileID: 0}
+  imageUI: {fileID: -6026398702374445051, guid: 79bfb423a68a38949bf464a8bc46a8c3, type: 3}
 --- !u!212 &1195637260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13378,6 +13408,10 @@ PrefabInstance:
       value: LadderHoleRemove
       objectReference: {fileID: 0}
     - target: {fileID: 59090919725722208, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: imageUI
+      value: 
+      objectReference: {fileID: -6026398702374445051, guid: 79bfb423a68a38949bf464a8bc46a8c3, type: 3}
+    - target: {fileID: 59090919725722208, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
       propertyPath: highlightColor.a
       value: 0.15686275
       objectReference: {fileID: 0}
@@ -13434,6 +13468,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1446797010}
     - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: players.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
       propertyPath: 'pickups.Array.data[0]'
       value: 
       objectReference: {fileID: 1517738316}
@@ -13441,6 +13479,14 @@ PrefabInstance:
       propertyPath: 'pickups.Array.data[1]'
       value: 
       objectReference: {fileID: 1517738314}
+    - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: 'players.Array.data[0]'
+      value: 
+      objectReference: {fileID: 144434911}
+    - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: 'players.Array.data[1]'
+      value: 
+      objectReference: {fileID: 46904633}
     - target: {fileID: 2829811963896077670, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
       propertyPath: 'originalLadderPickups.Array.data[0]'
       value: 
@@ -13473,6 +13519,10 @@ PrefabInstance:
       propertyPath: action
       value: LadderHoleRemove
       objectReference: {fileID: 0}
+    - target: {fileID: 9207529168598746135, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
+      propertyPath: imageUI
+      value: 
+      objectReference: {fileID: -6026398702374445051, guid: 79bfb423a68a38949bf464a8bc46a8c3, type: 3}
     - target: {fileID: 9207529168598746135, guid: 61cb768b211a88446b3cb151261f2b39, type: 3}
       propertyPath: highlightColor.a
       value: 0.15686275
@@ -13737,7 +13787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828150982422104120, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8828150982422104120, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14533,7 +14583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.15686275}
   action: Ladder
-  imageUI: {fileID: 0}
+  imageUI: {fileID: -6026398702374445051, guid: 79bfb423a68a38949bf464a8bc46a8c3, type: 3}
 --- !u!212 &1961713753
 SpriteRenderer:
   m_ObjectHideFlags: 0

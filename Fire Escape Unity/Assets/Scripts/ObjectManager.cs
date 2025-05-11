@@ -17,16 +17,27 @@ public class ObjectManager : MonoBehaviour
     private Sprite imageUI;
 
     public string Action { get => action; }
-    public Sprite ImageUI { get => imageUI; }
+    public Sprite ImageUI { get => imageUI; set => imageUI = value; }
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+    }
 
+    private void OnEnable()
+    {
         if (PlayerEventSystem.current != null)
         {
             PlayerEventSystem.current.OnObjectPickedUp += TryTogglePickup;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (PlayerEventSystem.current != null)
+        {
+            PlayerEventSystem.current.OnObjectPickedUp -= TryTogglePickup;
         }
     }
 
@@ -68,12 +79,15 @@ public class ObjectManager : MonoBehaviour
                     currentlyHeldNPC.Drop();
                 }
 
-                // Pick up self
-                isHeld = true;
-                spriteRenderer.color = originalColor;
-                transform.SetParent(playerTransform);
-                currentlyHeldNPC = this;
-                Debug.Log($"{name} PICKED UP!");
+                if (playerTransform.gameObject.GetComponent<PlayerMovementScript>().PlayerMoveSpeed > 0)
+                {
+                    // Pick up self
+                    isHeld = true;
+                    spriteRenderer.color = originalColor;
+                    transform.SetParent(playerTransform);
+                    currentlyHeldNPC = this;
+                    Debug.Log($"{name} PICKED UP!");
+                }
             }
         }
     }

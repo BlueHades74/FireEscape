@@ -24,6 +24,7 @@ public class LadderHolePickupSpot : MonoBehaviour
             pickups[0].GetComponent<LadderHolePickup>().GoBackToParent();
             pickups[1].GetComponent<ObjectManager>().DropItem();
             pickups[1].GetComponent<LadderHolePickup>().GoBackToParent();
+
             ladder.GetComponent<LadderScript>().DeactivateHolePickups(transform.position);
         }
     }

@@ -34,6 +34,7 @@ public class LadderCoverPit : MonoBehaviour
         ladder.transform.position = transform.position;
         ladder.transform.rotation = transform.rotation;
         ladder.GetComponent<LadderScript>().ActivateHolePickups();
+
         boxCollider.enabled = false;
     }
 }
