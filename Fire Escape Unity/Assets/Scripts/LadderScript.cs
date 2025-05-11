@@ -40,8 +40,10 @@ public class LadderScript : MonoBehaviour
             float ladderLengthX = pickups[0].transform.position.x - pickups[1].transform.position.x;
             float ladderLengthY = pickups[0].transform.position.y - pickups[1].transform.position.y;
 
-            Debug.Log(Mathf.Atan(ladderLengthX / ladderLengthY) * (180 / Mathf.PI));
-            Debug.Log(Mathf.Atan(1));
+            float hypotenuse = Mathf.Sqrt((ladderLengthX * ladderLengthX) + (ladderLengthY * ladderLengthY));
+
+            //Debug.Log(Mathf.Atan(ladderLengthX / ladderLengthY) * (180 / Mathf.PI));
+            //Debug.Log(Mathf.Atan(1));
 
             Quaternion ladderRotation = Quaternion.Euler(0, 0, Mathf.Atan(ladderLengthY / ladderLengthX) * (180 / Mathf.PI));
 
