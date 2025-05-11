@@ -37,15 +37,18 @@ public class LadderScript : MonoBehaviour
             positionVector = (object1Position + object2Position) / 2;
             transform.position = positionVector;
 
+            // Calculate the difference in positions of the pickup points, not the parents.
+            // This determines the ladder's orientation based on where its ends are.
             float ladderLengthX = pickups[0].transform.position.x - pickups[1].transform.position.x;
             float ladderLengthY = pickups[0].transform.position.y - pickups[1].transform.position.y;
 
-            float hypotenuse = Mathf.Sqrt((ladderLengthX * ladderLengthX) + (ladderLengthY * ladderLengthY));
+            // float hypotenuse = Mathf.Sqrt((ladderLengthX * ladderLengthX) + (ladderLengthY * ladderLengthY)); // This line is not used
 
-            //Debug.Log(Mathf.Atan(ladderLengthX / ladderLengthY) * (180 / Mathf.PI));
-            //Debug.Log(Mathf.Atan(1));
-
-            Quaternion ladderRotation = Quaternion.Euler(0, 0, Mathf.Atan(ladderLengthY / ladderLengthX) * (180 / Mathf.PI));
+            // Use Mathf.Atan2 to safely calculate the angle in radians
+            // and then convert to degrees for Quaternion.Euler.
+            // Atan2 handles cases where ladderLengthX is 0, preventing division by zero.
+            float angleInDegrees = Mathf.Atan2(ladderLengthY, ladderLengthX) * Mathf.Rad2Deg;
+            Quaternion ladderRotation = Quaternion.Euler(0, 0, angleInDegrees);
 
             transform.rotation = ladderRotation;
         }
