@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerMovementScript : MonoBehaviour
 {
     [SerializeField]
-    private float playerMoveSpeed;
+    private float playerMoveSpeed = 10f;
 
-    private float originalMoveSpeed;
+    private float originalMoveSpeed = 10f;
 
     private Rigidbody2D rb;
 
