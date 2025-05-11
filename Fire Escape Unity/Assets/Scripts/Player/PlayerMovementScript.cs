@@ -183,4 +183,12 @@ public class PlayerMovementScript : MonoBehaviour
     {
         playerMoveSpeed = originalMoveSpeed * multiplier;
     }
+
+    /// <summary>
+    /// Changes the movement speed by adding the original with some other value
+    /// </summary>
+    public void ResetSpeedMultiplier()
+    {
+        playerMoveSpeed = originalMoveSpeed;
+    }
 }

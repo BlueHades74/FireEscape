@@ -7,6 +7,8 @@ public class ObjectManager : MonoBehaviour
     private bool isPlayerNearby = false;
     private bool isHeld = false;
 
+    public bool IsHeld { get => isHeld; }
+
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public Color highlightColor = Color.yellow;
@@ -22,7 +24,10 @@ public class ObjectManager : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
     }
 
     private void OnEnable()
@@ -53,7 +58,6 @@ public class ObjectManager : MonoBehaviour
     {
         if (isHeld && playerTransform != null)
         {
-            // Follow the player
             transform.position = playerTransform.position + new Vector3(0, 0.2f, 0);
         }
     }
@@ -64,29 +68,30 @@ public class ObjectManager : MonoBehaviour
         {
             if (isHeld)
             {
-                // Drop self
                 isHeld = false;
                 transform.SetParent(null);
                 currentlyHeldNPC = null;
-                spriteRenderer.color = originalColor;
-                Debug.Log($"{name} DROPPED!");
+                if (spriteRenderer != null) 
+                {
+                    spriteRenderer.color = originalColor;
+                }
             }
             else if (isPlayerNearby && playerTransform != null)
             {
-                // If another NPC is held, drop it first
-                if (currentlyHeldNPC != null)
+                if (currentlyHeldNPC != null) 
                 {
                     currentlyHeldNPC.Drop();
                 }
 
                 if (playerTransform.gameObject.GetComponent<PlayerMovementScript>().PlayerMoveSpeed > 0)
                 {
-                    // Pick up self
                     isHeld = true;
-                    spriteRenderer.color = originalColor;
+                    if (spriteRenderer != null) 
+                    {
+                        spriteRenderer.color = highlightColor;
+                    }
                     transform.SetParent(playerTransform);
                     currentlyHeldNPC = this;
-                    Debug.Log($"{name} PICKED UP!");
                 }
             }
         }
@@ -97,7 +102,10 @@ public class ObjectManager : MonoBehaviour
         isHeld = false;
         transform.SetParent(null);
         currentlyHeldNPC = null;
-        Debug.Log($"{name} DROPPED (swapped)!");
+        if (spriteRenderer != null) 
+        {
+            spriteRenderer.color = originalColor;
+        }
     }
 
     public void DropItem()
@@ -110,10 +118,9 @@ public class ObjectManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = true;
-
+            playerTransform = other.transform;
             if (!isHeld && spriteRenderer != null)
             {
-                playerTransform = other.transform;
                 spriteRenderer.color = highlightColor;
             }
         }
@@ -124,12 +131,14 @@ public class ObjectManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = false;
-
             if (!isHeld && spriteRenderer != null)
+            {
                 spriteRenderer.color = originalColor;
-
+            }
             if (!isHeld)
+            {
                 playerTransform = null;
+            }
         }
     }
 }
