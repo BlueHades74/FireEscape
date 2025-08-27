@@ -12,10 +12,16 @@ public class PlayerActionScript : MonoBehaviour
     private string action;
 
     [SerializeField]
-    private GameObject rangePrefab;
+    private GameObject waterRangePrefab;
     [SerializeField]
     private GameObject waterColliderPrefab;
     private GameObject waterRangeDisplay;
+
+    [SerializeField]
+    private GameObject extinguisherRangePrefab;
+    [SerializeField]
+    private GameObject extinguisherColliderPrefab;
+    private GameObject extinguisherRangeDisplay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +48,10 @@ public class PlayerActionScript : MonoBehaviour
 
             case ("2PDebris"):
                 Debris2PHave(); 
+                break;
+
+            case ("Extinguisher"):
+                ExtinguisherHave();
                 break;
         }
     }
@@ -108,6 +118,9 @@ public class PlayerActionScript : MonoBehaviour
                 LadderUse();
                 break;
 
+            case ("Extinguisher"):
+                ExtinguisherUse();
+                break;
         }
     }
 
@@ -126,8 +139,12 @@ public class PlayerActionScript : MonoBehaviour
             case ("Bucket"):
                 if (actionItem.GetComponent<WaterBucketScript>().IsFilled == true)
                 {
-                    waterRangeDisplay = Instantiate<GameObject>(rangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
                 }
+                break;
+
+            case ("Extinguisher"):
+                extinguisherRangeDisplay = Instantiate<GameObject>(extinguisherRangePrefab, transform.position, Quaternion.identity);
                 break;
         }
     }
@@ -180,7 +197,7 @@ public class PlayerActionScript : MonoBehaviour
                 if (hit.collider.gameObject.tag == "DropOff")
                 {
                     actionItem.GetComponent<WaterBucketScript>().FillBucket();
-                    waterRangeDisplay = Instantiate<GameObject>(rangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
                 }
             }
         }
@@ -210,6 +227,11 @@ public class PlayerActionScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void ExtinguisherUse()
+    {
+        Instantiate<GameObject>(extinguisherColliderPrefab, extinguisherRangeDisplay.transform.position, Quaternion.identity);
     }
 
     /// <summary>
@@ -300,5 +322,16 @@ public class PlayerActionScript : MonoBehaviour
         }    
 
         transform.position = position;
+    }
+
+    private void ExtinguisherHave()
+    {
+        if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
+        {
+            Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+            Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
+
+            extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
+        }
     }
 }

@@ -7671,7 +7671,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6077175470507983490, guid: dfb331bb175a9ab408dd31cb3ce71a3d, type: 3}
     - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+      propertyPath: waterRangePrefab
+      value: 
+      objectReference: {fileID: 6077175470507983490, guid: dfb331bb175a9ab408dd31cb3ce71a3d, type: 3}
+    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: waterColliderPrefab
+      value: 
+      objectReference: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
+    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+      propertyPath: extinguisherRangePrefab
+      value: 
+      objectReference: {fileID: 4024350339787414029, guid: 0d2025543e3b82c46be5d5c928541bd3, type: 3}
+    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+      propertyPath: extinguisherColliderPrefab
       value: 
       objectReference: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
     - target: {fileID: 2087138627927326762, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
@@ -8248,7 +8260,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6077175470507983490, guid: dfb331bb175a9ab408dd31cb3ce71a3d, type: 3}
     - target: {fileID: 8731375224208401088, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: waterRangePrefab
+      value: 
+      objectReference: {fileID: 6077175470507983490, guid: dfb331bb175a9ab408dd31cb3ce71a3d, type: 3}
+    - target: {fileID: 8731375224208401088, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
       propertyPath: waterColliderPrefab
+      value: 
+      objectReference: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
+    - target: {fileID: 8731375224208401088, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: extinguisherRangePrefab
+      value: 
+      objectReference: {fileID: 4024350339787414029, guid: 0d2025543e3b82c46be5d5c928541bd3, type: 3}
+    - target: {fileID: 8731375224208401088, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: extinguisherColliderPrefab
       value: 
       objectReference: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
     m_RemovedComponents: []
@@ -13808,6 +13832,156 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1513920725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513920728}
+  - component: {fileID: 1513920727}
+  - component: {fileID: 1513920726}
+  - component: {fileID: 1513920729}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Object
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1513920726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513920725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  action: Extinguisher
+  imageUI: {fileID: -4564566167306137858, guid: 956ec89896f4eb24b8e8885a30a25965, type: 3}
+--- !u!212 &1513920727
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513920725}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1513920728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513920725}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.232224, y: 4.2141657, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1513920729
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513920725}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1517738312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16593,3 +16767,4 @@ SceneRoots:
   - {fileID: 503423411}
   - {fileID: 2143844443}
   - {fileID: 19810275}
+  - {fileID: 1513920728}
