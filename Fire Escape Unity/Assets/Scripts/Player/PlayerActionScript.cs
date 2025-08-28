@@ -231,7 +231,8 @@ public class PlayerActionScript : MonoBehaviour
 
     private void ExtinguisherUse()
     {
-        Instantiate<GameObject>(extinguisherColliderPrefab, extinguisherRangeDisplay.transform.position, Quaternion.identity);
+        Vector3 childLocation = extinguisherRangeDisplay.transform.GetChild(0).transform.position;
+        Instantiate<GameObject>(extinguisherColliderPrefab, childLocation, Quaternion.identity);
     }
 
     /// <summary>
@@ -326,12 +327,9 @@ public class PlayerActionScript : MonoBehaviour
 
     private void ExtinguisherHave()
     {
-        if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
-        {
-            Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-            Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
+        Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+        Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
 
-            extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
-        }
+        extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
     }
 }
