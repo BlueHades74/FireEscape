@@ -39,11 +39,13 @@ public class LadderScript : MonoBehaviour
 
             positionVector = (object1Position + object2Position) / 2;
 
-            transform.position = positionVector;
+            //transform.position = positionVector;
+
+            Vector3 directionForCast = positionVector - transform.position;
 
             BoxCollider2D bx = GetComponent<BoxCollider2D>();
             RaycastHit2D[] results = new RaycastHit2D[5];
-            if (bx.Cast(Vector2.zero, results) > 2 && CheckCollisionsForTag(results, "Wall"))
+            if (bx.Cast(directionForCast, results, 0.1f) > 2 && CheckCollisionsForTag(results, "Wall"))
             {
                 if (results[2].collider.gameObject.tag == "Wall")
                 {
@@ -55,6 +57,7 @@ public class LadderScript : MonoBehaviour
             {
                 playerLastPosition[0] = object1Position;
                 playerLastPosition[1] = object2Position;
+                transform.position = positionVector;
             }
 
             // Calculate the difference in positions of the pickup points, not the parents.
@@ -121,11 +124,14 @@ public class LadderScript : MonoBehaviour
     {
         for (int i = 0; i < array.Length; i++)
         {
-            Debug.LogWarning(i);
-            if (array[i].collider.gameObject.tag == tag)
+            try
             {
-                return true;
+                if (array[i].collider.gameObject.tag == tag)
+                {
+                    return true;
+                }
             }
+            catch { }
         }
         return false;
     }
