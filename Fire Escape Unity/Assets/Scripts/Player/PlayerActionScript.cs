@@ -94,6 +94,12 @@ public class PlayerActionScript : MonoBehaviour
             Destroy(waterRangeDisplay);
             waterRangeDisplay = null;
         }
+
+        if (extinguisherRangeDisplay != null)
+        {
+            Destroy(extinguisherRangeDisplay);
+            extinguisherRangeDisplay = null;
+        }
     }
 
     /// <summary>
