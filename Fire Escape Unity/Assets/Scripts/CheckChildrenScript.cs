@@ -32,7 +32,7 @@ public class CheckChildrenScript : MonoBehaviour
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (gameObject.transform.GetChild(i).tag == "Object")
+            if (gameObject.transform.GetChild(i).tag == "Object" || gameObject.transform.GetChild(i).tag == "NPC")
             {
                 objectcount++;
             }
