@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class DebrisScript : MonoBehaviour
@@ -6,6 +7,8 @@ public class DebrisScript : MonoBehaviour
     [Tooltip("Assign the two GameObjects that act as pickup handles for this debris. Each handle must have an ObjectManager component.")]
     [SerializeField]
     private GameObject[] pickupHandles = new GameObject[2];
+    [SerializeField]
+    private bool horizontal = false;
 
     [Tooltip("Speed multiplier for players when they are carrying this debris.")]
     public float playerCarrySpeedMultiplier = 0.7f;
@@ -18,6 +21,11 @@ public class DebrisScript : MonoBehaviour
 
     private Transform carryingPlayer1Ref;
     private Transform carryingPlayer2Ref;
+
+    [SerializeField]
+    private Rigidbody2D player1Rb;
+    [SerializeField]
+    private Rigidbody2D player2Rb;
 
     void Start()
     {
@@ -72,8 +80,26 @@ public class DebrisScript : MonoBehaviour
                 if (carryingPlayer1Ref != null && carryingPlayer2Ref != null)
                 {
                     transform.position = (carryingPlayer1Ref.position + carryingPlayer2Ref.position) / 2f;
+
+                    // Remove x/y movement based on if debris is horizontal
+                    if (horizontal)
+                    {
+                        player1Rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+                        player2Rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+                    } 
+                    else
+                    {
+                        player1Rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+                        player2Rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+                    }
                 }
             }
+
+            // Reset the constraints on the players positions
+            player1Rb.constraints = RigidbodyConstraints2D.None;
+            player1Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            player2Rb.constraints = RigidbodyConstraints2D.None;
+            player2Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else
         {
@@ -97,6 +123,7 @@ public class DebrisScript : MonoBehaviour
             if (carryingPlayer1Ref != null && carryingPlayer1Ref.CompareTag("Player"))
             {
                 carryingPlayer1Ref.GetComponent<PlayerMovementScript>()?.SetMovementByOriginalTimesParameter(playerCarrySpeedMultiplier);
+                
             }
             if (carryingPlayer2Ref != null && carryingPlayer2Ref.CompareTag("Player"))
             {

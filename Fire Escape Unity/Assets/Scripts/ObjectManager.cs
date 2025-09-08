@@ -78,6 +78,7 @@ public class ObjectManager : MonoBehaviour
             }
             else if (isPlayerNearby && playerTransform != null)
             {
+                // Drop the NPC
                 if (currentlyHeldNPC != null) 
                 {
                     currentlyHeldNPC.Drop();

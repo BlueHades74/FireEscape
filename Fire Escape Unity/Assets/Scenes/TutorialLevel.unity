@@ -8126,6 +8126,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4800660834239274203, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
   m_PrefabInstance: {fileID: 249220023}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &367968623 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1701543540993072761, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+  m_PrefabInstance: {fileID: 249220023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &392667564
 GameObject:
   m_ObjectHideFlags: 0
@@ -11808,7 +11813,10 @@ MonoBehaviour:
   pickupHandles:
   - {fileID: 54659656}
   - {fileID: 158767672}
+  horizontal: 0
   playerCarrySpeedMultiplier: 0.7
+  player1Rb: {fileID: 0}
+  player2Rb: {fileID: 0}
 --- !u!61 &836307857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12097,6 +12105,11 @@ Transform:
 --- !u!4 &951112582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3234076733250909796, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+  m_PrefabInstance: {fileID: 460973343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &951112591 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8590462753508596040, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
   m_PrefabInstance: {fileID: 460973343}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &966461039
@@ -12996,7 +13009,10 @@ MonoBehaviour:
   pickupHandles:
   - {fileID: 1543986039}
   - {fileID: 2060304043}
+  horizontal: 1
   playerCarrySpeedMultiplier: 0.7
+  player1Rb: {fileID: 367968623}
+  player2Rb: {fileID: 951112591}
 --- !u!1 &1322415853
 GameObject:
   m_ObjectHideFlags: 0
