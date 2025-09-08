@@ -235,6 +235,9 @@ public class PlayerActionScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Uses the fire Extinguisher to put out fires
+    /// </summary>
     private void ExtinguisherUse()
     {
         Vector3 childLocation = extinguisherRangeDisplay.transform.GetChild(0).transform.position;
@@ -286,6 +289,9 @@ public class PlayerActionScript : MonoBehaviour
         GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
     }
 
+    /// <summary>
+    /// Mess with the player movement limits and speed when they are carrying heavy debris together
+    /// </summary>
     private void Debris2PHave()
     {
         GameObject debris = actionItem.GetComponent<DebrisPickup>().OriginalParent;
@@ -331,6 +337,9 @@ public class PlayerActionScript : MonoBehaviour
         transform.position = position;
     }
 
+    /// <summary>
+    /// Show the player the location the extinguisher will put out
+    /// </summary>
     private void ExtinguisherHave()
     {
         Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
