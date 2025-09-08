@@ -44,6 +44,8 @@ public class LadderScript : MonoBehaviour
             Vector3 directionForCast = positionVector - transform.position;
 
             BoxCollider2D bx = GetComponent<BoxCollider2D>();
+
+            //Get Raycast results to do collision
             RaycastHit2D[] results = new RaycastHit2D[5];
             if (bx.Cast(directionForCast, results, 0.1f) > 2 && CheckCollisionsForTag(results, "Wall"))
             {

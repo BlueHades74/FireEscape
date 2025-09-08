@@ -15,6 +15,7 @@ public class ReloadObjectManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //After 2 frames run the methods
         if (delay > 1)
         {
             ResetObjectManager();
