@@ -70,7 +70,7 @@ public class CheckChildrenScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("No action item");
+            //Debug.Log("No action item");
             GetComponent<PlayerActionScript>().enabled = false;
         }
     }

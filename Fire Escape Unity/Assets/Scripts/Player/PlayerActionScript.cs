@@ -347,4 +347,20 @@ public class PlayerActionScript : MonoBehaviour
 
         extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
     }
+
+    /// <summary>
+    /// Tell whatever calls the method what the action item is
+    /// </summary>
+    /// <returns></returns>
+    public string ReturnActionString()
+    {
+        if (action != null)
+        {
+            return action;
+        }
+        else
+        {
+            return "null";
+        }
+    }
 }

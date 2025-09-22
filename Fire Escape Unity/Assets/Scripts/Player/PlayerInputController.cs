@@ -15,6 +15,7 @@ public class PlayerInputController : MonoBehaviour
     {
         //Make a input map
         inputActions = new ControlMap();
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
