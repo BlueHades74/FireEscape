@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CheckChildrenScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private int previousChildCount = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

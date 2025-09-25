@@ -1,9 +1,21 @@
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class StaircaseScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     [SerializeField]
     private GameObject exitStairs;
+
+    private GameObject playerToTP;
+
+    [SerializeField]
+    private GameObject[] transitionScreens;
+
+    [SerializeField]
+    private GameObject view;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,18 +29,28 @@ public class StaircaseScript : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Detect when the player enters the stairs
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            TeleportPlayer(collision.gameObject);
+            playerToTP = collision.gameObject;
+            BeginTransition();
         }
     }
 
-    private void TeleportPlayer(GameObject playerToTP)
+    /// <summary>
+    /// Teleports the player to a location (changes how the teleport works depending on what the player is holding)
+    /// </summary>
+    /// <param name="playerToTP"></param>
+    private void TeleportPlayer()
     {
         if (playerToTP != null)
         {
+            //Detect what the player is holding
             string item = "";
             try
             {
@@ -39,10 +61,12 @@ public class StaircaseScript : MonoBehaviour
                 item = "null";
             }
 
+            //Teleport based on item
             Vector2 tpPos = Vector2.zero;
 
             if (item == "Ladder")
             {
+                //Get both players and teleport them to different locations based on who's entering
                 GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
                 for (int i = 0; i < players.Length; i++)
@@ -62,12 +86,66 @@ public class StaircaseScript : MonoBehaviour
             }
             else
             {
+                //Teleport the entering player
                 tpPos = exitStairs.transform.position + (exitStairs.transform.up * 3);
                 playerToTP.transform.position = tpPos;
             }
 
+            //Reset the linear velocity to make it seem more smooth
             Vector2 linearVelocityOP = playerToTP.GetComponent<Rigidbody2D>().linearVelocity;
             playerToTP.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         }
+    }
+
+    private void BeginTransition()
+    {
+        if (playerToTP != null)
+        {
+            //Detect what the player is holding
+            string item = "";
+            try
+            {
+                item = playerToTP.GetComponent<PlayerActionScript>().ReturnActionString();
+            }
+            catch
+            {
+                item = "null";
+            }
+
+            if (item == "Ladder")
+            {
+                transitionScreens[0].SetActive(true);
+                
+                transitionScreens[1].SetActive(true);
+            }
+            else
+            {
+                view.GetComponent<CameraTransition>().SetDistanceToValue(0);
+                if (playerToTP.name == "Player 1")
+                {
+                    transitionScreens[0].SetActive(true);
+                    transitionScreens[0].GetComponent<ScreenFadeScript>().ReceiveLinVelocityData(this.gameObject, playerToTP.GetComponent<Rigidbody2D>().linearVelocity);
+                }
+                else
+                {
+                    transitionScreens[1].SetActive(true);
+                    transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveLinVelocityData(this.gameObject, playerToTP.GetComponent<Rigidbody2D>().linearVelocity);
+                }
+            }
+
+            //Reset the linear velocity to make it seem more smooth
+            Vector2 linearVelocityOP = playerToTP.GetComponent<Rigidbody2D>().linearVelocity;
+            playerToTP.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        }
+    }
+
+    public void TriggerTeleport()
+    {
+        TeleportPlayer();
+    }
+
+    public void FixCamera()
+    {
+        view.GetComponent<CameraTransition>().SetDistanceToValue(10);
     }
 }

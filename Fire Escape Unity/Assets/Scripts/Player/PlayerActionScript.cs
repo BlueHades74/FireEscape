@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerActionScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private GameObject actionItem;
     private PlayerInputController inputs;
 
@@ -57,35 +60,10 @@ public class PlayerActionScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Subscribing.
-    /// </summary>
-    public void OnEnable()
-    {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Action.performed += OnAction;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Action.performed += OnAction;
-        }
-    }
-
-    /// <summary>
-    /// Unsubscribing.
+    /// Reset variables and destory extra things.
     /// </summary>
     private void OnDisable()
     {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Action.performed -= OnAction;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Action.performed -= OnAction;
-        }
         actionItem = null;
         action = null;
 
@@ -106,7 +84,7 @@ public class PlayerActionScript : MonoBehaviour
     /// Executes an action.
     /// </summary>
     /// <param name="context"></param>
-    private void OnAction(InputAction.CallbackContext context)
+    private void OnAction()
     {
 
         switch (action)

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class LadderHolePickupSpot : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     [SerializeField]
     private GameObject[] pickups;
 

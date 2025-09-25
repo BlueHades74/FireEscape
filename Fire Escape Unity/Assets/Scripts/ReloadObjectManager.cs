@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ReloadObjectManager : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private ObjectManager objectManager;
     private int delay;
 

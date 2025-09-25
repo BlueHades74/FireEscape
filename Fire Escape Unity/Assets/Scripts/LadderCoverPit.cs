@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class LadderCoverPit : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private GameObject ladder;
     private BoxCollider2D boxCollider;
 

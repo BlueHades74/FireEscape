@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class LadderScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private Vector3 positionVector;
 
     private Vector3[] playerLastPosition;

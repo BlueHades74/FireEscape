@@ -63,5 +63,11 @@ public class CameraTransition : MonoBehaviour
             player2Camera.transform.position = new Vector3(player2.position.x, player2.position.y, player2Camera.transform.position.z);
         }
     }
+
+    
+    public void SetDistanceToValue(int value)
+    {
+        splitDistance = value;
+    }
 }
 

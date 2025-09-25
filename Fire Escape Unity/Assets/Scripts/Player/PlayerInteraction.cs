@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private PlayerInputController inputs;
 
     private void Start()
@@ -14,33 +17,10 @@ public class PlayerInteraction : MonoBehaviour
     {
         
     }
-
-    public void OnEnable()
-    {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Interact.performed += Interaction;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Interact.performed += Interaction;
-        }
-    }
-
-    public void OnDisable()
-    {
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Interact.performed -= Interaction;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Interact.performed -= Interaction;
-        }
-    }
-
-    private void Interaction(InputAction.CallbackContext context)
+    /// <summary>
+    /// Interact with an item based on player input
+    /// </summary>
+    private void OnInteract()
     {
         PlayerEventSystem.current.ObjectPickedUp(transform.position);
     }
