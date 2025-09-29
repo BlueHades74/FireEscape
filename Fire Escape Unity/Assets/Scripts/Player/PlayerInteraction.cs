@@ -8,6 +8,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private PlayerInputController inputs;
 
+    private bool canPickUp = true;
+
     private void Start()
     {
         
@@ -22,7 +24,18 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     private void OnInteract()
     {
-        PlayerEventSystem.current.ObjectPickedUp(transform.position);
+        if (canPickUp)
+        {
+            PlayerEventSystem.current.ObjectPickedUp(transform.position);
+        }
+    }
+
+    /// <summary>
+    /// Controls whether or not the player can interact
+    /// </summary>
+    public void CanPickUp(bool option)
+    {
+        canPickUp = option;
     }
 }
 

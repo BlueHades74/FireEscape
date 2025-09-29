@@ -21,6 +21,11 @@ public class PlayerInputController : MonoBehaviour
         user = GetComponent<PlayerInput>().user;
     }
 
+    /// <summary>
+    /// Pair a device with this player
+    /// </summary>
+    /// <param name="device"></param>
+    /// <param name="deviceCount"></param>
     public void PairWithDevice(InputDevice device, int deviceCount)
     {
         InputUser.PerformPairingWithDevice(device, user);
