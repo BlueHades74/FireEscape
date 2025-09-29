@@ -92,11 +92,13 @@ public class StaircaseScript : MonoBehaviour
             }
 
             //Reset the linear velocity to make it seem more smooth
-            Vector2 linearVelocityOP = playerToTP.GetComponent<Rigidbody2D>().linearVelocity;
             playerToTP.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         }
     }
 
+    /// <summary>
+    /// Begin the screen fade out and fade in
+    /// </summary>
     private void BeginTransition()
     {
         if (playerToTP != null)
@@ -124,26 +126,31 @@ public class StaircaseScript : MonoBehaviour
                 if (playerToTP.name == "Player 1")
                 {
                     transitionScreens[0].SetActive(true);
-                    transitionScreens[0].GetComponent<ScreenFadeScript>().ReceiveLinVelocityData(this.gameObject, playerToTP.GetComponent<Rigidbody2D>().linearVelocity);
+                    transitionScreens[0].GetComponent<ScreenFadeScript>().ReceiveStairs(this.gameObject);
                 }
                 else
                 {
                     transitionScreens[1].SetActive(true);
-                    transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveLinVelocityData(this.gameObject, playerToTP.GetComponent<Rigidbody2D>().linearVelocity);
+                    transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveStairs(this.gameObject);
                 }
             }
 
             //Reset the linear velocity to make it seem more smooth
-            Vector2 linearVelocityOP = playerToTP.GetComponent<Rigidbody2D>().linearVelocity;
             playerToTP.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         }
     }
 
+    /// <summary>
+    /// This allows other objects to trigger the teleport
+    /// </summary>
     public void TriggerTeleport()
     {
         TeleportPlayer();
     }
 
+    /// <summary>
+    /// Change camera split distance to normal value
+    /// </summary>
     public void FixCamera()
     {
         view.GetComponent<CameraTransition>().SetDistanceToValue(10);

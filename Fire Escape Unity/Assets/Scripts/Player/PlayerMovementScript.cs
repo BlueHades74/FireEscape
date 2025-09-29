@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,10 @@ public class PlayerMovementScript : MonoBehaviour
     public float PlayerMoveSpeed { get => playerMoveSpeed; }
 
     public AudioSource footstepAudioSource;
+
+    private bool canMove = true;
+
+    private Vector2 moveInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -155,8 +160,25 @@ public class PlayerMovementScript : MonoBehaviour
     /// <param name="context"></param>
     private void OnMovement(InputValue context)
     {
-        Vector2 moveInput = context.Get<Vector2>();
-        SetFacingDirection(moveInput);
-        rb.linearVelocity = moveInput * playerMoveSpeed;
+        moveInput = context.Get<Vector2>();
+        if (canMove)
+        {
+            SetFacingDirection(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed;
+        }
+    }
+
+    /// <summary>
+    /// Controls whether or not the player can move, restarts movement if they can
+    /// </summary>
+    /// <param name="option"></param>
+    public void CanMove(bool option)
+    {
+        canMove = option;
+        if (canMove)
+        {
+            SetFacingDirection(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed;
+        }
     }
 }
