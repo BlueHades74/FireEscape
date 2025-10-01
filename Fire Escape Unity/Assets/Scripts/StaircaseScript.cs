@@ -117,7 +117,11 @@ public class StaircaseScript : MonoBehaviour
             if (item == "Ladder")
             {
                 transitionScreens[0].SetActive(true);
-                
+                transitionScreens[0].SetActive(true);
+                transitionScreens[0].GetComponent<ScreenFadeScript>().ReceiveStairs(this.gameObject);
+                transitionScreens[1].SetActive(true);
+                transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveStairs(this.gameObject);
+
                 transitionScreens[1].SetActive(true);
             }
             else
