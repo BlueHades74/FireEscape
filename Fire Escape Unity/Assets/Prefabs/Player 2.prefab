@@ -174,7 +174,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780741788727322148}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9054f7d92631a0c43ba284b8b3bb28c9, type: 3}
   m_Name: 
@@ -193,12 +193,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780741788727322148}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63b24b32c77a6d74c9a19088cfb5dbdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventChannel: {fileID: 11400000, guid: 8903f32c52b9fbb4fbff6fa45efea2fe, type: 2}
 --- !u!61 &7077253128868573926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,8 +269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
-  rangePrefab: {fileID: 6077175470507983490, guid: dfb331bb175a9ab408dd31cb3ce71a3d, type: 3}
+  waterRangePrefab: {fileID: 0}
   waterColliderPrefab: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
+  extinguisherRangePrefab: {fileID: 0}
+  extinguisherColliderPrefab: {fileID: 0}
 --- !u!82 &7635706313206287052
 AudioSource:
   m_ObjectHideFlags: 0
