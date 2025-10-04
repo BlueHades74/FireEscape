@@ -10,9 +10,11 @@ public class PlayerInteraction : MonoBehaviour
 
     private bool canPickUp = true;
 
+    private PlayerActionScript actionScript;
+
     private void Start()
     {
-        
+        actionScript = GetComponent<PlayerActionScript>();
     }
 
     void Update()
@@ -28,6 +30,40 @@ public class PlayerInteraction : MonoBehaviour
         {
             PlayerEventSystem.current.ObjectPickedUp(transform.position);
         }
+    }
+
+    private void OnAction()
+    {
+        if (actionScript.enabled == true)
+        {
+            if (actionScript.ReturnActionString() == "Ladder")
+            {
+                return;
+            }
+        }
+       
+        Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        RaycastHit2D[] hits = new RaycastHit2D[10];
+        Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, contactFilter, hits, 1.5f);
+        Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            Debug.Log(hit.collider);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject.tag == "Hole")
+                {
+                    if (hit.collider.gameObject.GetComponent<HoleJumpScript>().CanWeJump())
+                    {
+                        hit.collider.gameObject.GetComponent<HoleJumpScript>().InitiateTP(gameObject);
+                    }
+                }
+            }
+        }
+        
     }
 
     /// <summary>
