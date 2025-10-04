@@ -60,4 +60,20 @@ public class HoleJumpScript : MonoBehaviour
             transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveTransferObject(this.gameObject);
         }
     }
+
+    /// <summary>
+    /// Allows others to check if this hole is on a higher floor or not
+    /// </summary>
+    /// <returns></returns>
+    public bool CanWeJump()
+    {
+        if (exitPoint == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }

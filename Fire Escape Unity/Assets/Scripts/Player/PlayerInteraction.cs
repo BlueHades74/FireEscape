@@ -56,7 +56,10 @@ public class PlayerInteraction : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag == "Hole")
                 {
-                    hit.collider.gameObject.GetComponent<HoleJumpScript>().InitiateTP(gameObject);
+                    if (hit.collider.gameObject.GetComponent<HoleJumpScript>().CanWeJump())
+                    {
+                        hit.collider.gameObject.GetComponent<HoleJumpScript>().InitiateTP(gameObject);
+                    }
                 }
             }
         }
