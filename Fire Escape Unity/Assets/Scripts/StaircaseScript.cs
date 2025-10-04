@@ -118,9 +118,9 @@ public class StaircaseScript : MonoBehaviour
             {
                 transitionScreens[0].SetActive(true);
                 transitionScreens[0].SetActive(true);
-                transitionScreens[0].GetComponent<ScreenFadeScript>().ReceiveStairs(this.gameObject);
+                transitionScreens[0].GetComponent<ScreenFadeScript>().ReceiveTransferObject(this.gameObject);
                 transitionScreens[1].SetActive(true);
-                transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveStairs(this.gameObject);
+                transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveTransferObject(this.gameObject);
 
                 transitionScreens[1].SetActive(true);
             }
@@ -130,12 +130,12 @@ public class StaircaseScript : MonoBehaviour
                 if (playerToTP.name == "Player 1")
                 {
                     transitionScreens[0].SetActive(true);
-                    transitionScreens[0].GetComponent<ScreenFadeScript>().ReceiveStairs(this.gameObject);
+                    transitionScreens[0].GetComponent<ScreenFadeScript>().ReceiveTransferObject(this.gameObject);
                 }
                 else
                 {
                     transitionScreens[1].SetActive(true);
-                    transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveStairs(this.gameObject);
+                    transitionScreens[1].GetComponent<ScreenFadeScript>().ReceiveTransferObject(this.gameObject);
                 }
             }
 

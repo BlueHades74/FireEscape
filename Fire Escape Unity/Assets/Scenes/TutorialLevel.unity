@@ -7777,7 +7777,8 @@ Transform:
   m_LocalPosition: {x: -2, y: 19, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2131047051}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &218196469
@@ -14875,6 +14876,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3896208992266732769, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
+      propertyPath: view
+      value: 
+      objectReference: {fileID: 77891419}
+    - target: {fileID: 3896208992266732769, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
+      propertyPath: exitPoint
+      value: 
+      objectReference: {fileID: 2131047050}
+    - target: {fileID: 3896208992266732769, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
+      propertyPath: 'transitionScreens.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1946393598}
+    - target: {fileID: 3896208992266732769, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
+      propertyPath: 'transitionScreens.Array.data[1]'
+      value: 
+      objectReference: {fileID: 377200691}
     - target: {fileID: 4442248569617801586, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -14974,28 +14991,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9086719638148130478, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1654553963}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
---- !u!1 &1654553962 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9086719638148130478, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
-  m_PrefabInstance: {fileID: 1654553961}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1654553963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1654553962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc34863f556af74eb122d6d52d8696e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1760066067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16964,6 +16961,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115570802}
   m_CullTransparentMesh: 1
+--- !u!1 &2131047050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2131047051}
+  m_Layer: 0
+  m_Name: TeleportLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2131047051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131047050}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 205341565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2143844441
 GameObject:
   m_ObjectHideFlags: 0

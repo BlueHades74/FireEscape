@@ -41,8 +41,6 @@ public class PlayerInteraction : MonoBehaviour
                 return;
             }
         }
-
-        Debug.LogWarning("a");
        
         Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
         ContactFilter2D contactFilter = new ContactFilter2D();
@@ -56,9 +54,9 @@ public class PlayerInteraction : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.tag == "Fall")
+                if (hit.collider.gameObject.tag == "Hole")
                 {
-                    Debug.LogWarning(hit.collider.gameObject);
+                    hit.collider.gameObject.GetComponent<HoleJumpScript>().InitiateTP(gameObject);
                 }
             }
         }
