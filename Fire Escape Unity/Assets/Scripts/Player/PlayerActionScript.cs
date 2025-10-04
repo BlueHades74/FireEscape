@@ -105,6 +105,10 @@ public class PlayerActionScript : MonoBehaviour
             case ("Extinguisher"):
                 ExtinguisherUse();
                 break;
+
+            case ("Crowbar"):
+                CrowbarUse();
+                break;
         }
     }
 
@@ -220,6 +224,26 @@ public class PlayerActionScript : MonoBehaviour
     {
         Vector3 childLocation = extinguisherRangeDisplay.transform.GetChild(0).transform.position;
         Instantiate<GameObject>(extinguisherColliderPrefab, childLocation, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// breaks with the crowbar
+    /// </summary>
+    private void CrowbarUse()
+    {
+        Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f);
+        Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
+
+        Debug.Log(hit.collider);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject.tag == "CrowbarObject")
+            {
+                hit.collider.gameObject.SetActive(false);
+            }
+        }
     }
 
     /// <summary>
