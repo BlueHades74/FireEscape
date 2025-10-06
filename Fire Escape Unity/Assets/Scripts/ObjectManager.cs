@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    //Created by: 
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private ObjectManager currentlyHeldNPC = null;
     private Transform playerTransform;
     private bool isPlayerNearby = false;

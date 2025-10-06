@@ -416,6 +416,8 @@ GameObject:
   - component: {fileID: 4049226846734959202}
   - component: {fileID: 3221957867891930482}
   - component: {fileID: 112492024122370919}
+  - component: {fileID: 8198090947098779437}
+  - component: {fileID: 3896208992266732769}
   m_Layer: 0
   m_Name: LadderSpot
   m_TagString: Untagged
@@ -539,6 +541,35 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8198090947098779437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086719638148130478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc34863f556af74eb122d6d52d8696e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3896208992266732769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086719638148130478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576c931dbdf77fd4c9e5c95723e1f219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitPoint: {fileID: 0}
+  transitionScreens:
+  - {fileID: 0}
+  - {fileID: 0}
+  view: {fileID: 0}
 --- !u!1 &9183038677782399775
 GameObject:
   m_ObjectHideFlags: 0
