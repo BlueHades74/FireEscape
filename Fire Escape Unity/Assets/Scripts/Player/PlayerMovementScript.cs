@@ -71,7 +71,7 @@ public class PlayerMovementScript : MonoBehaviour
             // Use the direction vector to set sprite index
             if (direction.x < 0)
             {
-                spriteIndex = 1; // Left
+                spriteIndex = 2; // Left
             }
             else if (direction.x > 0)
             {
@@ -83,7 +83,7 @@ public class PlayerMovementScript : MonoBehaviour
             }
             else if (direction.y > 0)
             {
-                spriteIndex = 3; // Up
+                spriteIndex = 1; // Up
             }
             else
             {
