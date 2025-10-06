@@ -93,8 +93,6 @@ public class PlayerMovementScript : MonoBehaviour
             // Set sprite index for player
             if (sprites != null && sprites.Length > spriteIndex)
                 playerSprite.sprite = sprites[spriteIndex];
-
-            Debug.Log(facingDirection);
         }
     }
 
