@@ -18,6 +18,13 @@ public class PlayerInputController : MonoBehaviour
     private void Awake()
     {
         //Figure out who the user is
+
+        if (playerIndex != GetComponent<PlayerInput>().playerIndex && playerIndex == 1)
+        {
+            GetComponent<PlayerInput>().enabled = false;
+            GetComponent<PlayerInput>().enabled = true;
+        }
+
         user = GetComponent<PlayerInput>().user;
     }
 

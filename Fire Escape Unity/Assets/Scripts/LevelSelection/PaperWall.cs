@@ -5,11 +5,13 @@
 * Attach to "Newspaper wall" (Interactable Level selection game object)
 * Assign players to script
 * Assign Canvas to levelSelectUI
+* Assign to "On-Click" interaction for corresponding buttons.
 * Get within range, determined via public variable: interactableDistace
 * Press the use key to interact with the object to load the level select scene
 */
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PaperWall : MonoBehaviour
 {
@@ -60,6 +62,13 @@ public class PaperWall : MonoBehaviour
             levelSelectUI.SetActive(false);
         }
 
+    }
+
+    // Button Interaction to select a level.
+    public void OpenLevel(string name)
+    {
+        SceneManager.LoadScene(name);
+        Debug.Log("Loading: " + name);
     }
     
 }
