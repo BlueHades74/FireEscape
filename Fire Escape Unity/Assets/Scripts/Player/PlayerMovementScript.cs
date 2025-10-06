@@ -1,10 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovementScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     [SerializeField]
-    private float playerMoveSpeed;
+    private float playerMoveSpeed = 10f;
+
+    private float originalMoveSpeed = 10f;
 
     private Rigidbody2D rb;
 
@@ -13,82 +19,48 @@ public class PlayerMovementScript : MonoBehaviour
     private Vector2 facingDirection;
 
     private SpriteRenderer playerSprite;
-
-    [SerializeField] Sprite[] sprites;
-
+    [SerializeField] private Sprite[] sprites;
     private int spriteIndex = 0;
 
     public Vector2 FacingDirection { get => facingDirection; }
+    public float PlayerMoveSpeed { get => playerMoveSpeed; }
 
     public AudioSource footstepAudioSource;
+
+    private bool canMove = true;
+
+    private Vector2 moveInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //Set our variables
         rb = GetComponent<Rigidbody2D>();
+        originalMoveSpeed = playerMoveSpeed;
         playerSprite = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
     {
         // Play the footstep sound if the player is moving
-        if (!rb.linearVelocity.Equals(Vector2.zero))
+        if (rb.linearVelocity != Vector2.zero)
         {
-            footstepAudioSource.enabled = true;
-        } else
-        {
-            footstepAudioSource.enabled = false;
-        }
-    }
-
-    /// <summary>
-    /// When the object is enabled we need to subscribe to the required events
-    /// </summary>
-    public void OnEnable()
-    {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Movement.performed += OnPlayerMovement;
-            inputs.InputActions.Player.P1Movement.canceled += OnPlayerMovement;
+            if (footstepAudioSource != null && !footstepAudioSource.isPlaying)
+                footstepAudioSource.Play();
         }
         else
         {
-            inputs.InputActions.Player.P2Movement.performed += OnPlayerMovement;
-            inputs.InputActions.Player.P2Movement.canceled += OnPlayerMovement;
+            if (footstepAudioSource != null && footstepAudioSource.isPlaying)
+                footstepAudioSource.Stop();
         }
     }
+
 
     /// <summary>
-    /// When disabled we need to unsubscribe from the events.
+    /// This sets a direction that the user is facing.
     /// </summary>
-    public void OnDisable()
-    {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Movement.performed -= OnPlayerMovement;
-            inputs.InputActions.Player.P1Movement.canceled -= OnPlayerMovement;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Movement.performed -= OnPlayerMovement;
-            inputs.InputActions.Player.P2Movement.canceled -= OnPlayerMovement;
-        }
-    }
-
-    /// <summary>
-    /// Has the player move.
-    /// </summary>
-    /// <param name="context"></param>
-    private void OnPlayerMovement(InputAction.CallbackContext context)
-    {
-        SetFacingDirection(context.ReadValue<Vector2>(), spriteIndex);
-        rb.linearVelocity = context.ReadValue<Vector2>() * playerMoveSpeed;
-    }
-
-    private void SetFacingDirection (Vector2 direction, int spriteIndex)
+    /// <param name="direction"></param>
+    private void SetFacingDirection(Vector2 direction)
     {
         if (direction != Vector2.zero)
         {
@@ -99,28 +71,38 @@ public class PlayerMovementScript : MonoBehaviour
             // Use the direction vector to set sprite index
             if (direction.x < 0)
             {
-                spriteIndex = 1;
-            } else if (direction.x > 0)
+                spriteIndex = 1; // Left
+            }
+            else if (direction.x > 0)
             {
-                spriteIndex = 2;
-            } else if (direction.y < 0)
+                spriteIndex = 2; // Right
+            }
+            else if (direction.y < 0)
             {
-                spriteIndex = 0;
-            } else if (direction.y > 0)
+                spriteIndex = 0; // Down
+            }
+            else if (direction.y > 0)
             {
-                spriteIndex = 3;
-            } else
+                spriteIndex = 3; // Up
+            }
+            else
             {
                 spriteIndex = 0;
             }
 
-            // set sprite index for player
-            playerSprite.sprite = sprites[spriteIndex];
+            // Set sprite index for player
+            if (sprites != null && sprites.Length > spriteIndex)
+                playerSprite.sprite = sprites[spriteIndex];
 
             Debug.Log(facingDirection);
         }
     }
 
+    /// <summary>
+    /// This does the math to choose a facing direction.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     private static Vector2 TurnVectorIntoSingleDirection(Vector2 direction)
     {
         float difference = Mathf.Abs(direction.x) - Mathf.Abs(direction.y);
@@ -129,7 +111,6 @@ public class PlayerMovementScript : MonoBehaviour
             case (> 0):
                 direction.x = Mathf.Sign(direction.x) * 1;
                 direction.y = 0;
-                
                 break;
 
             case (0):
@@ -150,10 +131,54 @@ public class PlayerMovementScript : MonoBehaviour
             case (< 0):
                 direction.x = 0;
                 direction.y = Mathf.Sign(direction.y) * 1;
-                
                 break;
         }
 
         return direction;
+    }
+
+    /// <summary>
+    /// Changes the movement speed by multiplying the original with some other value
+    /// </summary>
+    /// <param name="multiplier"></param>
+    public void SetMovementByOriginalTimesParameter(float multiplier)
+    {
+        playerMoveSpeed = originalMoveSpeed * multiplier;
+    }
+
+    /// <summary>
+    /// Changes the movement speed by adding the original with some other value
+    /// </summary>
+    public void ResetSpeedMultiplier()
+    {
+        playerMoveSpeed = originalMoveSpeed;
+    }
+
+    /// <summary>
+    /// Control player movement based on player input
+    /// </summary>
+    /// <param name="context"></param>
+    private void OnMovement(InputValue context)
+    {
+        moveInput = context.Get<Vector2>();
+        if (canMove)
+        {
+            SetFacingDirection(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed;
+        }
+    }
+
+    /// <summary>
+    /// Controls whether or not the player can move, restarts movement if they can
+    /// </summary>
+    /// <param name="option"></param>
+    public void CanMove(bool option)
+    {
+        canMove = option;
+        if (canMove)
+        {
+            SetFacingDirection(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed;
+        }
     }
 }

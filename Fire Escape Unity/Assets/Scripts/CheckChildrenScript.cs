@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CheckChildrenScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private int previousChildCount = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,17 +21,21 @@ public class CheckChildrenScript : MonoBehaviour
             previousChildCount = transform.childCount;
             CheckForDoubleObject();
             CheckForActionItem();
+            CheckForNewHeldSprite();
 
         }
     }
 
+    /// <summary>
+    /// Check if the player is carrying more than one item
+    /// </summary>
     private void CheckForDoubleObject()
     {
         int objectcount = 0;
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (gameObject.transform.GetChild(i).tag == "Object")
+            if (gameObject.transform.GetChild(i).tag == "Object" || gameObject.transform.GetChild(i).tag == "NPC")
             {
                 objectcount++;
             }
@@ -41,9 +48,13 @@ public class CheckChildrenScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check to see if the item has an action attached
+    /// </summary>
     private void CheckForActionItem()
     {
         GameObject actionItem = null;
+        GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(1);
         
         try
         {
@@ -62,8 +73,35 @@ public class CheckChildrenScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("No action item");
+            //Debug.Log("No action item");
             GetComponent<PlayerActionScript>().enabled = false;
         }
+    }
+
+    /// <summary>
+    /// Sees if the item has a held sprite.
+    /// </summary>
+    private void CheckForNewHeldSprite()
+    {
+        GameObject item = null;
+
+        try
+        {
+            item = GetComponentInChildren<ObjectManager>().gameObject;
+            if (item.GetComponent<ObjectManager>().ImageUI == null)
+            {
+                item = null;
+            }
+        }
+        catch { }
+
+        if (item == null)
+        {
+            ItemEventsScript.OnItemChanged.Invoke(GetComponent<PlayerInputController>().PlayerIndex + 1, null);
+        }
+        else
+        {
+            ItemEventsScript.OnItemChanged.Invoke(GetComponent<PlayerInputController>().PlayerIndex + 1, item.GetComponent<ObjectManager>().ImageUI);
+        }    
     }
 }

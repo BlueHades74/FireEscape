@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    public static System.Action<ObjectManager> OnHumanRescued;
+    //Created by: 
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private ObjectManager currentlyHeldNPC = null;
     private Transform playerTransform;
     private bool isPlayerNearby = false;
     private bool isHeld = false;
+
+    public bool IsHeld { get => isHeld; }
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
@@ -13,34 +19,56 @@ public class ObjectManager : MonoBehaviour
 
     [SerializeField]
     private string action = null;
-
     [SerializeField]
-    private EventChannel eventChannel;
+    private Sprite imageUI;
+
     public string Action { get => action; }
+    public Sprite ImageUI { get => imageUI; set => imageUI = value; }
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
-
-        
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
     }
 
-    public void OnEnable()
+    private void OnEnable()
     {
-        eventChannel.OnObjectPickedUp += TryTogglePickup;
+        if (PlayerEventSystem.current != null)
+        {
+            PlayerEventSystem.current.OnObjectPickedUp += TryTogglePickup;
+        }
     }
-    public void OnDisable()
-    {
-        eventChannel.OnObjectPickedUp -= TryTogglePickup;
 
+    private void OnDisable()
+    {
+        if (PlayerEventSystem.current != null)
+        {
+            PlayerEventSystem.current.OnObjectPickedUp -= TryTogglePickup;
+        }
+    }
+
+    public void Rescue()
+    {
+        Debug.Log($"[ObjectManager] {name} rescued!");
+        //When a human is rescued this will tell ObjectiveUIManager that a human was saved and increase or decrease the objective count
+        OnHumanRescued?.Invoke(this); //Notify Listeners
+        Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        if (PlayerEventSystem.current != null)
+        {
+            PlayerEventSystem.current.OnObjectPickedUp -= TryTogglePickup;
+        }
     }
 
     private void Update()
     {
         if (isHeld && playerTransform != null)
         {
-            // Follow the player
             transform.position = playerTransform.position + new Vector3(0, 0.2f, 0);
         }
     }
@@ -51,37 +79,45 @@ public class ObjectManager : MonoBehaviour
         {
             if (isHeld)
             {
-                // Drop self
-                isHeld = false;
                 transform.SetParent(null);
                 currentlyHeldNPC = null;
-                spriteRenderer.color = originalColor;
-                Debug.Log($"{name} DROPPED!");
+                if (spriteRenderer != null) 
+                {
+                    spriteRenderer.color = originalColor;
+                }
+                isHeld = false;
             }
             else if (isPlayerNearby && playerTransform != null)
             {
-                // If another NPC is held, drop it first
-                if (currentlyHeldNPC != null)
+                // Drop the NPC
+                if (currentlyHeldNPC != null) 
                 {
                     currentlyHeldNPC.Drop();
                 }
 
-                // Pick up self
-                isHeld = true;
-                spriteRenderer.color = originalColor;
-                transform.SetParent(playerTransform);
-                currentlyHeldNPC = this;
-                Debug.Log($"{name} PICKED UP!");
+                if (playerTransform.gameObject.GetComponent<PlayerMovementScript>().PlayerMoveSpeed > 0)
+                {
+                    isHeld = true;
+                    if (spriteRenderer != null) 
+                    {
+                        spriteRenderer.color = highlightColor;
+                    }
+                    transform.SetParent(playerTransform);
+                    currentlyHeldNPC = this;
+                }
             }
         }
     }
 
     private void Drop()
     {
-        isHeld = false;
         transform.SetParent(null);
         currentlyHeldNPC = null;
-        Debug.Log($"{name} DROPPED (swapped)!");
+        if (spriteRenderer != null) 
+        {
+            spriteRenderer.color = originalColor;
+        }
+        isHeld = false;
     }
 
     public void DropItem()
@@ -91,29 +127,29 @@ public class ObjectManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isHeld)
         {
             isPlayerNearby = true;
-
+            playerTransform = other.transform;
             if (!isHeld && spriteRenderer != null)
             {
-                playerTransform = other.transform;
                 spriteRenderer.color = highlightColor;
             }
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = false;
-
             if (!isHeld && spriteRenderer != null)
+            {
                 spriteRenderer.color = originalColor;
-
+            }
             if (!isHeld)
+            {
                 playerTransform = null;
+            }
         }
     }
 }
