@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    public static System.Action<ObjectManager> OnHumanRescued;
     //Created by: 
     //Last Edited by: Rafael Gonzalez Atiles
 
@@ -49,6 +50,13 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    public void Rescue()
+    {
+        Debug.Log($"[ObjectManager] {name} rescued!");
+        //When a human is rescued this will tell ObjectiveUIManager that a human was saved and increase or decrease the objective count
+        OnHumanRescued?.Invoke(this); //Notify Listeners
+        Destroy(gameObject);
+    }
     private void OnDestroy()
     {
         if (PlayerEventSystem.current != null)
@@ -129,7 +137,6 @@ public class ObjectManager : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

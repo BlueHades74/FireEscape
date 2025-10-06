@@ -21,8 +21,6 @@ public class DebrisPickup : MonoBehaviour
             transform.SetParent(originalParent.transform);
         }
 
-        Debug.Log(originalParent.transform.rotation.z);
-
         if ((originalParent.transform.rotation.z < 0.1 && originalParent.transform.rotation.z > -0.1))
         {
             if (transform.parent.gameObject == originalParent)
