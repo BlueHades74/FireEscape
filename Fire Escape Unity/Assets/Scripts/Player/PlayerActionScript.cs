@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerActionScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private GameObject actionItem;
     private PlayerInputController inputs;
 
@@ -12,10 +15,16 @@ public class PlayerActionScript : MonoBehaviour
     private string action;
 
     [SerializeField]
-    private GameObject rangePrefab;
+    private GameObject waterRangePrefab;
     [SerializeField]
     private GameObject waterColliderPrefab;
     private GameObject waterRangeDisplay;
+
+    [SerializeField]
+    private GameObject extinguisherRangePrefab;
+    [SerializeField]
+    private GameObject extinguisherColliderPrefab;
+    private GameObject extinguisherRangeDisplay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,39 +52,18 @@ public class PlayerActionScript : MonoBehaviour
             case ("2PDebris"):
                 Debris2PHave(); 
                 break;
+
+            case ("Extinguisher"):
+                ExtinguisherHave();
+                break;
         }
     }
 
     /// <summary>
-    /// Subscribing.
-    /// </summary>
-    public void OnEnable()
-    {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Action.performed += OnAction;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Action.performed += OnAction;
-        }
-    }
-
-    /// <summary>
-    /// Unsubscribing.
+    /// Reset variables and destory extra things.
     /// </summary>
     private void OnDisable()
     {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Action.performed -= OnAction;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Action.performed -= OnAction;
-        }
         actionItem = null;
         action = null;
 
@@ -84,13 +72,19 @@ public class PlayerActionScript : MonoBehaviour
             Destroy(waterRangeDisplay);
             waterRangeDisplay = null;
         }
+
+        if (extinguisherRangeDisplay != null)
+        {
+            Destroy(extinguisherRangeDisplay);
+            extinguisherRangeDisplay = null;
+        }
     }
 
     /// <summary>
     /// Executes an action.
     /// </summary>
     /// <param name="context"></param>
-    private void OnAction(InputAction.CallbackContext context)
+    private void OnAction()
     {
 
         switch (action)
@@ -108,6 +102,9 @@ public class PlayerActionScript : MonoBehaviour
                 LadderUse();
                 break;
 
+            case ("Extinguisher"):
+                ExtinguisherUse();
+                break;
         }
     }
 
@@ -126,8 +123,12 @@ public class PlayerActionScript : MonoBehaviour
             case ("Bucket"):
                 if (actionItem.GetComponent<WaterBucketScript>().IsFilled == true)
                 {
-                    waterRangeDisplay = Instantiate<GameObject>(rangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
                 }
+                break;
+
+            case ("Extinguisher"):
+                extinguisherRangeDisplay = Instantiate<GameObject>(extinguisherRangePrefab, transform.position, Quaternion.identity);
                 break;
         }
     }
@@ -180,7 +181,7 @@ public class PlayerActionScript : MonoBehaviour
                 if (hit.collider.gameObject.tag == "DropOff")
                 {
                     actionItem.GetComponent<WaterBucketScript>().FillBucket();
-                    waterRangeDisplay = Instantiate<GameObject>(rangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
                 }
             }
         }
@@ -210,6 +211,15 @@ public class PlayerActionScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Uses the fire Extinguisher to put out fires
+    /// </summary>
+    private void ExtinguisherUse()
+    {
+        Vector3 childLocation = extinguisherRangeDisplay.transform.GetChild(0).transform.position;
+        Instantiate<GameObject>(extinguisherColliderPrefab, childLocation, Quaternion.identity);
     }
 
     /// <summary>
@@ -257,6 +267,9 @@ public class PlayerActionScript : MonoBehaviour
         GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
     }
 
+    /// <summary>
+    /// Mess with the player movement limits and speed when they are carrying heavy debris together
+    /// </summary>
     private void Debris2PHave()
     {
         GameObject debris = actionItem.GetComponent<DebrisPickup>().OriginalParent;
@@ -300,5 +313,32 @@ public class PlayerActionScript : MonoBehaviour
         }    
 
         transform.position = position;
+    }
+
+    /// <summary>
+    /// Show the player the location the extinguisher will put out
+    /// </summary>
+    private void ExtinguisherHave()
+    {
+        Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+        Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
+
+        extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
+    }
+
+    /// <summary>
+    /// Tell whatever calls the method what the action item is
+    /// </summary>
+    /// <returns></returns>
+    public string ReturnActionString()
+    {
+        if (action != null)
+        {
+            return action;
+        }
+        else
+        {
+            return "null";
+        }
     }
 }

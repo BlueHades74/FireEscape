@@ -1,43 +1,46 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class PlayerInputController : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     [SerializeField]
     private int playerIndex;
 
-    private ControlMap inputActions;
+    private InputUser user;
 
     public int PlayerIndex { get => playerIndex; }
-    public ControlMap InputActions { get => inputActions; }
 
     private void Awake()
     {
-        //Make a input map
-        inputActions = new ControlMap();
+        //Figure out who the user is
+        user = GetComponent<PlayerInput>().user;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    /// <summary>
+    /// Pair a device with this player
+    /// </summary>
+    /// <param name="device"></param>
+    /// <param name="deviceCount"></param>
+    public void PairWithDevice(InputDevice device, int deviceCount)
     {
-        //Enable the scripts that use the control map
-        GetComponent<PlayerMovementScript>().enabled = true;
-        GetComponent<PlayerInteraction>().enabled = true;
-    }
+        InputUser.PerformPairingWithDevice(device, user);
+        GetComponent<PlayerInput>().SwitchCurrentControlScheme(device);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnEnable()
-    {
-        inputActions?.Enable();
-    }
-
-    private void OnDisable()
-    {
-        inputActions?.Disable();
+        if (deviceCount == 1)
+        {
+            if (user.index == 0)
+            {
+                GetComponent<PlayerInput>().SwitchCurrentControlScheme("Keyboard - Left", Keyboard.current);
+            }
+            else
+            {
+                GetComponent<PlayerInput>().SwitchCurrentControlScheme("Keyboard - Right", Keyboard.current);
+            }
+        }
     }
 }

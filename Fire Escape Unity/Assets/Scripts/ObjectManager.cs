@@ -3,6 +3,9 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
     public static System.Action<ObjectManager> OnHumanRescued;
+    //Created by: 
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private ObjectManager currentlyHeldNPC = null;
     private Transform playerTransform;
     private bool isPlayerNearby = false;
@@ -76,16 +79,17 @@ public class ObjectManager : MonoBehaviour
         {
             if (isHeld)
             {
-                isHeld = false;
                 transform.SetParent(null);
                 currentlyHeldNPC = null;
                 if (spriteRenderer != null) 
                 {
                     spriteRenderer.color = originalColor;
                 }
+                isHeld = false;
             }
             else if (isPlayerNearby && playerTransform != null)
             {
+                // Drop the NPC
                 if (currentlyHeldNPC != null) 
                 {
                     currentlyHeldNPC.Drop();
@@ -107,13 +111,13 @@ public class ObjectManager : MonoBehaviour
 
     private void Drop()
     {
-        isHeld = false;
         transform.SetParent(null);
         currentlyHeldNPC = null;
         if (spriteRenderer != null) 
         {
             spriteRenderer.color = originalColor;
         }
+        isHeld = false;
     }
 
     public void DropItem()
@@ -123,7 +127,7 @@ public class ObjectManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isHeld)
         {
             isPlayerNearby = true;
             playerTransform = other.transform;

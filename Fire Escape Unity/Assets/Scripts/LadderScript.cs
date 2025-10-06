@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class LadderScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private Vector3 positionVector;
+
+    private Vector3[] playerLastPosition;
 
     [SerializeField]
     private GameObject[] pickups;
@@ -21,6 +26,7 @@ public class LadderScript : MonoBehaviour
     {
         positionVector = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        playerLastPosition = new Vector3[2];
     }
 
     // Update is called once per frame
@@ -35,7 +41,29 @@ public class LadderScript : MonoBehaviour
             Vector3 object2Position = pickups[1].transform.parent.transform.position;
 
             positionVector = (object1Position + object2Position) / 2;
-            transform.position = positionVector;
+
+            //transform.position = positionVector;
+
+            Vector3 directionForCast = positionVector - transform.position;
+
+            BoxCollider2D bx = GetComponent<BoxCollider2D>();
+
+            //Get Raycast results to do collision
+            RaycastHit2D[] results = new RaycastHit2D[5];
+            if (bx.Cast(directionForCast, results, 0.1f) > 2 && CheckCollisionsForTag(results, "Wall"))
+            {
+                if (results[2].collider.gameObject.tag == "Wall")
+                {
+                    pickups[0].transform.parent.transform.position = playerLastPosition[0];
+                    pickups[1].transform.parent.transform.position = playerLastPosition[1];
+                }
+            }
+            else
+            {
+                playerLastPosition[0] = object1Position;
+                playerLastPosition[1] = object2Position;
+                transform.position = positionVector;
+            }
 
             // Calculate the difference in positions of the pickup points, not the parents.
             // This determines the ladder's orientation based on where its ends are.
@@ -95,5 +123,21 @@ public class LadderScript : MonoBehaviour
 
         holePickups[0].SetActive(false);
         holePickups[1].SetActive(false);
+    }
+
+    private bool CheckCollisionsForTag(RaycastHit2D[] array, string tag)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            try
+            {
+                if (array[i].collider.gameObject.tag == tag)
+                {
+                    return true;
+                }
+            }
+            catch { }
+        }
+        return false;
     }
 }

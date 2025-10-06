@@ -3,7 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private PlayerInputController inputs;
+
+    private bool canPickUp = true;
 
     private void Start()
     {
@@ -14,35 +19,23 @@ public class PlayerInteraction : MonoBehaviour
     {
         
     }
-
-    public void OnEnable()
+    /// <summary>
+    /// Interact with an item based on player input
+    /// </summary>
+    private void OnInteract()
     {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
+        if (canPickUp)
         {
-            inputs.InputActions.Player.P1Interact.performed += Interaction;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Interact.performed += Interaction;
+            PlayerEventSystem.current.ObjectPickedUp(transform.position);
         }
     }
 
-    public void OnDisable()
+    /// <summary>
+    /// Controls whether or not the player can interact
+    /// </summary>
+    public void CanPickUp(bool option)
     {
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Interact.performed -= Interaction;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Interact.performed -= Interaction;
-        }
-    }
-
-    private void Interaction(InputAction.CallbackContext context)
-    {
-        PlayerEventSystem.current.ObjectPickedUp(transform.position);
+        canPickUp = option;
     }
 }
 

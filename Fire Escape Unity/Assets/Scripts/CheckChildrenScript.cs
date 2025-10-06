@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CheckChildrenScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     private int previousChildCount = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,7 +35,7 @@ public class CheckChildrenScript : MonoBehaviour
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (gameObject.transform.GetChild(i).tag == "Object")
+            if (gameObject.transform.GetChild(i).tag == "Object" || gameObject.transform.GetChild(i).tag == "NPC")
             {
                 objectcount++;
             }
@@ -70,7 +73,7 @@ public class CheckChildrenScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("No action item");
+            //Debug.Log("No action item");
             GetComponent<PlayerActionScript>().enabled = false;
         }
     }

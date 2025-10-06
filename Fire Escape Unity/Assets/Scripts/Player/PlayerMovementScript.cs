@@ -1,8 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovementScript : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+    //Last Edited by: Rafael Gonzalez Atiles
+
     [SerializeField]
     private float playerMoveSpeed = 10f;
 
@@ -22,6 +26,10 @@ public class PlayerMovementScript : MonoBehaviour
     public float PlayerMoveSpeed { get => playerMoveSpeed; }
 
     public AudioSource footstepAudioSource;
+
+    private bool canMove = true;
+
+    private Vector2 moveInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,52 +55,6 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// When the object is enabled we need to subscribe to the required events
-    /// </summary>
-    public void OnEnable()
-    {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Movement.performed += OnPlayerMovement;
-            inputs.InputActions.Player.P1Movement.canceled += OnPlayerMovement;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Movement.performed += OnPlayerMovement;
-            inputs.InputActions.Player.P2Movement.canceled += OnPlayerMovement;
-        }
-    }
-
-    /// <summary>
-    /// When disabled we need to unsubscribe from the events.
-    /// </summary>
-    public void OnDisable()
-    {
-        inputs = GetComponent<PlayerInputController>();
-        if (inputs.PlayerIndex == 0)
-        {
-            inputs.InputActions.Player.P1Movement.performed -= OnPlayerMovement;
-            inputs.InputActions.Player.P1Movement.canceled -= OnPlayerMovement;
-        }
-        else
-        {
-            inputs.InputActions.Player.P2Movement.performed -= OnPlayerMovement;
-            inputs.InputActions.Player.P2Movement.canceled -= OnPlayerMovement;
-        }
-    }
-
-    /// <summary>
-    /// Has the player move.
-    /// </summary>
-    /// <param name="context"></param>
-    private void OnPlayerMovement(InputAction.CallbackContext context)
-    {
-        Vector2 moveInput = context.ReadValue<Vector2>();
-        SetFacingDirection(moveInput);
-        rb.linearVelocity = moveInput * playerMoveSpeed;
-    }
 
     /// <summary>
     /// This sets a direction that the user is facing.
@@ -190,5 +152,33 @@ public class PlayerMovementScript : MonoBehaviour
     public void ResetSpeedMultiplier()
     {
         playerMoveSpeed = originalMoveSpeed;
+    }
+
+    /// <summary>
+    /// Control player movement based on player input
+    /// </summary>
+    /// <param name="context"></param>
+    private void OnMovement(InputValue context)
+    {
+        moveInput = context.Get<Vector2>();
+        if (canMove)
+        {
+            SetFacingDirection(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed;
+        }
+    }
+
+    /// <summary>
+    /// Controls whether or not the player can move, restarts movement if they can
+    /// </summary>
+    /// <param name="option"></param>
+    public void CanMove(bool option)
+    {
+        canMove = option;
+        if (canMove)
+        {
+            SetFacingDirection(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed;
+        }
     }
 }
