@@ -145,8 +145,9 @@ public class PlayerActionScript : MonoBehaviour
     /// </summary>
     private void AxeUse()
     {
+        LayerMask layerMask = LayerMask.GetMask("Default");
         Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, layerMask);
         Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
 
         if (hit.collider != null)
@@ -230,8 +231,9 @@ public class PlayerActionScript : MonoBehaviour
     /// </summary>
     private void CrowbarUse()
     {
+        LayerMask layerMask = LayerMask.GetMask("Default");
         Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, layerMask);
         Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
 
         Debug.Log(hit.collider);
