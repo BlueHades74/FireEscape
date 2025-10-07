@@ -56,6 +56,10 @@ public class PlayerActionScript : MonoBehaviour
             case ("Extinguisher"):
                 ExtinguisherHave();
                 break;
+
+            case ("1PDebris"):
+                Debris1PHave();
+                break;
         }
     }
 
@@ -343,6 +347,33 @@ public class PlayerActionScript : MonoBehaviour
         Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
 
         extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
+    }
+
+    private void Debris1PHave()
+    {
+        GameObject debris = actionItem.GetComponent<SinglePlayerPushPickUp>().OriginalParent;
+
+        int[] modifier = debris.GetComponent<SinglePlayerPushScript>().SavedModifier;
+
+        Vector3 position = Vector3.zero;
+
+        Debug.Log(debris.transform.position.y - (modifier[1] * 1.1f) + " " + transform.position.y);
+
+        if (modifier[0] != 0)
+        {
+            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - (modifier[0]*1.1f), debris.transform.position.x - (modifier[0]*1.1f));
+            position.y = debris.transform.position.y;
+        }
+        else
+        {
+            //position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - (modifier[1]*1.3f), debris.transform.position.y - (modifier[1]*1.2f));
+            position.y = transform.position.y;
+            position.x = debris.transform.position.x;
+        }
+        Debug.Log(position.x);
+        Debug.Log(position.y);
+
+        transform.position = position;
     }
 
     /// <summary>
