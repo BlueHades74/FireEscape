@@ -101,9 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickups:
-  - {fileID: 2774516926725426859}
-  - {fileID: 9091955099655908761}
-  ladder: {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  originalLadderPickups:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2774516926725426859
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,11 +119,9 @@ GameObject:
   - component: {fileID: 9207529168598746135}
   - component: {fileID: 3877770748330937338}
   - component: {fileID: 295185437072497151}
-  - component: {fileID: 8126703193081818184}
-  - component: {fileID: 5332604483589552479}
   m_Layer: 0
   m_Name: LadderHolePickup
-  m_TagString: Object
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -208,9 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.15686275}
-  action: LadderHoleRemove
-  imageUI: {fileID: -6026398702374445051, guid: 79bfb423a68a38949bf464a8bc46a8c3, type: 3}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  action: 
 --- !u!114 &3877770748330937338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,30 +269,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8126703193081818184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2774516926725426859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 755b9c707101d0744a4a474e919bb71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5332604483589552479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2774516926725426859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6723574561703754220
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2772108500928484468
 Transform:
   m_ObjectHideFlags: 0
@@ -341,11 +316,9 @@ GameObject:
   - component: {fileID: 59090919725722208}
   - component: {fileID: 8606636837602641359}
   - component: {fileID: 1671291494261167790}
-  - component: {fileID: 774791217351339901}
-  - component: {fileID: 7497268793184496920}
   m_Layer: 0
   m_Name: LadderHolePickup (1)
-  m_TagString: Object
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -410,7 +383,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -432,9 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.15686275}
-  action: LadderHoleRemove
-  imageUI: {fileID: -6026398702374445051, guid: 79bfb423a68a38949bf464a8bc46a8c3, type: 3}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  action: 
 --- !u!114 &8606636837602641359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff49cebfeca2de46a28ceb5c91cf039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ladder: {fileID: 2752156762159348173}
+  ladder: {fileID: 0}
 --- !u!61 &1671291494261167790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -494,27 +466,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &774791217351339901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9091955099655908761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 755b9c707101d0744a4a474e919bb71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7497268793184496920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9091955099655908761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
