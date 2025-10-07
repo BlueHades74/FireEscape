@@ -72,10 +72,12 @@ public class PlayerMovementScript : MonoBehaviour
             if (direction.x < 0)
             {
                 spriteIndex = 1; // Left
+                playerSprite.flipX = false;
             }
             else if (direction.x > 0)
             {
-                spriteIndex = 2; // Right
+                spriteIndex = 1; // Right
+                playerSprite.flipX = true;
             }
             else if (direction.y < 0)
             {
@@ -83,7 +85,7 @@ public class PlayerMovementScript : MonoBehaviour
             }
             else if (direction.y > 0)
             {
-                spriteIndex = 3; // Up
+                spriteIndex = 2; // Up
             }
             else
             {
@@ -93,8 +95,6 @@ public class PlayerMovementScript : MonoBehaviour
             // Set sprite index for player
             if (sprites != null && sprites.Length > spriteIndex)
                 playerSprite.sprite = sprites[spriteIndex];
-
-            Debug.Log(facingDirection);
         }
     }
 

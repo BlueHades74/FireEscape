@@ -7,7 +7,8 @@ public class DropOff : MonoBehaviour
         //When this object touchs the object with tag "DropOff" Destory this object
         if (collision.CompareTag("DropOff"))
         {
-            Destroy(gameObject);
+            //Calls the public void within ObjectManager to destroy object and alter the objective count.
+            GetComponent<ObjectManager>()?.Rescue();
         }
     }
 }
