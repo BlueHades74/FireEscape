@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 1843401140971846103}
   - component: {fileID: 5387873949699828455}
   - component: {fileID: 1425658354522952855}
+  - component: {fileID: 673054821861522391}
   m_Layer: 0
   m_Name: DebrisPickup2
   m_TagString: Untagged
@@ -319,6 +320,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7bc7cb2836ec040adcd864e0862881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &673054821861522391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2489450288063998112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7471094303940434408
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +345,7 @@ GameObject:
   - component: {fileID: 7293508000168756897}
   - component: {fileID: 4482527029526690256}
   - component: {fileID: 2530487514288550000}
+  - component: {fileID: 5580970473611597230}
   m_Layer: 0
   m_Name: DebrisPickup1
   m_TagString: Untagged
@@ -480,5 +494,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c7bc7cb2836ec040adcd864e0862881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5580970473611597230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471094303940434408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
