@@ -77,7 +77,10 @@ public class CheckChildrenScript : MonoBehaviour
         {
             Debug.LogWarning("in");
             GetComponent<PlayerActionScript>().enabled = true;
-            GetComponent<PlayerActionScript>().ReceiveActionItem(actionItem);
+            if (GetComponent<PlayerActionScript>().ReturnActionString() != actionItem.GetComponent<ObjectManager>().Action)
+            {
+                GetComponent<PlayerActionScript>().ReceiveActionItem(actionItem);
+            }
         }
         else
         {
