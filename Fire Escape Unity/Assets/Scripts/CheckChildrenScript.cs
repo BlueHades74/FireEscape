@@ -93,7 +93,10 @@ public class CheckChildrenScript : MonoBehaviour
                 item = null;
             }
         }
-        catch { }
+        catch 
+        {
+            item = null;
+        }
 
         if (item == null)
         {
