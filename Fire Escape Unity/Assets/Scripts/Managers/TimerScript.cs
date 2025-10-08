@@ -1,6 +1,10 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEditor.Rendering;
+
+//author : Alex
 public class Timer : MonoBehaviour
 {
     [Header("Component")]
@@ -8,17 +12,21 @@ public class Timer : MonoBehaviour
 
     [Header("Timer Setting")]
     public float currentTime;
-    public bool countDown;
+    public bool countDown = false;
 
     [Header("Timer Limiter")]
-    public bool hasLimit;
-    public float timerLimit;
+    public bool hasLimit = false;
+    public float timerLimit = 0f;
 
     [Header("Timer Format")]
-    public bool hasFormat;
-    public TimerFormat format;
-    private Dictionary<TimerFormat, string> timeFormats = new Dictionary<TimerFormat, string>();
+    public bool hasFormat = true;
+    public TimerFormat format = TimerFormat.Minutes;
+    
 
+    [Header("Load Scene if fail")]
+    public string levelSelectScene = "Firehouse";
+
+    private Dictionary<TimerFormat, string> timeFormats = new Dictionary<TimerFormat, string>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,14 +34,23 @@ public class Timer : MonoBehaviour
         timeFormats.Add(TimerFormat.TenthDecimal, "0.0");
         timeFormats.Add(TimerFormat.HundrethsDecimal, "0.00");
         timeFormats.Add(TimerFormat.Minutes, "{0:00}:{1:00}");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //updates time
         currentTime = countDown ? currentTime - Time.deltaTime : currentTime + Time.deltaTime;
 
-        if (hasLimit && ((countDown && currentTime <= timerLimit) || (!countDown && currentTime >= timerLimit)))
+        if (countDown && currentTime <= 0)
+        {
+            currentTime = 0;
+            timerText.color = Color.red;
+            TimerFailed();
+        }
+        // Stops at 0 and stops from going negative
+        if (hasLimit && !countDown && currentTime >= timerLimit)
         {
             currentTime = timerLimit;
             timerText.color = Color.red;
@@ -41,6 +58,13 @@ public class Timer : MonoBehaviour
         }
 
         SetTimerText();
+    }
+
+    private void TimerFailed()
+    {
+        Debug.Log("timer failed");
+        enabled = false; //stops timer from updating
+        SceneManager.LoadScene(levelSelectScene);
     }
 
     private void SetTimerText()
