@@ -16,14 +16,20 @@ public class CheckChildrenScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.childCount != previousChildCount)
-        {
-            previousChildCount = transform.childCount;
-            CheckForDoubleObject();
-            CheckForActionItem();
-            CheckForNewHeldSprite();
+        //if (transform.childCount != previousChildCount)
+        //{
+        //    previousChildCount = transform.childCount;
+        //    CheckForDoubleObject();
+        //    CheckForActionItem();
+        //    CheckForNewHeldSprite();
 
-        }
+        //}
+
+        previousChildCount = transform.childCount;
+        CheckForDoubleObject();
+        CheckForActionItem();
+        CheckForNewHeldSprite();
+
     }
 
     /// <summary>
@@ -55,6 +61,7 @@ public class CheckChildrenScript : MonoBehaviour
     {
         GameObject actionItem = null;
         GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(1);
+        Debug.LogWarning(1);
         
         try
         {
@@ -68,12 +75,13 @@ public class CheckChildrenScript : MonoBehaviour
 
         if (actionItem != null)
         {
+            Debug.LogWarning("in");
             GetComponent<PlayerActionScript>().enabled = true;
             GetComponent<PlayerActionScript>().ReceiveActionItem(actionItem);
         }
         else
         {
-            //Debug.Log("No action item");
+            Debug.Log("No action item");
             GetComponent<PlayerActionScript>().enabled = false;
         }
     }
