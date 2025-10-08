@@ -106,8 +106,14 @@ public class LadderScript : MonoBehaviour
         holePickups[0].SetActive(true);
         holePickups[1].SetActive(true);
 
-        holePickups[0].transform.position = new Vector3(transform.position.x - 3, transform.position.y);
-        holePickups[1].transform.position = new Vector3(transform.position.x + 3, transform.position.y);
+        if (gameObject.transform.rotation.z > 0.45 || gameObject.transform.rotation.z < -0.45) {
+            holePickups[0].transform.position = new Vector3(transform.position.x, transform.position.y - 3);
+            holePickups[1].transform.position = new Vector3(transform.position.x, transform.position.y + 3);
+        }
+        else {
+            holePickups[0].transform.position = new Vector3(transform.position.x - 3, transform.position.y);
+            holePickups[1].transform.position = new Vector3(transform.position.x + 3, transform.position.y);
+        }
     }
 
     /// <summary>
