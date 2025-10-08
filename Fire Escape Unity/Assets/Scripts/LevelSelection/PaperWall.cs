@@ -36,32 +36,28 @@ public class PaperWall : MonoBehaviour
         float playerOneDistance = Vector2.Distance(transform.position, playerOne.transform.position);
         float playerTwoDistance = Vector2.Distance(transform.position, playerTwo.transform.position);
 
-        // If both players are in range....
-        if (playerOneDistance <= interactableDistance || playerTwoDistance <= interactableDistance)
+        // If the E key is pressed.....
+        if (Input.GetKeyDown(KeyCode.E) && (playerOneDistance <= interactableDistance || playerTwoDistance <= interactableDistance))
         {
+            // Then open the level select UI
+            levelSelectUI.SetActive(true);
+        }
 
-            // If the E key is pressed.....
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                // Then open the level select UI
-                levelSelectUI.SetActive(true);
-            }
-
-            // If the Escape key is pressed....
+        // If the Escape key is pressed....
+        else if (levelSelectUI.activeInHierarchy == true)
+        {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 // Then close the level select UI
                 levelSelectUI.SetActive(false);
             }
-        }
 
-        // If the players arent in range or get too far....
-        else
-        {
-            // Then keep the level select UI closed
-            levelSelectUI.SetActive(false);
+            else if (playerOneDistance > interactableDistance && playerTwoDistance > interactableDistance)
+            {
+                // Then close the level select UI
+                levelSelectUI.SetActive(false);
+            }
         }
-
     }
 
     // Button Interaction to select a level.
@@ -70,5 +66,5 @@ public class PaperWall : MonoBehaviour
         SceneManager.LoadScene(name);
         Debug.Log("Loading: " + name);
     }
-    
+
 }
