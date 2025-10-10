@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6899146982448586827}
   - component: {fileID: 8784349516519969795}
   - component: {fileID: 2960437754170484514}
+  - component: {fileID: 7640925694744183346}
   m_Layer: 0
   m_Name: UnmovableDebris
   m_TagString: Untagged
@@ -134,3 +135,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.87, y: 1.79}
   m_EdgeRadius: 0
+--- !u!114 &7640925694744183346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173372779771458100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a152650e0f2ec4eb73deef453ff6b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipMessage: This seems stuck in it's place

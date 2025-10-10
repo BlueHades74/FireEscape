@@ -5229,7 +5229,7 @@ GameObject:
   - component: {fileID: 2111255034}
   - component: {fileID: 2111255033}
   m_Layer: 5
-  m_Name: HelpButtonText
+  m_Name: ControlsButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5274,7 +5274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Help
+  m_text: Controls
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41b14729f81dfbc4881e6bf8ec517200, type: 2}
   m_sharedMaterial: {fileID: -3071173805931373261, guid: 41b14729f81dfbc4881e6bf8ec517200, type: 2}
@@ -5410,22 +5410,32 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player 1 Controls
+  m_text: 'Player 1 Keyboard Controls
 
     Movement - WASD
 
     Pickup - E
 
-    Use - F
+    Use
+    - F
 
-    Player
-    2 Controls
+    Player 2 Keyboard Controls
 
     Movement - Arrow Keys
 
-    Pickup - Left Shift
+    Pickup -
+    Left Shift
 
-    Use - / (Slash)'
+    Use - / (Slash)
+
+    Controller Controls
+
+    Movement - Joystick
+
+    Pickup
+    - A
+
+    Use - B'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41b14729f81dfbc4881e6bf8ec517200, type: 2}
   m_sharedMaterial: {fileID: -3071173805931373261, guid: 41b14729f81dfbc4881e6bf8ec517200, type: 2}
