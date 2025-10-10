@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
     
 
     [Header("Load Scene if fail")]
-    public string levelSelectScene = "Firehouse";
+    public string levelSelectScene = "LevelSelector";
 
     private Dictionary<TimerFormat, string> timeFormats = new Dictionary<TimerFormat, string>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
