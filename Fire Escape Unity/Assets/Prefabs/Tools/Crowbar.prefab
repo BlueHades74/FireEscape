@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3262310181765926933}
   - component: {fileID: 7320506474108082139}
   - component: {fileID: 2314125871525944790}
+  - component: {fileID: 3502503642696788551}
   m_Layer: 0
   m_Name: Crowbar
   m_TagString: Object
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 61e127044abd50a46bfbcf2d2675dafe, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 6003113951198659176, guid: 5d22a4b98ffdfaa4a94b6a610fe69ceb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   action: Crowbar
-  imageUI: {fileID: 7482667652216324306, guid: 61e127044abd50a46bfbcf2d2675dafe, type: 3}
+  imageUI: {fileID: 6003113951198659176, guid: 5d22a4b98ffdfaa4a94b6a610fe69ceb, type: 3}
 --- !u!61 &7320506474108082139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.96875, y: 0.859375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -163,3 +164,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3502503642696788551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485416716484430074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a152650e0f2ec4eb73deef453ff6b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipMessage: Use this to break open white blocks!

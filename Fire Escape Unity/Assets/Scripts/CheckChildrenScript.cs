@@ -16,14 +16,18 @@ public class CheckChildrenScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.childCount != previousChildCount)
-        {
-            previousChildCount = transform.childCount;
-            CheckForDoubleObject();
-            CheckForActionItem();
-            CheckForNewHeldSprite();
+        //if (transform.childCount != previousChildCount)
+        //{
+        //    previousChildCount = transform.childCount;
+        //    CheckForDoubleObject();
+        //    CheckForActionItem();
+        //    CheckForNewHeldSprite();
 
-        }
+        //}
+        previousChildCount = transform.childCount;
+        CheckForDoubleObject();
+        CheckForActionItem();
+        CheckForNewHeldSprite();
     }
 
     /// <summary>
@@ -69,7 +73,10 @@ public class CheckChildrenScript : MonoBehaviour
         if (actionItem != null)
         {
             GetComponent<PlayerActionScript>().enabled = true;
-            GetComponent<PlayerActionScript>().ReceiveActionItem(actionItem);
+            if (GetComponent<PlayerActionScript>().ReturnActionString() != actionItem.GetComponent<ObjectManager>().Action)
+            {
+                GetComponent<PlayerActionScript>().ReceiveActionItem(actionItem);
+            }
         }
         else
         {
@@ -93,7 +100,10 @@ public class CheckChildrenScript : MonoBehaviour
                 item = null;
             }
         }
-        catch { }
+        catch 
+        {
+            item = null;
+        }
 
         if (item == null)
         {
