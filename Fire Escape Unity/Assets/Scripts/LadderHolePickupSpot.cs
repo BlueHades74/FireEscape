@@ -21,7 +21,7 @@ public class LadderHolePickupSpot : MonoBehaviour
     void Update()
     {
         //Make sure both pickups are picked up before removing the ladder from the hole
-        if (pickups[0].transform.parent != transform.parent && pickups[1].transform.parent != transform.parent && pickups[0].transform.parent != pickups[1].transform.parent)
+        if (pickups[0].transform.parent != transform.parent && pickups[1].transform.parent != transform.parent && pickups[0].transform.parent != pickups[1].transform.parent && pickups[0].transform.parent != null && pickups[1].transform.parent != null)
         {
             pickups[0].GetComponent<ObjectManager>().DropItem();
             pickups[0].GetComponent<LadderHolePickup>().GoBackToParent();
