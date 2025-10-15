@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8211102347024157662}
   - component: {fileID: 472133709926204704}
   - component: {fileID: 3542450930296832599}
-  - component: {fileID: 2171453678765160678}
   m_Layer: 0
   m_Name: Water Bucket
   m_TagString: Object
@@ -145,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.3125}
+    oldSize: {x: 0.96, y: 0.84}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -177,17 +176,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2171453678765160678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78d9e2d6a13a2043bc7e296514db981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
