@@ -21,13 +21,29 @@ public class PaperWall : MonoBehaviour
     // Desired distance variable
     public float interactableDistance;
 
+    // Interactable Highlight
+    public Color highlightColor = Color.yellow;
+
+    // Sprite Renderer component for the blackboard
+    private SpriteRenderer blackboardSpriteRender;
+
+    // Original Color
+    private Color baseColor;
+
     // Level select UI (canvas)
     public GameObject levelSelectUI;
 
     void Start()
     {
+        // Getting the sprite Renderer component
+        blackboardSpriteRender = GetComponent<SpriteRenderer>();
+
         // Start the level select UI off
         levelSelectUI.SetActive(false);
+
+        // Get the base color
+        baseColor = blackboardSpriteRender.color;
+
     }
 
     void Update()
@@ -36,28 +52,47 @@ public class PaperWall : MonoBehaviour
         float playerOneDistance = Vector2.Distance(transform.position, playerOne.transform.position);
         float playerTwoDistance = Vector2.Distance(transform.position, playerTwo.transform.position);
 
-        // If the E key is pressed.....
-        if (Input.GetKeyDown(KeyCode.E) && (playerOneDistance <= interactableDistance || playerTwoDistance <= interactableDistance))
+        // Activate level select check
+        // Check to see if players are in range of blackboard
+        if ((playerOneDistance <= interactableDistance || playerTwoDistance <= interactableDistance))
         {
-            // Then open the level select UI
-            levelSelectUI.SetActive(true);
-        }
+            // Highlight the blackboard to hint at interactability
+            blackboardSpriteRender.color = highlightColor;
 
-        // If the Escape key is pressed....
+            // Check to see if interact key is pressed
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                // Activate (Open) the level select UI
+                levelSelectUI.SetActive(true);
+            }
+
+        } // Activate level select end
+
+        // Deactivate level select check
+        // Check if the level select is already active
         else if (levelSelectUI.activeInHierarchy == true)
         {
+            // Reset the blackboard to base color
+            blackboardSpriteRender.color = baseColor;
+
+            // Check is escape key is pressed
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                // Then close the level select UI
+                // Disable (close) the level select UI
                 levelSelectUI.SetActive(false);
             }
 
+            // Check to see if the players exit the range of the blackboard
             else if (playerOneDistance > interactableDistance && playerTwoDistance > interactableDistance)
             {
-                // Then close the level select UI
+                // Disable (close) the level select UI
                 levelSelectUI.SetActive(false);
             }
-        }
+        } // Deactive level select check end
+
+        // Default check, 1) Players arent in range. 2) The ui isnt already active.
+        // Disable the highlight
+        else blackboardSpriteRender.color = baseColor; 
     }
 
     // Button Interaction to select a level.
