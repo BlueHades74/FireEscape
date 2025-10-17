@@ -15,17 +15,29 @@ public class UnstuckScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1f, layerMask);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.zero, 1f, layerMask);
 
-        if (hit.collider != null)
+        if (VerifyObstacle(hits))
         {
-            Debug.Log(hit.collider);
-            if (hit.collider.gameObject.tag != "Player" & hit.collider.gameObject.name != gameObject.name & !hit.collider.isTrigger)
+            GameObject nearestPlayer = GetNearestPlayer();
+            transform.position = nearestPlayer.transform.position;
+        }
+    }
+
+    private bool VerifyObstacle(RaycastHit2D[] hits)
+    {
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].collider != null)
             {
-                GameObject nearestPlayer = GetNearestPlayer();
-                transform.position = nearestPlayer.transform.position;
+                if (hits[i].collider.gameObject.tag != "Player" & hits[i].collider.gameObject.name != gameObject.name & !hits[i].collider.isTrigger)
+                {
+                    return true;
+                }
             }
         }
+
+        return false;
     }
 
     private GameObject GetNearestPlayer()
