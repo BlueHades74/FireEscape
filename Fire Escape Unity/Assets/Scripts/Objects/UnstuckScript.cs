@@ -19,6 +19,7 @@ public class UnstuckScript : MonoBehaviour
 
         if (hit.collider != null)
         {
+            Debug.Log(hit.collider);
             if (hit.collider.gameObject.tag != "Player" & hit.collider.gameObject.name != gameObject.name & !hit.collider.isTrigger)
             {
                 GameObject nearestPlayer = GetNearestPlayer();
