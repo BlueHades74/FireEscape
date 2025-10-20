@@ -35,7 +35,7 @@ public class PlayerActionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(action)
+        switch (action)
         {
             case ("Bucket"):
                 BucketHave();
@@ -50,7 +50,7 @@ public class PlayerActionScript : MonoBehaviour
                 break;
 
             case ("2PDebris"):
-                Debris2PHave(); 
+                Debris2PHave();
                 break;
 
             case ("Extinguisher"):
@@ -59,6 +59,11 @@ public class PlayerActionScript : MonoBehaviour
 
             case ("1PDebris"):
                 Debris1PHave();
+                break;
+
+            // Added by: Jacob Biles to cover default/unimplemented items
+            default:
+                //Debug.Log("No actions have been implemented");
                 break;
         }
     }
@@ -98,7 +103,7 @@ public class PlayerActionScript : MonoBehaviour
                 break;
 
             case ("Bucket"):
-                BucketUse(); 
+                BucketUse();
                 break;
 
             case ("Ladder"):
@@ -111,6 +116,11 @@ public class PlayerActionScript : MonoBehaviour
 
             case ("Crowbar"):
                 CrowbarUse();
+                break;
+
+            // Added by: Jacob Biles to cover default/unimplemented items
+            default:
+                //Debug.Log("No actions have been implemented");
                 break;
         }
     }

@@ -8,14 +8,20 @@ using UnityEngine;
 
 public class NPCBase : MonoBehaviour
 {
+
+    // The sprite to be used
     public Sprite sprite;
+    // The sprite Render component
     private SpriteRenderer npcSpriteRender;
+    // The name of the NPC
     public string npcName;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Get the sprite render component
         npcSpriteRender = GetComponent<SpriteRenderer>();
+        // Assign the sprite to the renderer sprite
         npcSpriteRender.sprite = sprite;
     }
 }
