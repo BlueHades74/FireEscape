@@ -28,10 +28,13 @@ public class SinglePlayerPushPickUp : MonoBehaviour
         {
             transform.SetParent(originalParent.transform);
         }
-
-        if (transform.parent.gameObject == originalParent)
+        else if (transform.parent.gameObject == originalParent)
         {
             transform.localPosition = originalPosition;
+        }
+        else
+        {
+
         }
 
         if (boxCollider.enabled == false)

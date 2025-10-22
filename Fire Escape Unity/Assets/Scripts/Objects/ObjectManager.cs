@@ -21,6 +21,8 @@ public class ObjectManager : MonoBehaviour
     private string action = null;
     [SerializeField]
     private Sprite imageUI;
+    [SerializeField]
+    private bool singlePush;
 
     public string Action { get => action; }
     public Sprite ImageUI { get => imageUI; set => imageUI = value; }
@@ -89,21 +91,24 @@ public class ObjectManager : MonoBehaviour
             }
             else if (isPlayerNearby && playerTransform != null)
             {
-                // Drop the NPC
-                if (currentlyHeldNPC != null) 
+                if (singlePush == true & currentlyHeldNPC == false)
                 {
-                    currentlyHeldNPC.Drop();
-                }
-
-                if (playerTransform.gameObject.GetComponent<PlayerMovementScript>().PlayerMoveSpeed > 0)
-                {
-                    isHeld = true;
-                    if (spriteRenderer != null) 
+                    // Drop the NPC
+                    if (currentlyHeldNPC != null)
                     {
-                        spriteRenderer.color = highlightColor;
+                        currentlyHeldNPC.Drop();
                     }
-                    transform.SetParent(playerTransform);
-                    currentlyHeldNPC = this;
+
+                    if (playerTransform.gameObject.GetComponent<PlayerMovementScript>().PlayerMoveSpeed > 0)
+                    {
+                        isHeld = true;
+                        if (spriteRenderer != null)
+                        {
+                            spriteRenderer.color = highlightColor;
+                        }
+                        transform.SetParent(playerTransform);
+                        currentlyHeldNPC = this;
+                    }
                 }
             }
         }
