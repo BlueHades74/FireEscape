@@ -91,24 +91,21 @@ public class ObjectManager : MonoBehaviour
             }
             else if (isPlayerNearby && playerTransform != null)
             {
-                if (singlePush == true & currentlyHeldNPC == false)
+                // Drop the NPC
+                if (currentlyHeldNPC != null)
                 {
-                    // Drop the NPC
-                    if (currentlyHeldNPC != null)
-                    {
-                        currentlyHeldNPC.Drop();
-                    }
+                    currentlyHeldNPC.Drop();
+                }
 
-                    if (playerTransform.gameObject.GetComponent<PlayerMovementScript>().PlayerMoveSpeed > 0)
+                if (playerTransform.gameObject.GetComponent<PlayerMovementScript>().PlayerMoveSpeed > 0)
+                {
+                    isHeld = true;
+                    if (spriteRenderer != null)
                     {
-                        isHeld = true;
-                        if (spriteRenderer != null)
-                        {
-                            spriteRenderer.color = highlightColor;
-                        }
-                        transform.SetParent(playerTransform);
-                        currentlyHeldNPC = this;
+                        spriteRenderer.color = highlightColor;
                     }
+                    transform.SetParent(playerTransform);
+                    currentlyHeldNPC = this;
                 }
             }
         }
