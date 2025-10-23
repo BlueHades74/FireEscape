@@ -9,6 +9,9 @@ public class SinglePlayerPushPickUp : MonoBehaviour
     private Vector3 originalPosition;
     private BoxCollider2D boxCollider;
     private ObjectManager objectManager;
+    private bool held;
+
+    private static bool p1Hold;
 
     public GameObject OriginalParent { get => originalParent; }
 
@@ -31,10 +34,17 @@ public class SinglePlayerPushPickUp : MonoBehaviour
         else if (transform.parent.gameObject == originalParent)
         {
             transform.localPosition = originalPosition;
+
+            if (held == true)
+            {
+                p1Hold = false;
+                held = false;
+            }
         }
         else
         {
-
+            p1Hold = true;
+            held = true;
         }
 
         if (boxCollider.enabled == false)
@@ -44,6 +54,15 @@ public class SinglePlayerPushPickUp : MonoBehaviour
         else
         {
             objectManager.enabled = true;
+        }
+
+        if (p1Hold == true)
+        {
+            boxCollider.excludeLayers = LayerMask.GetMask("Player 1");
+        }
+        else
+        {
+            boxCollider.excludeLayers = LayerMask.GetMask();
         }
     }
 }
