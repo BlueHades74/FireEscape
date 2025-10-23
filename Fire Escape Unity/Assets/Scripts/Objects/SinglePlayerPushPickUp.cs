@@ -10,8 +10,10 @@ public class SinglePlayerPushPickUp : MonoBehaviour
     private BoxCollider2D boxCollider;
     private ObjectManager objectManager;
     private bool held;
+    private string playerName;
 
     private static bool p1Hold;
+    private static bool p2Hold;
 
     public GameObject OriginalParent { get => originalParent; }
 
@@ -37,32 +39,48 @@ public class SinglePlayerPushPickUp : MonoBehaviour
 
             if (held == true)
             {
-                p1Hold = false;
+                SwapPlayerActiveState(playerName, false);
                 held = false;
             }
         }
         else
         {
-            p1Hold = true;
+            playerName = transform.parent.name;
+            SwapPlayerActiveState(playerName, true);
             held = true;
         }
+        
+        boxCollider.excludeLayers = LayerMask.GetMask(GetExclusionMaskNames());
+    }
 
-        if (boxCollider.enabled == false)
+    private void SwapPlayerActiveState(string pName, bool intendedState)
+    {
+        if (pName == "Player 1")
         {
-            objectManager.enabled = false;
+            p1Hold = intendedState;
         }
         else
         {
-            objectManager.enabled = true;
+            p2Hold = intendedState;
+        }
+    }
+
+    private string[] GetExclusionMaskNames()
+    {
+        string[] layerNames = new string[p1Hold.GetHashCode() + p2Hold.GetHashCode()];
+        int index = 0;
+
+        if (p1Hold)
+        {
+            layerNames[index] = "Player 1";
+            index++;
         }
 
-        if (p1Hold == true)
+        if (p2Hold)
         {
-            boxCollider.excludeLayers = LayerMask.GetMask("Player 1");
+            layerNames[index] = "Player 2";
         }
-        else
-        {
-            boxCollider.excludeLayers = LayerMask.GetMask();
-        }
+        
+        return layerNames;
     }
 }
