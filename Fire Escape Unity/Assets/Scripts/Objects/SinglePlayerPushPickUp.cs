@@ -51,6 +51,18 @@ public class SinglePlayerPushPickUp : MonoBehaviour
         }
         
         boxCollider.excludeLayers = LayerMask.GetMask(GetExclusionMaskNames());
+
+        //RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.zero);
+        //bool test = false;
+        //for (int i = 0; i < hits.Length; i++)
+        //{
+            
+        //    if (hits[i].collider != boxCollider && hits[i].collider.gameObject.name.Contains("SinglePlayerPushPickUp") && transform.parent.gameObject == originalParent)
+        //    {
+        //        test = true;
+        //        gameObject.GetComponent<ObjectManager>().enabled = false;
+        //    }
+        //}
     }
 
     private void SwapPlayerActiveState(string pName, bool intendedState)
