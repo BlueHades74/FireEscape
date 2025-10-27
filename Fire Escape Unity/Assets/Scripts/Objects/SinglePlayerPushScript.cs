@@ -40,29 +40,33 @@ public class SinglePlayerPushScript : MonoBehaviour
     {
         if (children.Length > transform.childCount)
         {
-            oldPosition = transform.position;
-            GetComponent<BoxCollider2D>().enabled = false;
-            GameObject missingChild = FindMissingChild();
-
-            int[] modifier = FindModifier(missingChild);
-
-            float difference = missingChild.transform.position.y - transform.position.y;
-
-            Vector3 temp = missingChild.transform.position;
-            temp.x += 1.1f * modifier[0];
-            if (modifier[0] == 0)
+            try
             {
-                temp.x = transform.position.x;
-            }
-            temp.y += 1.1f * modifier[1];
-            if (modifier[1] == 0)
-            {
-                temp.y = transform.position.y;
-            }
-            transform.position = temp;
+                oldPosition = transform.position;
+                GetComponent<BoxCollider2D>().enabled = false;
+                GameObject missingChild = FindMissingChild();
 
-            savedModifier = modifier;
-            Debug.Log(savedModifier[0] + " " + savedModifier[1]);
+                int[] modifier = FindModifier(missingChild);
+
+                float difference = missingChild.transform.position.y - transform.position.y;
+
+                Vector3 temp = missingChild.transform.position;
+                temp.x += 1.1f * modifier[0];
+                if (modifier[0] == 0)
+                {
+                    temp.x = transform.position.x;
+                }
+                temp.y += 1.1f * modifier[1];
+                if (modifier[1] == 0)
+                {
+                    temp.y = transform.position.y;
+                }
+                transform.position = temp;
+
+                savedModifier = modifier;
+                Debug.Log(savedModifier[0] + " " + savedModifier[1]);
+            }
+            catch { }
         }
         else
         {
