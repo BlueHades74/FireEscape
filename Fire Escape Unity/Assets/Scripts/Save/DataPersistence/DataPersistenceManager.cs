@@ -7,10 +7,13 @@ using NUnit.Framework;
 
 public class DataPersistenceManager : MonoBehaviour
 {
+    [Header("File Storage Config")]
+    [SerializeField] private string fileName;
+
     private GameData gameData;
-    // 9:26
     public static DataPersistenceManager instance { get; private set; }
     private List<IDataPersistence> dataPersistenceObjects;
+    private FileDataHandler dataHandler;
 
     private void Awake()
     {
@@ -23,6 +26,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
@@ -34,6 +38,9 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        // load any saved data from a file using the data handler
+        this.gameData = dataHandler.Load();
+
         // TODO - load any save data from a file using the data handler
         // if no data can be loaded, initialize to new game
         if(this.gameData == null)
@@ -51,9 +58,14 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
-        // TODO - pass data to other scripts so they can update it
+        // pass data to other scripts so they can update it
+        foreach(IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        {
+            dataPersistenceObj.SaveData(gameData);
+        }
 
-        // TODO - save data to a file using the data handler
+        // save data to a file using the data handler
+        dataHandler.Save(gameData);
     }
 
     private void OnApplicationQuit()
