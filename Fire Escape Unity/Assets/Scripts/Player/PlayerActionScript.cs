@@ -14,11 +14,15 @@ public class PlayerActionScript : MonoBehaviour
 
     private string action;
 
+    private bool holdCheck;
+
     [SerializeField]
     private GameObject waterRangePrefab;
     [SerializeField]
     private GameObject waterColliderPrefab;
     private GameObject waterRangeDisplay;
+
+    private float crowbarTimer;
 
     [SerializeField]
     private GameObject extinguisherRangePrefab;
@@ -66,6 +70,15 @@ public class PlayerActionScript : MonoBehaviour
                 //Debug.Log("No actions have been implemented");
                 break;
         }
+
+        if (holdCheck == true && action == "Crowbar")
+        {
+            CrowbarUse();
+        }
+        else
+        {
+            crowbarTimer = 3;
+        }
     }
 
     /// <summary>
@@ -93,36 +106,40 @@ public class PlayerActionScript : MonoBehaviour
     /// Executes an action.
     /// </summary>
     /// <param name="context"></param>
-    private void OnAction()
+    private void OnAction(InputValue context)
     {
-
-        switch (action)
+        Debug.LogWarning(context.isPressed);
+        if (context.isPressed == true)
         {
-            case ("Axe"):
-                AxeUse();
-                break;
+            switch (action)
+            {
+                case ("Axe"):
+                    AxeUse();
+                    break;
 
-            case ("Bucket"):
-                BucketUse();
-                break;
+                case ("Bucket"):
+                    BucketUse();
+                    break;
 
-            case ("Ladder"):
-                LadderUse();
-                break;
+                case ("Ladder"):
+                    LadderUse();
+                    break;
 
-            case ("Extinguisher"):
-                ExtinguisherUse();
-                break;
+                case ("Extinguisher"):
+                    ExtinguisherUse();
+                    break;
 
-            case ("Crowbar"):
-                CrowbarUse();
-                break;
+                //case ("Crowbar"):
+                //    CrowbarUse();
+                //    break;
 
-            // Added by: Jacob Biles to cover default/unimplemented items
-            default:
-                //Debug.Log("No actions have been implemented");
-                break;
+                // Added by: Jacob Biles to cover default/unimplemented items
+                default:
+                    //Debug.Log("No actions have been implemented");
+                    break;
+            }
         }
+        holdCheck = context.isPressed;
     }
 
     /// <summary>
@@ -252,7 +269,15 @@ public class PlayerActionScript : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "CrowbarObject")
             {
-                hit.collider.gameObject.SetActive(false);
+                if (crowbarTimer > 0)
+                {
+                    crowbarTimer -= Time.deltaTime;
+                    Debug.LogWarning(crowbarTimer);
+                }
+                else
+                {
+                    hit.collider.gameObject.SetActive(false);
+                }
             }
         }
     }
