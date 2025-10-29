@@ -164,7 +164,7 @@ public class PlayerActionScript : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "BreakableObject")
             {
-                hit.collider.gameObject.SetActive(false);
+                hit.collider.gameObject.GetComponent<BreakableObjectScript>().DamageBreakable();
             }
         }
     }
