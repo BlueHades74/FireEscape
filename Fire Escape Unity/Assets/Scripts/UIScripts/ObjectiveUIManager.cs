@@ -2,12 +2,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 //Author Alex
 public class ObjectiveUIManger : MonoBehaviour
 {
     [Header("Scene")]
-    public string levelSelectSceneName = "LevelSelector";
+    public string levelSelectSceneName = "Firehouse";
+
+    [Header("Current Level Name")]
+    [Tooltip("Name of the current level make sure this matches the level unlock manager ")]
+    public string currentLevelName = "TutorialLevel";
+
+    [Header("Next Level Name")]
+    [Tooltip("Name of the next level that will unlock based on completion of current level")]
+    public string nextLevelName = "Level1";
+
+
     //Affects the object in the scene so you can set specific variables for the text
     [SerializeField] private TextMeshProUGUI objectiveText;
     //For each level will have number of total humans such as 0/4 and then per saved human 1/4 etc
@@ -40,12 +51,25 @@ public class ObjectiveUIManger : MonoBehaviour
 
         if (savedHumans >= totalHumans)
         {
-            SceneManager.LoadScene(levelSelectSceneName);
+            if (LevelUnlockManager.Instance != null)
+            {
+                //unlock this level this is pretty much just a fail safe incase the save data doesnt unlock it
+                LevelUnlockManager.Instance.UnlockLevel(currentLevelName);
+
+                // Unlock next level so it appears in the hub
+                LevelUnlockManager.Instance.UnlockLevel(nextLevelName);
+            }
         }
     }
     
     private void UpdateObjectiveUI()
     {
         objectiveText.text = $"Objectives: {savedHumans}/{totalHumans}";
+    }
+
+    private System.Collections.IEnumerator ReturnToLevelSelect()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(levelSelectSceneName);
     }
 }
