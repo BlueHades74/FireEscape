@@ -14876,6 +14876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSelectSceneName: LevelSelector
+  currentLevelName: TutorialLevel
+  nextLevelName: Level1
   objectiveText: {fileID: 437232384}
 --- !u!224 &2086369426
 RectTransform:
@@ -15463,6 +15465,22 @@ PrefabInstance:
     - target: {fileID: 6899146982448586827, guid: ff7a2f8ed25dabd4fbc293e26214df6d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784349516519969795, guid: ff7a2f8ed25dabd4fbc293e26214df6d, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784349516519969795, guid: ff7a2f8ed25dabd4fbc293e26214df6d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784349516519969795, guid: ff7a2f8ed25dabd4fbc293e26214df6d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 665296737169092475, guid: 771e2900d7208754cbf5fb5c9224490d, type: 3}
+    - target: {fileID: 8784349516519969795, guid: ff7a2f8ed25dabd4fbc293e26214df6d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

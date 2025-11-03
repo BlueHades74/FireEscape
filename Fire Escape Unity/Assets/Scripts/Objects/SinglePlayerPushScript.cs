@@ -51,7 +51,6 @@ public class SinglePlayerPushScript : MonoBehaviour
                 GetComponent<BoxCollider2D>().enabled = false;
                 GameObject missingChild = FindMissingChild();
 
-                
 
                 int[] modifier = FindModifier(missingChild);
 
@@ -177,7 +176,7 @@ public class SinglePlayerPushScript : MonoBehaviour
     private bool RunCollisionCheck(int[] mod, Vector3 temp)
     {
         Vector2 dir = new Vector2(mod[0], mod[1]);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, dir, 1f, LayerMask.GetMask("Default"));
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, dir, 0.5f, LayerMask.GetMask("Default"));
 
         Debug.DrawRay(transform.position, dir);
 
