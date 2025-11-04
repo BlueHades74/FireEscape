@@ -187,6 +187,7 @@ public class SinglePlayerPushScript : MonoBehaviour
                 if (hits[i].collider.isTrigger == false)
                 {
                     Debug.Log(hits[i].collider.gameObject.name);
+                    Debug.LogWarning(hits[i].distance);
                     return true;
                 }
             }

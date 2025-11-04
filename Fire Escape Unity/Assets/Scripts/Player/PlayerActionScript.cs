@@ -158,6 +158,7 @@ public class PlayerActionScript : MonoBehaviour
                 if (actionItem.GetComponent<WaterBucketScript>().IsFilled == true)
                 {
                     waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
                 break;
 
@@ -193,9 +194,10 @@ public class PlayerActionScript : MonoBehaviour
     {
         if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
         {
-            for (int i = 0; i < waterRangeDisplay.transform.childCount; i++)
+            Vector3[] tiles = waterRangeDisplay.GetComponent<WaterBucketRangeScript>().ReturnItemLocations();
+            for (int i = 0; i < tiles.Length; i++)
             {
-                var childLocation = waterRangeDisplay.transform.GetChild(i).transform.position;
+                var childLocation = tiles[i];
                 Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
             }
             actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
@@ -213,6 +215,7 @@ public class PlayerActionScript : MonoBehaviour
                 {
                     actionItem.GetComponent<WaterBucketScript>().FillBucket();
                     waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
             }
         }
