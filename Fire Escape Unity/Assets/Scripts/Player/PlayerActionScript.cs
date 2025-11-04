@@ -77,7 +77,7 @@ public class PlayerActionScript : MonoBehaviour
         }
         else
         {
-            crowbarTimer = 3;
+            crowbarTimer = 2;
         }
     }
 
@@ -108,7 +108,6 @@ public class PlayerActionScript : MonoBehaviour
     /// <param name="context"></param>
     private void OnAction(InputValue context)
     {
-        Debug.LogWarning(context.isPressed);
         if (context.isPressed == true)
         {
             switch (action)
