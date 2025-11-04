@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class SinglePlayerPushScript : MonoBehaviour
 {
+    //Created by Rafael Gonzalez Atiles
+    //Last Edited by Rafael Gonzalez Atiles
+
     private GameObject[] children;
     private GameObject[] verticalChildren;
     private GameObject[] horizontalChildren;
@@ -20,6 +23,7 @@ public class SinglePlayerPushScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Finds the children and assigns them
         children = new GameObject[transform.childCount];
 
         for (int i = 0; i < children.Length; i++)
@@ -38,6 +42,7 @@ public class SinglePlayerPushScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Handles maovement of cube and setting of modifier when x is pressec
         if (children.Length > transform.childCount)
         {
             try
@@ -45,6 +50,7 @@ public class SinglePlayerPushScript : MonoBehaviour
                 oldPosition = transform.position;
                 GetComponent<BoxCollider2D>().enabled = false;
                 GameObject missingChild = FindMissingChild();
+
 
                 int[] modifier = FindModifier(missingChild);
 
@@ -61,7 +67,10 @@ public class SinglePlayerPushScript : MonoBehaviour
                 {
                     temp.y = transform.position.y;
                 }
-                transform.position = temp;
+                if (!RunCollisionCheck(modifier, temp))
+                {
+                    transform.position = temp;
+                }
 
                 savedModifier = modifier;
                 Debug.Log(savedModifier[0] + " " + savedModifier[1]);
@@ -75,6 +84,9 @@ public class SinglePlayerPushScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Separates children based on position
+    /// </summary>
     private void SplitChildren()
     {
         int v = 0;
@@ -94,6 +106,10 @@ public class SinglePlayerPushScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Figures out which child the player has
+    /// </summary>
+    /// <returns></returns>
     private GameObject FindMissingChild()
     {
         GameObject activeChild = null;
@@ -115,6 +131,11 @@ public class SinglePlayerPushScript : MonoBehaviour
         return activeChild;
     }
 
+    /// <summary>
+    /// Calculates the modifier
+    /// </summary>
+    /// <param name="missingChild"></param>
+    /// <returns></returns>
     private int[] FindModifier(GameObject missingChild)
     {
         int[] modifier = { 0, 0 };
@@ -140,6 +161,9 @@ public class SinglePlayerPushScript : MonoBehaviour
         return modifier;
     }
 
+    /// <summary>
+    /// Reactivates all children
+    /// </summary>
     private void activateAllChildren()
     {
         for (int i = 0; i < children.Length; i++)
@@ -147,5 +171,27 @@ public class SinglePlayerPushScript : MonoBehaviour
             children[i].GetComponent<SpriteRenderer>().enabled = true;
             children[i].GetComponent<BoxCollider2D>().enabled = true;
         }
+    }
+
+    private bool RunCollisionCheck(int[] mod, Vector3 temp)
+    {
+        Vector2 dir = new Vector2(mod[0], mod[1]);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, dir, 0.5f, LayerMask.GetMask("Default"));
+
+        Debug.DrawRay(transform.position, dir);
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i] == true)
+            {
+                if (hits[i].collider.isTrigger == false)
+                {
+                    Debug.Log(hits[i].collider.gameObject.name);
+                    Debug.LogWarning(hits[i].distance);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
