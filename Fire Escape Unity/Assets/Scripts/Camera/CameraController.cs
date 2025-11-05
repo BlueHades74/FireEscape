@@ -16,9 +16,6 @@ public class SplitScreenController : MonoBehaviour
     void Update()
     {
 
-        Vector3 playerOnePos = Camera.main.WorldToViewportPoint(playerOne.position);
-        Vector3 playerTwoPos = Camera.main.WorldToViewportPoint(playerTwo.position);
-
         float playerDifference = Vector2.Distance(transform.position, playerOne.transform.position) - Vector2.Distance(transform.position, playerTwo.transform.position);
 
         if (playerDifference > splitDifference)
