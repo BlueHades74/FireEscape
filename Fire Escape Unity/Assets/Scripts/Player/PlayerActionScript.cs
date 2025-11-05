@@ -266,7 +266,6 @@ public class PlayerActionScript : MonoBehaviour
         Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
 
         Debug.Log(hit.collider);
-        
 
         if (hit.collider != null)
         {
