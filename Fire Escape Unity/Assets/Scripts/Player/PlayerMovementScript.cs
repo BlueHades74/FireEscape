@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovementScript : MonoBehaviour
 {
     //Created by: Rafael Gonzalez Atiles
-    //Last Edited by: Rafael Gonzalez Atiles
+    //Last Edited by: Brian "Blue Guy" McLatchie
 
     [SerializeField]
     private float playerMoveSpeed = 10f;
@@ -18,6 +18,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private Vector2 facingDirection;
 
+    [SerializeField] private Animator animator;
     private SpriteRenderer playerSprite;
     [SerializeField] private Sprite[] sprites;
     private int spriteIndex = 0;
@@ -69,32 +70,55 @@ public class PlayerMovementScript : MonoBehaviour
             facingDirection = direction;
 
             // Use the direction vector to set sprite index
+            // Now using animator for player movement
             if (direction.x < 0)
             {
-                spriteIndex = 1; // Left
-                playerSprite.flipX = false;
+                //spriteIndex = 1; // Left
+                //playerSprite.flipX = false;
+                animator.SetBool("isRightRun", false);
+                animator.SetBool("isDownRun", false);
+                animator.SetBool("isUpRun", false);
+                animator.SetBool("isLeftRun", true); // Left
             }
             else if (direction.x > 0)
             {
-                spriteIndex = 1; // Right
-                playerSprite.flipX = true;
+                //spriteIndex = 1; // Right
+                //playerSprite.flipX = true;
+                animator.SetBool("isLeftRun", false);
+                animator.SetBool("isDownRun", false);
+                animator.SetBool("isUpRun", false);
+                animator.SetBool("isRightRun", true); // Right
             }
             else if (direction.y < 0)
             {
-                spriteIndex = 0; // Down
+                //spriteIndex = 0; // Down
+                animator.SetBool("isLeftRun", false);
+                animator.SetBool("isRightRun", false);
+                animator.SetBool("isUpRun", false);
+                animator.SetBool("isDownRun", true); // Down
             }
             else if (direction.y > 0)
             {
-                spriteIndex = 2; // Up
-            }
-            else
-            {
-                spriteIndex = 0;
+                //spriteIndex = 2; // Up
+                animator.SetBool("isLeftRun", false);
+                animator.SetBool("isRightRun", false);
+                animator.SetBool("isDownRun", false);
+                animator.SetBool("isUpRun", true); // Up
             }
 
             // Set sprite index for player
-            if (sprites != null && sprites.Length > spriteIndex)
-                playerSprite.sprite = sprites[spriteIndex];
+            //if (sprites != null && sprites.Length > spriteIndex)
+            //    playerSprite.sprite = sprites[spriteIndex];
+        }
+        else
+        {
+            //spriteIndex = 0;
+
+            // set animation to idle
+            animator.SetBool("isLeftRun", false);
+            animator.SetBool("isRightRun", false);
+            animator.SetBool("isDownRun", false);
+            animator.SetBool("isUpRun", false);
         }
     }
 
