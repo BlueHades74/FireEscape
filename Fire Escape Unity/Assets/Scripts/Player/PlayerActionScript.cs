@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerActionScript : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerActionScript : MonoBehaviour
     private GameObject waterRangeDisplay;
 
     private float crowbarTimer;
+    private Image crowbarFillBar;
 
     [SerializeField]
     private GameObject extinguisherRangePrefab;
@@ -33,7 +35,7 @@ public class PlayerActionScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        crowbarFillBar = transform.GetChild(1).transform.GetChild(0).GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -73,11 +75,13 @@ public class PlayerActionScript : MonoBehaviour
 
         if (holdCheck == true && action == "Crowbar")
         {
+            crowbarFillBar.gameObject.SetActive(true);
             CrowbarUse();
         }
         else
         {
-            crowbarTimer = 3;
+            crowbarTimer = 2;
+            crowbarFillBar.gameObject.SetActive(false);
         }
     }
 
@@ -95,6 +99,8 @@ public class PlayerActionScript : MonoBehaviour
             waterRangeDisplay = null;
         }
 
+        crowbarFillBar.gameObject.SetActive(false);
+
         if (extinguisherRangeDisplay != null)
         {
             Destroy(extinguisherRangeDisplay);
@@ -108,7 +114,6 @@ public class PlayerActionScript : MonoBehaviour
     /// <param name="context"></param>
     private void OnAction(InputValue context)
     {
-        Debug.LogWarning(context.isPressed);
         if (context.isPressed == true)
         {
             switch (action)
@@ -158,6 +163,7 @@ public class PlayerActionScript : MonoBehaviour
                 if (actionItem.GetComponent<WaterBucketScript>().IsFilled == true)
                 {
                     waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
                 break;
 
@@ -193,9 +199,10 @@ public class PlayerActionScript : MonoBehaviour
     {
         if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
         {
-            for (int i = 0; i < waterRangeDisplay.transform.childCount; i++)
+            Vector3[] tiles = waterRangeDisplay.GetComponent<WaterBucketRangeScript>().ReturnItemLocations();
+            for (int i = 0; i < tiles.Length; i++)
             {
-                var childLocation = waterRangeDisplay.transform.GetChild(i).transform.position;
+                var childLocation = tiles[i];
                 Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
             }
             actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
@@ -213,6 +220,7 @@ public class PlayerActionScript : MonoBehaviour
                 {
                     actionItem.GetComponent<WaterBucketScript>().FillBucket();
                     waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
             }
         }
@@ -272,7 +280,7 @@ public class PlayerActionScript : MonoBehaviour
                 if (crowbarTimer > 0)
                 {
                     crowbarTimer -= Time.deltaTime;
-                    Debug.LogWarning(crowbarTimer);
+                    crowbarFillBar.fillAmount = (crowbarTimer/2);
                 }
                 else
                 {

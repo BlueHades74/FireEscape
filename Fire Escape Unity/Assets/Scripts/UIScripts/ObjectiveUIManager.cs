@@ -67,7 +67,7 @@ public class ObjectiveUIManger : MonoBehaviour
         objectiveText.text = $"Objectives: {savedHumans}/{totalHumans}";
     }
 
-    private System.Collections.IEnumerator ReturnToLevelSelect()
+    private IEnumerator ReturnToLevelSelect()
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(levelSelectSceneName);
