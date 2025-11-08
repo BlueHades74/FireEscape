@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerActionScript : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerActionScript : MonoBehaviour
     private GameObject waterRangeDisplay;
 
     private float crowbarTimer;
+    private Image crowbarFillBar;
 
     [SerializeField]
     private GameObject extinguisherRangePrefab;
@@ -33,7 +35,7 @@ public class PlayerActionScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        crowbarFillBar = transform.GetChild(1).transform.GetChild(0).GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -73,11 +75,13 @@ public class PlayerActionScript : MonoBehaviour
 
         if (holdCheck == true && action == "Crowbar")
         {
+            crowbarFillBar.gameObject.SetActive(true);
             CrowbarUse();
         }
         else
         {
             crowbarTimer = 2;
+            crowbarFillBar.gameObject.SetActive(false);
         }
     }
 
@@ -94,6 +98,8 @@ public class PlayerActionScript : MonoBehaviour
             Destroy(waterRangeDisplay);
             waterRangeDisplay = null;
         }
+
+        crowbarFillBar.gameObject.SetActive(false);
 
         if (extinguisherRangeDisplay != null)
         {
@@ -274,7 +280,7 @@ public class PlayerActionScript : MonoBehaviour
                 if (crowbarTimer > 0)
                 {
                     crowbarTimer -= Time.deltaTime;
-                    Debug.LogWarning(crowbarTimer);
+                    crowbarFillBar.fillAmount = (crowbarTimer/2);
                 }
                 else
                 {
