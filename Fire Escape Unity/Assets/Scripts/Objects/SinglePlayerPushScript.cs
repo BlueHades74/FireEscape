@@ -17,8 +17,11 @@ public class SinglePlayerPushScript : MonoBehaviour
 
     private Vector3 oldPosition;
 
+    private bool collisionState;
+
     public int[] SavedModifier { get => savedModifier; }
     public Vector3 OldPosition { get => oldPosition; }
+    public bool CollisionState { get => collisionState; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,7 +70,9 @@ public class SinglePlayerPushScript : MonoBehaviour
                 {
                     temp.y = transform.position.y;
                 }
-                if (!RunCollisionCheck(modifier, temp))
+
+                collisionState = RunCollisionCheck(modifier, temp);
+                if (!collisionState)
                 {
                     transform.position = temp;
                 }
