@@ -215,6 +215,11 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Limits where the x and y can go (allows us to have the player move in only one direction)
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
     private Vector2 ClampMove(Vector2 input)
     {
         input.x = Mathf.Clamp(input.x, clampDim[0], clampDim[1]) * Mathf.Sign(input.x);
@@ -223,11 +228,25 @@ public class PlayerMovementScript : MonoBehaviour
         return input;
     }
 
+    /// <summary>
+    /// Changes the settings of the clamp depending on the situation. Runs the movement code again to make sure that it is behaving correctly.
+    /// </summary>
+    /// <param name="horizontalPos"></param>
+    /// <param name="horizontalNeg"></param>
+    /// <param name="verticalPos"></param>
+    /// <param name="verticalNeg"></param>
     public void ChangeClampMoveSettings(int horizontalPos, int horizontalNeg, int verticalPos, int verticalNeg)
     {
         clampDim[0] = Mathf.Clamp(horizontalNeg, -1, 0);
         clampDim[1] = Mathf.Clamp(horizontalPos, 0, 1);
         clampDim[2] = Mathf.Clamp(verticalNeg, -1, 0);
         clampDim[3] = Mathf.Clamp(verticalPos, 0, 1);
+
+        if (canMove)
+        {
+            SetFacingDirection(moveInput);
+            Vector2 modifier = ClampMove(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed * modifier;
+        }
     }
 }
