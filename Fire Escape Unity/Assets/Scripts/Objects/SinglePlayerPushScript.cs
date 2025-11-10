@@ -53,6 +53,7 @@ public class SinglePlayerPushScript : MonoBehaviour
                 oldPosition = transform.position;
                 GetComponent<BoxCollider2D>().enabled = false;
                 GameObject missingChild = FindMissingChild();
+                //GetComponent<BoxCollider2D>().excludeLayers = missingChild.transform.parent.gameObject.layer;
 
 
                 int[] modifier = FindModifier(missingChild);
@@ -85,6 +86,7 @@ public class SinglePlayerPushScript : MonoBehaviour
         else
         {
             GetComponent<BoxCollider2D>().enabled = true;
+            //GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask();
             activateAllChildren();
         }
     }
