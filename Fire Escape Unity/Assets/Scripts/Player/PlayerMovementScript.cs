@@ -32,6 +32,8 @@ public class PlayerMovementScript : MonoBehaviour
 
     private Vector2 moveInput;
 
+    private int[] clampDim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,6 +41,11 @@ public class PlayerMovementScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         originalMoveSpeed = playerMoveSpeed;
         playerSprite = GetComponent<SpriteRenderer>();
+        clampDim = new int[4];
+        clampDim[0] = -1;
+        clampDim[1] = 1;
+        clampDim[2] = -1;
+        clampDim[3] = 1;
     }
 
     void FixedUpdate()
@@ -188,7 +195,8 @@ public class PlayerMovementScript : MonoBehaviour
         if (canMove)
         {
             SetFacingDirection(moveInput);
-            rb.linearVelocity = moveInput * playerMoveSpeed;
+            Vector2 modifier = ClampMove(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed * modifier;
         }
     }
 
@@ -202,7 +210,24 @@ public class PlayerMovementScript : MonoBehaviour
         if (canMove)
         {
             SetFacingDirection(moveInput);
-            rb.linearVelocity = moveInput * playerMoveSpeed;
+            Vector2 modifier = ClampMove(moveInput);
+            rb.linearVelocity = moveInput * playerMoveSpeed * modifier;
         }
+    }
+
+    private Vector2 ClampMove(Vector2 input)
+    {
+        input.x = Mathf.Clamp(input.x, clampDim[0], clampDim[1]) * Mathf.Sign(input.x);
+        input.y = Mathf.Clamp(input.y, clampDim[2], clampDim[3]) * Mathf.Sign(input.y);
+
+        return input;
+    }
+
+    public void ChangeClampMoveSettings(int horizontalPos, int horizontalNeg, int verticalPos, int verticalNeg)
+    {
+        clampDim[0] = Mathf.Clamp(horizontalNeg, -1, 0);
+        clampDim[1] = Mathf.Clamp(horizontalPos, 0, 1);
+        clampDim[2] = Mathf.Clamp(verticalNeg, -1, 0);
+        clampDim[3] = Mathf.Clamp(verticalPos, 0, 1);
     }
 }

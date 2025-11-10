@@ -67,11 +67,11 @@ public class DebrisScript : MonoBehaviour
                 SetCarriedState(false);
                 if (handle1HeldByPlayer && handle1OM != null)
                 {
-                    handle1OM.DropItem();
+                    //handle1OM.DropItem();
                 }
                 if (handle2HeldByPlayer && handle2OM != null)
                 {
-                    handle2OM.DropItem();
+                    //handle2OM.DropItem();
                 }
             }
             else
