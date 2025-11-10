@@ -15,6 +15,7 @@ public class NPCBase : MonoBehaviour
     private SpriteRenderer npcSpriteRender;
     // The name of the NPC
     public string npcName;
+    public string[] npcText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
