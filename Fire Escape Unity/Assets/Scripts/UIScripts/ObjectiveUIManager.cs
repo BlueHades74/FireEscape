@@ -51,6 +51,7 @@ public class ObjectiveUIManger : MonoBehaviour
 
         if (savedHumans >= totalHumans)
         {
+            Debug.Log($"All humans saved in {currentLevelName}, unlocking next level: {nextLevelName}");
             if (LevelUnlockManager.Instance != null)
             {
                 //unlock this level this is pretty much just a fail safe incase the save data doesnt unlock it
@@ -60,7 +61,12 @@ public class ObjectiveUIManger : MonoBehaviour
                 LevelUnlockManager.Instance.UnlockLevel(nextLevelName);
             }
 
-            StartCoroutine(ReturnToLevelSelect()); 
+            else
+            {
+                Debug.LogError("LevelUnlockManager.Instance was null when trying to unlock!");
+            }
+
+                StartCoroutine(ReturnToLevelSelect()); 
         }
     }
     
