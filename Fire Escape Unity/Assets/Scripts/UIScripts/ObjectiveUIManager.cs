@@ -59,6 +59,8 @@ public class ObjectiveUIManger : MonoBehaviour
                 // Unlock next level so it appears in the hub
                 LevelUnlockManager.Instance.UnlockLevel(nextLevelName);
             }
+
+            StartCoroutine(ReturnToLevelSelect()); 
         }
     }
     
