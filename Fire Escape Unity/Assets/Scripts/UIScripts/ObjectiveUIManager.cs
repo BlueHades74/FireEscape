@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 //Author Alex
 public class ObjectiveUIManger : MonoBehaviour
@@ -43,12 +45,35 @@ public class ObjectiveUIManger : MonoBehaviour
         UpdateObjectiveUI();
     }
 
-    private void HandleHumanRescued(ObjectManager human)
+    #if UNITY_EDITOR // only active while testing
+        // Press 'K' to instantly complete level
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("DEBUG: Auto-completing level!");
+            savedHumans = totalHumans;
+            UpdateObjectiveUI();
+    HandleLevelCompletion();
+}
+
+// Press 'H' to simulate rescuing a single human
+if (Input.GetKeyDown(KeyCode.H))
+{
+    Debug.Log("DEBUG: Adding 1 human to saved count!");
+    savedHumans++;
+    UpdateObjectiveUI();
+
+    if (savedHumans >= totalHumans)
+        HandleLevelCompletion();
+}
+#endif
+private void HandleHumanRescued(ObjectManager human)
     {
         //This will increase the count of saved humans when they hit the rescue zone
         savedHumans++;
         UpdateObjectiveUI();
-
+        
+        
+        
         if (savedHumans >= totalHumans)
         {
             Debug.Log($"All humans saved in {currentLevelName}, unlocking next level: {nextLevelName}");
