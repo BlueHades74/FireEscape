@@ -25,6 +25,20 @@ public class QuestNPC : NPCBase
     public GameObject questTarget;
     // The range in which it can be turned in
     public float turnInRange;
+    // The players
+    private GameObject playerOne, playerTwo;
+    private bool hasTalked = false;
+    public bool HasTalked { get => hasTalked; set => hasTalked = value; }
+
+    void Start()
+    {
+         foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (p.name == "Player 1") playerOne = p;
+            else if (p.name == "Player 2") playerTwo = p;
+        }
+        turnInRange = interactableDistace;
+    }
 
     void Update()
     {
@@ -43,6 +57,19 @@ public class QuestNPC : NPCBase
                 Destroy(questTarget);
             }
         }
-        
+
     }
+
+    public (int, bool) isPlayerWithinRange()
+    {
+        float playerOneDistance = Vector2.Distance(transform.position, playerOne.transform.position);
+        float playerTwoDistance = Vector2.Distance(transform.position, playerTwo.transform.position);
+
+        if (playerOneDistance < interactableDistace) return (1, true);
+        else if (playerTwoDistance < interactableDistace) return (2, true);
+        return (0, false);
+
+    }
+    
 }
+
