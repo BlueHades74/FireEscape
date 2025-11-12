@@ -64,7 +64,6 @@ public class QuestNPC : NPCBase
     {
         float playerOneDistance = Vector2.Distance(transform.position, playerOne.transform.position);
         float playerTwoDistance = Vector2.Distance(transform.position, playerTwo.transform.position);
-
         if (playerOneDistance < interactableDistace) return (1, true);
         else if (playerTwoDistance < interactableDistace) return (2, true);
         return (0, false);
