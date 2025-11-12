@@ -282,13 +282,23 @@ public class PlayerActionScript : MonoBehaviour
                 if (crowbarTimer > 0)
                 {
                     crowbarTimer -= Time.deltaTime;
-                    crowbarFillBar.fillAmount = (crowbarTimer/2);
+                    crowbarFillBar.fillAmount = (crowbarTimer / 2);
                 }
                 else
                 {
                     hit.collider.gameObject.SetActive(false);
                 }
             }
+            else
+            {
+                crowbarTimer = 2;
+                crowbarFillBar.fillAmount = (crowbarTimer / 2);
+            }
+        }
+        else
+        {
+            crowbarTimer = 2;
+            crowbarFillBar.fillAmount = (crowbarTimer / 2);
         }
     }
 
