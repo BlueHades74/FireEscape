@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.07739544, y: 0.77171874}
+  m_AnchoredPosition: {x: 0.07739544, y: 0.771719}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8140407121594599029
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5263700091366767635}
   - component: {fileID: 8688240650213156226}
   - component: {fileID: 5809967981987880925}
-  - component: {fileID: 8089898838492130083}
+  - component: {fileID: 2417253727437538115}
   m_Layer: 0
   m_Name: NPC Text
   m_TagString: Untagged
@@ -127,7 +127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3149817, y: 0.06173551}
+  m_AnchoredPosition: {x: 0.31498158, y: 0.061735094}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8688240650213156226
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8688240650213156226}
   m_maskType: 0
---- !u!210 &8089898838492130083
+--- !u!210 &2417253727437538115
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,12 +292,12 @@ GameObject:
   - component: {fileID: 6070468753942059591}
   - component: {fileID: 3237739314472995361}
   - component: {fileID: 446316187877014704}
-  - component: {fileID: 4792529422504703913}
-  - component: {fileID: 3092987676642252033}
-  - component: {fileID: 4746769332331033443}
-  - component: {fileID: 2672176413597054964}
+  - component: {fileID: 6055266458176882737}
+  - component: {fileID: 5993694653779349899}
+  - component: {fileID: 842925936016626923}
+  - component: {fileID: 9450600713616259}
   m_Layer: 0
-  m_Name: ChildNPC 3
+  m_Name: AdultNPC_Update 3
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,57 +388,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: NPC_NAME
   npcDialog:
-  - "It\u2019s so hot\u2026 It\u2019s so\u2026 so hot\u2026"
-  - "Woah\u2026 are you\u2026 a real fireman\u2026?"
+  - "Oh! Is that the firemen? I\u2019m over here!!"
+  - D-Do you know a way out?
   playerResponseDialog:
-  - S-Stay away from the flames! I'm coming!
-  - Ey! Don't let ya dogs touch the stuff! I'm coming!
-  - "Uh, I\u2019m a fire-woman! That\u2019s just as cool, right?"
-  - "Darn right! I\u2019m here to save you, kid!"
+  - "S-Stay put, I\u2019ll get you out!"
+  - "Are the flames close? Lemme at \u2018em!"
+  - "Uh- yes! I-I\u2019ll carry you there!"
+  - "Ab-so-lutely! (Unless I got lost again\u2026)"
   interactableDistace: 5
   questTarget: {fileID: 0}
   turnInRange: 3
---- !u!114 &4792529422504703913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828708770912789895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3092987676642252033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828708770912789895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  action: 
-  imageUI: {fileID: 0}
-  singlePush: 0
---- !u!114 &4746769332331033443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828708770912789895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423c6a60a8e90fa4ebc63b2ae0dbc6b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &2672176413597054964
+--- !u!61 &6055266458176882737
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -484,3 +444,43 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.890625, y: 1.125}
   m_EdgeRadius: 0
+--- !u!114 &5993694653779349899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  action: 
+  imageUI: {fileID: 0}
+  singlePush: 0
+--- !u!114 &842925936016626923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9450600713616259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423c6a60a8e90fa4ebc63b2ae0dbc6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

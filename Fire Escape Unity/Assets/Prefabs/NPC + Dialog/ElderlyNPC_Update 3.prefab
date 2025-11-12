@@ -26,7 +26,7 @@ RectTransform:
   m_GameObject: {fileID: 130660175896938071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 5.627643, y: 0.7820672, z: 0.7820672}
+  m_LocalScale: {x: 5.627643, y: 0.7820671, z: 0.7820672}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5263700091366767635}
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.07739544, y: 0.77171874}
+  m_AnchoredPosition: {x: 0.07739735, y: 0.7717196}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8140407121594599029
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5263700091366767635}
   - component: {fileID: 8688240650213156226}
   - component: {fileID: 5809967981987880925}
-  - component: {fileID: 7018773939026746701}
+  - component: {fileID: 9122552986050598077}
   m_Layer: 0
   m_Name: NPC Text
   m_TagString: Untagged
@@ -120,15 +120,15 @@ RectTransform:
   m_GameObject: {fileID: 2631766039694342417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.030640254, y: 0.22048287, z: 0.22048287}
+  m_LocalScale: {x: 0.030640252, y: 0.22048289, z: 0.22048287}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3939881629734969454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3149817, y: 0.061735213}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.31498146, y: 0.06173551}
+  m_SizeDelta: {x: 19, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8688240650213156226
 MeshRenderer:
@@ -222,10 +222,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 38.95
   m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8688240650213156226}
   m_maskType: 0
---- !u!210 &7018773939026746701
+--- !u!210 &9122552986050598077
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,12 +292,12 @@ GameObject:
   - component: {fileID: 6070468753942059591}
   - component: {fileID: 3237739314472995361}
   - component: {fileID: 446316187877014704}
-  - component: {fileID: 2737282744723634775}
-  - component: {fileID: 3167982888979743318}
-  - component: {fileID: 7194794546719594987}
-  - component: {fileID: 6427988241904505277}
+  - component: {fileID: 3277905706655823359}
+  - component: {fileID: 2588388131510899667}
+  - component: {fileID: 7574518496841045345}
+  - component: {fileID: 1817875780440983587}
   m_Layer: 0
-  m_Name: ChildNPC 1
+  m_Name: ElderlyNPC_Update 3
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.79, y: -2.38, z: 7.4603767}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.46873298, y: 0.28097612, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3939881629734969454}
@@ -339,7 +339,7 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -388,29 +388,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: NPC_NAME
   npcDialog:
-  - Mommy! Daddy! Waaah!
-  - Uppies!
+  - "Oh\u2026 my time has finally come\u2026"
+  - "Ah\u2026 thank you, dearie\u2026 you\u2019re wonderful\u2026!"
   playerResponseDialog:
-  - H-Hey! I'm here! It's okay! I'll save you!
-  - A child?! A near-death experience, so early in your life... I'll save you!
-  - ...I mean, I guess this is?????
-  - Uppies!!!
+  - "N-No! I-I\u2019ll save you!"
+  - Not yet, granny! I'm on my way!
+  - "I\u2026 am I\u2026? \u2026Thank you\u2026"
+  - Aww, shucks, granny! Happy to do my part!
   interactableDistace: 5
   questTarget: {fileID: 0}
   turnInRange: 3
---- !u!114 &2737282744723634775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828708770912789895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423c6a60a8e90fa4ebc63b2ae0dbc6b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3167982888979743318
+--- !u!114 &3277905706655823359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,7 +414,7 @@ MonoBehaviour:
   action: 
   imageUI: {fileID: 0}
   singlePush: 0
---- !u!114 &7194794546719594987
+--- !u!114 &2588388131510899667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -438,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &6427988241904505277
+--- !u!61 &7574518496841045345
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -484,3 +472,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.890625, y: 1.125}
   m_EdgeRadius: 0
+--- !u!114 &1817875780440983587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423c6a60a8e90fa4ebc63b2ae0dbc6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
