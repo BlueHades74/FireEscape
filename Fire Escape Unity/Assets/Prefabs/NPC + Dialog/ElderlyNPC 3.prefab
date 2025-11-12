@@ -125,10 +125,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3939881629734969454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.31498146, y: 0.06173551}
-  m_SizeDelta: {x: 20, y: 5}
+  m_SizeDelta: {x: 19, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8688240650213156226
 MeshRenderer:
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 3277905706655823359}
   - component: {fileID: 2588388131510899667}
   - component: {fileID: 7574518496841045345}
+  - component: {fileID: 1817875780440983587}
   m_Layer: 0
   m_Name: ElderlyNPC 3
   m_TagString: NPC
@@ -471,3 +472,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.890625, y: 1.125}
   m_EdgeRadius: 0
+--- !u!114 &1817875780440983587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423c6a60a8e90fa4ebc63b2ae0dbc6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
