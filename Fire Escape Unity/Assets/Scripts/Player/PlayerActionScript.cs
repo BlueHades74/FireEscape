@@ -6,6 +6,12 @@ public class PlayerActionScript : MonoBehaviour
 {
     //Created by: Rafael Gonzalez Atiles
     //Last Edited by: Rafael Gonzalez Atiles
+    //Audio Relate Hoohah added by henry cummings
+    [SerializeField]
+    private AudioSource soundEffectSource;
+
+    [SerializeField]
+    private AudioClip axeChopSound;
 
     private GameObject actionItem;
     private PlayerInputController inputs;
@@ -185,11 +191,13 @@ public class PlayerActionScript : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, layerMask);
         Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
 
+
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.tag == "BreakableObject")
             {
                 hit.collider.gameObject.GetComponent<BreakableObjectScript>().DamageBreakable();
+                soundEffectSource.Play();
             }
         }
     }
