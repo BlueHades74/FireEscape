@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 //Author Alex
 public class ObjectiveUIManger : MonoBehaviour
@@ -43,14 +45,18 @@ public class ObjectiveUIManger : MonoBehaviour
         UpdateObjectiveUI();
     }
 
+
     private void HandleHumanRescued(ObjectManager human)
     {
         //This will increase the count of saved humans when they hit the rescue zone
         savedHumans++;
         UpdateObjectiveUI();
-
+        
+        
+        
         if (savedHumans >= totalHumans)
         {
+            Debug.Log($"All humans saved in {currentLevelName}, unlocking next level: {nextLevelName}");
             if (LevelUnlockManager.Instance != null)
             {
                 //unlock this level this is pretty much just a fail safe incase the save data doesnt unlock it
@@ -60,7 +66,12 @@ public class ObjectiveUIManger : MonoBehaviour
                 LevelUnlockManager.Instance.UnlockLevel(nextLevelName);
             }
 
-            StartCoroutine(ReturnToLevelSelect()); 
+            else
+            {
+                Debug.LogError("LevelUnlockManager.Instance was null when trying to unlock!");
+            }
+
+                StartCoroutine(ReturnToLevelSelect()); 
         }
     }
     
