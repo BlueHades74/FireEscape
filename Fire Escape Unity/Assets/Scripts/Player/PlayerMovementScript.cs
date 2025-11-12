@@ -61,6 +61,7 @@ public class PlayerMovementScript : MonoBehaviour
             if (footstepAudioSource != null && footstepAudioSource.isPlaying)
                 footstepAudioSource.Stop();
         }
+        TryMove();
     }
 
 
@@ -192,12 +193,7 @@ public class PlayerMovementScript : MonoBehaviour
     private void OnMovement(InputValue context)
     {
         moveInput = context.Get<Vector2>();
-        if (canMove)
-        {
-            SetFacingDirection(moveInput);
-            Vector2 modifier = ClampMove(moveInput);
-            rb.linearVelocity = moveInput * playerMoveSpeed * modifier;
-        }
+        TryMove();
     }
 
     /// <summary>
@@ -207,12 +203,7 @@ public class PlayerMovementScript : MonoBehaviour
     public void CanMove(bool option)
     {
         canMove = option;
-        if (canMove)
-        {
-            SetFacingDirection(moveInput);
-            Vector2 modifier = ClampMove(moveInput);
-            rb.linearVelocity = moveInput * playerMoveSpeed * modifier;
-        }
+        TryMove();
     }
 
     /// <summary>
@@ -241,7 +232,11 @@ public class PlayerMovementScript : MonoBehaviour
         clampDim[1] = Mathf.Clamp(horizontalPos, 0, 1);
         clampDim[2] = Mathf.Clamp(verticalNeg, -1, 0);
         clampDim[3] = Mathf.Clamp(verticalPos, 0, 1);
+        TryMove();
+    }
 
+    private void TryMove()
+    {
         if (canMove)
         {
             SetFacingDirection(moveInput);
