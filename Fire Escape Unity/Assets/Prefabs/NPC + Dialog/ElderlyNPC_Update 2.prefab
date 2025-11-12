@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3939881629734969454}
   - component: {fileID: 8140407121594599029}
   m_Layer: 0
-  m_Name: NPC Textbox
+  m_Name: NpC Textbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.07739544, y: 0.771719}
+  m_AnchoredPosition: {x: 0.07739544, y: 0.77171874}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8140407121594599029
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5263700091366767635}
   - component: {fileID: 8688240650213156226}
   - component: {fileID: 5809967981987880925}
-  - component: {fileID: 2417253727437538115}
+  - component: {fileID: 747719828905696095}
   m_Layer: 0
   m_Name: NPC Text
   m_TagString: Untagged
@@ -127,7 +127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.31498158, y: 0.061735094}
+  m_AnchoredPosition: {x: 0.31498158, y: 0.06173551}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8688240650213156226
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8688240650213156226}
   m_maskType: 0
---- !u!210 &2417253727437538115
+--- !u!210 &747719828905696095
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,12 +292,12 @@ GameObject:
   - component: {fileID: 6070468753942059591}
   - component: {fileID: 3237739314472995361}
   - component: {fileID: 446316187877014704}
-  - component: {fileID: 6055266458176882737}
-  - component: {fileID: 5993694653779349899}
-  - component: {fileID: 842925936016626923}
-  - component: {fileID: 9450600713616259}
+  - component: {fileID: 8609398441329129281}
+  - component: {fileID: 910159451766782342}
+  - component: {fileID: 6453610059364967207}
+  - component: {fileID: 233855567668658766}
   m_Layer: 0
-  m_Name: AdultNPC 3
+  m_Name: ElderlyNPC_Update 2
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,26 +388,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: NPC_NAME
   npcDialog:
-  - "Oh! Is that the firemen? I\u2019m over here!!"
-  - D-Do you know a way out?
+  - "Is anyone there? I can\u2019t see a blasted thing!"
+  - "Be gentle, you bluenose! My bones aren\u2019t up to snuff\u2026"
   playerResponseDialog:
-  - "S-Stay put, I\u2019ll get you out!"
-  - "Are the flames close? Lemme at \u2018em!"
-  - "Uh- yes! I-I\u2019ll carry you there!"
-  - "Ab-so-lutely! (Unless I got lost again\u2026)"
+  - I-I'm on my way! Stay put!
+  - Never fear, citizen! I can see just okay!
+  - "S-sorry! I\u2019m new to this\u2026"
+  - "(\u2026am I\u2026 too strong\u2026? Will I crush his bones carrying him\u2026?)"
   interactableDistace: 5
   questTarget: {fileID: 0}
   turnInRange: 3
---- !u!61 &6055266458176882737
-BoxCollider2D:
+--- !u!114 &8609398441329129281
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4828708770912789895}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423c6a60a8e90fa4ebc63b2ae0dbc6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &910159451766782342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -416,35 +425,13 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.890625, y: 1.125}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.890625, y: 1.125}
-  m_EdgeRadius: 0
---- !u!114 &5993694653779349899
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.890625, y: 1.125, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6453610059364967207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,7 +447,7 @@ MonoBehaviour:
   action: 
   imageUI: {fileID: 0}
   singlePush: 0
---- !u!114 &842925936016626923
+--- !u!114 &233855567668658766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -470,17 +457,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9450600713616259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828708770912789895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423c6a60a8e90fa4ebc63b2ae0dbc6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
