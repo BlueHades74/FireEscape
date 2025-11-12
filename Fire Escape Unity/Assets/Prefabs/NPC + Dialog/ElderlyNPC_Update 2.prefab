@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3939881629734969454}
   - component: {fileID: 8140407121594599029}
   m_Layer: 0
-  m_Name: Square
+  m_Name: NpC Textbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,17 +24,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130660175896938071}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 32.636806, y: 4.5355, z: 4.5355}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 5.627643, y: 0.7820672, z: 0.7820672}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5263700091366767635}
+  m_Children:
+  - {fileID: 5263700091366767635}
+  m_Father: {fileID: 6070468753942059591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.28, y: -0.27999997}
-  m_SizeDelta: {x: -19, y: -4}
+  m_AnchoredPosition: {x: 0.07739544, y: 0.77171874}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8140407121594599029
 SpriteRenderer:
@@ -77,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1185707929
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,8 +103,9 @@ GameObject:
   - component: {fileID: 5263700091366767635}
   - component: {fileID: 8688240650213156226}
   - component: {fileID: 5809967981987880925}
+  - component: {fileID: 747719828905696095}
   m_Layer: 0
-  m_Name: NPC Textbox
+  m_Name: NPC Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,17 +118,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2631766039694342417}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 0.17243241, y: 0.17243241, z: 0.17243241}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.030640254, y: 0.22048287, z: 0.22048287}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3939881629734969454}
-  m_Father: {fileID: 6070468753942059591}
+  m_Children: []
+  m_Father: {fileID: 3939881629734969454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.85, y: 0.82}
+  m_AnchoredPosition: {x: 0.31498158, y: 0.06173551}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8688240650213156226
@@ -268,6 +269,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8688240650213156226}
   m_maskType: 0
+--- !u!210 &747719828905696095
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631766039694342417}
+  m_Enabled: 1
+  m_SortingLayerID: -1185707929
+  m_SortingLayer: 7
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
 --- !u!1 &4828708770912789895
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,8 +292,12 @@ GameObject:
   - component: {fileID: 6070468753942059591}
   - component: {fileID: 3237739314472995361}
   - component: {fileID: 446316187877014704}
+  - component: {fileID: 8609398441329129281}
+  - component: {fileID: 910159451766782342}
+  - component: {fileID: 6453610059364967207}
+  - component: {fileID: 233855567668658766}
   m_Layer: 0
-  m_Name: ChildNPC 1
+  m_Name: ElderlyNPC_Update 2
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,11 +312,11 @@ Transform:
   m_GameObject: {fileID: 4828708770912789895}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.79, y: -2.38, z: 7.4603767}
+  m_LocalPosition: {x: -6.79, y: -2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5263700091366767635}
+  - {fileID: 3939881629734969454}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3237739314472995361
@@ -343,9 +360,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1727463069
-  m_SortingLayer: 4
-  m_SortingOrder: 4
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1515839902556753227, guid: 50765070c17a7924898dea1e79d9c789, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -369,16 +386,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6040066365d9224784df1c20957918c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: -8579194870694823066, guid: 161c891a229f09641973cda0ad2d328e, type: 3}
   npcName: NPC_NAME
   npcDialog:
-  - Mommy! Daddy! Waaah!
-  - Uppies!
+  - "Is anyone there? I can\u2019t see a blasted thing!"
+  - "Be gentle, you bluenose! My bones aren\u2019t up to snuff\u2026"
   playerResponseDialog:
-  - H-Hey! I'm here! It's okay! I'll save you!
-  - A child?! A near-death experience, so early in your life... I'll save you!
-  - ...I mean, I guess this is?????
-  - Uppies!!!
+  - I-I'm on my way! Stay put!
+  - Never fear, citizen! I can see just okay!
+  - "S-sorry! I\u2019m new to this\u2026"
+  - "(\u2026am I\u2026 too strong\u2026? Will I crush his bones carrying him\u2026?)"
   interactableDistace: 5
   questTarget: {fileID: 0}
   turnInRange: 3
+--- !u!114 &8609398441329129281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423c6a60a8e90fa4ebc63b2ae0dbc6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &910159451766782342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.890625, y: 1.125, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6453610059364967207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  action: 
+  imageUI: {fileID: 0}
+  singlePush: 0
+--- !u!114 &233855567668658766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828708770912789895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
