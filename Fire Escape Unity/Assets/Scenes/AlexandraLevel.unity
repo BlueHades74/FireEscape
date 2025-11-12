@@ -9391,9 +9391,17 @@ PrefabInstance:
       value: ObjectiveUITextManager
       objectReference: {fileID: 0}
     - target: {fileID: 8532484957241710622, guid: 5623db514f0a30545a0e161c53983c69, type: 3}
+      propertyPath: nextLevelName
+      value: SebastianLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532484957241710622, guid: 5623db514f0a30545a0e161c53983c69, type: 3}
       propertyPath: objectiveText
       value: 
       objectReference: {fileID: 445264803}
+    - target: {fileID: 8532484957241710622, guid: 5623db514f0a30545a0e161c53983c69, type: 3}
+      propertyPath: currentLevelName
+      value: AlexandraLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17570,7 +17578,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 198704905110487873, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
 --- !u!4 &1497888177 stripped
 Transform:
