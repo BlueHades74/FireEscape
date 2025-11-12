@@ -29,8 +29,6 @@ public class QuestNPC : NPCBase
     private GameObject playerOne, playerTwo;
     private bool hasTalked = false;
     public bool HasTalked { get => hasTalked; set => hasTalked = value; }
-    private bool hasBeenGrabbed = false;
-    public bool HasBeenGrabbed { get => hasBeenGrabbed; set => hasBeenGrabbed = value; }
 
     void Start()
     {
