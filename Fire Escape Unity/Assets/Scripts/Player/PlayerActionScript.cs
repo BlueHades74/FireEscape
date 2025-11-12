@@ -10,9 +10,6 @@ public class PlayerActionScript : MonoBehaviour
     [SerializeField]
     private AudioSource soundEffectSource;
 
-    [SerializeField]
-    private AudioClip axeChopSound;
-
     private GameObject actionItem;
     private PlayerInputController inputs;
 
@@ -24,19 +21,28 @@ public class PlayerActionScript : MonoBehaviour
     private bool holdCheck;
 
     [SerializeField]
+    private AudioClip axeChopSound;
+
+    [SerializeField]
     private GameObject waterRangePrefab;
     [SerializeField]
     private GameObject waterColliderPrefab;
     private GameObject waterRangeDisplay;
+    [SerializeField]
+    private AudioClip waterBucketSound;
 
     private float crowbarTimer;
     private Image crowbarFillBar;
+    [SerializeField]
+    private AudioClip crowbarPrySound;
 
     [SerializeField]
     private GameObject extinguisherRangePrefab;
     [SerializeField]
     private GameObject extinguisherColliderPrefab;
     private GameObject extinguisherRangeDisplay;
+    [SerializeField]
+    private AudioClip extinguisherSpraySound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -197,7 +203,7 @@ public class PlayerActionScript : MonoBehaviour
             if (hit.collider.gameObject.tag == "BreakableObject")
             {
                 hit.collider.gameObject.GetComponent<BreakableObjectScript>().DamageBreakable();
-                soundEffectSource.Play();
+                PlayAudio(axeChopSound);
             }
         }
     }
@@ -215,6 +221,7 @@ public class PlayerActionScript : MonoBehaviour
                 var childLocation = tiles[i];
                 Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
             }
+            PlayAudio(waterBucketSound);
             actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
             Destroy(waterRangeDisplay);
         }
@@ -269,6 +276,7 @@ public class PlayerActionScript : MonoBehaviour
     {
         Vector3 childLocation = extinguisherRangeDisplay.transform.GetChild(0).transform.position;
         Instantiate<GameObject>(extinguisherColliderPrefab, childLocation, Quaternion.identity);
+        PlayAudio(extinguisherSpraySound);
     }
 
     /// <summary>
@@ -295,6 +303,7 @@ public class PlayerActionScript : MonoBehaviour
                 else
                 {
                     hit.collider.gameObject.SetActive(false);
+                    PlayAudio(crowbarPrySound);
                 }
             }
             else
@@ -444,6 +453,21 @@ public class PlayerActionScript : MonoBehaviour
         //}
 
         //transform.position = position;
+    }
+
+    /// <summary>
+    /// Plays a Sound
+    /// </summary>
+    /// <param name="clip"></param>
+    private void PlayAudio(AudioClip clip)
+    {
+        if (clip == null)
+        {
+            return;
+        }
+
+        soundEffectSource.clip = clip;
+        soundEffectSource.Play();
     }
 
     /// <summary>
