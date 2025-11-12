@@ -14,23 +14,31 @@ public class TextBoxDialog : MonoBehaviour
 
     void Start()
     {
+        // Get all NPCS
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("NPC")) npcList.Add(n.GetComponent<QuestNPC>());
 
+        // Get all NPC text boxes
         foreach (QuestNPC n in npcList) textBoxList.Add(n.GetComponentInChildren<TextMeshPro>());
 
+        // Deactivate all NPC text boxes
         foreach (TextMeshPro t in textBoxList) t.gameObject.SetActive(false);
 
+        // Get Players
         foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (p.name == "Player 1") playerOne = p;
             else if (p.name == "Player 2") playerTwo = p;
         }
 
-        foreach (Transform c in playerOne.transform)if (c.gameObject.name == "Player 1 Textbox") playerOneTextUI = c.gameObject;
+        // Get player Text Boxes Objects
+        foreach (Transform c in playerOne.transform) if (c.gameObject.name == "Player 1 Textbox") playerOneTextUI = c.gameObject;
         foreach (Transform c in playerTwo.transform) if (c.gameObject.name == "Player 2 Textbox") playerTwoTextUI = c.gameObject;
 
+        // Get player Textmesh
         playerOneText = playerOneTextUI.GetComponent<TextMeshPro>();
         playerTwoText = playerTwoTextUI.GetComponent<TextMeshPro>();
+        
+        // Disable Player Text boxes
         playerOneTextUI.SetActive(false);
         playerTwoTextUI.SetActive(false);
     }
