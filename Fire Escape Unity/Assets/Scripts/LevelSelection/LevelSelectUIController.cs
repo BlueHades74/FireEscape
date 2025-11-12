@@ -21,6 +21,11 @@ public class LevelSelectUIController : MonoBehaviour
         UpdateLevelButtons();
         AssignButtonListeners();
     }
+    private void Start()
+    {
+        // makes sure the buttons load when the scene reloads between levels
+        UpdateLevelButtons();
+    }
 
     //Sets the buttons to active within the hub based on whether or not they are unlocked
     public void UpdateLevelButtons()
