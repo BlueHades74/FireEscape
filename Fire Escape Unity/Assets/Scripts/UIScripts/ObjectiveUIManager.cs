@@ -77,7 +77,7 @@ public class ObjectiveUIManger : MonoBehaviour
     
     private void UpdateObjectiveUI()
     {
-        objectiveText.text = $"Objectives: {savedHumans}/{totalHumans}";
+        objectiveText.text = $"People Rescued: {savedHumans}/{totalHumans}";
     }
 
     private IEnumerator ReturnToLevelSelect()
