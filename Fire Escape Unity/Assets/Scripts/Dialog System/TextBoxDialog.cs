@@ -7,7 +7,7 @@ using UnityEngine;
 // How to use:
 /* OP 1: 
 1. Create questNPC prefab
-    found in >prefabs>dialog&
+    found in > prefabs> dialog
 */
 public class TextBoxDialog : MonoBehaviour
 {
@@ -51,8 +51,6 @@ public class TextBoxDialog : MonoBehaviour
 
     void Update()
     {
-
-
         // Loop through all NPCS in a scence
         for (int i = 0; i < npcList.Count; i++)
         {
