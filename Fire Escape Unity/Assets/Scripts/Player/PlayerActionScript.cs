@@ -24,8 +24,6 @@ public class PlayerActionScript : MonoBehaviour
     private AudioClip axeChopSound;
 
     [SerializeField]
-    private int waterBucketCharges;
-    [SerializeField]
     private GameObject waterRangePrefab;
     [SerializeField]
     private GameObject waterColliderPrefab;
@@ -225,8 +223,8 @@ public class PlayerActionScript : MonoBehaviour
                 Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
             }
             PlayAudio(waterBucketSound);
-            waterBucketCharges--;
-            if (waterBucketCharges <= 0)
+            actionItem.GetComponent<WaterBucketScript>().CurrentCharges--;
+            if (actionItem.GetComponent<WaterBucketScript>().CurrentCharges <= 0)
             {
                 actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
                 Destroy(waterRangeDisplay);
@@ -464,22 +462,6 @@ public class PlayerActionScript : MonoBehaviour
         {
             GetComponent<PlayerMovementScript>().ChangeClampMoveSettings(0, 0, 0, 0);
         }
-
-        //Vector3 position = Vector3.zero;
-
-        //if (modifier[0] != 0)
-        //{
-        //    position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - (modifier[0] * 1.1f), debris.transform.position.x - (modifier[0] * 1.1f));
-        //    position.y = debris.transform.position.y;
-        //}
-        //else
-        //{
-        //    //position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - (modifier[1]*1.3f), debris.transform.position.y - (modifier[1]*1.2f));
-        //    position.y = transform.position.y;
-        //    position.x = debris.transform.position.x;
-        //}
-
-        //transform.position = position;
     }
 
     /// <summary>
