@@ -37,9 +37,9 @@ public class WaterBucketRangeScript : MonoBehaviour
         {
             if (exClosest != null)
             {
-                exClosest.gameObject.SetActive(true);
+                //exClosest.gameObject.SetActive(true);
             }
-            closestChild.gameObject.SetActive(false);
+            //losestChild.gameObject.SetActive(false);
         }
     }
 
@@ -77,7 +77,7 @@ public class WaterBucketRangeScript : MonoBehaviour
     /// <returns></returns>
     public Vector3[] ReturnItemLocations()
     {
-        Vector3[] itemLocations = new Vector3[4];
+        Vector3[] itemLocations = new Vector3[7];
         int a = 0;
 
         for (int i = 0;i < children.Length;i++)

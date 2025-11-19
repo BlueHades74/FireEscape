@@ -8,13 +8,19 @@ public class WaterBucketScript : MonoBehaviour
     private Sprite filledSprite;
     [SerializeField]
     private Sprite emptySprite;
+    [SerializeField]
+    private int fullCharges;
+    [SerializeField]
+    private int currentCharges;
 
     public bool IsFilled { get => isFilled; }
+    public int CurrentCharges { get => currentCharges; set => currentCharges = value; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isFilled = true;
+        currentCharges = fullCharges;
     }
 
     // Update is called once per frame
@@ -40,6 +46,7 @@ public class WaterBucketScript : MonoBehaviour
     public void FillBucket()
     {
         isFilled = true;
+        currentCharges = fullCharges;
         GetComponent<SpriteRenderer>().sprite = filledSprite;
         GetComponent<ObjectManager>().ImageUI = filledSprite;
         ItemEventsScript.OnItemChanged(transform.parent.gameObject.GetComponent<PlayerInputController>().PlayerIndex + 1, filledSprite);

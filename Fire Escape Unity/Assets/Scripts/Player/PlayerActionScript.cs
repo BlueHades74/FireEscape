@@ -30,6 +30,7 @@ public class PlayerActionScript : MonoBehaviour
     private GameObject waterRangeDisplay;
     [SerializeField]
     private AudioClip waterBucketSound;
+    private int waterColliderRotation = 0;
 
     private float crowbarTimer;
     private Image crowbarFillBar;
@@ -222,8 +223,12 @@ public class PlayerActionScript : MonoBehaviour
                 Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
             }
             PlayAudio(waterBucketSound);
-            actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
-            Destroy(waterRangeDisplay);
+            actionItem.GetComponent<WaterBucketScript>().CurrentCharges--;
+            if (actionItem.GetComponent<WaterBucketScript>().CurrentCharges <= 0)
+            {
+                actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
+                Destroy(waterRangeDisplay);
+            }
         }
         else
         {
@@ -326,10 +331,30 @@ public class PlayerActionScript : MonoBehaviour
     {
         if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
         {
-            Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-            Vector3Int waterSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
+            Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x * 0.2f, GetComponent<PlayerMovementScript>().FacingDirection.y * 0.2f, 0);
+            Vector3Int waterSpawnLocation = grid.WorldToCell(transform.position);
+
+            Vector2 direction = GetComponent<PlayerMovementScript>().FacingDirection;
+
+            if (direction.x < 0)
+            {
+                waterColliderRotation = 90;
+            }
+            else if (direction.x > 0)
+            {
+                waterColliderRotation = 270;
+            }
+            else if (direction.y < 0)
+            {
+                waterColliderRotation = 180;
+            }
+            else if (direction.y > 0)
+            {
+                waterColliderRotation = 0;
+            }
 
             waterRangeDisplay.transform.position = grid.CellToWorld(waterSpawnLocation);
+            waterRangeDisplay.transform.rotation = Quaternion.Euler(0, 0, waterColliderRotation);
         }
     }
 
@@ -437,22 +462,6 @@ public class PlayerActionScript : MonoBehaviour
         {
             GetComponent<PlayerMovementScript>().ChangeClampMoveSettings(0, 0, 0, 0);
         }
-
-        //Vector3 position = Vector3.zero;
-
-        //if (modifier[0] != 0)
-        //{
-        //    position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - (modifier[0] * 1.1f), debris.transform.position.x - (modifier[0] * 1.1f));
-        //    position.y = debris.transform.position.y;
-        //}
-        //else
-        //{
-        //    //position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - (modifier[1]*1.3f), debris.transform.position.y - (modifier[1]*1.2f));
-        //    position.y = transform.position.y;
-        //    position.x = debris.transform.position.x;
-        //}
-
-        //transform.position = position;
     }
 
     /// <summary>
@@ -461,6 +470,10 @@ public class PlayerActionScript : MonoBehaviour
     /// <param name="clip"></param>
     private void PlayAudio(AudioClip clip)
     {
+        if(soundEffectSource == null)
+        {
+            return;
+        }
         if (clip == null)
         {
             return;
