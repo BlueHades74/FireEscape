@@ -74,7 +74,7 @@ public class ObjectiveUIManger : MonoBehaviour
 
             //Grab completion data at once you save all people
 
-            LevelResultCache.Data = new LevelCompletionData()
+            LevelResultCache.Data = new LevelResultData()
 
             {
                 levelName = currentLevelName,
@@ -82,9 +82,9 @@ public class ObjectiveUIManger : MonoBehaviour
                 humansSaved = savedHumans,
                 totalHumans = totalHumans,
 
-                fireExtinguishedPercent = FindObjectOfType<FireTracker>()?.GetPercentExtinguished() ?? 0f,
-                bonusCollected = FindObjectOfType<BonusTracker>()?.CollectedCount ?? 0,
-                bonusTotal = FindObjectOfType<BonusTracker>()?.TotalCount ?? 0
+                fireExtinguishedPercent = FireTracker.GetPercentExtinguished(),
+                bonusCollected = BonusTracker.CollectedCount,
+                bonusTotal = BonusTracker.TotalCount
 
             };
 

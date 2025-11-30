@@ -43,7 +43,7 @@ public class ResultUIController : MonoBehaviour
 
         //star 3 bonus collected
 
-        if (d.bonusCollected = d.bonusTotal)
+        if (d.bonusCollected == d.bonusTotal)
             stars++;
 
         return stars;

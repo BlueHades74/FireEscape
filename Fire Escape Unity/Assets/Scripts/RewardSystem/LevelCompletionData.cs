@@ -1,8 +1,6 @@
 using UnityEngine;
 
-public class LevelCompletionData : MonoBehaviour
-{
-    [System.Serializable]
+[System.Serializable]
     public class LevelResultData
     {
         public string levelName;
@@ -20,4 +18,3 @@ public class LevelCompletionData : MonoBehaviour
     {
         public static LevelResultData Data;
     }
-}
