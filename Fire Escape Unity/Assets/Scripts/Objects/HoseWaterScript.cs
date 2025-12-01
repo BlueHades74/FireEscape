@@ -1,27 +1,23 @@
 using UnityEngine;
 
-public class WaterColliderScript : MonoBehaviour
+public class HoseWaterScript : MonoBehaviour
 {
     //Created by: Rafael
     //Last Edited by: Rafael
 
-    private int timer;
+    private HoseNozzleScript hoseScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        hoseScript = transform.parent.transform.parent.GetComponent<HoseNozzleScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer++;
-
-        if (timer > 10)
-        {
-            Destroy(gameObject);
-        }
+        transform.position = transform.parent.position;
+        transform.rotation = transform.parent.rotation;
     }
 
     /// <summary>
@@ -33,7 +29,6 @@ public class WaterColliderScript : MonoBehaviour
         if (collision.gameObject.tag == "Fire")
         {
             collision.gameObject.SetActive(false);
-            Destroy(gameObject);
         }
     }
 }
