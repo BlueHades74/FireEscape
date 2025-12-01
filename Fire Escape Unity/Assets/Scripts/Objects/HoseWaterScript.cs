@@ -16,7 +16,8 @@ public class HoseWaterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = transform.parent.position;
+        transform.rotation = transform.parent.rotation;
     }
 
     /// <summary>
