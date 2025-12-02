@@ -24,7 +24,7 @@ public class PlayerActionScript : MonoBehaviour
     private AudioClip axeChopSound;
 
     [SerializeField]
-    private GameObject waterRangePrefab;
+    private GameObject[] waterRangePrefab;
     [SerializeField]
     private GameObject waterColliderPrefab;
     private GameObject waterRangeDisplay;
@@ -191,7 +191,7 @@ public class PlayerActionScript : MonoBehaviour
             case ("Bucket"):
                 if (actionItem.GetComponent<WaterBucketScript>().IsFilled == true)
                 {
-                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
                     waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
                 break;
@@ -238,10 +238,14 @@ public class PlayerActionScript : MonoBehaviour
             }
             PlayAudio(waterBucketSound);
             actionItem.GetComponent<WaterBucketScript>().CurrentCharges--;
+            Destroy(waterRangeDisplay);
             if (actionItem.GetComponent<WaterBucketScript>().CurrentCharges <= 0)
             {
                 actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
-                Destroy(waterRangeDisplay);
+            }
+            else
+            {
+                waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
             }
         }
         else
@@ -255,7 +259,7 @@ public class PlayerActionScript : MonoBehaviour
                 if (hit.collider.gameObject.tag == "DropOff")
                 {
                     actionItem.GetComponent<WaterBucketScript>().FillBucket();
-                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
                     waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
             }
