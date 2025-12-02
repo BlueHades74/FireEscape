@@ -31,7 +31,7 @@ public class WaterBucketRangeScript : MonoBehaviour
             exClosest = closestChild;
         }
 
-        FindClosest();
+        //FindClosest();
 
         if (exClosest != closestChild || exClosest == null)
         {
