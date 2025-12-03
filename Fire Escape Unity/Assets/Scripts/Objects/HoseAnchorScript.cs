@@ -19,16 +19,19 @@ public class HoseAnchorScript : MonoBehaviour
     {
         if (hoseAnchor.transform.parent != null)
         {
-            if (hoseAnchor.transform.parent.GetComponent<PlayerMovementScript>().FacingDirection.x == 0)
-            {
-                modifiedDistance = new Vector2(distance.y, distance.x) * hoseAnchor.transform.parent.GetComponent<PlayerMovementScript>().FacingDirection;
-            }
-            else
-            {
-                modifiedDistance = distance * hoseAnchor.transform.parent.GetComponent<PlayerMovementScript>().FacingDirection;
-            }
-            transform.position = hoseAnchor.transform.position - new Vector3(modifiedDistance.x, modifiedDistance.y, 0);
+            //if (hoseAnchor.transform.parent.GetComponent<PlayerMovementScript>().FacingDirection.x == 0)
+            //{
+            //    modifiedDistance = new Vector2(distance.y, distance.x) * hoseAnchor.transform.parent.GetComponent<PlayerMovementScript>().FacingDirection;
+            //}
+            //else
+            //{
+            //    modifiedDistance = distance * hoseAnchor.transform.parent.GetComponent<PlayerMovementScript>().FacingDirection;
+            //}
+            //transform.position = hoseAnchor.transform.position - new Vector3(modifiedDistance.x, modifiedDistance.y, 0);
             transform.rotation = hoseAnchor.transform.rotation;
+
+            Vector3 separation = transform.TransformPoint(0, 1, 0) - transform.position;
+            transform.position = hoseAnchor.transform.position - separation;
         }
     }
 }

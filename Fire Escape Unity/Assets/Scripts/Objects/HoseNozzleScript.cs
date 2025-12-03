@@ -59,6 +59,6 @@ public class HoseNozzleScript : MonoBehaviour
             tempRotation = 0;
         }
 
-        transform.rotation = Quaternion.Euler(0, 0, tempRotation);
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.LerpAngle(transform.eulerAngles.z, tempRotation, 0.1f));
     }
 }
