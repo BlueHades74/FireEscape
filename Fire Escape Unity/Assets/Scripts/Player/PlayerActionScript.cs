@@ -48,7 +48,7 @@ public class PlayerActionScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        crowbarFillBar = transform.GetChild(1).transform.GetChild(0).GetComponent<Image>();
+        crowbarFillBar = transform.GetChild(2).transform.GetChild(0).GetComponent<Image>();
     }
 
     // Update is called once per frame
