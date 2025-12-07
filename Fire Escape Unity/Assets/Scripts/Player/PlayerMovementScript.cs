@@ -34,6 +34,10 @@ public class PlayerMovementScript : MonoBehaviour
 
     private int[] clampDim;
 
+    private Vector2 addedVelocity;
+
+    private bool SwitchFacingDirection = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -75,7 +79,10 @@ public class PlayerMovementScript : MonoBehaviour
         {
             direction = TurnVectorIntoSingleDirection(direction);
 
-            facingDirection = direction;
+            if (SwitchFacingDirection)
+            {
+                facingDirection = direction;
+            }
 
             // Use the direction vector to set sprite index
             // Now using animator for player movement
@@ -235,13 +242,23 @@ public class PlayerMovementScript : MonoBehaviour
         TryMove();
     }
 
+    public void ChangeAddedVelocity(Vector2 velocity)
+    {
+        addedVelocity = velocity;
+    }
+
+    public void SwitchFaceDirection(bool willItSwitch)
+    {
+        SwitchFacingDirection = willItSwitch;
+    }
+
     private void TryMove()
     {
         if (canMove)
         {
             SetFacingDirection(moveInput);
             Vector2 modifier = ClampMove(moveInput);
-            rb.linearVelocity = moveInput * playerMoveSpeed * modifier;
+            rb.linearVelocity = moveInput * playerMoveSpeed * modifier + addedVelocity;
         }
     }
 }

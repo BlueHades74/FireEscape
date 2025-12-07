@@ -24,7 +24,7 @@ public class PlayerActionScript : MonoBehaviour
     private AudioClip axeChopSound;
 
     [SerializeField]
-    private GameObject waterRangePrefab;
+    private GameObject[] waterRangePrefab;
     [SerializeField]
     private GameObject waterColliderPrefab;
     private GameObject waterRangeDisplay;
@@ -80,6 +80,14 @@ public class PlayerActionScript : MonoBehaviour
                 Debris1PHave();
                 break;
 
+            case ("Hose"):
+                HoseNozzleHave();
+                break;
+
+            case ("HoseP2Spot"):
+                HoseP2SpotHave();
+                break;
+
             // Added by: Jacob Biles to cover default/unimplemented items
             default:
                 //Debug.Log("No actions have been implemented");
@@ -120,7 +128,9 @@ public class PlayerActionScript : MonoBehaviour
             extinguisherRangeDisplay = null;
         }
 
+        GetComponent<PlayerMovementScript>().ChangeAddedVelocity(Vector2.zero);
         GetComponent<PlayerMovementScript>().ChangeClampMoveSettings(1, -1, 1, -1);
+        GetComponent<PlayerMovementScript>().SwitchFaceDirection(true);
     }
 
     /// <summary>
@@ -147,6 +157,10 @@ public class PlayerActionScript : MonoBehaviour
 
                 case ("Extinguisher"):
                     ExtinguisherUse();
+                    break;
+
+                case ("HoseP2Spot"):
+                    HoseP2SpotUse(); 
                     break;
 
                 //case ("Crowbar"):
@@ -177,7 +191,7 @@ public class PlayerActionScript : MonoBehaviour
             case ("Bucket"):
                 if (actionItem.GetComponent<WaterBucketScript>().IsFilled == true)
                 {
-                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
                     waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
                 break;
@@ -224,10 +238,14 @@ public class PlayerActionScript : MonoBehaviour
             }
             PlayAudio(waterBucketSound);
             actionItem.GetComponent<WaterBucketScript>().CurrentCharges--;
+            Destroy(waterRangeDisplay);
             if (actionItem.GetComponent<WaterBucketScript>().CurrentCharges <= 0)
             {
                 actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
-                Destroy(waterRangeDisplay);
+            }
+            else
+            {
+                waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
             }
         }
         else
@@ -241,7 +259,7 @@ public class PlayerActionScript : MonoBehaviour
                 if (hit.collider.gameObject.tag == "DropOff")
                 {
                     actionItem.GetComponent<WaterBucketScript>().FillBucket();
-                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
                     waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
             }
@@ -322,6 +340,13 @@ public class PlayerActionScript : MonoBehaviour
             crowbarTimer = 2;
             crowbarFillBar.fillAmount = (crowbarTimer / 2);
         }
+    }
+
+    private void HoseP2SpotUse()
+    {
+        HoseP2SpotScript script = actionItem.GetComponent<HoseP2SpotScript>();
+
+        script.SwapModifier();
     }
 
     /// <summary>
@@ -462,6 +487,31 @@ public class PlayerActionScript : MonoBehaviour
         {
             GetComponent<PlayerMovementScript>().ChangeClampMoveSettings(0, 0, 0, 0);
         }
+    }
+
+    private void HoseNozzleHave()
+    {
+        HoseNozzleScript hoseScript =  actionItem.GetComponent<HoseNozzleScript>();
+        PlayerMovementScript moveScript= GetComponent<PlayerMovementScript>();
+
+        Vector2 pushback = moveScript.FacingDirection * -hoseScript.CurrentPushback;
+        moveScript.ChangeAddedVelocity(pushback);
+
+        hoseScript.SetRotation(moveScript.FacingDirection);
+
+        if(hoseScript.CurrentPercentage > 0)
+        {
+            moveScript.SwitchFaceDirection(false);
+        }
+        else
+        {
+            moveScript.SwitchFaceDirection(true);
+        }    
+    }
+
+    private void HoseP2SpotHave()
+    {
+        GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
     }
 
     /// <summary>

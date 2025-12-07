@@ -1,9 +1,10 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
+using Unity.XR.OpenVR;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 //Author Alex
@@ -51,9 +52,9 @@ public class ObjectiveUIManger : MonoBehaviour
         //This will increase the count of saved humans when they hit the rescue zone
         savedHumans++;
         UpdateObjectiveUI();
-        
-        
-        
+
+
+
         if (savedHumans >= totalHumans)
         {
             Debug.Log($"All humans saved in {currentLevelName}, unlocking next level: {nextLevelName}");
@@ -71,7 +72,24 @@ public class ObjectiveUIManger : MonoBehaviour
                 Debug.LogError("LevelUnlockManager.Instance was null when trying to unlock!");
             }
 
-                StartCoroutine(ReturnToLevelSelect()); 
+            //Grab completion data at once you save all people
+
+            LevelResultCache.Data = new LevelResultData()
+
+            {
+                levelName = currentLevelName,
+
+                humansSaved = savedHumans,
+                totalHumans = totalHumans,
+
+                fireExtinguishedPercent = FireTracker.GetPercentExtinguished(),
+                bonusCollected = BonusTracker.CollectedCount,
+                bonusTotal = BonusTracker.TotalCount
+
+            };
+
+            
+                StartCoroutine(ReturnToResultsScene()); 
         }
     }
     
@@ -84,5 +102,11 @@ public class ObjectiveUIManger : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(levelSelectSceneName);
+    }
+
+    private IEnumerator ReturnToResultsScene()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("LevelResultsScene");
     }
 }
