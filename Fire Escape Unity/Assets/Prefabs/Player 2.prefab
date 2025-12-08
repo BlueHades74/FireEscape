@@ -42,6 +42,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1827984391596114452}
   - {fileID: 6929229402151829258}
   - {fileID: 6307724116025508245}
   m_Father: {fileID: 0}
@@ -276,9 +277,9 @@ MonoBehaviour:
   grid: {fileID: 0}
   axeChopSound: {fileID: 8300000, guid: 289f37c2e71a9234db909618fa6b021b, type: 3}
   waterRangePrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4708838206759781574, guid: 4904b11fd629324488581973ed505531, type: 3}
+  - {fileID: 4176684262262862117, guid: 427482605b1a41746ac0fe1d0643d2ef, type: 3}
+  - {fileID: 6077175470507983490, guid: dfb331bb175a9ab408dd31cb3ce71a3d, type: 3}
   waterColliderPrefab: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
   waterBucketSound: {fileID: 8300000, guid: a1ba0433286188445b8cfa737902be0a, type: 3}
   crowbarPrySound: {fileID: 8300000, guid: 8eb6ccc361cec1f41a50812a5e9dc701, type: 3}
@@ -430,6 +431,74 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2852415637091016286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827984391596114452}
+  - component: {fileID: 8471288412208683439}
+  m_Layer: 3
+  m_Name: ParticleKillerP2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1827984391596114452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852415637091016286}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3234076733250909796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8471288412208683439
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852415637091016286}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2
 --- !u!1 &4662012542413972951
 GameObject:
   m_ObjectHideFlags: 0

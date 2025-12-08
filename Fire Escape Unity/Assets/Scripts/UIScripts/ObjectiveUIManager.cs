@@ -107,6 +107,6 @@ public class ObjectiveUIManger : MonoBehaviour
     private IEnumerator ReturnToResultsScene()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("LevelResultsScene");
+        SceneManager.LoadScene("LevelReward");
     }
 }
