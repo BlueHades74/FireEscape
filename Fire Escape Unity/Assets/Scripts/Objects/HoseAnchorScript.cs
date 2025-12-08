@@ -60,5 +60,11 @@ public class HoseAnchorScript : MonoBehaviour
             }
 
         }
+        else
+        {
+            transform.rotation = hoseAnchor.transform.rotation;
+            Vector3 separation = transform.TransformPoint(0, 1, 0) - transform.position;
+            transform.position = hoseAnchor.transform.position - separation;
+        }
     }
 }
