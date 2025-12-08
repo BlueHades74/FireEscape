@@ -48,7 +48,7 @@ public class PlayerActionScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        crowbarFillBar = transform.GetChild(1).transform.GetChild(0).GetComponent<Image>();
+        crowbarFillBar = transform.GetChild(2).transform.GetChild(0).GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -186,6 +186,12 @@ public class PlayerActionScript : MonoBehaviour
 
         action = actionItem.GetComponent<ObjectManager>().Action;
 
+        if (waterRangeDisplay != null)
+        {
+            Destroy(waterRangeDisplay);
+            waterRangeDisplay = null;
+        }
+
         switch (action)
         {
             case ("Bucket"):
@@ -251,7 +257,7 @@ public class PlayerActionScript : MonoBehaviour
         else
         {
             Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, LayerMask.GetMask("Default"));
             Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
 
             if (hit.collider != null)
