@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ResultUIController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ResultUIController : MonoBehaviour
     public Sprite filledStar;
     public Sprite emptyStar;
 
+    private LevelResultData resultData;
     private void Start()
     {
         var data = LevelResultCache.Data;
@@ -51,9 +53,9 @@ public class ResultUIController : MonoBehaviour
 
     void DisplayStars(int stars)
     {
-        Star1.sprite = stars >= 1 ? filledStar : emptyStar;
-        Star2.sprite = stars >= 2 ? filledStar : emptyStar;
-        Star3.sprite = stars >= 3 ? filledStar : emptyStar;
+        if (Star1 != null) Star1.sprite = stars >= 1 ? filledStar : emptyStar;
+        if (Star2 != null) Star2.sprite = stars >= 2 ? filledStar : emptyStar;
+        if (Star3 != null) Star3.sprite = stars >= 3 ? filledStar : emptyStar;
     }
 
 
@@ -64,5 +66,25 @@ public class ResultUIController : MonoBehaviour
         if (stars > current)
             PlayerPrefs.SetInt(levelName + "_Stars", stars);
 
+    }
+    public void ContinueToFirehouse()
+    {
+        SceneManager.LoadScene("Firehouse");
+    }
+
+    public void RetryLevel()
+    {
+        if (resultData == null)
+        {
+            Debug.LogError("No result data found. Retry not possible.");
+            return;
+        }
+
+        SceneManager.LoadScene(resultData.levelName);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
