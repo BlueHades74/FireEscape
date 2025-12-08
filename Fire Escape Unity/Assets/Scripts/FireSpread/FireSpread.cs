@@ -1,6 +1,7 @@
 // Author: Jacob Biles
 // Contact: Sleepless9115 @ discord
 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -14,6 +15,7 @@ public class FireSpread : MonoBehaviour
     private List<Vector3> tilePosList;
     private GameObject[] fireList;
     public GameObject firePrefab;
+    public float waitTime;
     void Start()
     {
 
@@ -38,7 +40,7 @@ public class FireSpread : MonoBehaviour
 
     void Update()
     {
-        spawnFiresWhereMissing();
+        StartCoroutine(spawnFireWithDealy());
     }
 
     void spawnFiresWhereMissing()
@@ -54,7 +56,6 @@ public class FireSpread : MonoBehaviour
             TileBase tile = fireSpreadTilemap.GetTile(cellPos);
 
             if (tile == null) continue;
-
             bool isFireThere = false;
             foreach (GameObject f in fireList)
             {
@@ -74,5 +75,12 @@ public class FireSpread : MonoBehaviour
         }
 
     }
+    
+    IEnumerator spawnFireWithDealy()
+    {
+        yield return new WaitForSeconds(waitTime);
+        spawnFiresWhereMissing();
+    }
+    
 
 }
