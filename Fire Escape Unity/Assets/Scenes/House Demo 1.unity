@@ -2760,11 +2760,11 @@ PrefabInstance:
     - target: {fileID: 704084392135598237, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
       propertyPath: 'TriggerModule.primitives.Array.data[0]'
       value: 
-      objectReference: {fileID: 471634365}
+      objectReference: {fileID: 1126234432}
     - target: {fileID: 704084392135598237, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
       propertyPath: 'TriggerModule.primitives.Array.data[1]'
       value: 
-      objectReference: {fileID: 1077775713}
+      objectReference: {fileID: 1323775154}
     - target: {fileID: 2838322262711786061, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5871,6 +5871,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3234076733250909796, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
   m_PrefabInstance: {fileID: 2142857997}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1126234432 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1897113292927755414, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+  m_PrefabInstance: {fileID: 1599163522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1126952611
 GameObject:
   m_ObjectHideFlags: 0
@@ -6871,6 +6876,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 224097882280048612, guid: b7e80c642afb4b6459a693eeb574f12f, type: 3}
   m_PrefabInstance: {fileID: 1317379438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1323775154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1827984391596114452, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+  m_PrefabInstance: {fileID: 2142857997}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1356157776
 GameObject:
@@ -15226,8 +15236,8 @@ ParticleSystem:
     colliderQueryMode: 0
     radiusScale: 1
     primitives:
-    - {fileID: 471634365}
-    - {fileID: 1077775713}
+    - {fileID: 1126234432}
+    - {fileID: 1323775154}
   SubModule:
     serializedVersion: 2
     enabled: 0
