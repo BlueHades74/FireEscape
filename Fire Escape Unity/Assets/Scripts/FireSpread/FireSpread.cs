@@ -16,9 +16,10 @@ public class FireSpread : MonoBehaviour
     private GameObject[] fireList;
     public GameObject firePrefab;
     public float waitTime;
+    public float spreadChance;
     void Start()
     {
-
+        spreadChance = spreadChance/100;
         fireList = GameObject.FindGameObjectsWithTag("Fire");
 
         fireSpreadTilemap = GameObject.FindGameObjectWithTag("meta").GetComponent<Tilemap>();
@@ -68,19 +69,24 @@ public class FireSpread : MonoBehaviour
             }
             if (!isFireThere)
             {
-                Instantiate(gameObject, worldPos, Quaternion.identity);
-                fireList = GameObject.FindGameObjectsWithTag("Fire");
+                float rng = Random.value;
+                if (rng <= spreadChance)
+                {
+                    Debug.Log("Creating fire");
+                    Instantiate(gameObject, worldPos, Quaternion.identity);
+                    fireList = GameObject.FindGameObjectsWithTag("Fire");
+                }
             }
 
         }
 
     }
-    
+
     IEnumerator spawnFireWithDealy()
     {
         yield return new WaitForSeconds(waitTime);
         spawnFiresWhereMissing();
     }
-    
+
 
 }
