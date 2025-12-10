@@ -87,7 +87,7 @@ public class StaircaseScript : MonoBehaviour
             else
             {
                 //Teleport the entering player
-                tpPos = exitStairs.transform.position + (exitStairs.transform.up * 3);
+                tpPos = exitStairs.transform.position + (exitStairs.transform.up * 2);
                 playerToTP.transform.position = tpPos;
             }
 
