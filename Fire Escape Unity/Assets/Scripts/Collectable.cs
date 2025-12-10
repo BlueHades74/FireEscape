@@ -7,6 +7,7 @@ public class Collectable : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Destroy(gameObject);
+            BonusTracker.RegisterBonusCollected();
         }
     }
 }
