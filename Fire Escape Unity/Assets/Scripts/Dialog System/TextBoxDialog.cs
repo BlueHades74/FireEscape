@@ -13,7 +13,7 @@ public class TextBoxDialog : MonoBehaviour
 {
     private List<QuestNPC> npcList = new List<QuestNPC>();
     private List<TextMeshPro> textBoxList = new List<TextMeshPro>();
-    public GameObject playerOne, playerTwo;
+    private GameObject playerOne, playerTwo;
     private GameObject playerOneTextUI, playerTwoTextUI;
     private TextMeshPro playerOneText, playerTwoText;
     public float waitTime;
@@ -29,6 +29,13 @@ public class TextBoxDialog : MonoBehaviour
         // Deactivate all NPC text boxes
         foreach (TextMeshPro t in textBoxList) t.transform.parent.gameObject.SetActive(false);
 
+        // Get Players
+        foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (p.name == "Player 1") playerOne = p;
+            else if (p.name == "Player 2") playerTwo = p;
+        }
+
         // Get player Text Boxes Objects
         foreach (Transform c in playerOne.transform) if (c.gameObject.name == "Player 1 Textbox") playerOneTextUI = c.gameObject;
         foreach (Transform c in playerTwo.transform) if (c.gameObject.name == "Player 2 Textbox") playerTwoTextUI = c.gameObject;
@@ -40,8 +47,6 @@ public class TextBoxDialog : MonoBehaviour
         // Disable Player Text boxes
         playerOneTextUI.SetActive(false);
         playerTwoTextUI.SetActive(false);
-
-        Debug.LogWarning("Player One: " + playerOne.name);
     }
 
     void Update()
@@ -77,7 +82,7 @@ public class TextBoxDialog : MonoBehaviour
 
                 // Default -- I would be impressed if this ever happened
                 default:
-                    Debug.LogWarning("How did we get here? Well its like because of because of variable data: " + withinRange);
+                    Debug.LogWarning("How did we get here? Well its because of variable data: " + withinRange);
                     break;
             }
         }

@@ -186,12 +186,6 @@ public class PlayerActionScript : MonoBehaviour
 
         action = actionItem.GetComponent<ObjectManager>().Action;
 
-        if (waterRangeDisplay != null)
-        {
-            Destroy(waterRangeDisplay);
-            waterRangeDisplay = null;
-        }
-
         switch (action)
         {
             case ("Bucket"):
