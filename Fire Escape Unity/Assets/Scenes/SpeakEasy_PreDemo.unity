@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSelectSceneName: Firehouse
-  currentLevelName: TutorialLevel
+  currentLevelName: SpeakEasy_PreDemo
   nextLevelName: LoganLevel
   objectiveText: {fileID: 1580674393}
 --- !u!1 &49614412
@@ -6733,6 +6733,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 224097882280048612, guid: b7e80c642afb4b6459a693eeb574f12f, type: 3}
   m_PrefabInstance: {fileID: 272805104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &281809943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281809944}
+  - component: {fileID: 281809946}
+  - component: {fileID: 281809945}
+  m_Layer: 0
+  m_Name: TrackerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &281809944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281809943}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1393591151}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281809945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281809943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f120052acd14d4b8309ccf8b2120e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &281809946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281809943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ad639939a37554a8333167f045a505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &312763137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7174,7 +7231,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &365129032
 Canvas:
   m_ObjectHideFlags: 0
@@ -11304,8 +11361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNames:
   - TutorialLevel
-  - LoganLevel
-  - AlexandraLevel
+  - House Demo 1
+  - SpeakEasy_PreDemo
   - SebastianLevel
   - IsaiahDouglasLevel
   - NicoLevel
@@ -15972,6 +16029,7 @@ Transform:
   - {fileID: 1823038803}
   - {fileID: 2031290478}
   - {fileID: 1830460338}
+  - {fileID: 281809944}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1393800089
