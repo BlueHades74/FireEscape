@@ -36,6 +36,8 @@ public class SplitScreenManager : MonoBehaviour
 
     public float smoothSpeed = 5f; 
 
+    float splitT = 0f;
+
   
 
     bool isSplit = false; 
@@ -51,7 +53,7 @@ public class SplitScreenManager : MonoBehaviour
         EnsureBrain(leftCam); 
 
         EnsureBrain(rightCam); 
-
+ 
   
 
         var leftBrain = leftCam.GetComponent<CinemachineBrain>(); 
@@ -94,106 +96,75 @@ public class SplitScreenManager : MonoBehaviour
 
   
 
-    void Update() 
+    void Update()
+{
+    if (!player1 || !player2) return;
 
-    { 
+    float distance = Vector3.Distance(player1.position, player2.position);
 
-        if (!player1 || !player2) return; 
+    if (!isSplit && distance > splitDistance)
+        isSplit = true;
+    else if (isSplit && distance < mergeDistance)
+        isSplit = false;
 
-  
+    // Smooth progress value
+    float targetT = isSplit ? 1f : 0f;
+    splitT = Mathf.MoveTowards(splitT, targetT, Time.deltaTime * smoothSpeed);
 
-   
+    // Apply split based on progress
+    if (splitT > 0f)
+    {
+        leftCam.enabled = true;
+        rightCam.enabled = true;
 
-        float distance = Vector2.Distance(player1.position, player2.position); 
+        float leftWidth = Mathf.Lerp(1f, 0.5f, splitT);
 
-        if (!isSplit && distance > splitDistance) isSplit = true; 
+        leftCam.rect = new Rect(0f, 0f, leftWidth, 1f);
+        rightCam.rect = new Rect(leftWidth, 0f, 1f - leftWidth, 1f);
+    }
+    else
+    {
+        leftCam.rect = new Rect(0f, 0f, 1f, 1f);
+        rightCam.enabled = false;
+    }
 
-        else if (isSplit && distance < mergeDistance) isSplit = false; 
+    // Cinemachine priorities
+    if (isSplit)
+    {
+        vcamShared.Priority = 5;
+        vcamPlayer1.Priority = 20;
+        vcamPlayer2.Priority = 20;
+    }
+    else
+    {
+        vcamShared.Priority = 20;
+        vcamPlayer1.Priority = 5;
+        vcamPlayer2.Priority = 5;
+    }
 
-  
+    // Shared camera positioning
+    if (vcamShared != null)
+    {
+        Vector3 mid = (player1.position + player2.position) * 0.5f;
+        vcamShared.transform.position = Vector3.Lerp(
+            vcamShared.transform.position,
+            new Vector3(mid.x, mid.y, vcamShared.transform.position.z),
+            Time.deltaTime * smoothSpeed
+        );
+    }
+}
 
-        // smooth viewport width 
-
-        float targetWidth = isSplit ? 0.5f : 1f; 
-
-        float newWidth = Mathf.Lerp(leftCam.rect.width, targetWidth, Time.deltaTime * smoothSpeed); 
-
-  
-
-        if (isSplit) 
-
-        { 
-
-            leftCam.enabled = true; 
-
-            rightCam.enabled = true; 
-
-  
-
-            leftCam.rect = new Rect(0f, 0f, newWidth, 1f); 
-
-            rightCam.rect = new Rect(1f - newWidth, 0f, newWidth, 1f); 
-
-  
-
-            // give player VCams priority on their channels 
-
-            vcamShared.Priority = 5; 
-
-            vcamPlayer1.Priority = 20; 
-
-            vcamPlayer2.Priority = 20; 
-
-        } 
-
-        else 
-
-        { 
-
-            // merged camera 
-
-            leftCam.rect = new Rect(0f, 0f, 1f, 1f); 
-
-            rightCam.enabled = false; 
-
-  
-
-            vcamShared.Priority = 20; 
-
-            vcamPlayer1.Priority = 5; 
-
-            vcamPlayer2.Priority = 5; 
-
-        } 
-
-  
-
-        // move shared camera between players 
-
-        if (vcamShared != null) 
-
-        { 
-
-            Vector3 mid = (player1.position + player2.position) * 0.5f; 
-
-            vcamShared.transform.position = new Vector3(mid.x, mid.y, vcamShared.transform.position.z); 
-
-        } 
-
-    } 
 
   
 
     void EnsureBrain(Camera cam) 
 
-    { 
+    {
 
         if (cam == null) return; 
-
+        
         if (!cam.TryGetComponent<CinemachineBrain>(out var brain)) 
-
             cam.gameObject.AddComponent<CinemachineBrain>(); 
-
     } 
 
 } 
