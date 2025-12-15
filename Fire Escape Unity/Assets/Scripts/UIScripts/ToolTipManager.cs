@@ -22,6 +22,10 @@ public class ToolTipManager : MonoBehaviour
 
     public void HideToolTip()
     {
-        tooltipPanel.SetActive(false);
+        try
+        {
+            tooltipPanel.SetActive(false);
+        }
+        catch { }
     }
 }
