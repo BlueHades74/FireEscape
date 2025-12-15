@@ -34,7 +34,11 @@ public class ToolTipDetection : MonoBehaviour
         ToolTipIdentifier tooltip = other.GetComponent<ToolTipIdentifier>();
         if (tooltip != null)
         {
-            ToolTipManager.Instance.HideToolTip();
+            try
+            {
+                ToolTipManager.Instance.HideToolTip();
+            }
+            catch { }
         }
     }
 }
