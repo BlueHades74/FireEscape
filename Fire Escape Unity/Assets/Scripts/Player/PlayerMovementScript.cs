@@ -8,9 +8,9 @@ public class PlayerMovementScript : MonoBehaviour
     //Last Edited by: Brian "Blue Guy" McLatchie
 
     [SerializeField]
-    private float playerMoveSpeed = 10f;
+    private float playerMoveSpeed = 6f;
 
-    private float originalMoveSpeed = 10f;
+    private float originalMoveSpeed = 6f;
 
     private Rigidbody2D rb;
 
