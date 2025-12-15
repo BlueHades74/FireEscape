@@ -3,26 +3,29 @@ using UnityEngine;
 //Author Alex
 public class FireTracker : MonoBehaviour
 {
+    public static FireTracker Instance;
+    private int totalFireCount;
 
-    public static int TotalCount { get; private set; }
-    public static int ExtinguishedCount { get; private set; }
-
-    private void Start()
+    void Start()
     {
-        // Track total numbers of fires based on tag
-        TotalCount = GameObject.FindGameObjectsWithTag("Fire").Length;
-        ExtinguishedCount = 0;
+        totalFireCount = GameObject.FindGameObjectsWithTag("Fire").Length;
+        Instance = this;
     }
 
-    //Call this when a fire is extinguished
-    public static void RegisterFireExtinguished()
+    public float GetPercentExtinguished()
     {
-        ExtinguishedCount++;
-    }
+        if (totalFireCount == 0)
+            return 1f; 
 
-    public static float GetPercentExtinguished()
-    {
-        if (TotalCount == 0) return 1f;
-        return (float)ExtinguishedCount / TotalCount;
+        int activeFires = 0;
+
+        foreach (var fire in GameObject.FindGameObjectsWithTag("Fire"))
+        {
+            if (fire.activeInHierarchy)
+                activeFires++;
+        }
+
+        int extinguished = totalFireCount - activeFires;
+        return (float)extinguished / totalFireCount;
     }
 }
