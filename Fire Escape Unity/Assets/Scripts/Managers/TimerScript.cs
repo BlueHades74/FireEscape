@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using UnityEditor.Rendering;
+using UnityEngine.Rendering;
 
 //author : Alex
 public class Timer : MonoBehaviour

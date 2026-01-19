@@ -7,7 +7,11 @@ public class ToolTipDetection : MonoBehaviour
     //only enable tooltips in the tutorial level
     private void Start()
     {
-        tooltipsEnabled = SceneManager.GetActiveScene().name == "TutorialLevel";
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        tooltipsEnabled =
+            sceneName == "TutorialLevel" ||
+            sceneName == "Firehouse";
     }
     //If player collides with object with tooltip it will pop up the tooltip
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,7 +34,11 @@ public class ToolTipDetection : MonoBehaviour
         ToolTipIdentifier tooltip = other.GetComponent<ToolTipIdentifier>();
         if (tooltip != null)
         {
-            ToolTipManager.Instance.HideToolTip();
+            try
+            {
+                ToolTipManager.Instance.HideToolTip();
+            }
+            catch { }
         }
     }
 }
