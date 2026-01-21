@@ -19,7 +19,6 @@ public class FireSpread : MonoBehaviour
     public float spreadChance;
     void Start()
     {
-        spreadChance = spreadChance/100;
         fireList = GameObject.FindGameObjectsWithTag("Fire");
 
         fireSpreadTilemap = GameObject.FindGameObjectWithTag("meta").GetComponent<Tilemap>();
@@ -36,12 +35,8 @@ public class FireSpread : MonoBehaviour
             new(attachedTransform.position.x, attachedTransform.position.y + 1, 0)
         };
 
+        StartCoroutine(spreadLoop());
 
-    }
-
-    void Update()
-    {
-        StartCoroutine(spawnFireWithDealy());
     }
 
     void spawnFiresWhereMissing()
@@ -69,7 +64,7 @@ public class FireSpread : MonoBehaviour
             }
             if (!isFireThere)
             {
-                float rng = Random.value;
+                float rng = Random.Range(1,101);
                 if (rng <= spreadChance)
                 {
                     Debug.Log("Creating fire");
@@ -82,10 +77,14 @@ public class FireSpread : MonoBehaviour
 
     }
 
-    IEnumerator spawnFireWithDealy()
+    IEnumerator spreadLoop()
     {
-        yield return new WaitForSeconds(waitTime);
-        spawnFiresWhereMissing();
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            spawnFiresWhereMissing();
+        }
+       
     }
 
 

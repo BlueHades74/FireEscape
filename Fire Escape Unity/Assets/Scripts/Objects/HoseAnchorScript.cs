@@ -36,7 +36,7 @@ public class HoseAnchorScript : MonoBehaviour
             //transform.position = hoseAnchor.transform.position - separation;
             //GetComponent<Rigidbody2D>().MovePosition(hoseAnchor.transform.position - separation);
             Vector3 testVal = (hoseAnchor.transform.position - separation) - transform.position;
-            GetComponent<Rigidbody2D>().AddForce(testVal.normalized * (Vector3.Distance(transform.position, hoseAnchor.transform.position - separation) * 25), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(testVal.normalized * (Vector3.Distance(transform.position, hoseAnchor.transform.position - separation) * 300), ForceMode2D.Impulse);
             //Debug.LogWarning(Vector3.Distance(transform.position, hoseAnchor.transform.position - separation));
             if (Vector3.Distance(transform.position, hoseAnchor.transform.position - separation) < 0.25)
             {

@@ -82,7 +82,9 @@ public class ObjectiveUIManger : MonoBehaviour
                 humansSaved = savedHumans,
                 totalHumans = totalHumans,
 
-                fireExtinguishedPercent = FireTracker.GetPercentExtinguished(),
+                fireExtinguishedPercent = FireTracker.Instance != null
+    ? FireTracker.Instance.GetPercentExtinguished()
+    : 0f,
                 bonusCollected = BonusTracker.CollectedCount,
                 bonusTotal = BonusTracker.TotalCount
 
