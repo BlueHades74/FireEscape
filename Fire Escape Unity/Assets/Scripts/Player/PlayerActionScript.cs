@@ -384,7 +384,7 @@ public class PlayerActionScript : MonoBehaviour
                 waterColliderRotation = 0;
             }
 
-            waterRangeDisplay.transform.position = grid.CellToWorld(waterSpawnLocation);
+            waterRangeDisplay.transform.position = transform.position;
             waterRangeDisplay.transform.rotation = Quaternion.Euler(0, 0, waterColliderRotation);
         }
     }
@@ -476,7 +476,7 @@ public class PlayerActionScript : MonoBehaviour
         Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
         Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
 
-        extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
+        extinguisherRangeDisplay.transform.position = transform.position + facingDisplace;
     }
 
     private void Debris1PHave()
