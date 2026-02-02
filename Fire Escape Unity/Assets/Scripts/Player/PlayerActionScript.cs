@@ -576,17 +576,20 @@ public class PlayerActionScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("DropOff"))
+        if (action == "Bucket")
         {
-            if (waterRangeDisplay != null)
+            if (collision.CompareTag("DropOff"))
             {
-                Destroy(waterRangeDisplay);
-                waterRangeDisplay = null;
-            }
+                if (waterRangeDisplay != null)
+                {
+                    Destroy(waterRangeDisplay);
+                    waterRangeDisplay = null;
+                }
 
-            actionItem.GetComponent<WaterBucketScript>().FillBucket();
-            waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
-            waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
+                actionItem.GetComponent<WaterBucketScript>().FillBucket();
+                waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
+                waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
+            }
         }
     }
 }
