@@ -136,6 +136,7 @@ public class ObjectManager : MonoBehaviour
             if (!isHeld && spriteRenderer != null)
             {
                 spriteRenderer.color = highlightColor;
+                Debug.LogWarning("TEST");
             }
         }
     }
@@ -152,6 +153,7 @@ public class ObjectManager : MonoBehaviour
             {
                 playerTransform = null;
             }
+            Debug.LogWarning("TEST2");
         }
     }
 }
