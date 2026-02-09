@@ -2798,6 +2798,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7750131647661682791, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 1599163523}
+    - target: {fileID: 7750131647661682791, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 2142857998}
     - target: {fileID: 8840230133618812370, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.28
@@ -14148,7 +14156,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5bb7c778a0945484b96c6a0b0bd2df0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17972,7 +17980,7 @@ ParticleSystem:
   TriggerModule:
     enabled: 1
     serializedVersion: 2
-    inside: 1
+    inside: 0
     outside: 0
     enter: 0
     exit: 0
