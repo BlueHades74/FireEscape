@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: fa4f18e0a5e84cc4ba3ed8c882d36bd6
+guid: 685f6d5c6d88e38498fbb045894ee156
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3332251328682357392
-    second: Firehouse Desk_0
+      213: -2198662157403139532
+    second: FallenDebris1_0
+  - first:
+      213: -6740572996694045928
+    second: FallenDebris1_1
+  - first:
+      213: -7583908153844946196
+    second: FallenDebris1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,30 +102,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Firehouse Desk_0
+      name: FallenDebris1_0
       rect:
         serializedVersion: 2
         x: 4
         y: 0
-        width: 88
-        height: 48
+        width: 57
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07d8093521771c1d0800000000000000
-      internalID: -3332251328682357392
+      spriteID: 43254e6ba68cc71e0800000000000000
+      internalID: -2198662157403139532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallenDebris1_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 54
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81b0675929ca472a0800000000000000
+      internalID: -6740572996694045928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallenDebris1_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea22e027bb80c690800000000000000
+      internalID: -7583908153844946196
       vertices: []
       indices: 
       edges: []
@@ -148,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Firehouse Desk_0: -3332251328682357392
+      FallenDebris1_0: -2198662157403139532
+      FallenDebris1_1: -6740572996694045928
+      FallenDebris1_2: -7583908153844946196
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
