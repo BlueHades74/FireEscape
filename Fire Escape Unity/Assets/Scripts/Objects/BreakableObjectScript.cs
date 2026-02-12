@@ -1,18 +1,27 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BreakableObjectScript : MonoBehaviour
 {
-    [SerializeField]
+    // making healthPoints a SerializeField will break the animation
     private int healthPoints;
     private TextMeshProUGUI text;
+
+    // Door destroyed animation variables
+    private Animator animator;
+    // bool for whether door just explode or not, true = yes
+    [SerializeField] private bool popDoor;
     private GameObject glyphTrigger;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         healthPoints = 3;
+        //text = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        animator = GetComponent<Animator>();
         try
         {
             text = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -27,7 +36,10 @@ public class BreakableObjectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (popDoor)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -36,20 +48,22 @@ public class BreakableObjectScript : MonoBehaviour
     public void DamageBreakable()
     {
         healthPoints--;
-        if (text != null)
-        {
-            text.text = healthPoints.ToString();
-        }
+        //text.text = healthPoints.ToString();
+
+        animator.SetInteger("TimesHit", healthPoints);
+
+        //if (healthPoints <= 0)
+        //{
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            //text.text = "";
+        //}
 
         if (healthPoints <= 0)
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //gameObject.GetComponent<SpriteRenderer>().enabled = false;
             glyphTrigger.SetActive(false);
-            if (text != null)
-            {
-                text.text = "";
-            }
         }
-    }    
+    }
 }
