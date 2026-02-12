@@ -65,5 +65,5 @@ public class BreakableObjectScript : MonoBehaviour
             //gameObject.GetComponent<SpriteRenderer>().enabled = false;
             glyphTrigger.SetActive(false);
         }
-    }    
+    }
 }
