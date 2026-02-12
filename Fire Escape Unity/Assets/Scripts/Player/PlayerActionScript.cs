@@ -574,6 +574,10 @@ public class PlayerActionScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Detects triggers to fill bucket.
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (action == "Bucket")
