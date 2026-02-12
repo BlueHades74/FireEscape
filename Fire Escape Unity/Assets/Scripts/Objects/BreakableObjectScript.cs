@@ -13,7 +13,14 @@ public class BreakableObjectScript : MonoBehaviour
     void Start()
     {
         healthPoints = 3;
-        text = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        try
+        {
+            text = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        } 
+        catch
+        {
+
+        }
         glyphTrigger = transform.GetChild(1).gameObject;
     }
 
@@ -29,14 +36,20 @@ public class BreakableObjectScript : MonoBehaviour
     public void DamageBreakable()
     {
         healthPoints--;
-        text.text = healthPoints.ToString();
+        if (text != null)
+        {
+            text.text = healthPoints.ToString();
+        }
 
         if (healthPoints <= 0)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             glyphTrigger.SetActive(false);
-            text.text = "";
+            if (text != null)
+            {
+                text.text = "";
+            }
         }
     }    
 }
