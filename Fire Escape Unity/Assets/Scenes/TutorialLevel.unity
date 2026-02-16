@@ -4842,6 +4842,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606786509}
     m_Modifications:
+    - target: {fileID: -2535418803895714558, guid: 27df307b038fa74408ebb1cbdf4ba493, type: 3}
+      propertyPath: tooltipMessage
+      value: This seems heavy you might need both of you!
+      objectReference: {fileID: 0}
     - target: {fileID: 271938461220464260, guid: 27df307b038fa74408ebb1cbdf4ba493, type: 3}
       propertyPath: m_Name
       value: MovableDebris
@@ -6146,7 +6150,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: d7b2c823f5c009840b71310ebc635dbd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6258,7 +6262,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4a7a0e57873300c46b1cc34c5eeff689, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.9
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6490,7 +6494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4943396, g: 0.4943396, b: 0.4943396, a: 0}
+  m_Color: {r: 0.7735849, g: 0.61740834, b: 0.61740834, a: 0.8117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -26811,6 +26815,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3658777938396929656, guid: 252073c5f0d47824cae4825b1f5ba337, type: 3}
+      propertyPath: tooltipMessage
+      value: Put out fires with this refill at the firetruck!
+      objectReference: {fileID: 0}
     - target: {fileID: 3969736929255205924, guid: 252073c5f0d47824cae4825b1f5ba337, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.4
@@ -26868,6 +26876,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -428930077475461384, guid: 99c31893d2a11414cbaccfb1c86972a1, type: 3}
+      propertyPath: tooltipMessage
+      value: Break down debris and doors with this tool
+      objectReference: {fileID: 0}
     - target: {fileID: 4104210249560560795, guid: 99c31893d2a11414cbaccfb1c86972a1, type: 3}
       propertyPath: m_Name
       value: Fire Axe
