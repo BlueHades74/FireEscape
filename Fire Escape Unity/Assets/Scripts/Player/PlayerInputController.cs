@@ -27,7 +27,7 @@ public class PlayerInputController : MonoBehaviour
 
         user = GetComponent<PlayerInput>().user;
 
-        Debug.LogWarning((GetComponent<PlayerInput>().playerIndex.ToString() + ", " + playerIndex.ToString() + ", " + user.index.ToString()));
+        //Debug.LogWarning((GetComponent<PlayerInput>().playerIndex.ToString() + ", " + playerIndex.ToString() + ", " + user.index.ToString()));
     }
 
     /// <summary>
