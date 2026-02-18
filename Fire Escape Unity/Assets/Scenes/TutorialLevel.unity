@@ -3800,6 +3800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireHose
       objectReference: {fileID: 0}
+    - target: {fileID: 3441725934636259330, guid: 7c000af4957395547b3f1800971d6aa5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4528267588337562694, guid: 7c000af4957395547b3f1800971d6aa5, type: 3}
       propertyPath: hoseAnchor
       value: 
@@ -8646,7 +8650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &946822987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13400,7 +13404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1515957730
 Transform:
   m_ObjectHideFlags: 0
@@ -23970,6 +23974,10 @@ PrefabInstance:
     - target: {fileID: 922033388640217663, guid: e0cddb9f575482945a9f43182e45a81d, type: 3}
       propertyPath: m_Name
       value: HoseNozzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 922033388640217663, guid: e0cddb9f575482945a9f43182e45a81d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8203004624141992344, guid: e0cddb9f575482945a9f43182e45a81d, type: 3}
       propertyPath: m_LocalPosition.x
