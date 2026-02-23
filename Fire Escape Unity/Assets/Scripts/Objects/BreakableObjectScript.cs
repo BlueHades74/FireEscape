@@ -11,8 +11,10 @@ public class BreakableObjectScript : MonoBehaviour
 
     // Door destroyed animation variables
     private Animator animator;
+
     // bool for whether door just explode or not, true = yes
     [SerializeField] private bool popDoor;
+
     private GameObject glyphTrigger;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
