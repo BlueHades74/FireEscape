@@ -32,7 +32,7 @@ public class BreakableObjectScript : MonoBehaviour
         {
 
         }
-        glyphTrigger = transform.GetChild(1).gameObject;
+        glyphTrigger = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
