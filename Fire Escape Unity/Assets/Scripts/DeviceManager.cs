@@ -19,7 +19,15 @@ public class DeviceManager : MonoBehaviour
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        
+        //Debug.LogWarning(players[0].name + ", " + players[1].name);
+
+        if (players[0].name == "Player 1")
+        {
+            GameObject player1 = players[0];
+            players[0] = players[1];
+            players[1] = player1;
+        }
+
 
         ValidateDevicesAndBind();
     }

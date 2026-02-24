@@ -127,6 +127,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1134180305}
     m_Modifications:
+    - target: {fileID: 616662931802090754, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: movementGlyph
+      value: 
+      objectReference: {fileID: -3011895399059424396, guid: 2bc7220d4c615dd419d3c807564ca02f, type: 3}
+    - target: {fileID: 616662931802090754, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: shouldShowMovementKeys
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1780741788727322148, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -2417,7 +2425,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 76c6cfeec0974874c8cde3e692378eb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2513,7 +2521,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.004799843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2523,7 +2531,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 1.5, y: 0.81840944}
   m_EdgeRadius: 0
 --- !u!1 &468026804
 GameObject:
@@ -10234,7 +10242,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 644de1ccb098e494386d98066cd80ea3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -24856,6 +24864,14 @@ PrefabInstance:
     - target: {fileID: 4800660834239274203, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192052103619228268, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+      propertyPath: movementGlyph
+      value: 
+      objectReference: {fileID: -3011494807137413604, guid: 2bc7220d4c615dd419d3c807564ca02f, type: 3}
+    - target: {fileID: 8192052103619228268, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+      propertyPath: shouldShowMovementKeys
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8990869748874173787, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_IsActive
