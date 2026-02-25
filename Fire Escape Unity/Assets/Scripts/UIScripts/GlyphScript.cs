@@ -15,6 +15,8 @@ public class GlyphScript : MonoBehaviour
     private Sprite pickUpGlyphController;
     [SerializeField]
     private Sprite actionGlyphController;
+    [SerializeField]
+    private Sprite movementGlyph;
 
     [SerializeField]
     private Image indicator;
@@ -25,6 +27,11 @@ public class GlyphScript : MonoBehaviour
     [SerializeField]
     private PlayerInput input;
 
+    [SerializeField]
+    private bool shouldShowMovementKeys;
+
+    private Vector3 originPos;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,12 +39,25 @@ public class GlyphScript : MonoBehaviour
         indicator = GetComponent<Image>();
         actionScript = transform.parent.transform.parent.GetComponent<PlayerActionScript>();
         input = transform.parent.transform.parent.GetComponent<PlayerInput>();
+
+        if (shouldShowMovementKeys == true && input.devices[0].description.deviceClass != "")
+        {
+            SetImageAndActivate(movementGlyph);
+            originPos = transform.position;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (shouldShowMovementKeys == true)
+        {
+            if (transform.position != originPos)
+            {
+                shouldShowMovementKeys = false;
+                DisableIndicator();
+            }
+        }
     }
 
     /// <summary>
