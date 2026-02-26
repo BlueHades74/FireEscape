@@ -40,16 +40,17 @@ public class GlyphScript : MonoBehaviour
         actionScript = transform.parent.transform.parent.GetComponent<PlayerActionScript>();
         input = transform.parent.transform.parent.GetComponent<PlayerInput>();
 
-        if (shouldShowMovementKeys == true && input.devices[0].description.deviceClass != "")
-        {
-            SetImageAndActivate(movementGlyph);
-            originPos = transform.position;
-        }
+        originPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (shouldShowMovementKeys == true && input.devices[0].description.deviceClass != "")
+        {
+            SetImageAndActivate(movementGlyph);
+        }
+
         if (shouldShowMovementKeys == true)
         {
             if (transform.position != originPos)
