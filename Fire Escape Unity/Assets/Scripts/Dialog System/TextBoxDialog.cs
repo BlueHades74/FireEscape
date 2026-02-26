@@ -20,8 +20,20 @@ public class TextBoxDialog : MonoBehaviour
 
     void Start()
     {
+        foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (p.name == "Player 1") playerOne = p;
+            else if (p.name == "Player 2") playerTwo = p;
+        }
+
         // Get all NPCS
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("NPC")) npcList.Add(n.GetComponent<QuestNPC>());
+        foreach (GameObject n in GameObject.FindGameObjectsWithTag("NPC"))
+        {
+            if (n.transform.childCount > 0)
+            {
+                npcList.Add(n.GetComponent<QuestNPC>());
+            }
+        }
 
         // Get all NPC text boxes
         foreach (QuestNPC n in npcList) textBoxList.Add(n.GetComponentInChildren<TextMeshPro>());
@@ -49,36 +61,43 @@ public class TextBoxDialog : MonoBehaviour
         // Loop through all NPCS in a scence
         for (int i = 0; i < npcList.Count; i++)
         {
-            // Call QuestNPC.isPlayerWithinRange() -- to determine which and if player is in range
-            (int, bool) withinRange = npcList[i].isPlayerWithinRange();
-
-            // Swtich based on which character & if is in range
-            switch (withinRange)
+            try
             {
-                // Player 1 in range
-                case (1, true):
+                // Call QuestNPC.isPlayerWithinRange() -- to determine which and if player is in range
+                (int, bool) withinRange = npcList[i].isPlayerWithinRange();
 
-                    // Has Intial Dialog Triggered?
-                    if (npcList[i].HasHadInitialDialogTrigger == false) StartCoroutine(doInitialDialog(playerOne, playerOneText, playerOneTextUI, npcList[i], textBoxList[i], waitTime));
+                // Swtich based on which character & if is in range
+                switch (withinRange)
+                {
+                    // Player 1 in range
+                    case (1, true):
 
-                    // Has pickup Dialog Triggered?
-                    else if (npcList[i].HasHadPickupDialogTrigger == false && npcList[i].GetComponent<ObjectManager>().IsHeld == true) StartCoroutine(doPickupDialog(playerOne, playerOneText, playerOneTextUI, npcList[i], textBoxList[i], waitTime));
-                    break;
+                        // Has Intial Dialog Triggered?
+                        if (npcList[i].HasHadInitialDialogTrigger == false) StartCoroutine(doInitialDialog(playerOne, playerOneText, playerOneTextUI, npcList[i], textBoxList[i], waitTime));
 
-                // Player 2 in range
-                case (2, true):
-                    if (npcList[i].HasHadInitialDialogTrigger == false) StartCoroutine(doInitialDialog(playerTwo, playerTwoText, playerTwoTextUI, npcList[i], textBoxList[i], waitTime));
-                    else if (npcList[i].HasHadPickupDialogTrigger == false && npcList[i].GetComponent<ObjectManager>().IsHeld == true) StartCoroutine(doPickupDialog(playerTwo, playerTwoText, playerTwoTextUI, npcList[i], textBoxList[i], waitTime));
-                    break;
+                        // Has pickup Dialog Triggered?
+                        else if (npcList[i].HasHadPickupDialogTrigger == false && npcList[i].GetComponent<ObjectManager>().IsHeld == true) StartCoroutine(doPickupDialog(playerOne, playerOneText, playerOneTextUI, npcList[i], textBoxList[i], waitTime));
+                        break;
 
-                // No player in range
-                case (0, false):
-                    break;
+                    // Player 2 in range
+                    case (2, true):
+                        if (npcList[i].HasHadInitialDialogTrigger == false) StartCoroutine(doInitialDialog(playerTwo, playerTwoText, playerTwoTextUI, npcList[i], textBoxList[i], waitTime));
+                        else if (npcList[i].HasHadPickupDialogTrigger == false && npcList[i].GetComponent<ObjectManager>().IsHeld == true) StartCoroutine(doPickupDialog(playerTwo, playerTwoText, playerTwoTextUI, npcList[i], textBoxList[i], waitTime));
+                        break;
 
-                // Default -- I would be impressed if this ever happened
-                default:
-                    Debug.LogWarning("How did we get here? Well its like because of because of variable data: " + withinRange);
-                    break;
+                    // No player in range
+                    case (0, false):
+                        break;
+
+                    // Default -- I would be impressed if this ever happened
+                    default:
+                        Debug.LogWarning("How did we get here? Well its like because of because of variable data: " + withinRange);
+                        break;
+                }
+            }
+            catch
+            {
+                npcList.RemoveAt(i);
             }
         }
     }
@@ -122,8 +141,12 @@ public class TextBoxDialog : MonoBehaviour
 
         // Wait a select amount of time
         yield return new WaitForSeconds(time);
-        npcTextbox.transform.parent.gameObject.SetActive(false);
-        npcTextbox.text = "";
+        try
+        {
+            npcTextbox.transform.parent.gameObject.SetActive(false);
+            npcTextbox.text = "";
+        }
+        catch { }
 
         // Determine which player triggered the pickup, assign their text, and enable the box
         if (player.name == "Player 1") playerTextbox.text = npc.playerResponseDialog[2];
