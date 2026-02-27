@@ -254,22 +254,22 @@ public class PlayerActionScript : MonoBehaviour
                 waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
             }
         }
-        else
-        {
-            Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, LayerMask.GetMask("Default"));
-            Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
+        //else
+        //{
+        //    Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+        //    RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, LayerMask.GetMask("Default"));
+        //    Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
 
-            if (hit.collider != null)
-            {
-                if (hit.collider.gameObject.tag == "DropOff")
-                {
-                    actionItem.GetComponent<WaterBucketScript>().FillBucket();
-                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
-                    waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
-                }
-            }
-        }
+        //    if (hit.collider != null)
+        //    {
+        //        if (hit.collider.gameObject.tag == "DropOff")
+        //        {
+        //            actionItem.GetComponent<WaterBucketScript>().FillBucket();
+        //            waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
+        //            waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
+        //        }
+        //    }
+        //}
     }
 
     /// <summary>
@@ -384,9 +384,28 @@ public class PlayerActionScript : MonoBehaviour
                 waterColliderRotation = 0;
             }
 
-            waterRangeDisplay.transform.position = grid.CellToWorld(waterSpawnLocation);
+            waterRangeDisplay.transform.position = transform.position;
             waterRangeDisplay.transform.rotation = Quaternion.Euler(0, 0, waterColliderRotation);
         }
+
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, LayerMask.GetMask("Default"));
+        //Debug.Log(hit.collider);
+
+        //if (hit.collider != null)
+        //{
+        //    if (hit.collider.gameObject.tag == "DropOff")
+        //    {
+        //        if (waterRangeDisplay != null)
+        //        {
+        //            Destroy(waterRangeDisplay);
+        //            waterRangeDisplay = null;
+        //        }
+
+        //        actionItem.GetComponent<WaterBucketScript>().FillBucket();
+        //        waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
+        //        waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
+        //    }
+        //}
     }
 
     /// <summary>
@@ -476,7 +495,7 @@ public class PlayerActionScript : MonoBehaviour
         Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
         Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
 
-        extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
+        extinguisherRangeDisplay.transform.position = transform.position + facingDisplace;
     }
 
     private void Debris1PHave()
@@ -552,6 +571,29 @@ public class PlayerActionScript : MonoBehaviour
         else
         {
             return "null";
+        }
+    }
+
+    /// <summary>
+    /// Detects triggers to fill bucket.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (action == "Bucket")
+        {
+            if (collision.CompareTag("DropOff"))
+            {
+                if (waterRangeDisplay != null)
+                {
+                    Destroy(waterRangeDisplay);
+                    waterRangeDisplay = null;
+                }
+
+                actionItem.GetComponent<WaterBucketScript>().FillBucket();
+                waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
+                waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
+            }
         }
     }
 }

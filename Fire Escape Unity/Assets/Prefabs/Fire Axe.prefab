@@ -57,6 +57,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,9 +80,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: -1727463069
+  m_SortingLayer: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: -5825250732961213246, guid: 5c37010b854f4554b9e83dd3e9fe041e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,6 +110,7 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   action: Axe
   imageUI: {fileID: -5825250732961213246, guid: 5c37010b854f4554b9e83dd3e9fe041e, type: 3}
+  singlePush: 0
 --- !u!61 &8825873055043686729
 BoxCollider2D:
   m_ObjectHideFlags: 0

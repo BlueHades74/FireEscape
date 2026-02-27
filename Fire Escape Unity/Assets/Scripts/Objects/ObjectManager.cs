@@ -136,6 +136,7 @@ public class ObjectManager : MonoBehaviour
             if (!isHeld && spriteRenderer != null)
             {
                 spriteRenderer.color = highlightColor;
+                other.gameObject.transform.GetChild(2).transform.GetChild(1).GetComponent<GlyphScript>().ActivatePickUpGlyph();
             }
         }
     }
@@ -152,6 +153,7 @@ public class ObjectManager : MonoBehaviour
             {
                 playerTransform = null;
             }
+            other.gameObject.transform.GetChild(2).transform.GetChild(1).GetComponent<GlyphScript>().DisableIndicator();
         }
     }
 }

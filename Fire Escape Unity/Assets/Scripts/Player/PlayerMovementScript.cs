@@ -38,6 +38,11 @@ public class PlayerMovementScript : MonoBehaviour
 
     private bool SwitchFacingDirection = true;
 
+    private const string horizontal = "Horizontal";
+    private const string vertical = "Vertical";
+    private const string lastHorizontal = "LastHorizontal";
+    private const string lastVertical = "LastVertical";
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -75,6 +80,10 @@ public class PlayerMovementScript : MonoBehaviour
     /// <param name="direction"></param>
     private void SetFacingDirection(Vector2 direction)
     {
+        // Sets the direction the players are facing
+        animator.SetFloat(horizontal, direction.x);
+        animator.SetFloat(vertical, direction.y);
+
         if (direction != Vector2.zero)
         {
             direction = TurnVectorIntoSingleDirection(direction);
@@ -84,56 +93,8 @@ public class PlayerMovementScript : MonoBehaviour
                 facingDirection = direction;
             }
 
-            // Use the direction vector to set sprite index
-            // Now using animator for player movement
-            if (direction.x < 0)
-            {
-                //spriteIndex = 1; // Left
-                //playerSprite.flipX = false;
-                animator.SetBool("isRightRun", false);
-                animator.SetBool("isDownRun", false);
-                animator.SetBool("isUpRun", false);
-                animator.SetBool("isLeftRun", true); // Left
-            }
-            else if (direction.x > 0)
-            {
-                //spriteIndex = 1; // Right
-                //playerSprite.flipX = true;
-                animator.SetBool("isLeftRun", false);
-                animator.SetBool("isDownRun", false);
-                animator.SetBool("isUpRun", false);
-                animator.SetBool("isRightRun", true); // Right
-            }
-            else if (direction.y < 0)
-            {
-                //spriteIndex = 0; // Down
-                animator.SetBool("isLeftRun", false);
-                animator.SetBool("isRightRun", false);
-                animator.SetBool("isUpRun", false);
-                animator.SetBool("isDownRun", true); // Down
-            }
-            else if (direction.y > 0)
-            {
-                //spriteIndex = 2; // Up
-                animator.SetBool("isLeftRun", false);
-                animator.SetBool("isRightRun", false);
-                animator.SetBool("isDownRun", false);
-                animator.SetBool("isUpRun", true); // Up
-            }
-
-            // Set sprite index for player
-            //if (sprites != null && sprites.Length > spriteIndex)
-            //    playerSprite.sprite = sprites[spriteIndex];
-        }
-        else
-        {
-            //spriteIndex = 0;
-
-            // set animation to idle
-            animator.SetBool("isLeftRun", false);
-            animator.SetBool("isRightRun", false);
-            animator.SetBool("isDownRun", false);
-            animator.SetBool("isUpRun", false);
+            animator.SetFloat(lastHorizontal, direction.x);
+            animator.SetFloat(lastVertical, direction.y);
         }
     }
 
