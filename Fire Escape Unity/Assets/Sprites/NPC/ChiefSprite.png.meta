@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8be653b9a74e1b54ab37950a64680fc5
+guid: 605482781944073478811c66889d58ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2559363640542376422
-    second: hotshot_icon_0
+      213: -2678060687129428065
+    second: ChiefSprite_0
+  - first:
+      213: -6993022977337292122
+    second: ChiefSprite_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hotshot_icon_0
+      name: ChiefSprite_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 0
-        width: 128
-        height: 128
+        width: 48
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1ecb6a34505b7cd0800000000000000
-      internalID: -2559363640542376422
+      spriteID: f9f36b87efd95dad0800000000000000
+      internalID: -2678060687129428065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChiefSprite_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa8aa917aac3fe90800000000000000
+      internalID: -6993022977337292122
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hotshot_icon_0: -2559363640542376422
+      ChiefSprite_0: -2678060687129428065
+      ChiefSprite_1: -6993022977337292122
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
