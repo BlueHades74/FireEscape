@@ -31,15 +31,12 @@ public class PauseMenuManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
+    private void OnPause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Cancel"))
-        {
-            if (isPaused)
-                Resume();
-            else
-                Pause();
-        }
+        if (isPaused)
+            Resume();
+        else
+            Pause();
     }
 
     public void Pause()
@@ -66,7 +63,7 @@ public class PauseMenuManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
     }
 
