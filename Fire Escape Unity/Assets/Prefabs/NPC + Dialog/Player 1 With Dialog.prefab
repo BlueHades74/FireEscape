@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2087138627927326762, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_Name
-      value: Player 1 Variant
+      value: Player 1 With Dialog
       objectReference: {fileID: 0}
     - target: {fileID: 4800660834239274203, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_LocalScale.x
@@ -64,12 +64,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5052129682944722472, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4289514161
+      objectReference: {fileID: 0}
     - target: {fileID: 8990869748874173787, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8143434285786496272, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
