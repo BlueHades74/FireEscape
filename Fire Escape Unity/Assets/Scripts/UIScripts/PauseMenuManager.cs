@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 //Author Alex
 public class PauseMenuManager : MonoBehaviour
 {
     public static PauseMenuManager Instance;
+
 
     [Header("Menus")]
     public GameObject PauseMenu;
@@ -17,6 +19,12 @@ public class PauseMenuManager : MonoBehaviour
     private bool isPaused = false;
 
     public GameObject FirstControllerButton;
+    private System.Collections.IEnumerator SelectFirstButton()
+    {
+        yield return null; // wait one frame
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(FirstControllerButton);
+    }
 
     private void Awake()
     {
@@ -38,18 +46,21 @@ public class PauseMenuManager : MonoBehaviour
     {
         isPaused = true;
         PauseMenu.SetActive(true);
-        SettingsMenu.SetActive(true);
+        SettingsMenu.SetActive(false);
 
         Time.timeScale = 0f;
 
         EventSystem.current.SetSelectedGameObject(FirstControllerButton);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        StartCoroutine(SelectFirstButton());
     }
 
     public void Resume()
     {
         isPaused = false;
+
         PauseMenu.SetActive(false);
         SettingsMenu.SetActive(false);
 
