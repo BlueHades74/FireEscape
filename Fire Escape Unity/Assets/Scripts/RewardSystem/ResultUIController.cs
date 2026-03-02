@@ -87,4 +87,5 @@ public class ResultUIController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
 }
