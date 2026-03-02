@@ -2,6 +2,7 @@ using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class BreakableObjectScript : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class BreakableObjectScript : MonoBehaviour
     // bool for whether door just explode or not, true = yes
     [SerializeField] private bool popDoor;
 
+    // Place prefab for particle effect when hit here.
+    [SerializeField] private VisualEffect particleWhenHit;
+
+    private AudioSource hitSound;
+
     private GameObject glyphTrigger;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,6 +29,7 @@ public class BreakableObjectScript : MonoBehaviour
         healthPoints = 3;
         //text = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
+        hitSound = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         try
         {
@@ -54,11 +61,18 @@ public class BreakableObjectScript : MonoBehaviour
 
         animator.SetInteger("TimesHit", healthPoints);
 
+        // If there is an assigned particle, create it when hit.
+        if (particleWhenHit != null) {
+            var hitParticle = Instantiate(particleWhenHit, transform.position, Quaternion.identity);
+            Destroy(hitParticle, 1.5f);
+        }
+
+        hitSound.Play();
         //if (healthPoints <= 0)
         //{
-            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            //gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            //text.text = "";
+        //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        //text.text = "";
         //}
 
         if (healthPoints <= 0)
