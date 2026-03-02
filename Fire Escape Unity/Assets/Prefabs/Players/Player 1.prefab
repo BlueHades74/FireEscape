@@ -895,7 +895,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8263468327353256030
 CanvasRenderer:
@@ -947,11 +947,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e55b47de5468441969deb9bc7b246c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GlyphScript
-  pickUpGlyphKeyboard: {fileID: 9153071815677446063, guid: e047e7a6361cca1489edf8b0930939d7, type: 3}
-  actionGlyphKeyboard: {fileID: -8487786551566072494, guid: e047e7a6361cca1489edf8b0930939d7, type: 3}
-  pickUpGlyphController: {fileID: 7664807735657788756, guid: 76bebd35ea769ca4b867e2f515a3117d, type: 3}
-  actionGlyphController: {fileID: 3971759734259528130, guid: cc585da1af8064345aa55546aaf56dfa, type: 3}
-  movementGlyph: {fileID: 0}
+  pickupKeyboardGlyphFrames:
+  - {fileID: 2204411839781257965, guid: 85729f76fc8636445812a21c2141b423, type: 3}
+  - {fileID: -6773245083461701125, guid: 85729f76fc8636445812a21c2141b423, type: 3}
+  actionKeyboardGlyphFrames:
+  - {fileID: -6943435299464429889, guid: 6af14e691ab7ccc4eaf65ea368cf596e, type: 3}
+  - {fileID: -2872116565200816861, guid: 6af14e691ab7ccc4eaf65ea368cf596e, type: 3}
+  pickupControllerGlyphFrames:
+  - {fileID: -380538748145866726, guid: cc585da1af8064345aa55546aaf56dfa, type: 3}
+  - {fileID: 3971759734259528130, guid: cc585da1af8064345aa55546aaf56dfa, type: 3}
+  actionControllerGlyphFrames:
+  - {fileID: 8894201953851282084, guid: 76bebd35ea769ca4b867e2f515a3117d, type: 3}
+  - {fileID: 7664807735657788756, guid: 76bebd35ea769ca4b867e2f515a3117d, type: 3}
+  movementGlyphFrames:
+  - {fileID: -3011494807137413604, guid: 2bc7220d4c615dd419d3c807564ca02f, type: 3}
   indicator: {fileID: 0}
   actionScript: {fileID: 0}
   input: {fileID: 0}
