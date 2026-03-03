@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -7,16 +9,19 @@ public class GlyphScript : MonoBehaviour
     //Created By: Rafael Gonzalez Atiles
     //Last Edited By: Rafael Gonzalez Atiles
 
+    private int frame = 0;
+    private float timeperframe = 0.5f;
+    private float frametimer = 0.5f;
     [SerializeField]
-    private Sprite pickUpGlyphKeyboard;
+    private Sprite[] pickupKeyboardGlyphFrames;
     [SerializeField]
-    private Sprite actionGlyphKeyboard;
+    private Sprite[] actionKeyboardGlyphFrames;
     [SerializeField]
-    private Sprite pickUpGlyphController;
+    private Sprite[] pickupControllerGlyphFrames;
     [SerializeField]
-    private Sprite actionGlyphController;
+    private Sprite[] actionControllerGlyphFrames;
     [SerializeField]
-    private Sprite movementGlyph;
+    private Sprite[] movementGlyphFrames;
 
     [SerializeField]
     private Image indicator;
@@ -32,6 +37,8 @@ public class GlyphScript : MonoBehaviour
 
     private Vector3 originPos;
 
+    private Sprite[] currentSpriteList;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,9 +53,25 @@ public class GlyphScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentSpriteList != null)
+        {
+            frametimer -= Time.deltaTime;
+            if (frametimer <= 0.0f)
+            {
+                int max = currentSpriteList.GetLength(0) - 1;
+                //Debug.Log(max);
+                frame += 1;
+                if (frame > max)
+                {
+                    frame = 0;
+                }
+                UpdateGlyphFrame(frame);
+                frametimer = timeperframe;
+            }
+        }
         if (shouldShowMovementKeys == true && input.devices[0].description.deviceClass != "")
         {
-            SetImageAndActivate(movementGlyph);
+            SetImageAndActivate(movementGlyphFrames);
         }
 
         if (shouldShowMovementKeys == true)
@@ -65,10 +88,15 @@ public class GlyphScript : MonoBehaviour
     /// Sets the glyph sprite and activates the game object.
     /// </summary>
     /// <param name="imageToSet"></param>
-    private void SetImageAndActivate(Sprite imageToSet)
+    private void SetImageAndActivate(Sprite[] imageToSet)
     {
         indicator.enabled = true;
-        indicator.sprite = imageToSet;
+        currentSpriteList = imageToSet;
+        UpdateGlyphFrame(0);
+    }
+    private void UpdateGlyphFrame(int index)
+    {
+        indicator.sprite = currentSpriteList[index];
     }
 
     /// <summary>
@@ -78,6 +106,7 @@ public class GlyphScript : MonoBehaviour
     {
         indicator.enabled = false;
         indicator.sprite = null;
+        currentSpriteList = null;
     }
 
     /// <summary>
@@ -87,11 +116,11 @@ public class GlyphScript : MonoBehaviour
     {
         if (input.devices[0].description.deviceClass == "")
         {
-            SetImageAndActivate(pickUpGlyphController);
+            SetImageAndActivate(pickupControllerGlyphFrames);
         }
         else
         {
-            SetImageAndActivate(pickUpGlyphKeyboard);
+            SetImageAndActivate(pickupKeyboardGlyphFrames);
         }
         
     }
@@ -108,11 +137,11 @@ public class GlyphScript : MonoBehaviour
             {
                 if (input.devices[0].description.deviceClass == "")
                 {
-                    SetImageAndActivate(actionGlyphController);
+                    SetImageAndActivate(actionControllerGlyphFrames);
                 }
                 else
                 {
-                    SetImageAndActivate(actionGlyphKeyboard);
+                    SetImageAndActivate(actionKeyboardGlyphFrames);
                 }
             }
         }
