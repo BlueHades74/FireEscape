@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
     {
         // We can put this into a separate function for the input system
         // Looks for left mouse button down to do either
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Submit"))
         {
             // 1. jump to next line/ close text box
             if (textComponent.text == lines[index])
