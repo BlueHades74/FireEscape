@@ -23,6 +23,9 @@ public class BreakableObjectScript : MonoBehaviour
 
     private GameObject glyphTrigger;
 
+    [SerializeField]
+    private Material borderlessMat;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -79,6 +82,7 @@ public class BreakableObjectScript : MonoBehaviour
         {
             //gameObject.GetComponent<BoxCollider2D>().enabled = false;
             //gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().material = borderlessMat;
             glyphTrigger.SetActive(false);
         }
     }
