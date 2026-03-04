@@ -1,8 +1,19 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ResultUIController : MonoBehaviour
 {
+
+    [Header("Fire Text")]
+    public TextMeshProUGUI FireRewardText;
+
+    [Header("Human Text")]
+    public TextMeshProUGUI RewardText;
+
+    [Header("Bonus Item Text")]
+    public TextMeshProUGUI BonusItemText;
+
 
     public Image Star1;
     public Image Star2;
@@ -14,6 +25,11 @@ public class ResultUIController : MonoBehaviour
     private LevelResultData resultData;
     private void Start()
     {
+
+        BonusItemText.text = BonusTracker.CollectedCount + "/" + BonusTracker.TotalCount;
+
+        RewardText.text = LevelResultData.humansSaved + "/" + LevelResultData.totalHumans;
+
         var data = LevelResultCache.Data;
 
         if (data == null )
