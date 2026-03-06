@@ -468,7 +468,7 @@ public class PlayerActionScript : MonoBehaviour
                 position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x + 1.8f, debris.transform.position.x + 1.9f);
             }
 
-            position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 1, debris.transform.position.y + 1);
+            position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 0.3f, debris.transform.position.y + 0.3f);
         }
         else
         {
@@ -481,7 +481,7 @@ public class PlayerActionScript : MonoBehaviour
                 position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y + 1.8f, debris.transform.position.y + 1.9f);
             }
 
-            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 1, debris.transform.position.x + 1);
+            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 0.3f, debris.transform.position.x + 0.3f);
         }    
 
         transform.position = position;
