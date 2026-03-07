@@ -54,13 +54,17 @@ public class PlayerActionScript : MonoBehaviour
     [SerializeField]
     private float carry2PColliderOffsetMod;
 
+    private void Awake()
+    {
+        bx = GetComponent<BoxCollider2D>();
+        boxColliderSizeOrig = bx.size;
+        boxColliderOffsetOrig = bx.offset;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         crowbarFillBar = transform.GetChild(2).transform.GetChild(0).GetComponent<Image>();
-        bx = GetComponent<BoxCollider2D>();
-        boxColliderSizeOrig = bx.size;
-        boxColliderOffsetOrig = bx.offset;
     }
 
     // Update is called once per frame
@@ -187,6 +191,7 @@ public class PlayerActionScript : MonoBehaviour
                     break;
             }
         }
+
         holdCheck = context.isPressed;
     }
 
@@ -204,6 +209,12 @@ public class PlayerActionScript : MonoBehaviour
         {
             Destroy(waterRangeDisplay);
             waterRangeDisplay = null;
+        }
+
+        if (bx.size !=  boxColliderSizeOrig)
+        {
+            bx.size = boxColliderSizeOrig;
+            bx.offset = boxColliderOffsetOrig;
         }
 
         switch (action)
@@ -482,6 +493,8 @@ public class PlayerActionScript : MonoBehaviour
         if (debris.GetComponent<DebrisScript>().IsCarriedByTwoPlayers == false)
         {
             GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
+            bx.size = boxColliderSizeOrig;
+            bx.offset = boxColliderOffsetOrig;
         }
         else
         {
@@ -496,18 +509,18 @@ public class PlayerActionScript : MonoBehaviour
             {
                 position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 1.9f, debris.transform.position.x - 1.8f);
 
-                bx.size = new Vector2(carry2PColliderSizeMod, bx.size.y);
                 bx.offset = new Vector2(carry2PColliderOffsetMod, bx.offset.y);
             }
             else
             {
                 position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x + 1.8f, debris.transform.position.x + 1.9f);
 
-                bx.size = new Vector2(carry2PColliderSizeMod, bx.size.y);
                 bx.offset = new Vector2(-carry2PColliderOffsetMod, bx.offset.y);
             }
 
             position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 0.3f, debris.transform.position.y + 0.3f);
+
+            bx.size = new Vector2(carry2PColliderSizeMod, bx.size.y);
         }
         else
         {
@@ -515,18 +528,18 @@ public class PlayerActionScript : MonoBehaviour
             {
                 position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 1.9f, debris.transform.position.y - 1.8f);
 
-                bx.size = new Vector2(bx.size.x, carry2PColliderSizeMod);
                 bx.offset = new Vector2(bx.offset.x, carry2PColliderOffsetMod);
             }
             else
             {
                 position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y + 1.8f, debris.transform.position.y + 1.9f);
 
-                bx.size = new Vector2(bx.size.x, carry2PColliderSizeMod);
                 bx.offset = new Vector2(bx.offset.x, -carry2PColliderOffsetMod);
             }
 
             position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 0.3f, debris.transform.position.x + 0.3f);
+
+            bx.size = new Vector2(bx.size.x, carry2PColliderSizeMod);
         }    
 
         transform.position = position;
