@@ -45,6 +45,22 @@ public class PlayerActionScript : MonoBehaviour
     [SerializeField]
     private AudioClip extinguisherSpraySound;
 
+    private Vector2 boxColliderSizeOrig;
+    private Vector2 boxColliderOffsetOrig;
+    private BoxCollider2D bx;
+
+    [SerializeField]
+    private float carry2PColliderSizeMod;
+    [SerializeField]
+    private float carry2PColliderOffsetMod;
+
+    private void Awake()
+    {
+        bx = GetComponent<BoxCollider2D>();
+        boxColliderSizeOrig = bx.size;
+        boxColliderOffsetOrig = bx.offset;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -131,6 +147,8 @@ public class PlayerActionScript : MonoBehaviour
         GetComponent<PlayerMovementScript>().ChangeAddedVelocity(Vector2.zero);
         GetComponent<PlayerMovementScript>().ChangeClampMoveSettings(1, -1, 1, -1);
         GetComponent<PlayerMovementScript>().SwitchFaceDirection(true);
+        bx.size = boxColliderSizeOrig;
+        bx.offset = boxColliderOffsetOrig;
     }
 
     /// <summary>
@@ -173,6 +191,7 @@ public class PlayerActionScript : MonoBehaviour
                     break;
             }
         }
+
         holdCheck = context.isPressed;
     }
 
@@ -190,6 +209,12 @@ public class PlayerActionScript : MonoBehaviour
         {
             Destroy(waterRangeDisplay);
             waterRangeDisplay = null;
+        }
+
+        if (bx.size !=  boxColliderSizeOrig)
+        {
+            bx.size = boxColliderSizeOrig;
+            bx.offset = boxColliderOffsetOrig;
         }
 
         switch (action)
@@ -444,11 +469,32 @@ public class PlayerActionScript : MonoBehaviour
     /// </summary>
     private void Debris2PHave()
     {
+        //1 Size
+        //X:2.022391
+        //Y:0.6082556
+
+        //1 Offset
+        //X:0.8383136
+        //Y:-0.1174277
+
+        //2 Size
+        //X:1.935609
+        //Y:0.7136691
+
+        //2 Offset
+        //X:-0.7097052
+        //Y:-0.1334451
+
+        //1.95
+        //0.75
+
         GameObject debris = actionItem.GetComponent<DebrisPickup>().OriginalParent;
 
         if (debris.GetComponent<DebrisScript>().IsCarriedByTwoPlayers == false)
         {
             GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
+            bx.size = boxColliderSizeOrig;
+            bx.offset = boxColliderOffsetOrig;
         }
         else
         {
@@ -462,26 +508,38 @@ public class PlayerActionScript : MonoBehaviour
             if (debris.transform.position.x > transform.position.x)
             {
                 position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 1.9f, debris.transform.position.x - 1.8f);
+
+                bx.offset = new Vector2(carry2PColliderOffsetMod, bx.offset.y);
             }
             else
             {
                 position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x + 1.8f, debris.transform.position.x + 1.9f);
+
+                bx.offset = new Vector2(-carry2PColliderOffsetMod, bx.offset.y);
             }
 
-            position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 1, debris.transform.position.y + 1);
+            position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 0.3f, debris.transform.position.y + 0.3f);
+
+            bx.size = new Vector2(carry2PColliderSizeMod, bx.size.y);
         }
         else
         {
             if (debris.transform.position.y > transform.position.y)
             {
                 position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 1.9f, debris.transform.position.y - 1.8f);
+
+                bx.offset = new Vector2(bx.offset.x, carry2PColliderOffsetMod);
             }
             else
             {
                 position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y + 1.8f, debris.transform.position.y + 1.9f);
+
+                bx.offset = new Vector2(bx.offset.x, -carry2PColliderOffsetMod);
             }
 
-            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 1, debris.transform.position.x + 1);
+            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 0.3f, debris.transform.position.x + 0.3f);
+
+            bx.size = new Vector2(bx.size.x, carry2PColliderSizeMod);
         }    
 
         transform.position = position;

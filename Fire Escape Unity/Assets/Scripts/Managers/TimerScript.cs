@@ -24,12 +24,27 @@ public class Timer : MonoBehaviour
     
 
     [Header("Load Scene if fail")]
-    public string levelSelectScene = "LevelSelector";
+    public string levelSelectScene = "Firehouse";
+    public string mainMenuScene = "MainMenu";
+
+    public GameObject playerOne, playerTwo;
 
     private Dictionary<TimerFormat, string> timeFormats = new Dictionary<TimerFormat, string>();
+
+    public GameObject gameOverUI;
+    private bool isFailed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // find player objects
+        foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (p.name == "Player 1") playerOne = p;
+            else if (p.name == "Player 2") playerTwo = p;
+        }
+
+        // add timerformats
         timeFormats.Add(TimerFormat.Whole, "0");
         timeFormats.Add(TimerFormat.TenthDecimal, "0.0");
         timeFormats.Add(TimerFormat.HundrethsDecimal, "0.00");
@@ -43,8 +58,9 @@ public class Timer : MonoBehaviour
         //updates time
         currentTime = countDown ? currentTime - Time.deltaTime : currentTime + Time.deltaTime;
 
-        if (countDown && currentTime <= 0)
+        if (countDown && currentTime <= 0 && !isFailed)
         {
+            isFailed = true;
             currentTime = 0;
             timerText.color = Color.red;
             TimerFailed();
@@ -64,7 +80,9 @@ public class Timer : MonoBehaviour
     {
         Debug.Log("timer failed");
         enabled = false; //stops timer from updating
-        SceneManager.LoadScene(levelSelectScene);
+        playerOne.SetActive(false);
+        playerTwo.SetActive(false);
+        GameOver();
     }
 
     private void SetTimerText()
@@ -83,6 +101,29 @@ public class Timer : MonoBehaviour
         {
             timerText.text = currentTime.ToString();
         }
+    }
+
+    /// <summary>
+    /// Game Over Screen Functionality
+    /// </summary>
+
+    public void GameOver()
+    {
+        gameOverUI.SetActive(true);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ReturnToFirehouse()
+    {
+        SceneManager.LoadScene(levelSelectScene);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuScene);
     }
 }
 

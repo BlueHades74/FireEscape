@@ -55,9 +55,11 @@ public class DebrisScript : MonoBehaviour
         bool handle2HeldByPlayer = player2Transform != null && player2Transform.CompareTag("Player") && handle2OM.IsHeld;
 
         bool currentlyAttemptingCarryByTwo = false;
+        GetComponent<BoxCollider2D>().enabled = true;
         if (handle1HeldByPlayer && handle2HeldByPlayer && player1Transform != player2Transform)
         {
             currentlyAttemptingCarryByTwo = true;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
 
         if (_isCarriedByTwoPlayers)
