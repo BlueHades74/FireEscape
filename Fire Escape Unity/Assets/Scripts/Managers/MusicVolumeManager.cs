@@ -31,4 +31,9 @@ public class MusicVolumeManager : MonoBehaviour
         PlayerPrefs.Save();
     }
     
+    public void LoadMusicSettings()
+    {
+        //Should load saved settings when called.
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
+    }
 }
