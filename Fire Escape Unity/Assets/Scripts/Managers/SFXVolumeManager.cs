@@ -31,4 +31,9 @@ public class SFXVolumeManager : MonoBehaviour
         PlayerPrefs.Save();
     }
     
+    public void LoadSFXSettings()
+    {
+        //Should load saved settings when called.
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+    }
 }

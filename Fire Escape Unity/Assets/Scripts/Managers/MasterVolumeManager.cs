@@ -29,5 +29,9 @@ public class MasterVolumeManager : MonoBehaviour
         PlayerPrefs.SetFloat("MasterVolume", volume);
         PlayerPrefs.Save();
     }
-    
+    public void LoadMasterSettings()
+    {
+        //Should load saved settings when called.
+        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume"));
+    }
 }
