@@ -82,6 +82,7 @@ public class SplitScreenManager : MonoBehaviour
         // Apply to both Player cameras
         SetZoom(vcamPlayer1, currentFOV);
         SetZoom(vcamPlayer2, currentFOV);
+        SetZoom(vcamShared, currentFOV);
 
         SetZoom(vcamShared, currentFOV);
 
