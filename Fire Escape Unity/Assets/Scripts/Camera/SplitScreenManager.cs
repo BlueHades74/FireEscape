@@ -83,6 +83,9 @@ public class SplitScreenManager : MonoBehaviour
         SetZoom(vcamPlayer1, currentFOV);
         SetZoom(vcamPlayer2, currentFOV);
 
+        SetZoom(vcamShared, currentFOV);
+
+
         // Apply split based on progress
         if (splitT > 0f)
     {
