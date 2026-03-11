@@ -56,6 +56,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -77,6 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -103,9 +106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffectSource: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: f0e25d4e7c59a4ac38c91b075fbbd5cb, type: 3}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   action: Extinguisher
   imageUI: {fileID: -3961781407446926520, guid: 9f40f9a96c7c50e49b78485aa7aa77b5, type: 3}
+  singlePush: 0
 --- !u!61 &3285098249867479808
 BoxCollider2D:
   m_ObjectHideFlags: 0
