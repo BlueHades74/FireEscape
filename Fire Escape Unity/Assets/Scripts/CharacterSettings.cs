@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class CharacterSettings : MonoBehaviour
 {
     private GameObject[] playerArray;
+    [SerializeField]
     private int[] playerSetCharacters = { 0, 1 };
 
     [SerializeField]
@@ -11,6 +12,7 @@ public class CharacterSettings : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         try
         {
             playerArray = GameObject.FindGameObjectsWithTag("Player");

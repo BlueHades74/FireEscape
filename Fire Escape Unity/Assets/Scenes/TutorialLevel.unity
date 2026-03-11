@@ -5466,14 +5466,6 @@ PrefabInstance:
       propertyPath: grid
       value: 
       objectReference: {fileID: 1053206633}
-    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
-      propertyPath: carry2PColliderSizeMod
-      value: 1.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
-      propertyPath: carry2PColliderOffsetMod
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 1688234726043148194, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -49532,6 +49524,8 @@ MonoBehaviour:
   currentLevelName: TutorialLevel
   nextLevelName: House Demo 1
   objectiveText: {fileID: 437232384}
+  totalHumans: 0
+  savedHumans: 0
 --- !u!224 &2086369426
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51483,21 +51477,13 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 951112582}
-    - target: {fileID: 3792554422316546239, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
-      propertyPath: sharedCamera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3792554422316546239, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
-      propertyPath: player1Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3792554422316546239, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
-      propertyPath: player2Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4077244039318036805, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
       propertyPath: m_Name
       value: Camera Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077244039318036805, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7721040123581232313, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
       propertyPath: m_LocalPosition.x
