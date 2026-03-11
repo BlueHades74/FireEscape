@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffectSource: {fileID: 6047476578148974137}
   grid: {fileID: 0}
-  axeChopSound: {fileID: 8300000, guid: 289f37c2e71a9234db909618fa6b021b, type: 3}
+  axeChopSound: {fileID: 8300000, guid: f12a4ab990508fc45aa8211013b38939, type: 3}
   waterRangePrefab:
   - {fileID: 4708838206759781574, guid: 4904b11fd629324488581973ed505531, type: 3}
   - {fileID: 4176684262262862117, guid: 427482605b1a41746ac0fe1d0643d2ef, type: 3}
@@ -315,7 +315,7 @@ AudioSource:
   m_GameObject: {fileID: 1780741788727322148}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6408033815976896514, guid: ae60fdcffd10bb146a0e4d5f101bce17, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -412,11 +412,11 @@ AudioSource:
   m_GameObject: {fileID: 1780741788727322148}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6408033815976896514, guid: ae60fdcffd10bb146a0e4d5f101bce17, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e6a0ad300a5f4e3468ac6f309fab8c64, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
