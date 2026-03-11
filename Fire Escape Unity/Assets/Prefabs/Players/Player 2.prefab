@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 6047476578148974137}
   - component: {fileID: 7635706313206287052}
   - component: {fileID: 5108984061598582832}
-  - component: {fileID: 3927449821009709533}
   - component: {fileID: 8638692756573931569}
   - component: {fileID: 4696957774646458774}
   - component: {fileID: 3129238390668739404}
@@ -193,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMoveSpeed: 6
-  animator: {fileID: 3927449821009709533}
+  animator: {fileID: 3621164778049303625}
   sprites:
   - {fileID: -5380273546675376061, guid: 9a86980fee29bbc498abe9dfb819abc5, type: 3}
   - {fileID: 2286846907692418096, guid: 62dedd3a28322f04a98e706cc9b011c2, type: 3}
@@ -518,28 +517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad46d5711243fe742b981177222d2129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &3927449821009709533
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780741788727322148}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0ed9d0c67943704438292fd7737845e0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8638692756573931569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,8 +529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baae4439f2cf14d4fa01354461fb1d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStateManager
---- !u!114 &4696957774646458774
-MonoBehaviour:
+--- !u!95 &3621164778049303625
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -579,6 +557,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataReader
   data: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4412955d2e4c9c048ae4dcd8cf39b24d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2852415637091016286
 GameObject:
   m_ObjectHideFlags: 0
