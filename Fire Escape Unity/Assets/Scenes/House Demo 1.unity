@@ -11558,6 +11558,8 @@ MonoBehaviour:
   currentLevelName: House Demo 1
   nextLevelName: SpeakEasy_PreDemo
   objectiveText: {fileID: 367178467}
+  totalHumans: 0
+  savedHumans: 0
 --- !u!1 &1191487910
 GameObject:
   m_ObjectHideFlags: 0
@@ -24296,6 +24298,10 @@ PrefabInstance:
     - target: {fileID: 4077244039318036805, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
       propertyPath: m_Name
       value: Camera Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077244039318036805, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7721040123581232313, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
       propertyPath: m_LocalPosition.x

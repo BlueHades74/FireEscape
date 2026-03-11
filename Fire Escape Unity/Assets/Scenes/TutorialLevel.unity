@@ -5002,6 +5002,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1284431934}
     m_Modifications:
+    - target: {fileID: 130660175896938071, guid: 2be1ed600d0884e54bd93da4eba62a91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4828708770912789895, guid: 2be1ed600d0884e54bd93da4eba62a91, type: 3}
       propertyPath: m_Name
       value: AdultNPC_Update 1
@@ -5466,14 +5470,6 @@ PrefabInstance:
       propertyPath: grid
       value: 
       objectReference: {fileID: 1053206633}
-    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
-      propertyPath: carry2PColliderSizeMod
-      value: 1.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521936351534598394, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
-      propertyPath: carry2PColliderOffsetMod
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 1688234726043148194, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8929,6 +8925,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1284431934}
     m_Modifications:
+    - target: {fileID: 887358716099516025, guid: 3b6e6644dda154617b304d3c085ca91d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3479851328943386834, guid: 3b6e6644dda154617b304d3c085ca91d, type: 3}
       propertyPath: m_Name
       value: ElderlyNPC 3 1
@@ -46659,6 +46659,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1284431934}
     m_Modifications:
+    - target: {fileID: 130660175896938071, guid: 2be1ed600d0884e54bd93da4eba62a91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4828708770912789895, guid: 2be1ed600d0884e54bd93da4eba62a91, type: 3}
       propertyPath: m_Name
       value: AdultNPC_Update 1 (1)
@@ -47524,6 +47528,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1284431934}
     m_Modifications:
+    - target: {fileID: 1542812511655770921, guid: 13748942d34a54c448b515c4f7cd4ab7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4828708770912789895, guid: 13748942d34a54c448b515c4f7cd4ab7, type: 3}
       propertyPath: m_Name
       value: ElderlyNPC_Update 1
@@ -49939,6 +49947,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1284431934}
     m_Modifications:
+    - target: {fileID: 4548191212854783341, guid: 86c1a41c50d6746af828f226188e6f02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4828708770912789895, guid: 86c1a41c50d6746af828f226188e6f02, type: 3}
       propertyPath: m_Name
       value: ChildNPC_Update 1
@@ -52922,21 +52934,13 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 951112582}
-    - target: {fileID: 3792554422316546239, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
-      propertyPath: sharedCamera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3792554422316546239, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
-      propertyPath: player1Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3792554422316546239, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
-      propertyPath: player2Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4077244039318036805, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
       propertyPath: m_Name
       value: Camera Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077244039318036805, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7721040123581232313, guid: e9b1d2561d7def24aa3a8beece3e2120, type: 3}
       propertyPath: m_LocalPosition.x
