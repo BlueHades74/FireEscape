@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 5108984061598582832}
   - component: {fileID: 8638692756573931569}
   - component: {fileID: 3621164778049303625}
+  - component: {fileID: 1358183295291628813}
+  - component: {fileID: 8288919000383536462}
   m_Layer: 6
   m_Name: Player 2
   m_TagString: Player
@@ -95,7 +97,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1727463069
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 4
   m_Sprite: {fileID: -5380273546675376061, guid: 9a86980fee29bbc498abe9dfb819abc5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -295,6 +297,7 @@ MonoBehaviour:
   extinguisherSpraySound: {fileID: 8300000, guid: 44c85f0b2cc0e3d42add7519870dd4cb, type: 3}
   carry2PColliderSizeMod: 0
   carry2PColliderOffsetMod: 0
+  carry2pSound: {fileID: 0}
 --- !u!114 &4384487212960209631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,6 +552,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1358183295291628813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780741788727322148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11ff0381783b4e4f9a67411b0f770c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDataStorage
+  player: 1
+  currentData: {fileID: 11400000, guid: bcb2eb12d0747924ab905cb8b94c5d1e, type: 2}
+--- !u!114 &8288919000383536462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780741788727322148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d43d1914eb0eb4cb36bb97412cd734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDataReader
+  data: {fileID: 0}
 --- !u!1 &2852415637091016286
 GameObject:
   m_ObjectHideFlags: 0
