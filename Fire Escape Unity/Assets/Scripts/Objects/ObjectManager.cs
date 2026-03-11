@@ -6,6 +6,11 @@ public class ObjectManager : MonoBehaviour
     //Created by: 
     //Last Edited by: Rafael Gonzalez Atiles
 
+    [SerializeField]
+    private AudioSource soundEffectSource;
+    [SerializeField]
+    private AudioClip pickupSound;
+
     private ObjectManager currentlyHeldNPC = null;
     private Transform playerTransform;
     private bool isPlayerNearby = false;
@@ -106,6 +111,7 @@ public class ObjectManager : MonoBehaviour
                     }
                     transform.SetParent(playerTransform);
                     currentlyHeldNPC = this;
+                    PlayAudio(pickupSound);
                 }
             }
         }
@@ -155,5 +161,20 @@ public class ObjectManager : MonoBehaviour
             }
             other.gameObject.transform.GetChild(2).transform.GetChild(1).GetComponent<GlyphScript>().DisableIndicator();
         }
+    }
+
+    private void PlayAudio(AudioClip clip)
+    {
+        if (soundEffectSource == null)
+        {
+            return;
+        }
+        if (clip == null)
+        {
+            return;
+        }
+
+        soundEffectSource.clip = clip;
+        soundEffectSource.Play();
     }
 }
