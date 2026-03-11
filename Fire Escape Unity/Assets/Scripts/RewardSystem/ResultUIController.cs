@@ -23,14 +23,26 @@ public class ResultUIController : MonoBehaviour
     public Sprite emptyStar;
 
     private LevelResultData resultData;
+
+    private int totalHumans;
+    private int currentHumans;
+    private int CollectedCount;
+    private int TotalCount;
+    private float fireExtinguishedPercent;
     private void Start()
     {
-
-        BonusItemText.text = BonusTracker.CollectedCount + "/" + BonusTracker.TotalCount;
-
-        RewardText.text = LevelResultData.humansSaved + "/" + LevelResultData.totalHumans;
-
         var data = LevelResultCache.Data;
+        currentHumans = data.humansSaved;
+        totalHumans = data.totalHumans;
+        fireExtinguishedPercent = data.fireExtinguishedPercent;
+        CollectedCount = data.bonusCollected;
+        TotalCount = data.bonusTotal;
+
+        BonusItemText.text = data.bonusCollected + "/" + data.bonusTotal;
+
+        RewardText.text = currentHumans + "/" + totalHumans;
+
+        FireRewardText.text = Mathf.RoundToInt(fireExtinguishedPercent * 100) + "%";
 
         if (data == null )
         {
