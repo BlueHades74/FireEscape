@@ -189,6 +189,8 @@ GameObject:
   - component: {fileID: -4320895757851185695}
   - component: {fileID: -1399837611178861588}
   - component: {fileID: 1650738604569068336}
+  - component: {fileID: 1569206495819213079}
+  - component: {fileID: 5535108060370812850}
   m_Layer: 3
   m_Name: Player 1
   m_TagString: Player
@@ -457,6 +459,8 @@ MonoBehaviour:
   extinguisherRangePrefab: {fileID: 4024350339787414029, guid: 0d2025543e3b82c46be5d5c928541bd3, type: 3}
   extinguisherColliderPrefab: {fileID: 7372554772159512683, guid: 5cf4e0229fe81d641af2f5e5a976a39a, type: 3}
   extinguisherSpraySound: {fileID: 8300000, guid: 44c85f0b2cc0e3d42add7519870dd4cb, type: 3}
+  carry2PColliderSizeMod: 1.95
+  carry2PColliderOffsetMod: 0.75
 --- !u!82 &8984904703669302796
 AudioSource:
   m_ObjectHideFlags: 0
@@ -711,6 +715,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baae4439f2cf14d4fa01354461fb1d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStateManager
+--- !u!114 &1569206495819213079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087138627927326762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11ff0381783b4e4f9a67411b0f770c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDataStorage
+  player: 0
+  currentData: {fileID: 11400000, guid: 6ac94c8d6b5846c4fb30e21f58e9c50c, type: 2}
+--- !u!114 &5535108060370812850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087138627927326762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d43d1914eb0eb4cb36bb97412cd734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDataReader
 --- !u!1 &2927297716081054131
 GameObject:
   m_ObjectHideFlags: 0

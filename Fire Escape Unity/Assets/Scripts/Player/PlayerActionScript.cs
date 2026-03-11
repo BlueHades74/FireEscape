@@ -30,6 +30,8 @@ public class PlayerActionScript : MonoBehaviour
     private GameObject waterRangeDisplay;
     [SerializeField]
     private AudioClip waterBucketSound;
+    [SerializeField]
+    private AudioClip waterSloshSound;
     private int waterColliderRotation = 0;
 
     private float crowbarTimer;
@@ -53,6 +55,8 @@ public class PlayerActionScript : MonoBehaviour
     private float carry2PColliderSizeMod;
     [SerializeField]
     private float carry2PColliderOffsetMod;
+    [SerializeField]
+    private AudioClip carry2pSound;
 
     private void Awake()
     {
@@ -411,6 +415,11 @@ public class PlayerActionScript : MonoBehaviour
 
             waterRangeDisplay.transform.position = transform.position;
             waterRangeDisplay.transform.rotation = Quaternion.Euler(0, 0, waterColliderRotation);
+
+            if (GetComponent<Rigidbody2D>().linearVelocity != Vector2.zero)
+            {
+                PlayAudio(waterSloshSound);
+            }
         }
 
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, LayerMask.GetMask("Default"));
@@ -499,6 +508,10 @@ public class PlayerActionScript : MonoBehaviour
         else
         {
             GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0.7f);
+            if (GetComponent<Rigidbody2D>().linearVelocity != Vector2.zero)
+            {
+                PlayAudio(carry2pSound);
+            }
         }
 
         Vector3 position = Vector3.zero;
