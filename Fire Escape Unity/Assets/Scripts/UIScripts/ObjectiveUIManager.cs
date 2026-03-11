@@ -25,8 +25,8 @@ public class ObjectiveUIManger : MonoBehaviour
     //Affects the object in the scene so you can set specific variables for the text
     [SerializeField] private TextMeshProUGUI objectiveText;
     //For each level will have number of total humans such as 0/4 and then per saved human 1/4 etc
-    private int totalHumans;
-    private int savedHumans;
+    public int totalHumans;
+    public int savedHumans;
     
     private void OnEnable()
     {

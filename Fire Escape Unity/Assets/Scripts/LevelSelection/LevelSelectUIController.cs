@@ -61,7 +61,7 @@ public class LevelSelectUIController : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        SceneManager.LoadScene(levelName);
+        //SceneManager.LoadScene(levelName);
     }
 
 }
