@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelInfo", menuName = "Scriptable Objects/LevelInfo")]
 public class LevelInfo : ScriptableObject
 {
+    public string LevelName;
     public int LevelNumber;
     public string LevelDescription;
     public bool AxePresent;
