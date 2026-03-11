@@ -1,8 +1,19 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ResultUIController : MonoBehaviour
 {
+
+    [Header("Fire Text")]
+    public TextMeshProUGUI FireRewardText;
+
+    [Header("Human Text")]
+    public TextMeshProUGUI RewardText;
+
+    [Header("Bonus Item Text")]
+    public TextMeshProUGUI BonusItemText;
+
 
     public Image Star1;
     public Image Star2;
@@ -12,9 +23,26 @@ public class ResultUIController : MonoBehaviour
     public Sprite emptyStar;
 
     private LevelResultData resultData;
+
+    private int totalHumans;
+    private int currentHumans;
+    private int CollectedCount;
+    private int TotalCount;
+    private float fireExtinguishedPercent;
     private void Start()
     {
         var data = LevelResultCache.Data;
+        currentHumans = data.humansSaved;
+        totalHumans = data.totalHumans;
+        fireExtinguishedPercent = data.fireExtinguishedPercent;
+        CollectedCount = data.bonusCollected;
+        TotalCount = data.bonusTotal;
+
+        BonusItemText.text = data.bonusCollected + "/" + data.bonusTotal;
+
+        RewardText.text = currentHumans + "/" + totalHumans;
+
+        FireRewardText.text = Mathf.RoundToInt(fireExtinguishedPercent * 100) + "%";
 
         if (data == null )
         {
