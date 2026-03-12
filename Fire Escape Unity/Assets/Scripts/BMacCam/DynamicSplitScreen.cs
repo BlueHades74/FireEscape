@@ -1,91 +1,47 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DynamicSplitScreen : MonoBehaviour
 {
-    [SerializeField] private Transform player1;
-    [SerializeField] private Transform player2;
+    [SerializeField] private Camera cam1, cam2;
+    [SerializeField] private Transform player1, player2;
+    [SerializeField] private Material splitMaterial;
+    [SerializeField] private RawImage outputDisplay;
 
-    [SerializeField] private Camera cam1;
-    [SerializeField] private Camera cam2;
+    private RenderTexture rt1, rt2;
 
-    [SerializeField] private float splitDistance = 10f;
-    [SerializeField] private float cameraSmooth = 5f;
-
-    [SerializeField] private GameObject splitter;
-
-    Vector3 camOffset = new Vector3(0, 0, -10);
-
-    Vector3 cam1Velocity;
-    Vector3 cam2Velocity;
-
-    Vector3 target1;
-    Vector3 target2;
-
-    void LateUpdate()
+    void Start()
     {
-        float distance = Vector2.Distance(player1.position, player2.position);
+        rt1 = new RenderTexture(Screen.width, Screen.height, 24);
+        rt2 = new RenderTexture(Screen.width, Screen.height, 24);
 
-        Vector2 midpoint = (player1.position + player2.position) / 2;
+        cam1.targetTexture = rt1;
+        cam2.targetTexture = rt2;
 
-        if (distance < splitDistance)
-        {
-            // single cam
+        splitMaterial.SetTexture("_Player1Tex", rt1);
+        splitMaterial.SetTexture("_Player2Tex", rt2);
 
-            cam2.enabled = false;
-            splitter.SetActive(false);
+        outputDisplay.texture = rt1;
+        outputDisplay.material = splitMaterial;
 
-            cam1.rect = new Rect(0, 0, 1, 1);
+        splitMaterial.mainTexture = rt1;
+    }
 
-            Vector3 targetPos = new Vector3(midpoint.x, midpoint.y, -10);
+    void Update()
+    {
+        Vector3 p1Screen = cam1.WorldToViewportPoint(player1.position);
+        Vector3 p2Screen = cam1.WorldToViewportPoint(player2.position);
 
-            cam1.transform.position = Vector3.SmoothDamp(
-                cam1.transform.position,
-                targetPos,
-                ref cam1Velocity,
-                0.2f
-            );
-        }
-        else
-        {
-            // split screen
+        Vector2 diff = new Vector2(p2Screen.x - p1Screen.x, p2Screen.y - p1Screen.y);
 
-            cam2.enabled = true;
-            splitter.SetActive(true);
+        // 1. Pass the direction (normalized)
+        splitMaterial.SetVector("_SplitDirection", diff.normalized);
 
-            cam1.rect = new Rect(0, 0, 0.5f, 1);
-            cam2.rect = new Rect(0.5f, 0, 0.5f, 1);
+        // 2. Set a SMALL constant for the line sharpness (e.g., 0.02)
+        // Don't use the 'distance' variable here!
+        splitMaterial.SetFloat("_SplitDistance", 0.02f);
 
-            // add swapping sides here
-            if (player1.position.x < player2.position.x && player1.position.y < splitDistance && player2.position.y < splitDistance)
-            {
-                target1 = player1.position + camOffset;
-                target2 = player2.position + camOffset;
-            }
-            else
-            {
-                target2 = player1.position + camOffset;
-                target1 = player2.position + camOffset;
-            }
-
-            cam1.transform.position = Vector3.SmoothDamp(
-                cam1.transform.position,
-                target1,
-                ref cam1Velocity,
-                cameraSmooth
-            );
-
-            cam2.transform.position = Vector3.SmoothDamp(
-                cam2.transform.position,
-                target2,
-                ref cam2Velocity,
-                cameraSmooth
-            );
-
-            Vector2 dir = player2.position - player1.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-            splitter.transform.position = midpoint;
-            splitter.transform.rotation = Quaternion.Euler(0, 0, angle);
-        }
+        // 3. Midpoint of the split
+        splitMaterial.SetVector("_SplitOrigin", (p1Screen + p2Screen) * 0.5f);
     }
 }
