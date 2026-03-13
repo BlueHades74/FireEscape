@@ -16,5 +16,23 @@ public class PlayerHeadshotUIScript : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        CharacterEvents.PlayerCharLoad += LoadData;
+    }
+
+    private void OnDisable()
+    {
+        CharacterEvents.PlayerCharLoad -= LoadData;
+    }
+
+    private void LoadData(int messagedplayer, CharacterData newData)
+    {
+        if (messagedplayer == (playerID - 1))
+        {
+            data = newData;
+        }
+    }
+
     public CharacterData Data { get => data; set => data = value; }
 }
