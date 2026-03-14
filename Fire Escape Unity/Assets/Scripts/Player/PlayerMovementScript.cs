@@ -24,7 +24,7 @@ public class PlayerMovementScript : MonoBehaviour
     private int spriteIndex = 0;
 
     public Vector2 FacingDirection { get => facingDirection; }
-    public float PlayerMoveSpeed { get => playerMoveSpeed; }
+    public float PlayerMoveSpeed { get => playerMoveSpeed; set => playerMoveSpeed = value; }
 
     public AudioSource footstepAudioSource;
 
