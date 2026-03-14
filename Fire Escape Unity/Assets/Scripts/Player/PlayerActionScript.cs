@@ -418,7 +418,17 @@ public class PlayerActionScript : MonoBehaviour
 
             if (GetComponent<Rigidbody2D>().linearVelocity != Vector2.zero)
             {
-                PlayAudio(waterSloshSound);
+                if (soundEffectSource != null)
+                {
+                    if (soundEffectSource.isPlaying == false)
+                    {
+                        PlayAudio(waterSloshSound);
+                    }
+                }
+            }
+            else if (soundEffectSource != null)
+            {
+                soundEffectSource.Stop();
             }
         }
 
