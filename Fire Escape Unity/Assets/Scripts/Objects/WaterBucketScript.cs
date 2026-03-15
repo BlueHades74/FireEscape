@@ -9,6 +9,10 @@ public class WaterBucketScript : MonoBehaviour
     [SerializeField]
     private Sprite emptySprite;
     [SerializeField]
+    private Sprite filledSpriteUI;
+    [SerializeField]
+    private Sprite emptySpriteUI;
+    [SerializeField]
     private int fullCharges;
     [SerializeField]
     private int currentCharges;
@@ -36,8 +40,8 @@ public class WaterBucketScript : MonoBehaviour
     {
         isFilled = false;
         GetComponent<SpriteRenderer>().sprite = emptySprite;
-        GetComponent<ObjectManager>().ImageUI = emptySprite;
-        ItemEventsScript.OnItemChanged(transform.parent.gameObject.GetComponent<PlayerInputController>().PlayerIndex + 1, emptySprite);
+        GetComponent<ObjectManager>().ImageUI = emptySpriteUI;
+        ItemEventsScript.OnItemChanged(transform.parent.gameObject.GetComponent<PlayerInputController>().PlayerIndex + 1, emptySpriteUI);
     }
 
     /// <summary>
@@ -48,7 +52,7 @@ public class WaterBucketScript : MonoBehaviour
         isFilled = true;
         currentCharges = fullCharges;
         GetComponent<SpriteRenderer>().sprite = filledSprite;
-        GetComponent<ObjectManager>().ImageUI = filledSprite;
-        ItemEventsScript.OnItemChanged(transform.parent.gameObject.GetComponent<PlayerInputController>().PlayerIndex + 1, filledSprite);
+        GetComponent<ObjectManager>().ImageUI = filledSpriteUI;
+        ItemEventsScript.OnItemChanged(transform.parent.gameObject.GetComponent<PlayerInputController>().PlayerIndex + 1, filledSpriteUI);
     }
 }

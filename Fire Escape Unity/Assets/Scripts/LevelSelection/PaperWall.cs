@@ -24,6 +24,10 @@ public class PaperWall : MonoBehaviour
     // Level select UI (canvas)
     public GameObject levelSelectUI;
 
+    //Canvas Manager (To detect when the canvas is open
+    [SerializeField]
+    private CanvasManager canvasManager;
+
     void Start()
     {
         // Start the level select UI off
@@ -37,16 +41,18 @@ public class PaperWall : MonoBehaviour
         float playerTwoDistance = Vector2.Distance(transform.position, playerTwo.transform.position);
 
         // If the E key is pressed.....
-        if (Input.GetKeyDown(KeyCode.E) && (playerOneDistance <= interactableDistance || playerTwoDistance <= interactableDistance))
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Submit")) && (playerOneDistance <= interactableDistance || playerTwoDistance <= interactableDistance) && !canvasManager.Active)
         {
             // Then open the level select UI
             levelSelectUI.SetActive(true);
+            GetComponent<ControllerUI>().MoveToElement();
+            canvasManager.Active = true;
         }
 
         // If the Escape key is pressed....
         else if (levelSelectUI.activeInHierarchy == true)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Cancel"))
             {
                 // Then close the level select UI
                 levelSelectUI.SetActive(false);
