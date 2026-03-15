@@ -977,6 +977,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc48cd414298514f8c9ac8579290ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &147057462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4417622040389785958, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
+  m_PrefabInstance: {fileID: 931414004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &151393744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,6 +2958,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &336578360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 336578362}
+  - component: {fileID: 336578361}
+  m_Layer: 0
+  m_Name: CanvasManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &336578361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336578360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293d384ce8da7bd458d9de7913f7b700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CanvasManager
+  canvasList:
+  - {fileID: 1004316630}
+  - {fileID: 509817437}
+  - {fileID: 147057462}
+  p1Move: {fileID: 1783618589}
+  p2Move: {fileID: 2069070924884300083}
+  active: 1
+--- !u!4 &336578362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336578360}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.14674, y: 1.922, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &336665859 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2087138627927326762, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
@@ -3521,6 +3577,7 @@ GameObject:
   - component: {fileID: 455680462}
   - component: {fileID: 455680463}
   - component: {fileID: 455680464}
+  - component: {fileID: 455680465}
   m_Layer: 0
   m_Name: Newspaper_Wall
   m_TagString: Untagged
@@ -3617,6 +3674,7 @@ MonoBehaviour:
   playerTwo: {fileID: 256619712}
   interactableDistance: 2
   levelSelectUI: {fileID: 509817437}
+  canvasManager: {fileID: 336578361}
 --- !u!114 &455680463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3676,6 +3734,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 0.81840944}
   m_EdgeRadius: 0
+--- !u!114 &455680465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455680459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52f3f79484b77a46b93c72b68a83d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControllerUI
+  es: {fileID: 2043445338}
+  elementToSelect: {fileID: 1855906442}
 --- !u!1 &468026804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,7 +3848,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 715867640619909049, guid: 99c31893d2a11414cbaccfb1c86972a1, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 715867640619909049, guid: 99c31893d2a11414cbaccfb1c86972a1, type: 3}
       propertyPath: m_SortingLayerID
@@ -8805,7 +8877,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.23899364, g: 0.23824209, b: 0.23824209, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -18957,6 +19029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1329813482}
   - component: {fileID: 1329813481}
+  - component: {fileID: 1329813483}
   m_Layer: 0
   m_Name: CharacterManager
   m_TagString: Untagged
@@ -18997,6 +19070,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1329813483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329813480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9188439286aa81c4898d581e4d7285f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDataCatcher
 --- !u!1 &1363051809
 GameObject:
   m_ObjectHideFlags: 0
@@ -32403,6 +32488,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4800660834239274203, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
   m_PrefabInstance: {fileID: 1783618575}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1783618589 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2976251398661574900, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+  m_PrefabInstance: {fileID: 1783618575}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336665859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9054f7d92631a0c43ba284b8b3bb28c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1799434001
 GameObject:
   m_ObjectHideFlags: 0
@@ -38222,6 +38318,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3234076733250909796, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
   m_PrefabInstance: {fileID: 2069070924884300069}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2069070924884300083 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1582288285665517558, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+  m_PrefabInstance: {fileID: 2069070924884300069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256619712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9054f7d92631a0c43ba284b8b3bb28c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8462354833364729531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38312,3 +38419,4 @@ SceneRoots:
   - {fileID: 1329813482}
   - {fileID: 881887225}
   - {fileID: 888378293}
+  - {fileID: 336578362}

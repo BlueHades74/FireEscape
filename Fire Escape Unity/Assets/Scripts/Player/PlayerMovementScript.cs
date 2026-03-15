@@ -22,7 +22,7 @@ public class PlayerMovementScript : MonoBehaviour
     private SpriteRenderer playerSprite;
 
     public Vector2 FacingDirection { get => facingDirection; }
-    public float PlayerMoveSpeed { get => playerMoveSpeed; }
+    public float PlayerMoveSpeed { get => playerMoveSpeed; set => playerMoveSpeed = value; }
 
     public AudioSource footstepAudioSource;
 
