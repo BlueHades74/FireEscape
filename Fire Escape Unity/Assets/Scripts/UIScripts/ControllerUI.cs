@@ -28,6 +28,7 @@ public class ControllerUI : MonoBehaviour
 
     public void MoveToElement()
     {
+        es.SetSelectedGameObject(null);
         es.SetSelectedGameObject(elementToSelect.gameObject);
     }
 }
