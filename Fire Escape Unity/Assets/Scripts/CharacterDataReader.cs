@@ -29,6 +29,8 @@ public class CharacterDataReader : MonoBehaviour
     private void UpdatePlayer()
     {
         spriteRenderer.sprite = data.CharacterSprite;
+        //animator.runtimeAnimatorController = data.AnimatorController;
+
         animator.runtimeAnimatorController = data.AnimatorController;
     }
 }
