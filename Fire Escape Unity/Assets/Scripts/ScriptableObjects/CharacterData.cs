@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 //Author Alex
@@ -8,4 +9,5 @@ public class CharacterData : ScriptableObject
     public string CharacterName;
     public Sprite Headshot;
     public Sprite CharacterSprite;
+    public AnimatorController AnimatorController;
 }

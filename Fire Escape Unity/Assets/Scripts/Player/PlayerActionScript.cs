@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerActionScript : MonoBehaviour
 {
     //Created by: Rafael Gonzalez Atiles
     //Last Edited by: Rafael Gonzalez Atiles
+    //Audio Relate Hoohah added by henry cummings
+    [SerializeField]
+    private AudioSource soundEffectSource;
 
     private GameObject actionItem;
     private PlayerInputController inputs;
@@ -14,22 +18,57 @@ public class PlayerActionScript : MonoBehaviour
 
     private string action;
 
+    private bool holdCheck;
+
     [SerializeField]
-    private GameObject waterRangePrefab;
+    private AudioClip axeChopSound;
+
+    [SerializeField]
+    private GameObject[] waterRangePrefab;
     [SerializeField]
     private GameObject waterColliderPrefab;
     private GameObject waterRangeDisplay;
+    [SerializeField]
+    private AudioClip waterBucketSound;
+    [SerializeField]
+    private AudioClip waterSloshSound;
+    private int waterColliderRotation = 0;
+
+    private float crowbarTimer;
+    private Image crowbarFillBar;
+    [SerializeField]
+    private AudioClip crowbarPrySound;
 
     [SerializeField]
     private GameObject extinguisherRangePrefab;
     [SerializeField]
     private GameObject extinguisherColliderPrefab;
     private GameObject extinguisherRangeDisplay;
+    [SerializeField]
+    private AudioClip extinguisherSpraySound;
+
+    private Vector2 boxColliderSizeOrig;
+    private Vector2 boxColliderOffsetOrig;
+    private BoxCollider2D bx;
+
+    [SerializeField]
+    private float carry2PColliderSizeMod;
+    [SerializeField]
+    private float carry2PColliderOffsetMod;
+    [SerializeField]
+    private AudioClip carry2pSound;
+
+    private void Awake()
+    {
+        bx = GetComponent<BoxCollider2D>();
+        boxColliderSizeOrig = bx.size;
+        boxColliderOffsetOrig = bx.offset;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        crowbarFillBar = transform.GetChild(2).transform.GetChild(0).GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -61,10 +100,29 @@ public class PlayerActionScript : MonoBehaviour
                 Debris1PHave();
                 break;
 
+            case ("Hose"):
+                HoseNozzleHave();
+                break;
+
+            case ("HoseP2Spot"):
+                HoseP2SpotHave();
+                break;
+
             // Added by: Jacob Biles to cover default/unimplemented items
             default:
                 //Debug.Log("No actions have been implemented");
                 break;
+        }
+
+        if (holdCheck == true && action == "Crowbar")
+        {
+            crowbarFillBar.gameObject.SetActive(true);
+            CrowbarUse();
+        }
+        else
+        {
+            crowbarTimer = 2;
+            crowbarFillBar.gameObject.SetActive(false);
         }
     }
 
@@ -82,47 +140,63 @@ public class PlayerActionScript : MonoBehaviour
             waterRangeDisplay = null;
         }
 
+        crowbarFillBar.gameObject.SetActive(false);
+
         if (extinguisherRangeDisplay != null)
         {
             Destroy(extinguisherRangeDisplay);
             extinguisherRangeDisplay = null;
         }
+
+        GetComponent<PlayerMovementScript>().ChangeAddedVelocity(Vector2.zero);
+        GetComponent<PlayerMovementScript>().ChangeClampMoveSettings(1, -1, 1, -1);
+        GetComponent<PlayerMovementScript>().SwitchFaceDirection(true);
+        bx.size = boxColliderSizeOrig;
+        bx.offset = boxColliderOffsetOrig;
     }
 
     /// <summary>
     /// Executes an action.
     /// </summary>
     /// <param name="context"></param>
-    private void OnAction()
+    private void OnAction(InputValue context)
     {
-
-        switch (action)
+        if (context.isPressed == true)
         {
-            case ("Axe"):
-                AxeUse();
-                break;
+            switch (action)
+            {
+                case ("Axe"):
+                    AxeUse();
+                    break;
 
-            case ("Bucket"):
-                BucketUse();
-                break;
+                case ("Bucket"):
+                    BucketUse();
+                    break;
 
-            case ("Ladder"):
-                LadderUse();
-                break;
+                case ("Ladder"):
+                    LadderUse();
+                    break;
 
-            case ("Extinguisher"):
-                ExtinguisherUse();
-                break;
+                case ("Extinguisher"):
+                    ExtinguisherUse();
+                    break;
 
-            case ("Crowbar"):
-                CrowbarUse();
-                break;
+                case ("HoseP2Spot"):
+                    HoseP2SpotUse(); 
+                    break;
 
-            // Added by: Jacob Biles to cover default/unimplemented items
-            default:
-                //Debug.Log("No actions have been implemented");
-                break;
+                //case ("Crowbar"):
+                //    CrowbarUse();
+                //    break;
+
+                // Added by: Jacob Biles to cover default/unimplemented items
+                default:
+                    //Debug.Log("No actions have been implemented");
+                    break;
+            }
         }
+
+        holdCheck = context.isPressed;
     }
 
     /// <summary>
@@ -135,12 +209,25 @@ public class PlayerActionScript : MonoBehaviour
 
         action = actionItem.GetComponent<ObjectManager>().Action;
 
+        if (waterRangeDisplay != null)
+        {
+            Destroy(waterRangeDisplay);
+            waterRangeDisplay = null;
+        }
+
+        if (bx.size !=  boxColliderSizeOrig)
+        {
+            bx.size = boxColliderSizeOrig;
+            bx.offset = boxColliderOffsetOrig;
+        }
+
         switch (action)
         {
             case ("Bucket"):
                 if (actionItem.GetComponent<WaterBucketScript>().IsFilled == true)
                 {
-                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
+                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
+                    waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
                 }
                 break;
 
@@ -160,11 +247,13 @@ public class PlayerActionScript : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, layerMask);
         Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
 
+
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.tag == "BreakableObject")
             {
-                hit.collider.gameObject.SetActive(false);
+                hit.collider.gameObject.GetComponent<BreakableObjectScript>().DamageBreakable();
+                PlayAudio(axeChopSound);
             }
         }
     }
@@ -176,29 +265,40 @@ public class PlayerActionScript : MonoBehaviour
     {
         if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
         {
-            for (int i = 0; i < waterRangeDisplay.transform.childCount; i++)
+            Vector3[] tiles = waterRangeDisplay.GetComponent<WaterBucketRangeScript>().ReturnItemLocations();
+            for (int i = 0; i < tiles.Length; i++)
             {
-                var childLocation = waterRangeDisplay.transform.GetChild(i).transform.position;
+                var childLocation = tiles[i];
                 Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
             }
-            actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
+            PlayAudio(waterBucketSound);
+            actionItem.GetComponent<WaterBucketScript>().CurrentCharges--;
             Destroy(waterRangeDisplay);
-        }
-        else
-        {
-            Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f);
-            Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
-
-            if (hit.collider != null)
+            if (actionItem.GetComponent<WaterBucketScript>().CurrentCharges <= 0)
             {
-                if (hit.collider.gameObject.tag == "DropOff")
-                {
-                    actionItem.GetComponent<WaterBucketScript>().FillBucket();
-                    waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab, transform.position, Quaternion.identity);
-                }
+                actionItem.GetComponent<WaterBucketScript>().EmptyBucket();
+            }
+            else
+            {
+                waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
             }
         }
+        //else
+        //{
+        //    Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+        //    RaycastHit2D hit = Physics2D.Raycast(transform.position + displacement, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, LayerMask.GetMask("Default"));
+        //    Debug.DrawRay(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, Color.red);
+
+        //    if (hit.collider != null)
+        //    {
+        //        if (hit.collider.gameObject.tag == "DropOff")
+        //        {
+        //            actionItem.GetComponent<WaterBucketScript>().FillBucket();
+        //            waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
+        //            waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
+        //        }
+        //    }
+        //}
     }
 
     /// <summary>
@@ -234,6 +334,7 @@ public class PlayerActionScript : MonoBehaviour
     {
         Vector3 childLocation = extinguisherRangeDisplay.transform.GetChild(0).transform.position;
         Instantiate<GameObject>(extinguisherColliderPrefab, childLocation, Quaternion.identity);
+        PlayAudio(extinguisherSpraySound);
     }
 
     /// <summary>
@@ -252,9 +353,35 @@ public class PlayerActionScript : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "CrowbarObject")
             {
-                hit.collider.gameObject.SetActive(false);
+                if (crowbarTimer > 0)
+                {
+                    crowbarTimer -= Time.deltaTime;
+                    crowbarFillBar.fillAmount = (crowbarTimer / 2);
+                }
+                else
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    PlayAudio(crowbarPrySound);
+                }
+            }
+            else
+            {
+                crowbarTimer = 2;
+                crowbarFillBar.fillAmount = (crowbarTimer / 2);
             }
         }
+        else
+        {
+            crowbarTimer = 2;
+            crowbarFillBar.fillAmount = (crowbarTimer / 2);
+        }
+    }
+
+    private void HoseP2SpotUse()
+    {
+        HoseP2SpotScript script = actionItem.GetComponent<HoseP2SpotScript>();
+
+        script.SwapModifier();
     }
 
     /// <summary>
@@ -264,11 +391,65 @@ public class PlayerActionScript : MonoBehaviour
     {
         if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
         {
-            Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-            Vector3Int waterSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
+            Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x * 0.2f, GetComponent<PlayerMovementScript>().FacingDirection.y * 0.2f, 0);
+            Vector3Int waterSpawnLocation = grid.WorldToCell(transform.position);
 
-            waterRangeDisplay.transform.position = grid.CellToWorld(waterSpawnLocation);
+            Vector2 direction = GetComponent<PlayerMovementScript>().FacingDirection;
+
+            if (direction.x < 0)
+            {
+                waterColliderRotation = 90;
+            }
+            else if (direction.x > 0)
+            {
+                waterColliderRotation = 270;
+            }
+            else if (direction.y < 0)
+            {
+                waterColliderRotation = 180;
+            }
+            else if (direction.y > 0)
+            {
+                waterColliderRotation = 0;
+            }
+
+            waterRangeDisplay.transform.position = transform.position;
+            waterRangeDisplay.transform.rotation = Quaternion.Euler(0, 0, waterColliderRotation);
+
+            if (GetComponent<Rigidbody2D>().linearVelocity != Vector2.zero)
+            {
+                if (soundEffectSource != null)
+                {
+                    if (soundEffectSource.isPlaying == false)
+                    {
+                        PlayAudio(waterSloshSound);
+                    }
+                }
+            }
+            else if (soundEffectSource != null)
+            {
+                soundEffectSource.Stop();
+            }
         }
+
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, GetComponent<PlayerMovementScript>().FacingDirection, 1.5f, LayerMask.GetMask("Default"));
+        //Debug.Log(hit.collider);
+
+        //if (hit.collider != null)
+        //{
+        //    if (hit.collider.gameObject.tag == "DropOff")
+        //    {
+        //        if (waterRangeDisplay != null)
+        //        {
+        //            Destroy(waterRangeDisplay);
+        //            waterRangeDisplay = null;
+        //        }
+
+        //        actionItem.GetComponent<WaterBucketScript>().FillBucket();
+        //        waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
+        //        waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
+        //    }
+        //}
     }
 
     /// <summary>
@@ -307,15 +488,40 @@ public class PlayerActionScript : MonoBehaviour
     /// </summary>
     private void Debris2PHave()
     {
+        //1 Size
+        //X:2.022391
+        //Y:0.6082556
+
+        //1 Offset
+        //X:0.8383136
+        //Y:-0.1174277
+
+        //2 Size
+        //X:1.935609
+        //Y:0.7136691
+
+        //2 Offset
+        //X:-0.7097052
+        //Y:-0.1334451
+
+        //1.95
+        //0.75
+
         GameObject debris = actionItem.GetComponent<DebrisPickup>().OriginalParent;
 
         if (debris.GetComponent<DebrisScript>().IsCarriedByTwoPlayers == false)
         {
             GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
+            bx.size = boxColliderSizeOrig;
+            bx.offset = boxColliderOffsetOrig;
         }
         else
         {
             GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0.7f);
+            if (GetComponent<Rigidbody2D>().linearVelocity != Vector2.zero)
+            {
+                PlayAudio(carry2pSound);
+            }
         }
 
         Vector3 position = Vector3.zero;
@@ -325,26 +531,38 @@ public class PlayerActionScript : MonoBehaviour
             if (debris.transform.position.x > transform.position.x)
             {
                 position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 1.9f, debris.transform.position.x - 1.8f);
+
+                bx.offset = new Vector2(carry2PColliderOffsetMod, bx.offset.y);
             }
             else
             {
                 position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x + 1.8f, debris.transform.position.x + 1.9f);
+
+                bx.offset = new Vector2(-carry2PColliderOffsetMod, bx.offset.y);
             }
 
-            position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 1, debris.transform.position.y + 1);
+            position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 0.3f, debris.transform.position.y + 0.3f);
+
+            bx.size = new Vector2(carry2PColliderSizeMod, bx.size.y);
         }
         else
         {
             if (debris.transform.position.y > transform.position.y)
             {
                 position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - 1.9f, debris.transform.position.y - 1.8f);
+
+                bx.offset = new Vector2(bx.offset.x, carry2PColliderOffsetMod);
             }
             else
             {
                 position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y + 1.8f, debris.transform.position.y + 1.9f);
+
+                bx.offset = new Vector2(bx.offset.x, -carry2PColliderOffsetMod);
             }
 
-            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 1, debris.transform.position.x + 1);
+            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - 0.3f, debris.transform.position.x + 0.3f);
+
+            bx.size = new Vector2(bx.size.x, carry2PColliderSizeMod);
         }    
 
         transform.position = position;
@@ -358,7 +576,7 @@ public class PlayerActionScript : MonoBehaviour
         Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
         Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
 
-        extinguisherRangeDisplay.transform.position = grid.CellToWorld(extinguisherSpawnLocation);
+        extinguisherRangeDisplay.transform.position = transform.position + facingDisplace;
     }
 
     private void Debris1PHave()
@@ -367,25 +585,58 @@ public class PlayerActionScript : MonoBehaviour
 
         int[] modifier = debris.GetComponent<SinglePlayerPushScript>().SavedModifier;
 
-        Vector3 position = Vector3.zero;
-
-        Debug.Log(debris.transform.position.y - (modifier[1] * 1.1f) + " " + transform.position.y);
-
-        if (modifier[0] != 0)
+        if (!debris.GetComponent<SinglePlayerPushScript>().CollisionState)
         {
-            position.x = Mathf.Clamp(transform.position.x, debris.transform.position.x - (modifier[0]*1.1f), debris.transform.position.x - (modifier[0]*1.1f));
-            position.y = debris.transform.position.y;
+            GetComponent<PlayerMovementScript>().ChangeClampMoveSettings(modifier[0], modifier[0], modifier[1], modifier[1]);
         }
         else
         {
-            //position.y = Mathf.Clamp(transform.position.y, debris.transform.position.y - (modifier[1]*1.3f), debris.transform.position.y - (modifier[1]*1.2f));
-            position.y = transform.position.y;
-            position.x = debris.transform.position.x;
+            GetComponent<PlayerMovementScript>().ChangeClampMoveSettings(0, 0, 0, 0);
         }
-        Debug.Log(position.x);
-        Debug.Log(position.y);
+    }
 
-        transform.position = position;
+    private void HoseNozzleHave()
+    {
+        HoseNozzleScript hoseScript =  actionItem.GetComponent<HoseNozzleScript>();
+        PlayerMovementScript moveScript= GetComponent<PlayerMovementScript>();
+
+        Vector2 pushback = moveScript.FacingDirection * -hoseScript.CurrentPushback;
+        moveScript.ChangeAddedVelocity(pushback);
+
+        hoseScript.SetRotation(moveScript.FacingDirection);
+
+        if(hoseScript.CurrentPercentage > 0)
+        {
+            moveScript.SwitchFaceDirection(false);
+        }
+        else
+        {
+            moveScript.SwitchFaceDirection(true);
+        }    
+    }
+
+    private void HoseP2SpotHave()
+    {
+        GetComponent<PlayerMovementScript>().SetMovementByOriginalTimesParameter(0);
+    }
+
+    /// <summary>
+    /// Plays a Sound
+    /// </summary>
+    /// <param name="clip"></param>
+    private void PlayAudio(AudioClip clip)
+    {
+        if(soundEffectSource == null)
+        {
+            return;
+        }
+        if (clip == null)
+        {
+            return;
+        }
+
+        soundEffectSource.clip = clip;
+        soundEffectSource.Play();
     }
 
     /// <summary>
@@ -401,6 +652,29 @@ public class PlayerActionScript : MonoBehaviour
         else
         {
             return "null";
+        }
+    }
+
+    /// <summary>
+    /// Detects triggers to fill bucket.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (action == "Bucket")
+        {
+            if (collision.CompareTag("DropOff"))
+            {
+                if (waterRangeDisplay != null)
+                {
+                    Destroy(waterRangeDisplay);
+                    waterRangeDisplay = null;
+                }
+
+                actionItem.GetComponent<WaterBucketScript>().FillBucket();
+                waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
+                waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
+            }
         }
     }
 }

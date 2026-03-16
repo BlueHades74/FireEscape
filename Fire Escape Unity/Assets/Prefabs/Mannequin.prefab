@@ -130,13 +130,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65625, y: 1.890625}
+    oldSize: {x: 0.36, y: 0.64}
     newSize: {x: 1.07, y: 1.98}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.65625, y: 1.890625}
+  m_Size: {x: 0.36, y: 0.64}
   m_EdgeRadius: 0
 --- !u!114 &7022587603433922724
 MonoBehaviour:
@@ -153,6 +153,7 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   action: 
   imageUI: {fileID: 0}
+  singlePush: 0
 --- !u!114 &-1513008305883611197
 MonoBehaviour:
   m_ObjectHideFlags: 0

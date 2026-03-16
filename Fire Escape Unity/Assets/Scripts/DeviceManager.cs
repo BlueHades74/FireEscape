@@ -2,6 +2,8 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Switch;
+using UnityEngine.InputSystem.XInput;
 
 public class DeviceManager : MonoBehaviour
 {
@@ -17,6 +19,15 @@ public class DeviceManager : MonoBehaviour
     void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
+        //Debug.LogWarning(players[0].name + ", " + players[1].name);
+
+        if (players[0].name == "Player 1")
+        {
+            GameObject player1 = players[0];
+            players[0] = players[1];
+            players[1] = player1;
+        }
+
 
         ValidateDevicesAndBind();
     }
@@ -46,6 +57,7 @@ public class DeviceManager : MonoBehaviour
     /// </summary>
     private void ValidateDevicesAndBind()
     {
+        VerifyInputIntegrity();
         deviceCount = InputSystem.devices.Count;
 
         List<InputDevice> devices = new List<InputDevice>();
@@ -53,7 +65,7 @@ public class DeviceManager : MonoBehaviour
         for (int i = 0; i < InputSystem.devices.Count; i++)
         {
             string type = InputSystem.devices[i].description.deviceClass;
-            if (type == "Keyboard" || type == "")
+            if ((type == "Keyboard" || type == "") && InputSystem.devices[i].enabled == true)
             {
                 devices.Add(InputSystem.devices[i]);
             }
@@ -67,6 +79,29 @@ public class DeviceManager : MonoBehaviour
             Debug.LogWarning(inputDevices[i]);
         }
 
+        print(inputDevices);
+
         RebindControllers();
+    }
+
+    /// <summary>
+    /// Verifies that controllers don't count twice
+    /// </summary>
+    private static void VerifyInputIntegrity()
+    {
+        InputDevice lastDevice = null;
+
+        for (int i = 0; i < InputSystem.devices.Count; i++)
+        {
+            if (InputSystem.devices[i] is SwitchProControllerHID)
+            {
+                if (lastDevice is XInputController)
+                {
+                    InputSystem.DisableDevice(lastDevice);
+                }
+            }
+
+            lastDevice = InputSystem.devices[i];
+        }
     }
 }

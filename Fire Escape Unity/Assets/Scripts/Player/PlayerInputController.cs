@@ -26,6 +26,8 @@ public class PlayerInputController : MonoBehaviour
         }
 
         user = GetComponent<PlayerInput>().user;
+
+        //Debug.LogWarning((GetComponent<PlayerInput>().playerIndex.ToString() + ", " + playerIndex.ToString() + ", " + user.index.ToString()));
     }
 
     /// <summary>
@@ -40,7 +42,8 @@ public class PlayerInputController : MonoBehaviour
 
         if (deviceCount == 1)
         {
-            if (user.index == 0)
+            //if (user.index == 0)
+            if (playerIndex == 0)
             {
                 GetComponent<PlayerInput>().SwitchCurrentControlScheme("Keyboard - Left", Keyboard.current);
             }

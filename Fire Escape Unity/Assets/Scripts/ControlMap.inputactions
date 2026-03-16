@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "ControlMap",
     "maps": [
         {
@@ -27,6 +28,15 @@
                     "name": "Action",
                     "type": "Button",
                     "id": "90bc9cf2-a037-482f-b0d5-aa669a9df86e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "f4259333-06f4-4ade-a725-4f9dcbfdfb04",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -103,7 +113,7 @@
                 {
                     "name": "up",
                     "id": "dd546cc2-73e4-4a8b-b566-aa0e413e18b0",
-                    "path": "<Keyboard>/upArrow",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard;Keyboard - Right",
@@ -114,7 +124,7 @@
                 {
                     "name": "down",
                     "id": "982527fe-0a41-4176-bc13-061faa29c00a",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard;Keyboard - Right",
@@ -125,7 +135,7 @@
                 {
                     "name": "left",
                     "id": "f713b685-a55f-4254-8af9-4c97a9ec171f",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard;Keyboard - Right",
@@ -136,7 +146,7 @@
                 {
                     "name": "right",
                     "id": "32a0e49d-36a6-44cf-b1c0-b5326d239559",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard;Keyboard - Right",
@@ -213,7 +223,7 @@
                 {
                     "name": "",
                     "id": "63f5abed-06b9-44b8-baf4-22fc029d5cd5",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Keyboard - Left",
@@ -224,7 +234,7 @@
                 {
                     "name": "",
                     "id": "9ed5bcb8-d303-42a4-93f6-36b18d29b9a1",
-                    "path": "<Keyboard>/rightShift",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Keyboard - Right",
@@ -235,7 +245,7 @@
                 {
                     "name": "",
                     "id": "f7ced9c6-52d7-4bc1-85a5-29a320818e36",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -246,7 +256,7 @@
                 {
                     "name": "",
                     "id": "53c3884f-96dd-4fa1-94d1-485c7450743c",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Keyboard - Left",
@@ -257,7 +267,7 @@
                 {
                     "name": "",
                     "id": "71fb0d7a-ec93-43ad-8591-518b44256ca6",
-                    "path": "<Keyboard>/slash",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard;Keyboard - Right",
@@ -273,6 +283,67 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0c8439a-4903-498d-b136-0bada699e894",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65c6a0b7-be14-4e75-bc58-b1183608c505",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cc05230-a786-422a-8920-c7ce3b64d7d6",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "New action map",
+            "id": "b65c47b6-852f-4e7b-b539-edffba35119b",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "34ebaaec-3c0b-4ad7-b67e-4d060cf096c0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3bb48764-27e0-4041-9fee-cbf0bcf74816",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+//using static UnityEditor.PlayerSettings;
 
 public class StaircaseScript : MonoBehaviour
 {
@@ -39,6 +39,19 @@ public class StaircaseScript : MonoBehaviour
         {
             playerToTP = collision.gameObject;
             BeginTransition();
+        }
+    }
+
+    private bool triggered = false;
+
+    private void OnTriggerEnter(Collider other)
+        { 
+        if (triggered) return;
+
+        if (other.CompareTag("Player"))
+        {
+            triggered = true;
+            FloorManager.Instance.GoUpFloor();
         }
     }
 

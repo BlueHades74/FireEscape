@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2283935917981151697}
   - component: {fileID: 3285098249867479808}
   - component: {fileID: 1056666072291445069}
+  - component: {fileID: 8662450157697582057}
   m_Layer: 0
   m_Name: FireExtinguisher
   m_TagString: Object
@@ -55,6 +56,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -76,6 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -102,9 +106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffectSource: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: f0e25d4e7c59a4ac38c91b075fbbd5cb, type: 3}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   action: Extinguisher
-  imageUI: {fileID: -3961781407446926520, guid: 9f40f9a96c7c50e49b78485aa7aa77b5, type: 3}
+  imageUI: {fileID: 5541764901798709222, guid: 5b1e7f0c9a4588940a697bedb25048b4, type: 3}
+  singlePush: 0
 --- !u!61 &3285098249867479808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,5 +168,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8662450157697582057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045455999211624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78d9e2d6a13a2043bc7e296514db981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
