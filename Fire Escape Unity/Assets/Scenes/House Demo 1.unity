@@ -5053,6 +5053,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &160435317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4408622496689305298, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+  m_PrefabInstance: {fileID: 765003674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &175479886
 GameObject:
   m_ObjectHideFlags: 0
@@ -5189,6 +5194,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1274304133}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vDualCamLeft
+      value: 
+      objectReference: {fileID: 273096537}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vDualCamRight
+      value: 
+      objectReference: {fileID: 160435317}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 768296499}
@@ -5202,7 +5215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_SortingOrder
@@ -5867,6 +5880,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259058817}
   m_CullTransparentMesh: 1
+--- !u!1 &273096537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2168864633609305991, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+  m_PrefabInstance: {fileID: 765003674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &277311420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12414,6 +12432,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 175925282}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vDualCamLeft
+      value: 
+      objectReference: {fileID: 273096537}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vDualCamRight
+      value: 
+      objectReference: {fileID: 160435317}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 768296499}
@@ -12427,7 +12453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_SortingOrder

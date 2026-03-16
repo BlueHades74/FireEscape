@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 //using static UnityEditor.PlayerSettings;
 
@@ -14,8 +15,8 @@ public class StaircaseScript : MonoBehaviour
     [SerializeField]
     private GameObject[] transitionScreens;
 
-    [SerializeField]
-    private GameObject view;
+    [SerializeField] private GameObject vDualCamLeft;
+    [SerializeField] private GameObject vDualCamRight;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +38,8 @@ public class StaircaseScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            vDualCamLeft.SetActive(false);
+            vDualCamRight.SetActive(false);
             playerToTP = collision.gameObject;
             BeginTransition();
         }
@@ -139,7 +142,7 @@ public class StaircaseScript : MonoBehaviour
             }
             else
             {
-                view.GetComponent<CameraTransition>().SetDistanceToValue(0);
+                //view.GetComponent<CameraTransition>().SetDistanceToValue(0);
                 if (playerToTP.name == "Player 1")
                 {
                     transitionScreens[0].SetActive(true);
@@ -162,14 +165,12 @@ public class StaircaseScript : MonoBehaviour
     /// </summary>
     public void TriggerTeleport()
     {
-        TeleportPlayer();
+        WaitTeleport();
     }
 
-    /// <summary>
-    /// Change camera split distance to normal value
-    /// </summary>
-    public void FixCamera()
+    private IEnumerator WaitTeleport()
     {
-        view.GetComponent<CameraTransition>().SetDistanceToValue(10);
+        yield return new WaitForSeconds(0.1f);
+        TeleportPlayer();
     }
 }
