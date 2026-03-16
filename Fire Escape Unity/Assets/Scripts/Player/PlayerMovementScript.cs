@@ -20,8 +20,6 @@ public class PlayerMovementScript : MonoBehaviour
 
     [SerializeField] private Animator animator;
     private SpriteRenderer playerSprite;
-    [SerializeField] private Sprite[] sprites;
-    private int spriteIndex = 0;
 
     public Vector2 FacingDirection { get => facingDirection; }
     public float PlayerMoveSpeed { get => playerMoveSpeed; set => playerMoveSpeed = value; }
