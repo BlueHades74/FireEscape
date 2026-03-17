@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 4ad19ca7d1032d049a83ef986a2bf461, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1629671325
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1477750537048422778, guid: 33e976dd0d1be6d4b96d4d4ed4e655f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BreakableObjectScript
   popDoor: 0
   particleWhenHit: {fileID: 8608626464623929332, guid: 5b8253cf7b2a18b4ea0c41a19aef64a3, type: 3}
+  borderlessMat: {fileID: 0}
 --- !u!95 &1069102247432619159
 Animator:
   serializedVersion: 7
