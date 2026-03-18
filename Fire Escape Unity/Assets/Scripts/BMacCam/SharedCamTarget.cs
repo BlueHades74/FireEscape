@@ -11,14 +11,36 @@ public class SharedCamTarget : MonoBehaviour
     [SerializeField] private CinemachineCamera vSingleCamRight;
     [SerializeField] private float breakDistance = 15f;
 
+    private bool canMidpoint = true;
+
+    private void OnEnable()
+    {
+        StaircaseScript.canMidpointFlip += MidPointBool;
+    }
+
+    private void OnDisable()
+    {
+        StaircaseScript.canMidpointFlip -= MidPointBool;
+    }
+
+    private void MidPointBool()
+    {
+        canMidpoint = !canMidpoint;
+        Debug.Log(canMidpoint);
+    }
+
     private void LateUpdate()
     {
         // create a vector3 to store difference of player positions
         Vector3 midpoint = (player1.position + player2.position) / 2f;
         // modify the Z value to keep the camera back
         midpoint.z = transform.position.z;
-        // set camera position
-        transform.position = midpoint;
+
+        if (canMidpoint)
+        {
+            // set camera position
+            transform.position = midpoint;
+        }
 
         // checks distance between players to decide if cameras flip to individual look at target
         if ((player2.position - player1.position).magnitude > breakDistance)

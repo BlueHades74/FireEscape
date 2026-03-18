@@ -18,6 +18,9 @@ public class StaircaseScript : MonoBehaviour
     [SerializeField] private GameObject vDualCamLeft;
     [SerializeField] private GameObject vDualCamRight;
 
+    public delegate void CanMidpoint();
+    public static event CanMidpoint canMidpointFlip;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +41,7 @@ public class StaircaseScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            
             vDualCamLeft.SetActive(false);
             vDualCamRight.SetActive(false);
             playerToTP = collision.gameObject;
@@ -119,6 +123,7 @@ public class StaircaseScript : MonoBehaviour
     {
         if (playerToTP != null)
         {
+
             //Detect what the player is holding
             string item = "";
             try
@@ -157,6 +162,8 @@ public class StaircaseScript : MonoBehaviour
 
             //Reset the linear velocity to make it seem more smooth
             playerToTP.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+
+            
         }
     }
 
@@ -165,12 +172,16 @@ public class StaircaseScript : MonoBehaviour
     /// </summary>
     public void TriggerTeleport()
     {
-        WaitTeleport();
+        StartCoroutine(WaitTeleport());
     }
+
+    // not working camera staircase code held for reference
 
     private IEnumerator WaitTeleport()
     {
-        yield return new WaitForSeconds(0.1f);
+        canMidpointFlip?.Invoke();
         TeleportPlayer();
+        yield return new WaitForSeconds(0.5f);
+        canMidpointFlip?.Invoke();
     }
 }
