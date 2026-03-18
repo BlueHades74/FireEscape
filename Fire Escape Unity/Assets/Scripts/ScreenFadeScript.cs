@@ -36,7 +36,6 @@ public class ScreenFadeScript : MonoBehaviour
         {
             //If screen is fully transparent again
             modifier = -modifier;
-            transferObject.SendMessage("FixCamera");
             player.GetComponent<PlayerMovementScript>().CanMove(true);
             player.GetComponent<PlayerInteraction>().CanPickUp(true);
             this.gameObject.SetActive(false);
