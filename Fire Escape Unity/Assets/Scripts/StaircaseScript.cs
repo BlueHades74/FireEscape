@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 //using static UnityEditor.PlayerSettings;
 
@@ -14,8 +15,11 @@ public class StaircaseScript : MonoBehaviour
     [SerializeField]
     private GameObject[] transitionScreens;
 
-    [SerializeField]
-    private GameObject view;
+    [SerializeField] private GameObject vDualCamLeft;
+    [SerializeField] private GameObject vDualCamRight;
+
+    public delegate void CanMidpoint();
+    public static event CanMidpoint canMidpointFlip;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +41,9 @@ public class StaircaseScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            
+            vDualCamLeft.SetActive(false);
+            vDualCamRight.SetActive(false);
             playerToTP = collision.gameObject;
             BeginTransition();
         }
@@ -116,6 +123,7 @@ public class StaircaseScript : MonoBehaviour
     {
         if (playerToTP != null)
         {
+
             //Detect what the player is holding
             string item = "";
             try
@@ -139,7 +147,7 @@ public class StaircaseScript : MonoBehaviour
             }
             else
             {
-                view.GetComponent<CameraTransition>().SetDistanceToValue(0);
+                //view.GetComponent<CameraTransition>().SetDistanceToValue(0);
                 if (playerToTP.name == "Player 1")
                 {
                     transitionScreens[0].SetActive(true);
@@ -154,6 +162,8 @@ public class StaircaseScript : MonoBehaviour
 
             //Reset the linear velocity to make it seem more smooth
             playerToTP.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+
+            
         }
     }
 
@@ -162,14 +172,7 @@ public class StaircaseScript : MonoBehaviour
     /// </summary>
     public void TriggerTeleport()
     {
+        canMidpointFlip?.Invoke();
         TeleportPlayer();
-    }
-
-    /// <summary>
-    /// Change camera split distance to normal value
-    /// </summary>
-    public void FixCamera()
-    {
-        view.GetComponent<CameraTransition>().SetDistanceToValue(10);
     }
 }
