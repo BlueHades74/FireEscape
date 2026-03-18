@@ -172,16 +172,7 @@ public class StaircaseScript : MonoBehaviour
     /// </summary>
     public void TriggerTeleport()
     {
-        StartCoroutine(WaitTeleport());
-    }
-
-    // not working camera staircase code held for reference
-
-    private IEnumerator WaitTeleport()
-    {
         canMidpointFlip?.Invoke();
         TeleportPlayer();
-        yield return new WaitForSeconds(0.5f);
-        canMidpointFlip?.Invoke();
     }
 }
