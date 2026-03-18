@@ -38,8 +38,6 @@ public class TextBoxDialog : MonoBehaviour
         // Get all NPC text boxes
         foreach (QuestNPC n in npcList) textBoxList.Add(n.GetComponentInChildren<TextMeshPro>());
 
-        Debug.Log(textBoxList.Count);
-
         // Deactivate all NPC text boxes
         foreach (TextMeshPro t in textBoxList) t.transform.parent.gameObject.SetActive(false);
 
