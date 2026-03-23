@@ -245,7 +245,7 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""id"": ""a12e89e0-ca18-44c1-95e6-5209f117ea94"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.225)"",
                     ""groups"": "";Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
