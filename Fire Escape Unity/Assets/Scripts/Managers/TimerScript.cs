@@ -110,6 +110,7 @@ public class Timer : MonoBehaviour
     public void GameOver()
     {
         gameOverUI.SetActive(true);
+        GetComponent<ControllerUI>().MoveToElement();
     }
     public void Restart()
     {
