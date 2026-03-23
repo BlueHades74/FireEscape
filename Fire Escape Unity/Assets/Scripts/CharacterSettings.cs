@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSettings : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+
     private GameObject[] playerArray;
     [SerializeField]
     private int[] playerSetCharacters = { 0, 1 };
@@ -12,6 +14,7 @@ public class CharacterSettings : MonoBehaviour
 
     private void Awake()
     {
+        //Makes it so it is a persistent object
         DontDestroyOnLoad(gameObject);
         try
         {
