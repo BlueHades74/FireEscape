@@ -100,6 +100,7 @@ public class TextBoxDialog : MonoBehaviour
             catch
             {
                 npcList.RemoveAt(i);
+                textBoxList.RemoveAt(i);
             }
         }
     }
