@@ -67,7 +67,7 @@ public class ResultUIController : MonoBehaviour
 
         //star 2 fire put out
 
-        if (d.fireExtinguishedPercent >= 75f)
+        if (d.fireExtinguishedPercent >= 0.75f)
             stars++;
 
 
