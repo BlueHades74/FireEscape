@@ -21,13 +21,25 @@ public class ControllerUI : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// When attached finds the event system.
+    /// </summary>
     private void Reset()
     {
         es = FindAnyObjectByType(typeof(EventSystem)) as EventSystem;
     }
 
+    /// <summary>
+    /// Makes sure the controller can move around menus by setting a selected UI Element.
+    /// </summary>
     public void MoveToElement()
     {
+        es.SetSelectedGameObject(null);
         es.SetSelectedGameObject(elementToSelect.gameObject);
     }
+
+    public void SetSelectedToNULL()
+    {
+        es.SetSelectedGameObject(null);
+    }    
 }

@@ -14,7 +14,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject SettingsMenu;
 
     [Header("Main Menu Scene")]
-    public string mainMenuScene = "MainMenu";
+    public string mainMenuScene = "FireHouse";
 
     private bool isPaused = false;
 

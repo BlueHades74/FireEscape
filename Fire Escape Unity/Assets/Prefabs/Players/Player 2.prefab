@@ -194,10 +194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveSpeed: 6
   animator: {fileID: 3621164778049303625}
-  sprites:
-  - {fileID: -5380273546675376061, guid: 9a86980fee29bbc498abe9dfb819abc5, type: 3}
-  - {fileID: 2286846907692418096, guid: 62dedd3a28322f04a98e706cc9b011c2, type: 3}
-  - {fileID: -127641509303822454, guid: 9a86980fee29bbc498abe9dfb819abc5, type: 3}
   footstepAudioSource: {fileID: 7635706313206287052}
 --- !u!114 &1251444954965397105
 MonoBehaviour:
@@ -283,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffectSource: {fileID: 6047476578148974137}
   grid: {fileID: 0}
-  axeChopSound: {fileID: 8300000, guid: f12a4ab990508fc45aa8211013b38939, type: 3}
+  axeChopSound: {fileID: 8300000, guid: 034b80de0ea46684e983ca24050c8d4f, type: 3}
   waterRangePrefab:
   - {fileID: 4708838206759781574, guid: 4904b11fd629324488581973ed505531, type: 3}
   - {fileID: 4176684262262862117, guid: 427482605b1a41746ac0fe1d0643d2ef, type: 3}
@@ -1085,11 +1081,11 @@ MonoBehaviour:
   - {fileID: 6084896231104624591, guid: 7c8ecd4623e118847a72a87a12dd2f6f, type: 3}
   - {fileID: -2195164318415908144, guid: 7c8ecd4623e118847a72a87a12dd2f6f, type: 3}
   pickupControllerGlyphFrames:
-  - {fileID: -380538748145866726, guid: cc585da1af8064345aa55546aaf56dfa, type: 3}
-  - {fileID: 3971759734259528130, guid: cc585da1af8064345aa55546aaf56dfa, type: 3}
-  actionControllerGlyphFrames:
   - {fileID: 8894201953851282084, guid: 76bebd35ea769ca4b867e2f515a3117d, type: 3}
   - {fileID: 7664807735657788756, guid: 76bebd35ea769ca4b867e2f515a3117d, type: 3}
+  actionControllerGlyphFrames:
+  - {fileID: -380538748145866726, guid: cc585da1af8064345aa55546aaf56dfa, type: 3}
+  - {fileID: 3971759734259528130, guid: cc585da1af8064345aa55546aaf56dfa, type: 3}
   movementGlyphFrames:
   - {fileID: -3011895399059424396, guid: 2bc7220d4c615dd419d3c807564ca02f, type: 3}
   indicator: {fileID: 0}

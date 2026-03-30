@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CharacterDataStorage : MonoBehaviour
 {
+    //Created by: Rafael Gonzalez Atiles
+
     [SerializeField]
     private int player;
     [SerializeField]
@@ -20,17 +22,28 @@ public class CharacterDataStorage : MonoBehaviour
     {
         
     }
-
+    
+    /// <summary>
+    /// Connects to event system.
+    /// </summary>
     private void OnEnable()
     {
         CharacterEvents.PlayerCharLoad += LoadData;
     }
 
+    /// <summary>
+    /// Disconnects from event system.
+    /// </summary>
     private void OnDisable()
     {
         CharacterEvents.PlayerCharLoad -= LoadData;
     }
 
+    /// <summary>
+    /// Determines if the data in the call pertains to the player, if so they save it as the current data.
+    /// </summary>
+    /// <param name="messagedplayer"></param>
+    /// <param name="data"></param>
     private void LoadData(int messagedplayer, CharacterData data)
     {
         if (messagedplayer == player)
