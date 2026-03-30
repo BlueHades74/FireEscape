@@ -10,6 +10,7 @@
 * Press the use key to interact with the object to load the level select scene
 */
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -45,8 +46,9 @@ public class PaperWall : MonoBehaviour
         {
             // Then open the level select UI
             levelSelectUI.SetActive(true);
-            GetComponent<ControllerUI>().MoveToElement();
             canvasManager.Active = true;
+            Invoke("Controller", 0.05f);
+            //GetComponent<ControllerUI>().MoveToElement();
         }
 
         // If the Escape key is pressed....
@@ -56,14 +58,24 @@ public class PaperWall : MonoBehaviour
             {
                 // Then close the level select UI
                 levelSelectUI.SetActive(false);
+                GetComponent<ControllerUI>().SetSelectedToNULL();
             }
 
             else if (playerOneDistance > interactableDistance && playerTwoDistance > interactableDistance)
             {
                 // Then close the level select UI
                 levelSelectUI.SetActive(false);
+                GetComponent<ControllerUI>().SetSelectedToNULL();
             }
         }
+    }
+
+    /// <summary>
+    /// Makes sure the controller can move around menus by setting a selected UI Element.
+    /// </summary>
+    void Controller()
+    {
+        GetComponent<ControllerUI>().MoveToElement();
     }
 
     // Button Interaction to select a level.

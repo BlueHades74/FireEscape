@@ -7045,11 +7045,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 820403263472278569, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.89269
+      value: 4.444444
       objectReference: {fileID: 0}
     - target: {fileID: 1127369750348946914, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.89269
+      value: 4.444444
       objectReference: {fileID: 0}
     - target: {fileID: 2102435290389133706, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7093,11 +7093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4515452348345806070, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.8926897
+      value: -4.4444447
       objectReference: {fileID: 0}
     - target: {fileID: 6775599085512462544, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.8926897
+      value: -4.4444447
       objectReference: {fileID: 0}
     - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: player1
@@ -13654,6 +13654,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2239482341779150382, guid: 8a0a704aeda6f724eaa8ab06bae849be, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6407030417272184719, guid: 8a0a704aeda6f724eaa8ab06bae849be, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -14416,7 +14420,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6862745, g: 0.63529414, b: 0.4117647, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -46154,6 +46158,7 @@ GameObject:
   - component: {fileID: 1593685548}
   - component: {fileID: 1593685547}
   - component: {fileID: 1593685546}
+  - component: {fileID: 1593685549}
   m_Layer: 0
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -46205,7 +46210,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6830188, g: 0.6329285, b: 0.4111, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -46228,6 +46233,18 @@ MonoBehaviour:
       - m_Target: {fileID: 502685447}
         m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
         m_MethodName: OpenSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1593685549}
+        m_TargetAssemblyTypeName: ControllerUI, Assembly-CSharp
+        m_MethodName: MoveToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -46275,6 +46292,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593685544}
   m_CullTransparentMesh: 1
+--- !u!114 &1593685549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593685544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52f3f79484b77a46b93c72b68a83d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControllerUI
+  es: {fileID: 777727910}
+  elementToSelect: {fileID: 1721412464}
 --- !u!1001 &1596088727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47359,7 +47390,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6862745, g: 0.63529414, b: 0.4117647, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -47634,6 +47665,7 @@ GameObject:
   - component: {fileID: 1721412466}
   - component: {fileID: 1721412465}
   - component: {fileID: 1721412464}
+  - component: {fileID: 1721412467}
   m_Layer: 0
   m_Name: SettingsBackButton
   m_TagString: Untagged
@@ -47685,7 +47717,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6862745, g: 0.63529414, b: 0.4117647, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -47708,6 +47740,18 @@ MonoBehaviour:
       - m_Target: {fileID: 502685447}
         m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
         m_MethodName: CloseSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1721412467}
+        m_TargetAssemblyTypeName: ControllerUI, Assembly-CSharp
+        m_MethodName: MoveToElement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -47755,6 +47799,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721412462}
   m_CullTransparentMesh: 1
+--- !u!114 &1721412467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721412462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52f3f79484b77a46b93c72b68a83d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControllerUI
+  es: {fileID: 777727910}
+  elementToSelect: {fileID: 1593685546}
 --- !u!1 &1736686272
 GameObject:
   m_ObjectHideFlags: 0
@@ -49189,7 +49247,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6862745, g: 0.63529414, b: 0.4117647, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -53009,6 +53067,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2514524920175989012, guid: 6e628f0e0afbbf34dac7f703ef53ca6f, type: 3}
   m_PrefabInstance: {fileID: 6011174119420858814}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6037768970849002209
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75451028696069925, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133937379988807164, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_Name
+      value: FadeInOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133937379988807164, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ddb2458d53f6b14dadae994de5760ea, type: 3}
 --- !u!1001 &6085368365206594907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53176,14 +53335,6 @@ PrefabInstance:
     - target: {fileID: 3658777938396929656, guid: 252073c5f0d47824cae4825b1f5ba337, type: 3}
       propertyPath: tooltipMessage
       value: Put out fires with this refill at the firetruck!
-      objectReference: {fileID: 0}
-    - target: {fileID: 3969736929255205924, guid: 252073c5f0d47824cae4825b1f5ba337, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3969736929255205924, guid: 252073c5f0d47824cae4825b1f5ba337, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3969736929255205924, guid: 252073c5f0d47824cae4825b1f5ba337, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53478,6 +53629,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 6037768970849002209}
   - {fileID: 473486374}
   - {fileID: 1322415854}
   - {fileID: 354248998}
