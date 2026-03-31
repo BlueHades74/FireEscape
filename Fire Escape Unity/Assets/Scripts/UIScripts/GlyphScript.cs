@@ -69,7 +69,7 @@ public class GlyphScript : MonoBehaviour
                 frametimer = timeperframe;
             }
         }
-        if (shouldShowMovementKeys == true && input.devices[0].description.deviceClass != "")
+        if (shouldShowMovementKeys == true && input.devices[0].description.deviceClass != "" && indicator.enabled == false)
         {
             SetImageAndActivate(movementGlyphFrames);
         }
