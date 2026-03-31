@@ -27743,6 +27743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074546970}
   - component: {fileID: 1074546971}
+  - component: {fileID: 1074546972}
   m_Layer: 0
   m_Name: TimerManager
   m_TagString: Untagged
@@ -27789,6 +27790,20 @@ MonoBehaviour:
   playerOne: {fileID: 0}
   playerTwo: {fileID: 0}
   gameOverUI: {fileID: 861932121}
+--- !u!114 &1074546972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074546969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52f3f79484b77a46b93c72b68a83d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControllerUI
+  es: {fileID: 1615786087}
+  elementToSelect: {fileID: 5676220337345324220}
 --- !u!4 &1077775713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3234076733250909796, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
@@ -44563,6 +44578,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0063ef3e0d2342bfa728a3490e04acf, type: 3}
+--- !u!114 &5676220337345324220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 487501803408373978, guid: a0063ef3e0d2342bfa728a3490e04acf, type: 3}
+  m_PrefabInstance: {fileID: 5676220337345324219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
