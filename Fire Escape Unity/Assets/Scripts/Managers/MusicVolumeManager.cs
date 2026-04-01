@@ -33,7 +33,15 @@ public class MusicVolumeManager : MonoBehaviour
     
     public void LoadMusicSettings()
     {
-        //Should load saved settings when called.
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
+        if (!PlayerPrefs.HasKey("MusicVolume"))
+        {
+            //Setting up a default volume for the music if no player changes made.
+            SetMusicVolume(1.0f);
+        }
+        else
+        {
+            //Should load saved settings when called.
+            SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
+        }
     }
 }
