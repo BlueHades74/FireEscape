@@ -3210,6 +3210,7 @@ GameObject:
   - component: {fileID: 437804625}
   - component: {fileID: 437804624}
   - component: {fileID: 437804623}
+  - component: {fileID: 437804626}
   m_Layer: 5
   m_Name: TLCharacterSelectButton
   m_TagString: Untagged
@@ -3280,8 +3281,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1329813481}
-        m_TargetAssemblyTypeName: CharacterSettings, Assembly-CSharp
+      - m_Target: {fileID: 437804626}
+        m_TargetAssemblyTypeName: ConnectCharacterSettingsToSelect, Assembly-CSharp
         m_MethodName: ScrollLeft
         m_Mode: 3
         m_Arguments:
@@ -3330,6 +3331,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437804621}
   m_CullTransparentMesh: 1
+--- !u!114 &437804626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437804621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f717981924cf44187084eeee88f798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectCharacterSettingsToSelect
 --- !u!1 &455680459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3616,6 +3629,7 @@ GameObject:
   - component: {fileID: 485338891}
   - component: {fileID: 485338890}
   - component: {fileID: 485338889}
+  - component: {fileID: 485338892}
   m_Layer: 5
   m_Name: BRCharacterSelectButton
   m_TagString: Untagged
@@ -3686,8 +3700,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1329813481}
-        m_TargetAssemblyTypeName: CharacterSettings, Assembly-CSharp
+      - m_Target: {fileID: 485338892}
+        m_TargetAssemblyTypeName: ConnectCharacterSettingsToSelect, Assembly-CSharp
         m_MethodName: ScrollRight
         m_Mode: 3
         m_Arguments:
@@ -3736,6 +3750,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485338887}
   m_CullTransparentMesh: 1
+--- !u!114 &485338892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485338887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f717981924cf44187084eeee88f798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectCharacterSettingsToSelect
 --- !u!1 &499392852
 GameObject:
   m_ObjectHideFlags: 0
@@ -10031,6 +10057,7 @@ GameObject:
   - component: {fileID: 663834989}
   - component: {fileID: 663834988}
   - component: {fileID: 663834987}
+  - component: {fileID: 663834990}
   m_Layer: 5
   m_Name: TRCharacterSelectButton
   m_TagString: Untagged
@@ -10101,8 +10128,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1329813481}
-        m_TargetAssemblyTypeName: CharacterSettings, Assembly-CSharp
+      - m_Target: {fileID: 663834990}
+        m_TargetAssemblyTypeName: ConnectCharacterSettingsToSelect, Assembly-CSharp
         m_MethodName: ScrollRight
         m_Mode: 3
         m_Arguments:
@@ -10151,6 +10178,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663834985}
   m_CullTransparentMesh: 1
+--- !u!114 &663834990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663834985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f717981924cf44187084eeee88f798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectCharacterSettingsToSelect
 --- !u!1 &678452243
 GameObject:
   m_ObjectHideFlags: 0
@@ -36163,6 +36202,7 @@ GameObject:
   - component: {fileID: 1971018392}
   - component: {fileID: 1971018391}
   - component: {fileID: 1971018390}
+  - component: {fileID: 1971018393}
   m_Layer: 5
   m_Name: BLCharacterSelectButton
   m_TagString: Untagged
@@ -36233,8 +36273,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1329813481}
-        m_TargetAssemblyTypeName: CharacterSettings, Assembly-CSharp
+      - m_Target: {fileID: 1971018393}
+        m_TargetAssemblyTypeName: ConnectCharacterSettingsToSelect, Assembly-CSharp
         m_MethodName: ScrollLeft
         m_Mode: 3
         m_Arguments:
@@ -36283,6 +36323,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971018388}
   m_CullTransparentMesh: 1
+--- !u!114 &1971018393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971018388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f717981924cf44187084eeee88f798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectCharacterSettingsToSelect
 --- !u!1 &1976500157
 GameObject:
   m_ObjectHideFlags: 0
