@@ -33,7 +33,15 @@ public class SFXVolumeManager : MonoBehaviour
     
     public void LoadSFXSettings()
     {
-        //Should load saved settings when called.
-        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+        if (!PlayerPrefs.HasKey("SFXVolume"))
+        {
+            //Setting up a default setting for sound effects if no player changes made.
+            SetSFXVolume(1.0f);
+        }
+        else
+        {
+            //Should load saved settings when called.
+            SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+        }
     }
 }
