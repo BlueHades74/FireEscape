@@ -6,7 +6,7 @@ public class ReloadSoundSettings : MonoBehaviour
     [SerializeField] MusicVolumeManager musicVolume;
     [SerializeField] SFXVolumeManager sfxVolume;
 
-    private void Awake()
+    private void Start()
     {
         masterVolume.LoadMasterSettings();
         musicVolume.LoadMusicSettings();
