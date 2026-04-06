@@ -170,8 +170,9 @@ public class StaircaseScript : MonoBehaviour
     /// <summary>
     /// This allows other objects to trigger the teleport
     /// </summary>
-    public void TriggerTeleport()
+    public void TriggerTeleport(GameObject player)
     {
+        playerToTP = player;
         canMidpointFlip?.Invoke();
         TeleportPlayer();
     }
