@@ -5,6 +5,7 @@ public class LevelDataStorage : MonoBehaviour
 {
     private bool p1Ready;
     private bool p2Ready;
+    private GameObject FadeInOut;
 
     [SerializeField]
     private LevelInfo levelInfo;
@@ -14,7 +15,7 @@ public class LevelDataStorage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        FadeInOut = GameObject.FindGameObjectWithTag("FadeInOut");
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class LevelDataStorage : MonoBehaviour
     {
         if (p1Ready && p2Ready)
         {
-            SceneManager.LoadScene(levelInfo.LevelName);
+            FadeInOut.GetComponent<FadeInOutScript>().FadeOutChangeScene(levelInfo.LevelName);
         }
     }
 
