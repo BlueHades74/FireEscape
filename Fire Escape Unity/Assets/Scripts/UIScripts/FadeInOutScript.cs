@@ -9,7 +9,7 @@ public class FadeInOutScript : MonoBehaviour
     private float timeleft = 0.0f;
     private bool fadingin = false;
     private bool fadingout = false;
-    private Scene sceneto;
+    private string sceneto;
     [SerializeField]
     private Image overlay;
 
@@ -46,7 +46,7 @@ public class FadeInOutScript : MonoBehaviour
             {
                 overlay.color = new Color(0, 0, 0, 1.0f);
                 fadingout = false;
-                SceneManager.LoadScene(sceneto.buildIndex);
+                SceneManager.LoadScene(sceneto);
             }
         }
     }
@@ -56,10 +56,10 @@ public class FadeInOutScript : MonoBehaviour
         timeleft = totalFadeTime;
         fadingin = true;
     }
-    public void FadeOutChangeScene(Scene input)
+    public void FadeOutChangeScene(string input)
     {
         sceneto = input;
         timeleft = totalFadeTime;
-        fadingin = true;
+        fadingout = true;
     }
 }
