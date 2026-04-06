@@ -25,6 +25,7 @@ public class LevelDataStorage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Takes the players into the appropriate level when ready by calling the screen fade
         if (p1Ready && p2Ready && sent)
         {
             sent = false;
@@ -34,14 +35,17 @@ public class LevelDataStorage : MonoBehaviour
 
     public void SetLevelInfo(LevelInfo level)
     {
+        //Sets the levelinfo that determines what level to go to
         levelInfo = level;
     }
 
+    //Readies or Unreadies player 1
     public void FlipP1Ready()
     {
         p1Ready = !p1Ready;
     }
 
+    //Readies or Unreadies player 2
     public void FlipP2Ready()
     {
         p2Ready = !p2Ready;
