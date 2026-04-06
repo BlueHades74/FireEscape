@@ -30,7 +30,7 @@ public class ScreenFadeScript : MonoBehaviour
         {
             //If screen is fully dark
             modifier = -modifier;
-            transferObject.SendMessage("TriggerTeleport");
+            transferObject.GetComponent<StaircaseScript>().TriggerTeleport(player);
         }
         else if (modifier < 0 && image.color.a <= 0)
         {

@@ -31,7 +31,15 @@ public class MasterVolumeManager : MonoBehaviour
     }
     public void LoadMasterSettings()
     {
-        //Should load saved settings when called.
-        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume"));
+        if (!PlayerPrefs.HasKey("MasterVolume"))
+        {
+            //Setting a default Master Volume if no changes made by player.
+            SetMasterVolume(1.0f);
+        }
+        else
+        {
+            //Should load saved settings when called.
+            SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume"));
+        }
     }
 }

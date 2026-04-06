@@ -38,6 +38,8 @@ public class ResultUIController : MonoBehaviour
         CollectedCount = data.bonusCollected;
         TotalCount = data.bonusTotal;
 
+        resultData = data;
+
         BonusItemText.text = data.bonusCollected + "/" + data.bonusTotal;
 
         RewardText.text = currentHumans + "/" + totalHumans;

@@ -9,4 +9,6 @@ public class CharacterData : ScriptableObject
     public Sprite Headshot;
     public Sprite CharacterSprite;
     public RuntimeAnimatorController AnimatorController;
+    public Vector2 dynamicColliderSize;
+    public Vector2 kinematicColliderSize;
 }
