@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 public class BGMMusicManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] audioClipsToPlay;
+    [SerializeField] private AudioClip timeRunningOutClip;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource fireAudioSource;
     private string _currentScene;
     private int _chosenTrack;
+    private Timer _timerScript;
 
     private void Start()
     {
