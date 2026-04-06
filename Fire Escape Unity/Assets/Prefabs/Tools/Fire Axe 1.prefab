@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5074567545115197655
+--- !u!1 &4104210249560560795
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3969736929255205924}
-  - component: {fileID: 5019836051976138193}
-  - component: {fileID: 654140168153732238}
-  - component: {fileID: 8211102347024157662}
-  - component: {fileID: 472133709926204704}
-  - component: {fileID: 3542450930296832599}
-  - component: {fileID: 3658777938396929656}
-  - component: {fileID: 8842858148117789825}
-  - component: {fileID: 8246083724671052153}
+  - component: {fileID: 7376369088045632840}
+  - component: {fileID: 715867640619909049}
+  - component: {fileID: 2167644259011383807}
+  - component: {fileID: 8825873055043686729}
+  - component: {fileID: 4961826964420785309}
+  - component: {fileID: -428930077475461384}
+  - component: {fileID: 2979016120830133772}
+  - component: {fileID: 6105557377502747238}
   m_Layer: 0
-  m_Name: Water Bucket
+  m_Name: Fire Axe 1
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3969736929255205924
+--- !u!4 &7376369088045632840
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
+  m_GameObject: {fileID: 4104210249560560795}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.53, y: 1.85, z: 0}
+  m_LocalPosition: {x: 10.52, y: 1.84, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5019836051976138193
+--- !u!212 &715867640619909049
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
+  m_GameObject: {fileID: 4104210249560560795}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -86,7 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: -1727463069
   m_SortingLayer: 5
   m_SortingOrder: 5
-  m_Sprite: {fileID: -8399952291929501341, guid: 774b12de2974a7c499f10021b69b339e, type: 3}
+  m_Sprite: {fileID: -5825250732961213246, guid: 5c37010b854f4554b9e83dd3e9fe041e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,31 +96,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &654140168153732238
+--- !u!114 &2167644259011383807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
+  m_GameObject: {fileID: 4104210249560560795}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3192f5dcda12734f9bbe547cbbf9bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffectSource: {fileID: 8246083724671052153}
+  soundEffectSource: {fileID: 6105557377502747238}
   pickupSound: {fileID: 8300000, guid: f0e25d4e7c59a4ac38c91b075fbbd5cb, type: 3}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  action: Bucket
-  imageUI: {fileID: -7475288506534595035, guid: efbe42feaf69f934aa82a50549cb553d, type: 3}
+  action: Axe
+  imageUI: {fileID: -5342626123495779693, guid: a469acd2c1f9e9d44a00350839a1f0ff, type: 3}
   singlePush: 0
---- !u!61 &8211102347024157662
+--- !u!61 &8825873055043686729
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
+  m_GameObject: {fileID: 4104210249560560795}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -153,76 +152,58 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.90625, y: 0.84375}
+    oldSize: {x: 0.921875, y: 0.953125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.96, y: 0.84}
+  m_Size: {x: 0.83, y: 0.87}
   m_EdgeRadius: 0
---- !u!114 &472133709926204704
+--- !u!114 &4961826964420785309
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a0916fe4f28e1449aa5e44b87454ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filledSprite: {fileID: -8399952291929501341, guid: 774b12de2974a7c499f10021b69b339e, type: 3}
-  emptySprite: {fileID: 1711898461566958128, guid: 11342ae1d13336d438b1eab67f49a191, type: 3}
-  filledSpriteUI: {fileID: -7475288506534595035, guid: efbe42feaf69f934aa82a50549cb553d, type: 3}
-  emptySpriteUI: {fileID: 1642770648107712900, guid: 2bf4c0507efde324ea701df9bf1b65eb, type: 3}
-  fullCharges: 3
-  currentCharges: 0
---- !u!114 &3542450930296832599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
+  m_GameObject: {fileID: 4104210249560560795}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f92e2d22663819242b03e79d98997c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3658777938396929656
+--- !u!114 &-428930077475461384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
+  m_GameObject: {fileID: 4104210249560560795}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84a152650e0f2ec4eb73deef453ff6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipMessage: Put out fires with this, Refill at the firetruck!
---- !u!114 &8842858148117789825
+  tooltipMessage: 
+--- !u!114 &2979016120830133772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
+  m_GameObject: {fileID: 4104210249560560795}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a78d9e2d6a13a2043bc7e296514db981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &8246083724671052153
+--- !u!82 &6105557377502747238
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5074567545115197655}
+  m_GameObject: {fileID: 4104210249560560795}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
