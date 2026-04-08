@@ -38,6 +38,8 @@ public class ResultUIController : MonoBehaviour
         CollectedCount = data.bonusCollected;
         TotalCount = data.bonusTotal;
 
+        resultData = data;
+
         BonusItemText.text = data.bonusCollected + "/" + data.bonusTotal;
 
         RewardText.text = currentHumans + "/" + totalHumans;
@@ -67,7 +69,7 @@ public class ResultUIController : MonoBehaviour
 
         //star 2 fire put out
 
-        if (d.fireExtinguishedPercent >= 75f)
+        if (d.fireExtinguishedPercent >= 0.75f)
             stars++;
 
 

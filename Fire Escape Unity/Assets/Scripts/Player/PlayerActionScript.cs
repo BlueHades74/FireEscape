@@ -428,7 +428,10 @@ public class PlayerActionScript : MonoBehaviour
             }
             else if (soundEffectSource != null)
             {
-                soundEffectSource.Stop();
+                if (soundEffectSource.clip == waterSloshSound)
+                {
+                    soundEffectSource.Stop();
+                }
             }
         }
 
