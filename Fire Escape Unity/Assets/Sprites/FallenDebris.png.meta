@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: e02594fa149e74fad89f00b7097a84ed
+guid: 9adaf32beeddde64eb5e564f0b5e84a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5113469029405553909
-    second: PauseButton_0
+      213: 3471119361515426445
+    second: FallenDebris_0
+  - first:
+      213: 846600711793292692
+    second: FallenDebris_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PauseButton_0
+      name: FallenDebris_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 252
-        height: 58
+        width: 57
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0b0254920f4909b0800000000000000
-      internalID: -5113469029405553909
+      spriteID: d829b142ba4eb2030800000000000000
+      internalID: 3471119361515426445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallenDebris_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4953805acdabfbb00800000000000000
+      internalID: 846600711793292692
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PauseButton_0: -5113469029405553909
+      FallenDebris_0: 3471119361515426445
+      FallenDebris_1: 846600711793292692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
