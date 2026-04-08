@@ -1,5 +1,6 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using System;
 
 public class SharedCamTarget : MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class SharedCamTarget : MonoBehaviour
     [SerializeField] private CinemachineCamera vSingleCamRight;
     [SerializeField] private float breakDistance = 15f;
 
+    private bool swappedBlackScreens = false;
+
     private bool canMidpoint = true;
+
+    public static event Action<bool> swapBlackScreens;
 
     private void OnEnable()
     {
@@ -26,7 +31,6 @@ public class SharedCamTarget : MonoBehaviour
     private void MidPointBool()
     {
         canMidpoint = !canMidpoint;
-        Debug.Log(canMidpoint);
     }
 
     private void LateUpdate()
@@ -54,15 +58,19 @@ public class SharedCamTarget : MonoBehaviour
             vDualCamRight.SetActive(true);
         }
 
-        if (player1.position.x > player2.position.x && vDualCamLeft.activeSelf == true)
+        if (player1.position.x > player2.position.x && vDualCamLeft.activeSelf == true && swappedBlackScreens == false)
         {
             vSingleCamLeft.Follow = player2;
             vSingleCamRight.Follow = player1;
+            swapBlackScreens?.Invoke(swappedBlackScreens);
+            swappedBlackScreens = true;
         }
-        else if (vDualCamLeft.activeSelf == true)
+        else if (vDualCamLeft.activeSelf == true && swappedBlackScreens == true)
         {
             vSingleCamLeft.Follow = player1;
             vSingleCamRight.Follow = player2;
+            swapBlackScreens?.Invoke(swappedBlackScreens);
+            swappedBlackScreens = false;
         }
     }
 }
