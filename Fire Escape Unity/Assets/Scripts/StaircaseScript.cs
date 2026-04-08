@@ -21,6 +21,16 @@ public class StaircaseScript : MonoBehaviour
     public delegate void CanMidpoint();
     public static event CanMidpoint canMidpointFlip;
 
+    private void OnEnable()
+    {
+        SharedCamTarget.swapBlackScreens += SwapBlackScreenSides;
+    }
+
+    private void OnDisable()
+    {
+        SharedCamTarget.swapBlackScreens -= SwapBlackScreenSides;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -59,6 +69,22 @@ public class StaircaseScript : MonoBehaviour
         {
             triggered = true;
             FloorManager.Instance.GoUpFloor();
+        }
+    }
+
+    private void SwapBlackScreenSides(bool swapped)
+    {
+        if (swapped == true)
+        {
+            var temp = transitionScreens[1];
+            transitionScreens[1] = transitionScreens[0];
+            transitionScreens[0] = temp;
+        }
+        else if (swapped == false)
+        {
+            var temp = transitionScreens[1];
+            transitionScreens[1] = transitionScreens[0];
+            transitionScreens[0] = temp;
         }
     }
 
