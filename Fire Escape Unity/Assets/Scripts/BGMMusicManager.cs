@@ -10,9 +10,11 @@ public class BGMMusicManager : MonoBehaviour
     private string _currentScene;
     private int _chosenTrack;
     private Timer _timerScript;
+    private bool _canChangeAudio = true;
 
     private void Start()
     {
+        _timerScript = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
         _chosenTrack = Random.Range(1, audioClipsToPlay.Length);
         _currentScene = SceneManager.GetActiveScene().name;
         if(_currentScene == "Firehouse")
@@ -24,6 +26,16 @@ public class BGMMusicManager : MonoBehaviour
         { 
             audioSource.clip = audioClipsToPlay[_chosenTrack];
             audioSource.Play();
+        }
+    }
+    private void Update()
+    {
+        if(_timerScript.currentTime <= 10 && _canChangeAudio == true)
+        {
+            _canChangeAudio = false;
+            audioSource.clip = timeRunningOutClip;
+            audioSource.Play();
+            audioSource.loop = false;
         }
     }
 }
