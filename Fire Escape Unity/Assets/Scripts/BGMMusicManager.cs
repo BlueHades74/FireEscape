@@ -14,15 +14,7 @@ public class BGMMusicManager : MonoBehaviour
 
     private void Start()
     {
-        try
-        {
-            _timerScript = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
-        }
-        catch 
-        {
-            _timerScript = null;
-        }
-        
+        _timerScript = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
         _chosenTrack = Random.Range(1, audioClipsToPlay.Length);
         _currentScene = SceneManager.GetActiveScene().name;
         if(_currentScene == "Firehouse")
@@ -38,15 +30,12 @@ public class BGMMusicManager : MonoBehaviour
     }
     private void Update()
     {
-        if (_timerScript != null)
+        if(_timerScript.currentTime <= 10 && _canChangeAudio == true)
         {
-            if (_timerScript.currentTime <= 10 && _canChangeAudio == true)
-            {
-                _canChangeAudio = false;
-                audioSource.clip = timeRunningOutClip;
-                audioSource.Play();
-                audioSource.loop = false;
-            }
+            _canChangeAudio = false;
+            audioSource.clip = timeRunningOutClip;
+            audioSource.Play();
+            audioSource.loop = false;
         }
     }
 }
