@@ -15,6 +15,7 @@ public class BGMMusicManager : MonoBehaviour
 
     private void Start()
     {
+        // Chooses a track, and checks the current scene. If the current scene isn't the firehouse, then it'll run the chosen track. Otherwise it plays the firehouse song set aside for the firehouse.
         _chosenTrack = Random.Range(1, audioClipsToPlay.Length);
         _currentScene = SceneManager.GetActiveScene().name;
         if(_currentScene == "Firehouse")
@@ -30,8 +31,10 @@ public class BGMMusicManager : MonoBehaviour
     }
     private void Update()
     {
+        //Checking for the timer item, and should it be true it will switch the music when the timer runs low for the player.
         if(_timerScript != null)
         {
+            //This prevents a looping changing of the music, while still adjusting the music for the time running out.
             if (_timerScript.currentTime <= 10 && _canChangeAudio == true)
             {
                 ChangeMusic();
@@ -45,6 +48,7 @@ public class BGMMusicManager : MonoBehaviour
 
     private void ChangeMusic()
     {
+        //Sets the boolean state that determines if the music can change properly, adjusts the music and prevents it from looping on the ending of a level screen.
         _canChangeAudio = false;
         audioSource.clip = timeRunningOutClip;
         audioSource.Play();
