@@ -14,6 +14,7 @@ public class StaircaseScript : MonoBehaviour
 
     [SerializeField]
     private GameObject[] transitionScreens;
+    private RectTransform blackScreenRectLeft, blackScreenRectRight;
 
     [SerializeField] private GameObject vDualCamLeft;
     [SerializeField] private GameObject vDualCamRight;
@@ -21,10 +22,21 @@ public class StaircaseScript : MonoBehaviour
     public delegate void CanMidpoint();
     public static event CanMidpoint canMidpointFlip;
 
+    private void OnEnable()
+    {
+        SharedCamTarget.swapBlackScreens += SwapBlackScreenSides;
+    }
+
+    private void OnDisable()
+    {
+        SharedCamTarget.swapBlackScreens -= SwapBlackScreenSides;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        blackScreenRectLeft = transitionScreens[0].GetComponent<RectTransform>();
+        blackScreenRectRight = transitionScreens[1].GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -59,6 +71,20 @@ public class StaircaseScript : MonoBehaviour
         {
             triggered = true;
             FloorManager.Instance.GoUpFloor();
+        }
+    }
+
+    private void SwapBlackScreenSides(bool notSwapped)
+    {
+        if (notSwapped == true)
+        {
+            blackScreenRectLeft.anchoredPosition = new Vector2(0f, 0);
+            blackScreenRectRight.anchoredPosition = new Vector2(0f, 0);
+        }
+        else if (notSwapped == false)
+        {
+            blackScreenRectLeft.anchoredPosition = new Vector2(960f, 0);
+            blackScreenRectRight.anchoredPosition = new Vector2(-960f, 0);
         }
     }
 
