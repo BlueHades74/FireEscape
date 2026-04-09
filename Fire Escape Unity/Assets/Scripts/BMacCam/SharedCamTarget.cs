@@ -58,19 +58,26 @@ public class SharedCamTarget : MonoBehaviour
             vDualCamRight.SetActive(true);
         }
 
-        if (player1.position.x > player2.position.x && vDualCamLeft.activeSelf == true && swappedBlackScreens == false)
+        if (player1.position.x > player2.position.x && vDualCamLeft.activeSelf == true)
         {
             vSingleCamLeft.Follow = player2;
             vSingleCamRight.Follow = player1;
-            swapBlackScreens?.Invoke(swappedBlackScreens);
-            swappedBlackScreens = true;
+            if (swappedBlackScreens == false)
+            {
+                swapBlackScreens?.Invoke(swappedBlackScreens);
+                swappedBlackScreens = true;
+            }
         }
-        else if (vDualCamLeft.activeSelf == true && swappedBlackScreens == true)
+        else if (vDualCamLeft.activeSelf == true)
         {
             vSingleCamLeft.Follow = player1;
             vSingleCamRight.Follow = player2;
-            swapBlackScreens?.Invoke(swappedBlackScreens);
-            swappedBlackScreens = false;
+            if (swappedBlackScreens == true)
+            {
+                swapBlackScreens?.Invoke(swappedBlackScreens);
+                swappedBlackScreens = false;
+            }
         }
+
     }
 }
