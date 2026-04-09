@@ -14,6 +14,7 @@ public class StaircaseScript : MonoBehaviour
 
     [SerializeField]
     private GameObject[] transitionScreens;
+    private RectTransform blackScreenRectLeft, blackScreenRectRight;
 
     [SerializeField] private GameObject vDualCamLeft;
     [SerializeField] private GameObject vDualCamRight;
@@ -34,7 +35,8 @@ public class StaircaseScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        blackScreenRectLeft = transitionScreens[0].GetComponent<RectTransform>();
+        blackScreenRectRight = transitionScreens[1].GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -72,19 +74,17 @@ public class StaircaseScript : MonoBehaviour
         }
     }
 
-    private void SwapBlackScreenSides(bool swapped)
+    private void SwapBlackScreenSides(bool notSwapped)
     {
-        if (swapped == true)
+        if (notSwapped == true)
         {
-            var temp = transitionScreens[1];
-            transitionScreens[1] = transitionScreens[0];
-            transitionScreens[0] = temp;
+            blackScreenRectLeft.anchoredPosition = new Vector2(0f, 0);
+            blackScreenRectRight.anchoredPosition = new Vector2(0f, 0);
         }
-        else if (swapped == false)
+        else if (notSwapped == false)
         {
-            var temp = transitionScreens[1];
-            transitionScreens[1] = transitionScreens[0];
-            transitionScreens[0] = temp;
+            blackScreenRectLeft.anchoredPosition = new Vector2(960f, 0);
+            blackScreenRectRight.anchoredPosition = new Vector2(-960f, 0);
         }
     }
 
