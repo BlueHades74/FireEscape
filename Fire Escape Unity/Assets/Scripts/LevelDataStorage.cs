@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelDataStorage : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class LevelDataStorage : MonoBehaviour
 
     [SerializeField]
     private LevelInfo levelInfo;
-
     public LevelInfo LevelInfo { get => levelInfo;}
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,18 +25,18 @@ public class LevelDataStorage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Takes the players into the appropriate level when ready by calling the screen fade
         if (p1Ready && p2Ready && sent)
         {
             sent = false;
             FadeInOut.GetComponent<FadeInOutScript>().FadeOutChangeScene(levelInfo.LevelName);
-        }
+        }    
     }
 
     public void SetLevelInfo(LevelInfo level)
     {
         //Sets the levelinfo that determines what level to go to
         levelInfo = level;
+        FadeInOut.GetComponent<FadeInOutScript>().PreLoadLevel(levelInfo.LevelName);
     }
 
     //Readies or Unreadies player 1
@@ -49,5 +49,12 @@ public class LevelDataStorage : MonoBehaviour
     public void FlipP2Ready()
     {
         p2Ready = !p2Ready;
+    }
+
+    public void CancelPreload()
+    {
+        p1Ready = false;
+        p2Ready = false;
+        FadeInOut.GetComponent<FadeInOutScript>().CancelPreload();
     }
 }
