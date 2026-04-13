@@ -9,6 +9,8 @@ public class Timer : MonoBehaviour
 {
     [Header("Component")]
     public TextMeshProUGUI timerText;
+    [SerializeField]
+    private AudioSource fastTicking;
 
     [Header("Timer Setting")]
     public float currentTime;
@@ -34,9 +36,15 @@ public class Timer : MonoBehaviour
     public GameObject gameOverUI;
     private bool isFailed;
 
+    private Animator animator;
+    private int warnedCount = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Fill the animator slot with the attached animator.
+        animator = GetComponent<Animator>();
+
         // find player objects
         foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player"))
         {
@@ -64,6 +72,28 @@ public class Timer : MonoBehaviour
             currentTime = 0;
             timerText.color = Color.red;
             TimerFailed();
+        }
+        // Flashes when low on time
+        if (currentTime < 60f)
+        {
+            if (warnedCount == 0)
+            {
+                fastTicking.Play();
+                warnedCount = 1;
+            }
+            animator.SetTrigger("Below1Min");
+            // Pulses faster when extra low on time
+            if (currentTime < 30f)
+            {
+                if (warnedCount == 1)
+                {
+                    // Uncomment for higher pitched double warning sound
+                    //fastTicking.pitch = 1.25f;
+                    fastTicking.Play();
+                    warnedCount = 2;
+                }
+                animator.speed = 1.0f + ((30f - currentTime) / 30f);
+            }
         }
         // Stops at 0 and stops from going negative
         if (hasLimit && !countDown && currentTime >= timerLimit)

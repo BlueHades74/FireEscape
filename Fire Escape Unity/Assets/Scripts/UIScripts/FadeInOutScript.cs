@@ -1,4 +1,3 @@
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,9 +9,11 @@ public class FadeInOutScript : MonoBehaviour
     private float timeleft = 0.0f;
     private bool fadingin = false;
     private bool fadingout = false;
-    private Scene sceneto;
+    private string sceneto;
     [SerializeField]
     private Image overlay;
+
+    private AsyncOperation preloadOp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,8 +48,15 @@ public class FadeInOutScript : MonoBehaviour
             {
                 overlay.color = new Color(0, 0, 0, 1.0f);
                 fadingout = false;
-                SceneManager.LoadScene(sceneto.buildIndex);
+                preloadOp.allowSceneActivation = true;
+                SceneManager.LoadScene(sceneto);
             }
+        }
+
+        if (preloadOp != null)
+        {
+            float progress = Mathf.Clamp01(preloadOp.progress / 0.9f);
+            Debug.LogWarning($"Preload progress: {progress * 100f}%");
         }
     }
 
@@ -57,10 +65,43 @@ public class FadeInOutScript : MonoBehaviour
         timeleft = totalFadeTime;
         fadingin = true;
     }
-    public void FadeOutChangeScene(Scene input)
+    public void FadeOutChangeScene(string input)
     {
         sceneto = input;
         timeleft = totalFadeTime;
-        fadingin = true;
+        fadingout = true;
+    }
+
+    public void PreLoadLevel(string input)
+    {
+        if (input != null)
+        {
+            Debug.Log($"Starting preload of scene: {input}");
+
+            preloadOp = SceneManager.LoadSceneAsync(input);
+            preloadOp.allowSceneActivation = false;
+            sceneto = input;
+        }
+        else
+        {
+            Debug.LogWarning("No Level assigned! Cannot preload scene.");
+        }
+    }
+
+    public void CancelPreload()
+    {
+        if (preloadOp != null)
+        {
+            Debug.Log("Preload canceled.");
+
+            preloadOp.allowSceneActivation = false;
+
+            //unload scene if it was partially loaded
+            if (sceneto != null)
+            {
+                SceneManager.UnloadSceneAsync(sceneto);
+            }
+            preloadOp = null;
+        }
     }
 }

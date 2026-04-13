@@ -8,11 +8,15 @@ public class CharacterDataReader : MonoBehaviour
     private CharacterData data;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private BoxCollider2D bx;
+    private BoxCollider2D childBx;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        bx = GetComponent<BoxCollider2D>();
+        childBx = transform.GetChild(1).GetComponent<BoxCollider2D>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,5 +40,7 @@ public class CharacterDataReader : MonoBehaviour
     {
         spriteRenderer.sprite = data.CharacterSprite;
         animator.runtimeAnimatorController = data.AnimatorController;
+        bx.size = data.dynamicColliderSize;
+        childBx.size = data.kinematicColliderSize;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 /// <summary>
 /// This script allows for the altering of the sound effects volume of the through a slider and will correctly update the volume.
 /// This script uses a logarithmic function to update the volume for the players as human hearing follows along a logarithmic process for how loud something is.
+/// Created by Henry Cummings
 /// </summary>
 public class SFXVolumeManager : MonoBehaviour
 {
