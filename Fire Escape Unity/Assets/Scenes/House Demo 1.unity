@@ -5062,9 +5062,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 273096537}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vDualCamLeft2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 160435317}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vDualCamRight2
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -7742,22 +7750,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 820403263472278569, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.4444447
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051959953820848862, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.80292
-      objectReference: {fileID: 0}
-    - target: {fileID: 1051959953820848862, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.3171902
-      objectReference: {fileID: 0}
-    - target: {fileID: 1127369750348946914, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.4444447
-      objectReference: {fileID: 0}
     - target: {fileID: 2102435290389133706, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.89292
@@ -7798,34 +7790,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3686829937159191139, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.64292
-      objectReference: {fileID: 0}
-    - target: {fileID: 3686829937159191139, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.18719
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515452348345806070, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.4444447
-      objectReference: {fileID: 0}
     - target: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 471634365}
-    - target: {fileID: 6775599085512462544, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.4444447
-      objectReference: {fileID: 0}
     - target: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1077775713}
-    - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: script
-      value: 
-      objectReference: {fileID: 1274304134}
     - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: player1
       value: 
@@ -11286,9 +11258,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 273096537}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vDualCamLeft2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 160435317}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vDualCamRight2
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -11328,17 +11308,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2254023274787605057, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
   m_PrefabInstance: {fileID: 1274304131}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1274304134 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-  m_PrefabInstance: {fileID: 1274304131}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274304133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11457d2ea8f45a847bde3620bf5eb537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1280097413
 GameObject:
   m_ObjectHideFlags: 0
