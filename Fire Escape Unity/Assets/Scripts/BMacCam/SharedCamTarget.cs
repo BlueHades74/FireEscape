@@ -2,6 +2,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using System;
 using Unity.VisualScripting;
+using System.Collections;
 
 public class SharedCamTarget : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class SharedCamTarget : MonoBehaviour
     [SerializeField] private CinemachineCamera vSingleCamLeft;
     [SerializeField] private CinemachineCamera vSingleCamRight;
     [SerializeField] private float breakDistance = 15f;
+    [SerializeField] private CinemachineCamera vDualLeftCamOutput;
+    [SerializeField] private CinemachineCamera vDualRightCamOutput;
+    [SerializeField] private CinemachinePositionComposer vDualLeftCamComp;
+    [SerializeField] private CinemachinePositionComposer vDualRightCamComp;
 
-    private CinemachineCamera vDualLeftCamComp;
-    private CinemachineCamera vDualRightCamComp;
-    private CinemachinePositionComposer vDualLeftCamPos;
-    private CinemachinePositionComposer vDualRightCamPos;
+    private bool swappedDualCams = false;
+    [SerializeField] private float secondsToWait = 5;
 
     private bool swappedBlackScreens = false;
 
@@ -39,14 +42,6 @@ public class SharedCamTarget : MonoBehaviour
         canMidpoint = !canMidpoint;
     }
 
-    private void Start()
-    {
-        vDualLeftCamComp = vDualCamLeft.GetComponent<CinemachineCamera>();
-        vDualRightCamComp = vDualCamRight.GetComponent<CinemachineCamera>();
-        vDualLeftCamPos = vDualCamLeft.GetComponent<CinemachinePositionComposer>();
-        vDualRightCamPos = vDualCamRight.GetComponent<CinemachinePositionComposer>();
-    }
-
     private void LateUpdate()
     {
         // create a vector3 to store difference of player positions
@@ -63,27 +58,47 @@ public class SharedCamTarget : MonoBehaviour
         // checks distance between players to decide if cameras flip to individual look at target
         if ((player2.position - player1.position).magnitude > breakDistance)
         {
-            vDualCamLeft.SetActive(false);
-            vDualCamRight.SetActive(false);
+            //vDualCamLeft.SetActive(false);
+            //vDualCamRight.SetActive(false);
+            vSingleCamLeft.Priority = 2;
+            vSingleCamRight.Priority = 2;
         }
         else
         {
-            vDualCamLeft.SetActive(true);
-            vDualCamRight.SetActive(true);
+            //vDualCamLeft.SetActive(true);
+            //vDualCamRight.SetActive(true);
+            vSingleCamLeft.Priority = 0;
+            vSingleCamRight.Priority = 0;
+            if (swappedDualCams) swappedDualCams = false;
         }
 
-        if (player1.position.x > player2.position.x && vDualCamLeft.activeSelf == true)
+        if (vSingleCamLeft.Priority == 2 && !swappedDualCams && player1.position.x > player2.position.x)
+        {
+            vDualLeftCamOutput.OutputChannel = OutputChannels.Channel02;
+            vDualRightCamOutput.OutputChannel = OutputChannels.Channel01;
+            StartCoroutine(SwapDualCams());
+            swappedDualCams = true;
+        }
+        else if (vSingleCamLeft.Priority == 2 && swappedDualCams)
+        {
+            vDualLeftCamOutput.OutputChannel = OutputChannels.Channel01;
+            vDualRightCamOutput.OutputChannel = OutputChannels.Channel02;
+            StartCoroutine(SwapDualCams());
+            swappedDualCams = false;
+        }
+
+        if (player1.position.x > player2.position.x && vSingleCamLeft.Priority == 0)
         {
             vSingleCamLeft.Follow = player2;
             vSingleCamRight.Follow = player1;
-            //vDualLeftCamComp.OutputChannel = "Channel 1";
+
             if (swappedBlackScreens == false)
             {
                 swapBlackScreens?.Invoke(swappedBlackScreens);
                 swappedBlackScreens = true;
             }
         }
-        else if (vDualCamLeft.activeSelf == true)
+        else if (vSingleCamLeft.Priority == 0)
         {
             vSingleCamLeft.Follow = player1;
             vSingleCamRight.Follow = player2;
@@ -94,5 +109,27 @@ public class SharedCamTarget : MonoBehaviour
             }
         }
 
+    }
+
+    private IEnumerator SwapDualCams()
+    {
+        if (player1.position.x > player2.position.x)
+        {
+            while (vDualLeftCamComp.Composition.ScreenPosition.x > -0.5)
+            {
+                yield return new WaitForSeconds(secondsToWait);
+                vDualRightCamComp.Composition.ScreenPosition.x += 0.1f;
+                vDualLeftCamComp.Composition.ScreenPosition.x -= 0.1f;
+            }
+        }
+        else
+        {
+            while (vDualLeftCamComp.Composition.ScreenPosition.x < 0.5)
+            {
+                yield return new WaitForSeconds(secondsToWait);
+                vDualRightCamComp.Composition.ScreenPosition.x -= 0.1f;
+                vDualLeftCamComp.Composition.ScreenPosition.x += 0.1f;
+            }
+        }
     }
 }
