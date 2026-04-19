@@ -11708,6 +11708,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1125587586838958, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
+      propertyPath: linesOnLoad.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125587586838958, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
+      propertyPath: 'linesOnLoad.Array.data[0]'
+      value: This will be more clear for buttons <sprite index= 1> in case it spills
+        I am going to fill the rest of this with text so that I can one final <sprite
+        index= 0> now I'm good test
+      objectReference: {fileID: 0}
     - target: {fileID: 3424642299102713754, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
       propertyPath: lines.Array.size
       value: 3
@@ -11817,6 +11827,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6108066974461977005, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f7d2bd29d0ae474cbc9865ae63a50f7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
