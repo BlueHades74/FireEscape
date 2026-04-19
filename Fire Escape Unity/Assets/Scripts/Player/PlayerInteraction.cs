@@ -30,6 +30,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             PlayerEventSystem.current.ObjectPickedUp(transform.position);
         }
+        
+        
     }
 
     private void OnAction()
@@ -63,7 +65,13 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
-        
+
+        CharacterEvents.PlayerSharedKeyPress.Invoke('E', gameObject.name);
+    }
+
+    private void OnPause()
+    {
+        CharacterEvents.PlayerSharedKeyPress.Invoke('b', gameObject.name);
     }
 
     /// <summary>

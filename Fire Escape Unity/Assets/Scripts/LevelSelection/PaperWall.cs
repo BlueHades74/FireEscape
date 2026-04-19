@@ -41,6 +41,7 @@ public class PaperWall : MonoBehaviour
         float playerOneDistance = Vector2.Distance(transform.position, playerOne.transform.position);
         float playerTwoDistance = Vector2.Distance(transform.position, playerTwo.transform.position);
 
+        /*
         // If the E key is pressed.....
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Submit")) && (playerOneDistance <= interactableDistance || playerTwoDistance <= interactableDistance) && !canvasManager.Active)
         {
@@ -50,9 +51,10 @@ public class PaperWall : MonoBehaviour
             Invoke("Controller", 0.05f);
             //GetComponent<ControllerUI>().MoveToElement();
         }
+        */
 
         // If the Escape key is pressed....
-        else if (levelSelectUI.activeInHierarchy == true)
+        if (levelSelectUI.activeInHierarchy == true)
         {
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Cancel"))
             {
@@ -85,4 +87,38 @@ public class PaperWall : MonoBehaviour
         Debug.Log("Loading: " + name);
     }
 
+
+    private void OnEnable()
+    {
+        CharacterEvents.PlayerSharedKeyPress += TryOpen;
+    }
+
+    private void OnDisable()
+    {
+        CharacterEvents.PlayerSharedKeyPress -= TryOpen;
+    }
+
+    private void TryOpen(char key, string playerName)
+    {
+        float playerOneDistance = Vector2.Distance(transform.position, playerOne.transform.position);
+        float playerTwoDistance = Vector2.Distance(transform.position, playerTwo.transform.position);
+
+        if (key == 'E' && playerName == playerOne.name && playerOneDistance <= interactableDistance && !canvasManager.Active)
+        {
+            // Then open the level select UI
+            levelSelectUI.SetActive(true);
+            canvasManager.Active = true;
+            Invoke("Controller", 0.05f);
+            //GetComponent<ControllerUI>().MoveToElement();
+        }
+
+        if (key == 'E' && playerName == playerTwo.name && playerTwoDistance <= interactableDistance && !canvasManager.Active)
+        {
+            // Then open the level select UI
+            levelSelectUI.SetActive(true);
+            canvasManager.Active = true;
+            Invoke("Controller", 0.05f);
+            //GetComponent<ControllerUI>().MoveToElement();
+        }
+    }
 }
