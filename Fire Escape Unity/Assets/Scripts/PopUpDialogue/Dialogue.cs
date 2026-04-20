@@ -34,6 +34,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (linesOnLoad.Length == 0) return;
         // We can put this into a separate function for the input system
         // Looks for left mouse button down to do either
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Submit"))
