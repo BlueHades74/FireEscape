@@ -16,6 +16,8 @@ public class SharedCamTarget : MonoBehaviour
     [SerializeField] private CinemachineCamera vDualRightCamOutput;
     [SerializeField] private CinemachinePositionComposer vDualLeftCamComp;
     [SerializeField] private CinemachinePositionComposer vDualRightCamComp;
+    [SerializeField] private CinemachineBrain brainLeft;
+    [SerializeField] private CinemachineBrain brainRight;
 
     private bool swappedDualCams = false;
     private bool camsSplit;
@@ -93,6 +95,29 @@ public class SharedCamTarget : MonoBehaviour
 
         if (player1.position.x > player2.position.x && vSingleCamLeft.Priority == 0 && !camsSplit)
         {
+            // check to make sure the brains are NOT blending first
+            if (brainLeft.IsBlending != true && brainRight.IsBlending != true)
+            {
+                // send bool of original targeting or not
+                SwapSingleCamTrackingTargets(true);
+            }
+        }
+        else if (vSingleCamLeft.Priority == 0 && !camsSplit)
+        {
+            // check to make sure the brains are NOT blending first
+            if (brainLeft.IsBlending != true && brainRight.IsBlending != true)
+            {
+                // send bool of original targeting or not
+                SwapSingleCamTrackingTargets(false);
+            }
+        }
+
+    }
+
+    private void SwapSingleCamTrackingTargets(bool swap)
+    {
+        if (swap)
+        {
             // swapped sides follow
             vSingleCamLeft.Follow = player2;
             vSingleCamRight.Follow = player1;
@@ -104,7 +129,7 @@ public class SharedCamTarget : MonoBehaviour
                 swappedBlackScreens = true;
             }
         }
-        else if (vSingleCamLeft.Priority == 0 && !camsSplit)
+        else
         {
             // base follow
             vSingleCamLeft.Follow = player1;
@@ -116,7 +141,6 @@ public class SharedCamTarget : MonoBehaviour
                 swappedBlackScreens = false;
             }
         }
-
     }
 
     private IEnumerator EnableSingleTracking()
