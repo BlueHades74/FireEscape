@@ -4922,28 +4922,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4408622496689305298, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
   m_PrefabInstance: {fileID: 765003674}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &160435318 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5031566994172779536, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 765003674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160435317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
---- !u!114 &160435319 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6152071397940551823, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 765003674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160435317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1 &175479886
 GameObject:
   m_ObjectHideFlags: 0
@@ -5670,28 +5648,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2168864633609305991, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
   m_PrefabInstance: {fileID: 765003674}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &273096539 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4338811120157195157, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 765003674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273096537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
---- !u!114 &273096540 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8304721839782693355, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 765003674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273096537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1001 &277311420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7854,34 +7810,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2902104647984986582, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.Time
-      value: 0.5
+    - target: {fileID: 3686829937159191139, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.64292
       objectReference: {fileID: 0}
-    - target: {fileID: 2902104647984986582, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.Style
-      value: 1
+    - target: {fileID: 3686829937159191139, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.18719
       objectReference: {fileID: 0}
     - target: {fileID: 4515452348345806070, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.4458685
       objectReference: {fileID: 0}
     - target: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: StandbyUpdate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 471634365}
-    - target: {fileID: 6152071397940551823, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: StandbyUpdate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6152071397940551823, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: Priority.m_Value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6775599085512462544, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.4458685
@@ -7889,10 +7833,6 @@ PrefabInstance:
     - target: {fileID: 6775599085512462544, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: StandbyUpdate
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
@@ -7907,14 +7847,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1077775713}
     - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: brainLeft
-      value: 
-      objectReference: {fileID: 2030629339}
-    - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: brainRight
-      value: 
-      objectReference: {fileID: 775118154}
-    - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: secondsToWait
       value: 1
       objectReference: {fileID: 0}
@@ -7926,22 +7858,6 @@ PrefabInstance:
       propertyPath: vDualCamRight2
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: vDualLeftCamComp
-      value: 
-      objectReference: {fileID: 273096539}
-    - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: vDualRightCamComp
-      value: 
-      objectReference: {fileID: 160435318}
-    - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: vDualLeftCamOutput
-      value: 
-      objectReference: {fileID: 273096540}
-    - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: vDualRightCamOutput
-      value: 
-      objectReference: {fileID: 160435319}
     - target: {fileID: 7141659584543239999, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: vSingleCamLeftSwapped
       value: 
@@ -7961,78 +7877,6 @@ PrefabInstance:
     - target: {fileID: 7308236919655711869, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_Name
       value: BMacCameraManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304721839782693355, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: StandbyUpdate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304721839782693355, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: Priority.m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: ShowDebugText
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.Time
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.Style
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[0].inSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[1].inSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[0].outSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[1].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[1].outSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[0].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[0].tangentMode
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-      propertyPath: DefaultBlend.CustomCurve.m_Curve.Array.data[1].tangentMode
-      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8154,17 +7998,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7770421277566409367, guid: eefc9d4eea15edc468a1b914b73e16ed, type: 3}
   m_PrefabInstance: {fileID: 768296497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &775118154 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2902104647984986582, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 765003674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
 --- !u!1001 &779567688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24231,17 +24064,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2030629339 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8598131406068175303, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 765003674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
 --- !u!1001 &2104674090
 PrefabInstance:
   m_ObjectHideFlags: 0
