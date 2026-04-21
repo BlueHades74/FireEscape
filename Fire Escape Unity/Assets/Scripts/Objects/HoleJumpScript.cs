@@ -4,7 +4,7 @@ using UnityEngine.LowLevel;
 public class HoleJumpScript : MonoBehaviour
 {
     //Created by: Rafael Gonzalez Atiles
-    //Last Edited by: Rafael Gonzalez Atiles
+    //Last Edited by: Logan Shade
 
     [SerializeField]
     private GameObject exitPoint;
@@ -48,7 +48,7 @@ public class HoleJumpScript : MonoBehaviour
     public void InitiateTP(GameObject sender)
     {
         player = sender;
-        view.GetComponent<CameraTransition>().SetDistanceToValue(0);
+        //view.GetComponent<CameraTransition>().SetDistanceToValue(0);
         if (player.name == "Player 1")
         {
             transitionScreens[0].SetActive(true);

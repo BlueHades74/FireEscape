@@ -7,6 +7,8 @@ public class PlayerActionScript : MonoBehaviour
     //Created by: Rafael Gonzalez Atiles
     //Last Edited by: Rafael Gonzalez Atiles
     //Audio Relate Hoohah added by henry cummings
+
+    [Header("General")]
     [SerializeField]
     private AudioSource soundEffectSource;
 
@@ -20,9 +22,11 @@ public class PlayerActionScript : MonoBehaviour
 
     private bool holdCheck;
 
+    [Header("Axe")]
     [SerializeField]
     private AudioClip axeChopSound;
 
+    [Header("WaterBucket")]
     [SerializeField]
     private GameObject[] waterRangePrefab;
     [SerializeField]
@@ -31,14 +35,20 @@ public class PlayerActionScript : MonoBehaviour
     [SerializeField]
     private AudioClip waterBucketSound;
     [SerializeField]
+    private AudioClip waterBucketSound2;
+    [SerializeField]
     private AudioClip waterSloshSound;
+    [SerializeField]
+    private AudioClip refillSound;
     private int waterColliderRotation = 0;
 
+    [Header("Crowbar")]
     private float crowbarTimer;
     private Image crowbarFillBar;
     [SerializeField]
     private AudioClip crowbarPrySound;
 
+    [Header("Extinguisher")]
     [SerializeField]
     private GameObject extinguisherRangePrefab;
     [SerializeField]
@@ -51,6 +61,7 @@ public class PlayerActionScript : MonoBehaviour
     private Vector2 boxColliderOffsetOrig;
     private BoxCollider2D bx;
 
+    [Header("2 player Carry object")]
     [SerializeField]
     private float carry2PColliderSizeMod;
     [SerializeField]
@@ -675,6 +686,12 @@ public class PlayerActionScript : MonoBehaviour
                 }
 
                 actionItem.GetComponent<WaterBucketScript>().FillBucket();
+
+                if (refillSound != null)
+                {
+                    PlayAudio(refillSound);
+                }
+
                 waterRangeDisplay = Instantiate<GameObject>(waterRangePrefab[actionItem.GetComponent<WaterBucketScript>().CurrentCharges - 1], transform.position, Quaternion.identity);
                 waterRangeDisplay.GetComponent<WaterBucketRangeScript>().GetPlayer(gameObject);
             }
