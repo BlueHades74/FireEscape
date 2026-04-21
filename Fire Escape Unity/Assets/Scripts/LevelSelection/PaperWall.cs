@@ -103,7 +103,7 @@ public class PaperWall : MonoBehaviour
         float playerOneDistance = Vector2.Distance(transform.position, playerOne.transform.position);
         float playerTwoDistance = Vector2.Distance(transform.position, playerTwo.transform.position);
 
-        if (key == 'E' && playerName == playerOne.name && playerOneDistance <= interactableDistance && !canvasManager.Active)
+        if (key == 'Q' && playerName == playerOne.name && playerOneDistance <= interactableDistance && !canvasManager.Active)
         {
             // Then open the level select UI
             levelSelectUI.SetActive(true);
@@ -112,7 +112,7 @@ public class PaperWall : MonoBehaviour
             //GetComponent<ControllerUI>().MoveToElement();
         }
 
-        if (key == 'E' && playerName == playerTwo.name && playerTwoDistance <= interactableDistance && !canvasManager.Active)
+        if (key == 'Q' && playerName == playerTwo.name && playerTwoDistance <= interactableDistance && !canvasManager.Active)
         {
             // Then open the level select UI
             levelSelectUI.SetActive(true);
