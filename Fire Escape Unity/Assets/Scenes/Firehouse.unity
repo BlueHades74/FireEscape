@@ -11849,13 +11849,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1125587586838958, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
       propertyPath: linesOnLoad.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1125587586838958, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
       propertyPath: 'linesOnLoad.Array.data[0]'
-      value: This will be more clear for buttons <sprite index= 1> in case it spills
-        I am going to fill the rest of this with text so that I can one final <sprite
-        index= 0> now I'm good test
+      value: 'Captain: "Welcome! This is the fire house!"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125587586838958, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
+      propertyPath: 'linesOnLoad.Array.data[1]'
+      value: 'Captain: "This is where you will go inbetween calls. When you''re ready
+        go up to the blackboard and interact with it to see any dangers around town."'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125587586838958, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
+      propertyPath: 'linesOnLoad.Array.data[2]'
+      value: "Captain: \u201CPlayer 1, to do that, walk up to the blackboard, and
+        enter \u2018Q\u2019/<sprite index= 3>, Player 2, press \u2018U\u2019/<sprite
+        index= 3>.\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 3424642299102713754, guid: 9681dd3a94eeae548a3615036587387d, type: 3}
       propertyPath: lines.Array.size
