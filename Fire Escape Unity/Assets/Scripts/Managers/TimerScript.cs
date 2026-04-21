@@ -38,6 +38,7 @@ public class Timer : MonoBehaviour
 
     private Animator animator;
     private int warnedCount = 0;
+    private bool paused = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

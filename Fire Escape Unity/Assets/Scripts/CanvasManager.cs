@@ -30,7 +30,6 @@ public class CanvasManager : MonoBehaviour
         {
             if (canvas.gameObject.activeInHierarchy == true)
             {
-                Debug.LogWarning("A");
                 p1Move.CanMove(false);
                 p2Move.CanMove(false);
             }
