@@ -16,6 +16,10 @@ public class WaterBucketScript : MonoBehaviour
     private int fullCharges;
     [SerializeField]
     private int currentCharges;
+    [SerializeField]
+    private AudioClip waterRefillSound;
+    [SerializeField]
+    private AudioSource audioSource;
 
     public bool IsFilled { get => isFilled; }
     public int CurrentCharges { get => currentCharges; set => currentCharges = value; }
@@ -23,6 +27,7 @@ public class WaterBucketScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = this.GetComponent<ObjectManager>().GetSoundEffectSource();
         isFilled = true;
         currentCharges = fullCharges;
     }
@@ -51,6 +56,8 @@ public class WaterBucketScript : MonoBehaviour
     {
         isFilled = true;
         currentCharges = fullCharges;
+        audioSource.clip = waterRefillSound;
+        audioSource.Play();
         GetComponent<SpriteRenderer>().sprite = filledSprite;
         GetComponent<ObjectManager>().ImageUI = filledSpriteUI;
         ItemEventsScript.OnItemChanged(transform.parent.gameObject.GetComponent<PlayerInputController>().PlayerIndex + 1, filledSpriteUI);
