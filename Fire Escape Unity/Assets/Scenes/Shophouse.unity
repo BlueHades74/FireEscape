@@ -331,12 +331,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 147810669}
     - target: {fileID: 8840230133618812370, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.821202
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840230133618812370, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.1
+      value: -5.65
       objectReference: {fileID: 0}
     - target: {fileID: 8840230133618812370, guid: 2fecfe7b043f0b14abf999a6d747d7c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1
+      value: -4.71
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3091,6 +3095,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1186405889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &790040552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+  m_PrefabInstance: {fileID: 1756011844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1 &809641882
 GameObject:
   m_ObjectHideFlags: 0
@@ -7996,6 +8011,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1832568152}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 1660037165}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 790040552}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 1251355970}
@@ -8059,6 +8082,10 @@ PrefabInstance:
     - target: {fileID: 3234076733250909796, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471288412208683439, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
+      propertyPath: m_Radius
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8731375224208401088, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
       propertyPath: grid
@@ -8320,6 +8347,14 @@ PrefabInstance:
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 1832568152}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 1660037165}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 790040552}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -9910,6 +9945,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7a2f8ed25dabd4fbc293e26214df6d, type: 3}
+--- !u!114 &1660037165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+  m_PrefabInstance: {fileID: 1756011844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1001 &1667461746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14354,6 +14400,10 @@ PrefabInstance:
     - target: {fileID: 4800660834239274203, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5018970279721429166, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
+      propertyPath: m_Radius
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

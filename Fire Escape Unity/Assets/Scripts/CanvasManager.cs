@@ -9,6 +9,8 @@ public class CanvasManager : MonoBehaviour
     private PlayerMovementScript p1Move;
     [SerializeField]
     private PlayerMovementScript p2Move;
+    [SerializeField]
+    private Timer timerManager;
 
     private int count;
 
@@ -32,6 +34,11 @@ public class CanvasManager : MonoBehaviour
             {
                 p1Move.CanMove(false);
                 p2Move.CanMove(false);
+                try
+                {
+                    timerManager.Pause();
+                }
+                catch { }
             }
             else
             {
@@ -44,6 +51,11 @@ public class CanvasManager : MonoBehaviour
             p1Move.CanMove(true);
             p2Move.CanMove(true);
             active = false;
+            try
+            {
+                timerManager.Unpause();
+            }
+            catch { }
         }
 
         count = 0;
