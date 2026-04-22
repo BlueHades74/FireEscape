@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ScreenFadeScript : MonoBehaviour
 {
     //Created by: Rafael Gonzalez Atiles
-    //Last Edited By: Rafael Gonzalez Atiles
+    //Last Edited By: Logan Shade
 
     [SerializeField]
     private float modifier;
@@ -30,7 +30,17 @@ public class ScreenFadeScript : MonoBehaviour
         {
             //If screen is fully dark
             modifier = -modifier;
-            transferObject.GetComponent<StaircaseScript>().TriggerTeleport(player);
+
+            //Try and catch for Staircase vs Hole Jumping
+            try 
+            {
+                transferObject.GetComponent<StaircaseScript>().TriggerTeleport(player);
+            }
+            catch
+            {
+                transferObject.GetComponent<HoleJumpScript>().TriggerTeleport();
+            }
+
         }
         else if (modifier < 0 && image.color.a <= 0)
         {
