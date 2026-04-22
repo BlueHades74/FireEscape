@@ -34,7 +34,11 @@ public class CanvasManager : MonoBehaviour
             {
                 p1Move.CanMove(false);
                 p2Move.CanMove(false);
-                timerManager.Pause();
+                try
+                {
+                    timerManager.Pause();
+                }
+                catch { }
             }
             else
             {
@@ -47,7 +51,11 @@ public class CanvasManager : MonoBehaviour
             p1Move.CanMove(true);
             p2Move.CanMove(true);
             active = false;
-            timerManager.Unpause();
+            try
+            {
+                timerManager.Unpause();
+            }
+            catch { }
         }
 
         count = 0;

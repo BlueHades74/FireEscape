@@ -177,4 +177,8 @@ public class ObjectManager : MonoBehaviour
         soundEffectSource.clip = clip;
         soundEffectSource.Play();
     }
+    public AudioSource GetSoundEffectSource()
+    {
+        return soundEffectSource;
+    }
 }
