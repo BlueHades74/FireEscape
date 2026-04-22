@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 //using static UnityEditor.PlayerSettings;
 
@@ -18,6 +20,8 @@ public class StaircaseScript : MonoBehaviour
 
     [SerializeField] private GameObject vDualCamLeft;
     [SerializeField] private GameObject vDualCamRight;
+    [SerializeField] private CinemachineCamera vSingleCamLeft;
+    [SerializeField] private CinemachineCamera vSingleCamRight;
 
     public delegate void CanMidpoint();
     public static event CanMidpoint canMidpointFlip;
@@ -53,9 +57,8 @@ public class StaircaseScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            
-            vDualCamLeft.SetActive(false);
-            vDualCamRight.SetActive(false);
+            vSingleCamLeft.Priority = 3;
+            vSingleCamRight.Priority = 3;
             playerToTP = collision.gameObject;
             BeginTransition();
         }

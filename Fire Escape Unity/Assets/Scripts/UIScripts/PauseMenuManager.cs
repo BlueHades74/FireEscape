@@ -31,12 +31,15 @@ public class PauseMenuManager : MonoBehaviour
         Instance = this;
     }
 
-    private void OnPause()
+    private void PauseToggle(char key, string name)
     {
-        if (isPaused)
-            Resume();
-        else
-            Pause();
+        if (key == 'b')
+        {
+            if (isPaused)
+                Resume();
+            else
+                Pause();
+        }
     }
 
     public void Pause()
@@ -95,5 +98,16 @@ public class PauseMenuManager : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
+    private void OnEnable()
+    {
+        CharacterEvents.PlayerSharedKeyPress += PauseToggle;
+    }
+
+    private void OnDisable()
+    {
+        CharacterEvents.PlayerSharedKeyPress -= PauseToggle;
+    }
+
+
 }
