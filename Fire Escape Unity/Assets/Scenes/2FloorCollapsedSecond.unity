@@ -5216,6 +5216,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 504707643}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 1724440654}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 724249029}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 1865679282}
@@ -5591,6 +5599,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695943338}
   m_CullTransparentMesh: 1
+--- !u!114 &724249029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+  m_PrefabInstance: {fileID: 1756011844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1 &731887606
 GameObject:
   m_ObjectHideFlags: 0
@@ -19406,6 +19425,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2075899550001749527, guid: 509f56952a878394db55f53237eac4e5, type: 3}
   m_PrefabInstance: {fileID: 1713580814}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1724440654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+  m_PrefabInstance: {fileID: 1756011844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!114 &1741276038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19470,11 +19500,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1051959953820848862, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.618544
+      value: -19.758545
       objectReference: {fileID: 0}
     - target: {fileID: 1051959953820848862, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.515273
+      value: -13.785274
       objectReference: {fileID: 0}
     - target: {fileID: 1127369750348946914, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21376,6 +21406,14 @@ PrefabInstance:
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 504707643}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 1724440654}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 724249029}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -30767,11 +30805,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4800660834239274203, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.48
+      value: -16.62
       objectReference: {fileID: 0}
     - target: {fileID: 4800660834239274203, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.24
+      value: -17.51
       objectReference: {fileID: 0}
     - target: {fileID: 4800660834239274203, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
       propertyPath: m_LocalPosition.z
