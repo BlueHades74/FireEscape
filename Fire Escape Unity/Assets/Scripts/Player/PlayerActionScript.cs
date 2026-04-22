@@ -33,9 +33,7 @@ public class PlayerActionScript : MonoBehaviour
     private GameObject waterColliderPrefab;
     private GameObject waterRangeDisplay;
     [SerializeField]
-    private AudioClip waterBucketSound;
-    [SerializeField]
-    private AudioClip waterBucketSound2;
+    private AudioClip[] waterBucketSounds;
     [SerializeField]
     private AudioClip waterSloshSound;
     [SerializeField]
@@ -282,7 +280,8 @@ public class PlayerActionScript : MonoBehaviour
                 var childLocation = tiles[i];
                 Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
             }
-            PlayAudio(waterBucketSound);
+            var selectedSound = Random.Range(0, waterBucketSounds.Length);
+            PlayAudio(waterBucketSounds[selectedSound]);
             actionItem.GetComponent<WaterBucketScript>().CurrentCharges--;
             Destroy(waterRangeDisplay);
             if (actionItem.GetComponent<WaterBucketScript>().CurrentCharges <= 0)
