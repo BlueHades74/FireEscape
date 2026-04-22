@@ -38,6 +38,7 @@ public class Timer : MonoBehaviour
 
     private Animator animator;
     private int warnedCount = 0;
+
     private bool paused = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -65,7 +66,10 @@ public class Timer : MonoBehaviour
     void Update()
     {
         //updates time
-        currentTime = countDown ? currentTime - Time.deltaTime : currentTime + Time.deltaTime;
+        if (!paused)
+        {
+            currentTime = countDown ? currentTime - Time.deltaTime : currentTime + Time.deltaTime;
+        }
 
         if (countDown && currentTime <= 0 && !isFailed)
         {
@@ -156,6 +160,15 @@ public class Timer : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(mainMenuScene);
+    }
+
+    public void Pause()
+    {
+        paused = true;
+    }
+    public void Unpause()
+    {
+        paused = false;
     }
 }
 
