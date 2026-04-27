@@ -193,6 +193,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2114479730}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 2114479732}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 2114479729}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 706676}
@@ -1159,6 +1167,14 @@ PrefabInstance:
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 2114479730}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 2114479732}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 2114479729}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -11167,6 +11183,14 @@ PrefabInstance:
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 2114479730}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 2114479732}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 2114479729}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -23082,7 +23106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8454736817795000349, guid: 950c318b8595a5a4a84d1d6375a4e533, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8454736817795000349, guid: 950c318b8595a5a4a84d1d6375a4e533, type: 3}
       propertyPath: m_SortingLayerID
@@ -23156,11 +23180,19 @@ PrefabInstance:
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamLeft
       value: 
-      objectReference: {fileID: 2114479729}
+      objectReference: {fileID: 2114479731}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 2114479730}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 2114479732}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 2114479729}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -23680,7 +23712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239482341779150382, guid: 8a0a704aeda6f724eaa8ab06bae849be, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2239482341779150382, guid: 8a0a704aeda6f724eaa8ab06bae849be, type: 3}
       propertyPath: m_SortingLayerID
@@ -28197,7 +28229,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7486195215411602515, guid: 82adada60926bd74a8a32f08d523d61d, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7486195215411602515, guid: 82adada60926bd74a8a32f08d523d61d, type: 3}
       propertyPath: m_SortingLayerID
@@ -45114,8 +45146,8 @@ Tilemap:
   - first: {x: -34, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 15
+      m_TileIndex: 16
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 10
       m_TileObjectToInstantiateIndex: 65535
@@ -45124,8 +45156,8 @@ Tilemap:
   - first: {x: -33, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 15
+      m_TileIndex: 16
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 10
       m_TileObjectToInstantiateIndex: 65535
@@ -45174,8 +45206,8 @@ Tilemap:
   - first: {x: -17, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 18
-      m_TileSpriteIndex: 18
+      m_TileIndex: 19
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 10
       m_TileObjectToInstantiateIndex: 65535
@@ -46493,15 +46525,15 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: bc1791b852971b4429f7a4120d2e51db, type: 2}
   - m_RefCount: 25
     m_Data: {fileID: 11400000, guid: 8c8f30fdb76c56e4e8d71a9f2b3d88a4, type: 2}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 9c7793701ca30e742ad3864508906f60, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 229fd7da1d4fbc241a93a8f7851ec4be, type: 2}
   - m_RefCount: 112
     m_Data: {fileID: 11400000, guid: ae0cf355b6aa5024abbf8bbe1793525c, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 50cf253daabda8643927a3fb60de05cb, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 8e23e7525dde70445aa335137d21207d, type: 2}
   - m_RefCount: 80
     m_Data: {fileID: 11400000, guid: ee9110accb2ee574b959916470a50043, type: 2}
@@ -46542,15 +46574,15 @@ Tilemap:
     m_Data: {fileID: 867944657, guid: a077234b65440f1428ef054340846c81, type: 3}
   - m_RefCount: 25
     m_Data: {fileID: -151880427, guid: a077234b65440f1428ef054340846c81, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: -7563812451204561243, guid: 36eaac7a5afd123429d36911c125dc11, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 6
     m_Data: {fileID: 4947719330917710149, guid: 2ac74e78f9e92954db5dd3f95f45a889, type: 3}
   - m_RefCount: 112
     m_Data: {fileID: 1047256803, guid: d554e0dc738a8c446aa5b073d5261f8e, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 4028983577567257556, guid: 435a2ec87f688d54595ab14f17b399b7, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: -7819000336664724005, guid: 5d5e0584f514d854dbee2cf75866bcfe, type: 3}
   - m_RefCount: 80
     m_Data: {fileID: -1678350471, guid: a077234b65440f1428ef054340846c81, type: 3}
@@ -49079,6 +49111,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2114479730}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 2114479732}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 2114479729}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 706676}
@@ -50588,6 +50628,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2114479730}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamLeft
+      value: 
+      objectReference: {fileID: 2114479732}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
+      propertyPath: vSingleCamRight
+      value: 
+      objectReference: {fileID: 2114479729}
+    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 706676}
@@ -50717,7 +50765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 820403263472278569, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4437337
+      value: 4.444445
       objectReference: {fileID: 0}
     - target: {fileID: 866454828412366728, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_ClearFlags
@@ -50745,7 +50793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1127369750348946914, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4437337
+      value: 4.444445
       objectReference: {fileID: 0}
     - target: {fileID: 2102435290389133706, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50797,7 +50845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4515452348345806070, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.443734
+      value: -4.4444447
       objectReference: {fileID: 0}
     - target: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
@@ -50805,7 +50853,7 @@ PrefabInstance:
       objectReference: {fileID: 1497888177}
     - target: {fileID: 6775599085512462544, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.443734
+      value: -4.4444447
       objectReference: {fileID: 0}
     - target: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
@@ -50833,11 +50881,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2102435290389133706, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
   m_PrefabInstance: {fileID: 2114479727}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2114479729 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 462939012868254414, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+--- !u!114 &2114479729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
   m_PrefabInstance: {fileID: 2114479727}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1 &2114479730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4408622496689305298, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
@@ -50848,6 +50902,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2168864633609305991, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
   m_PrefabInstance: {fileID: 2114479727}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2114479732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+  m_PrefabInstance: {fileID: 2114479727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1001 &2129791458
 PrefabInstance:
   m_ObjectHideFlags: 0
