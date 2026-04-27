@@ -193,14 +193,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2114479730}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamLeft
-      value: 
-      objectReference: {fileID: 2114479734}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamRight
-      value: 
-      objectReference: {fileID: 533574696}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 706676}
@@ -1167,14 +1159,6 @@ PrefabInstance:
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 2114479730}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamLeft
-      value: 
-      objectReference: {fileID: 2114479734}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamRight
-      value: 
-      objectReference: {fileID: 533574696}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -11183,14 +11167,6 @@ PrefabInstance:
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 2114479730}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamLeft
-      value: 
-      objectReference: {fileID: 2114479734}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamRight
-      value: 
-      objectReference: {fileID: 533574696}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -21644,17 +21620,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7a2f8ed25dabd4fbc293e26214df6d, type: 3}
---- !u!114 &533574696 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 2114479727}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!4 &538538080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8828150982422104120, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
@@ -23191,19 +23156,11 @@ PrefabInstance:
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamLeft
       value: 
-      objectReference: {fileID: 2114479731}
+      objectReference: {fileID: 2114479729}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
       objectReference: {fileID: 2114479730}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamLeft
-      value: 
-      objectReference: {fileID: 2114479734}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamRight
-      value: 
-      objectReference: {fileID: 533574696}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
@@ -28225,8 +28182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSelectSceneName: Firehouse
-  currentLevelName: OverheadTrainStation
-  nextLevelName: Subway
+  currentLevelName: TutorialLevel
+  nextLevelName: House Demo 1
   objectiveText: {fileID: 1708900320}
   totalHumans: 0
   savedHumans: 0
@@ -49122,14 +49079,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2114479730}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamLeft
-      value: 
-      objectReference: {fileID: 2114479734}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamRight
-      value: 
-      objectReference: {fileID: 533574696}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 706676}
@@ -50639,14 +50588,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2114479730}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamLeft
-      value: 
-      objectReference: {fileID: 2114479734}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
-      propertyPath: vSingleCamRight
-      value: 
-      objectReference: {fileID: 533574696}
-    - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 706676}
@@ -50776,11 +50717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 820403263472278569, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 4.4425673
-=======
-      value: 4.444445
->>>>>>> 52bb43e51df5c1041e20c2d931c5987f752cfff7
       objectReference: {fileID: 0}
     - target: {fileID: 866454828412366728, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_ClearFlags
@@ -50808,11 +50745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1127369750348946914, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 4.4425673
-=======
-      value: 4.444445
->>>>>>> 52bb43e51df5c1041e20c2d931c5987f752cfff7
       objectReference: {fileID: 0}
     - target: {fileID: 2102435290389133706, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50864,11 +50797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4515452348345806070, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: -4.4425673
-=======
-      value: -4.4444447
->>>>>>> 52bb43e51df5c1041e20c2d931c5987f752cfff7
       objectReference: {fileID: 0}
     - target: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
@@ -50876,11 +50805,7 @@ PrefabInstance:
       objectReference: {fileID: 1497888177}
     - target: {fileID: 6775599085512462544, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: -4.4425673
-=======
-      value: -4.4444447
->>>>>>> 52bb43e51df5c1041e20c2d931c5987f752cfff7
       objectReference: {fileID: 0}
     - target: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
@@ -50908,6 +50833,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2102435290389133706, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
   m_PrefabInstance: {fileID: 2114479727}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2114479729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 462939012868254414, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+  m_PrefabInstance: {fileID: 2114479727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2114479730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4408622496689305298, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
@@ -50918,17 +50848,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2168864633609305991, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
   m_PrefabInstance: {fileID: 2114479727}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2114479734 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 2114479727}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1001 &2129791458
 PrefabInstance:
   m_ObjectHideFlags: 0
