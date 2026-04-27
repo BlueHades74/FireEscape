@@ -15,9 +15,6 @@ public class PlayerActionScript : MonoBehaviour
     private GameObject actionItem;
     private PlayerInputController inputs;
 
-    [SerializeField]
-    private Grid grid;
-
     private string action;
 
     private bool holdCheck;
@@ -402,7 +399,6 @@ public class PlayerActionScript : MonoBehaviour
         if (actionItem.GetComponent<WaterBucketScript>().IsFilled)
         {
             Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x * 0.2f, GetComponent<PlayerMovementScript>().FacingDirection.y * 0.2f, 0);
-            Vector3Int waterSpawnLocation = grid.WorldToCell(transform.position);
 
             Vector2 direction = GetComponent<PlayerMovementScript>().FacingDirection;
 
@@ -587,7 +583,6 @@ public class PlayerActionScript : MonoBehaviour
     private void ExtinguisherHave()
     {
         Vector3 facingDisplace = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
-        Vector3Int extinguisherSpawnLocation = grid.WorldToCell(transform.position + facingDisplace);
 
         extinguisherRangeDisplay.transform.position = transform.position + facingDisplace;
     }
