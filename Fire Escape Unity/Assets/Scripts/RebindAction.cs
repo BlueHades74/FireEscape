@@ -14,6 +14,8 @@ public class RebindAction : MonoBehaviour
 
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
 
+    public bool isPlayer2;
+
     private void Start()
     {
         UpdateBindingDisplay();
@@ -26,11 +28,18 @@ public class RebindAction : MonoBehaviour
 
         actionReference.action.Disable();
 
+       
+        if (isPlayer2)
+        {
+            actionReference.action.ApplyBindingOverride(bindingIndex, "");
+        }
+
         if (listeningOverlay != null)
             listeningOverlay.SetActive(true);
 
         rebindingOperation = actionReference.action
-            .PerformInteractiveRebinding(bindingIndex)
+            .PerformInteractiveRebinding()
+            .WithTargetBinding(bindingIndex)
             .WithCancelingThrough("<Keyboard>/escape")
             .OnComplete(operation =>
             {
@@ -56,6 +65,9 @@ public class RebindAction : MonoBehaviour
 
         UpdateBindingDisplay();
         SaveBindings();
+
+        Debug.Log("Rebound to: " +
+            actionReference.action.bindings[bindingIndex].effectivePath);
     }
 
     private void CancelRebind()

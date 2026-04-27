@@ -116,7 +116,7 @@ public partial class @ControlMap: IInputActionCollection2, IDisposable
                     ""id"": ""90bc9cf2-a037-482f-b0d5-aa669a9df86e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
