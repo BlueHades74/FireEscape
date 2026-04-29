@@ -5,6 +5,7 @@ public class FireTracker : MonoBehaviour
 {
     public static FireTracker Instance;
     private int totalFireCount;
+    public AudioSource BGMFireAudio;
 
     void Start()
     {
@@ -14,8 +15,11 @@ public class FireTracker : MonoBehaviour
 
     public float GetPercentExtinguished()
     {
-        if (totalFireCount == 0)
-            return 1f; 
+        if (totalFireCount == 0) 
+        {
+            BGMFireAudio.GetComponent<AudioSource>().Pause();
+            return 1f;
+        }
 
         int activeFires = 0;
 
