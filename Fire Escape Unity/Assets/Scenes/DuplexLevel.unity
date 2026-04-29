@@ -180,8 +180,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6090928687226857473, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7084403
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090928687226857473, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090928687226857473, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.11452983
       objectReference: {fileID: 0}
     - target: {fileID: 7922258243280158021, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
       propertyPath: m_SortingLayer
@@ -4694,6 +4702,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6090928687226857473, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7084403
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090928687226857473, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.11452983
+      objectReference: {fileID: 0}
     - target: {fileID: 7922258243280158021, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -6296,6 +6312,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 67092969}
     m_Modifications:
+    - target: {fileID: 649579579885395342, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6088753
+      objectReference: {fileID: 0}
+    - target: {fileID: 649579579885395342, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.19556236
+      objectReference: {fileID: 0}
     - target: {fileID: 5822962813997529612, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
       propertyPath: m_Name
       value: Toilet_0 (1)
@@ -20583,6 +20607,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6090928687226857473, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7084403
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090928687226857473, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.11452983
+      objectReference: {fileID: 0}
     - target: {fileID: 7922258243280158021, guid: 1679dbd2fb8961a409db30cddd44e5dd, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -21832,6 +21864,10 @@ PrefabInstance:
     - target: {fileID: 6157351844574920601, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
       propertyPath: m_SortingLayer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157351844574920601, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6157351844574920601, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
       propertyPath: m_SortingLayerID
@@ -42547,9 +42583,27 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1659648035}
+    - target: {fileID: 1444632608957252962, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: linesOnLoad.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444632608957252962, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: 'linesOnLoad.Array.data[0]'
+      value: This duplex is getting ready to come down! The rooms are a tight squeeze,
+        but make sure we grab everyone from all three floors!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444632608957252962, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: 'linesOnLoad.Array.data[1]'
+      value: Some things can't be removed with the axe. Look for the flashing lights
+        around the object to help you figure out what can be broken down.
+      objectReference: {fileID: 0}
     - target: {fileID: 1504412268417953496, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.444458
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504412268417953496, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1611209801277222244, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_IsActive
@@ -42570,6 +42624,10 @@ PrefabInstance:
     - target: {fileID: 4721415007335752225, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.444458
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721415007335752225, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4990627565815587818, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44020,6 +44078,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6157351844574920601, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157351844574920601, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
       propertyPath: m_SortingLayerID
       value: -1130494767
       objectReference: {fileID: 0}
@@ -45023,6 +45085,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 67092969}
     m_Modifications:
+    - target: {fileID: 649579579885395342, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6088753
+      objectReference: {fileID: 0}
+    - target: {fileID: 649579579885395342, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.19556236
+      objectReference: {fileID: 0}
     - target: {fileID: 5822962813997529612, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
       propertyPath: m_Name
       value: Toilet_0
@@ -45212,8 +45282,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1859556563}
     m_Modifications:
     - target: {fileID: 649579579885395342, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6088753
+      objectReference: {fileID: 0}
+    - target: {fileID: 649579579885395342, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 649579579885395342, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.19556236
       objectReference: {fileID: 0}
     - target: {fileID: 5822962813997529612, guid: 69fa5c3e349d27a41b2f6a3f4ee8fa0e, type: 3}
       propertyPath: m_Name
