@@ -22571,7 +22571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &365129030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25454,7 +25454,7 @@ PrefabInstance:
       objectReference: {fileID: 887340932}
     - target: {fileID: 1504412268417953496, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.444458
+      value: -4.8927
       objectReference: {fileID: 0}
     - target: {fileID: 1611209801277222244, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_IsActive
@@ -25464,13 +25464,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Requirements
       objectReference: {fileID: 0}
+    - target: {fileID: 3052432167873467417, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: nextLevelName
+      value: DuplexLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052432167873467417, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: currentLevelName
+      value: SpeakEasy_PreDemo
+      objectReference: {fileID: 0}
     - target: {fileID: 4721415007335752225, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.444458
+      value: 4.8927
       objectReference: {fileID: 0}
     - target: {fileID: 4990627565815587818, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.444458
+      value: 4.8927
       objectReference: {fileID: 0}
     - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25534,7 +25542,7 @@ PrefabInstance:
       objectReference: {fileID: 887340931}
     - target: {fileID: 8380467148698342142, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.444458
+      value: -4.8927
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39986,7 +39994,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 314700071376108887, guid: faae92aa479a80b40b2344387df09be6, type: 3}
       propertyPath: popDoor
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1226282074354870652, guid: faae92aa479a80b40b2344387df09be6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -40040,6 +40048,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7255662735719279752, guid: faae92aa479a80b40b2344387df09be6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0697282bf7870af4d9ea884716836b28, type: 2}
     - target: {fileID: 8678396224888387755, guid: faae92aa479a80b40b2344387df09be6, type: 3}
       propertyPath: m_Sprite
       value: 

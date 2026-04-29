@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &706676 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7770421277566409367, guid: eefc9d4eea15edc468a1b914b73e16ed, type: 3}
-  m_PrefabInstance: {fileID: 1245287398}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5631182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,27 +182,27 @@ PrefabInstance:
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamLeft
       value: 
-      objectReference: {fileID: 2114479731}
+      objectReference: {fileID: 1006668174}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
-      objectReference: {fileID: 2114479730}
+      objectReference: {fileID: 83881564}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamLeft
       value: 
-      objectReference: {fileID: 2114479734}
+      objectReference: {fileID: 676354623}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamRight
       value: 
-      objectReference: {fileID: 533574696}
+      objectReference: {fileID: 1338000848}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
-      objectReference: {fileID: 706676}
+      objectReference: {fileID: 1310640475}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[1]'
       value: 
-      objectReference: {fileID: 592066676}
+      objectReference: {fileID: 765274923}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -455,6 +450,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81840813}
   m_CullTransparentMesh: 1
+--- !u!1 &83881564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8631693259679336666, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+  m_PrefabInstance: {fileID: 1610740556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &92585417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,27 +1162,27 @@ PrefabInstance:
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamLeft
       value: 
-      objectReference: {fileID: 2114479731}
+      objectReference: {fileID: 1006668174}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
-      objectReference: {fileID: 2114479730}
+      objectReference: {fileID: 83881564}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamLeft
       value: 
-      objectReference: {fileID: 2114479734}
+      objectReference: {fileID: 676354623}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamRight
       value: 
-      objectReference: {fileID: 533574696}
+      objectReference: {fileID: 1338000848}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
-      objectReference: {fileID: 706676}
+      objectReference: {fileID: 1310640475}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[1]'
       value: 
-      objectReference: {fileID: 592066676}
+      objectReference: {fileID: 765274923}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1379,7 +1379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &235973232
 Transform:
   m_ObjectHideFlags: 0
@@ -11178,27 +11178,27 @@ PrefabInstance:
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamLeft
       value: 
-      objectReference: {fileID: 2114479731}
+      objectReference: {fileID: 1006668174}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
-      objectReference: {fileID: 2114479730}
+      objectReference: {fileID: 83881564}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamLeft
       value: 
-      objectReference: {fileID: 2114479734}
+      objectReference: {fileID: 676354623}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamRight
       value: 
-      objectReference: {fileID: 533574696}
+      objectReference: {fileID: 1338000848}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
-      objectReference: {fileID: 706676}
+      objectReference: {fileID: 1310640475}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[1]'
       value: 
-      objectReference: {fileID: 592066676}
+      objectReference: {fileID: 765274923}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -11334,7 +11334,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1130494767
   m_SortingLayer: 3
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -21644,17 +21644,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7a2f8ed25dabd4fbc293e26214df6d, type: 3}
---- !u!114 &533574696 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 2114479727}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!4 &538538080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8828150982422104120, guid: 2cab1c26eb3286c4fac7d7522d993c58, type: 3}
@@ -21807,11 +21796,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27df307b038fa74408ebb1cbdf4ba493, type: 3}
---- !u!1 &592066676 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4043316540284698731, guid: c24c8488366ec4e41b996e3e1c7160f9, type: 3}
-  m_PrefabInstance: {fileID: 2051012226}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &592637713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22147,6 +22131,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653033659}
   m_CullTransparentMesh: 1
+--- !u!114 &676354623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 901022785547627047, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+  m_PrefabInstance: {fileID: 1610740556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!4 &677497710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8803766176058905117, guid: 0f44d9cfade3a6b4c9d5d1334f4adc80, type: 3}
@@ -22196,6 +22191,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 224097882280048612, guid: b7e80c642afb4b6459a693eeb574f12f, type: 3}
   m_PrefabInstance: {fileID: 1084661762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &765274923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6977916432918308248, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+  m_PrefabInstance: {fileID: 1610740556}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &765744862
 PrefabInstance:
@@ -23117,7 +23117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8454736817795000349, guid: 950c318b8595a5a4a84d1d6375a4e533, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8454736817795000349, guid: 950c318b8595a5a4a84d1d6375a4e533, type: 3}
       propertyPath: m_SortingLayerID
@@ -23191,27 +23191,27 @@ PrefabInstance:
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamLeft
       value: 
-      objectReference: {fileID: 2114479731}
+      objectReference: {fileID: 1006668174}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
-      objectReference: {fileID: 2114479730}
+      objectReference: {fileID: 83881564}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamLeft
       value: 
-      objectReference: {fileID: 2114479734}
+      objectReference: {fileID: 676354623}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamRight
       value: 
-      objectReference: {fileID: 533574696}
+      objectReference: {fileID: 1338000848}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
-      objectReference: {fileID: 706676}
+      objectReference: {fileID: 1310640475}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[1]'
       value: 
-      objectReference: {fileID: 592066676}
+      objectReference: {fileID: 765274923}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -23723,7 +23723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2239482341779150382, guid: 8a0a704aeda6f724eaa8ab06bae849be, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2239482341779150382, guid: 8a0a704aeda6f724eaa8ab06bae849be, type: 3}
       propertyPath: m_SortingLayerID
@@ -23812,6 +23812,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1473771043860729516, guid: 9c9a1f98341d6b345a814f08e3ccc6a8, type: 3}
   m_PrefabInstance: {fileID: 818408958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1006668174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6124375838060478863, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+  m_PrefabInstance: {fileID: 1610740556}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1014324406
 GameObject:
@@ -28225,8 +28230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSelectSceneName: Firehouse
-  currentLevelName: OverheadTrainStation
-  nextLevelName: Subway
+  currentLevelName: TutorialLevel
+  nextLevelName: House Demo 1
   objectiveText: {fileID: 1708900320}
   totalHumans: 0
   savedHumans: 0
@@ -28240,7 +28245,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7486195215411602515, guid: 82adada60926bd74a8a32f08d523d61d, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7486195215411602515, guid: 82adada60926bd74a8a32f08d523d61d, type: 3}
       propertyPath: m_SortingLayerID
@@ -32630,7 +32635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1168387802
 Transform:
   m_ObjectHideFlags: 0
@@ -42656,6 +42661,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e80c642afb4b6459a693eeb574f12f, type: 3}
+--- !u!1 &1310640475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3359552167001902813, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+  m_PrefabInstance: {fileID: 1610740556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1324363384
 GameObject:
   m_ObjectHideFlags: 0
@@ -45157,8 +45167,8 @@ Tilemap:
   - first: {x: -34, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 15
+      m_TileIndex: 16
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 10
       m_TileObjectToInstantiateIndex: 65535
@@ -45167,8 +45177,8 @@ Tilemap:
   - first: {x: -33, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 15
+      m_TileIndex: 16
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 10
       m_TileObjectToInstantiateIndex: 65535
@@ -45217,8 +45227,8 @@ Tilemap:
   - first: {x: -17, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 18
-      m_TileSpriteIndex: 18
+      m_TileIndex: 19
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 10
       m_TileObjectToInstantiateIndex: 65535
@@ -46536,15 +46546,15 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: bc1791b852971b4429f7a4120d2e51db, type: 2}
   - m_RefCount: 25
     m_Data: {fileID: 11400000, guid: 8c8f30fdb76c56e4e8d71a9f2b3d88a4, type: 2}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 9c7793701ca30e742ad3864508906f60, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 229fd7da1d4fbc241a93a8f7851ec4be, type: 2}
   - m_RefCount: 112
     m_Data: {fileID: 11400000, guid: ae0cf355b6aa5024abbf8bbe1793525c, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 50cf253daabda8643927a3fb60de05cb, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 8e23e7525dde70445aa335137d21207d, type: 2}
   - m_RefCount: 80
     m_Data: {fileID: 11400000, guid: ee9110accb2ee574b959916470a50043, type: 2}
@@ -46585,15 +46595,15 @@ Tilemap:
     m_Data: {fileID: 867944657, guid: a077234b65440f1428ef054340846c81, type: 3}
   - m_RefCount: 25
     m_Data: {fileID: -151880427, guid: a077234b65440f1428ef054340846c81, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: -7563812451204561243, guid: 36eaac7a5afd123429d36911c125dc11, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 6
     m_Data: {fileID: 4947719330917710149, guid: 2ac74e78f9e92954db5dd3f95f45a889, type: 3}
   - m_RefCount: 112
     m_Data: {fileID: 1047256803, guid: d554e0dc738a8c446aa5b073d5261f8e, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 4028983577567257556, guid: 435a2ec87f688d54595ab14f17b399b7, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: -7819000336664724005, guid: 5d5e0584f514d854dbee2cf75866bcfe, type: 3}
   - m_RefCount: 80
     m_Data: {fileID: -1678350471, guid: a077234b65440f1428ef054340846c81, type: 3}
@@ -46766,6 +46776,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3969736929255205924, guid: 252073c5f0d47824cae4825b1f5ba337, type: 3}
   m_PrefabInstance: {fileID: 511109661}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1338000848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3074697917422502968, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+  m_PrefabInstance: {fileID: 1610740556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!4 &1340074469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 224097882280048612, guid: b7e80c642afb4b6459a693eeb574f12f, type: 3}
@@ -48025,10 +48046,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3618654883941294308, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85627f4229d6013458b9dabcdafc8176, type: 3}
 --- !u!4 &1497888177 stripped
 Transform:
@@ -48622,6 +48640,131 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1610740556
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1504412268417953496, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.444458
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664121251989714481, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_Name
+      value: Requirements
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052432167873467417, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: nextLevelName
+      value: Subway
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052432167873467417, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: currentLevelName
+      value: OverheadTrainStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670479214268251351, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670479214268251351, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721415007335752225, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.444458
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727528483755391384, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 99.30884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727528483755391384, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990627565815587818, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.444458
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315797614747640729, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: currentTime
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.73997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.14427
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320798505213796014, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05001068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320798505213796014, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.479994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618915265597343377, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618915265597343377, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015659748904960840, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015659748904960840, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380467148698342142, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.444458
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
 --- !u!1 &1668246066
 GameObject:
   m_ObjectHideFlags: 0
@@ -49116,27 +49259,27 @@ PrefabInstance:
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamLeft
       value: 
-      objectReference: {fileID: 2114479731}
+      objectReference: {fileID: 1006668174}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
-      objectReference: {fileID: 2114479730}
+      objectReference: {fileID: 83881564}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamLeft
       value: 
-      objectReference: {fileID: 2114479734}
+      objectReference: {fileID: 676354623}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamRight
       value: 
-      objectReference: {fileID: 533574696}
+      objectReference: {fileID: 1338000848}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
-      objectReference: {fileID: 706676}
+      objectReference: {fileID: 1310640475}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[1]'
       value: 
-      objectReference: {fileID: 592066676}
+      objectReference: {fileID: 765274923}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -50296,10 +50439,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7544272669877070945, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac614007bccea3947bf82a12e5557bf2, type: 3}
 --- !u!4 &1963884188 stripped
 Transform:
@@ -50633,27 +50773,27 @@ PrefabInstance:
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamLeft
       value: 
-      objectReference: {fileID: 2114479731}
+      objectReference: {fileID: 1006668174}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vDualCamRight
       value: 
-      objectReference: {fileID: 2114479730}
+      objectReference: {fileID: 83881564}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamLeft
       value: 
-      objectReference: {fileID: 2114479734}
+      objectReference: {fileID: 676354623}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: vSingleCamRight
       value: 
-      objectReference: {fileID: 533574696}
+      objectReference: {fileID: 1338000848}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[0]'
       value: 
-      objectReference: {fileID: 706676}
+      objectReference: {fileID: 1310640475}
     - target: {fileID: 7545532704746096242, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: 'transitionScreens.Array.data[1]'
       value: 
-      objectReference: {fileID: 592066676}
+      objectReference: {fileID: 765274923}
     - target: {fileID: 8492550447564417754, guid: a221ec5ba5a85174988c0ad81ca78f6a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -50776,11 +50916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 820403263472278569, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 4.4425673
-=======
-      value: 4.444445
->>>>>>> 52bb43e51df5c1041e20c2d931c5987f752cfff7
+      value: -678.15344
+      objectReference: {fileID: 0}
+    - target: {fileID: 820403263472278569, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -367.84253
       objectReference: {fileID: 0}
     - target: {fileID: 866454828412366728, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_ClearFlags
@@ -50808,11 +50948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1127369750348946914, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 4.4425673
-=======
       value: 4.444445
->>>>>>> 52bb43e51df5c1041e20c2d931c5987f752cfff7
       objectReference: {fileID: 0}
     - target: {fileID: 2102435290389133706, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50864,11 +51000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4515452348345806070, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: -4.4425673
-=======
       value: -4.4444447
->>>>>>> 52bb43e51df5c1041e20c2d931c5987f752cfff7
       objectReference: {fileID: 0}
     - target: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
@@ -50876,11 +51008,11 @@ PrefabInstance:
       objectReference: {fileID: 1497888177}
     - target: {fileID: 6775599085512462544, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: -4.4425673
-=======
-      value: -4.4444447
->>>>>>> 52bb43e51df5c1041e20c2d931c5987f752cfff7
+      value: -687.04236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775599085512462544, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -367.84253
       objectReference: {fileID: 0}
     - target: {fileID: 6939194852076567088, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
       propertyPath: Target.TrackingTarget
@@ -50908,27 +51040,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2102435290389133706, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
   m_PrefabInstance: {fileID: 2114479727}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2114479730 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4408622496689305298, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 2114479727}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2114479731 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2168864633609305991, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 2114479727}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2114479734 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5072864041269810223, guid: d95a316fcb35d4b4f8737134d8d5691b, type: 3}
-  m_PrefabInstance: {fileID: 2114479727}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1001 &2129791458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51071,4 +51182,5 @@ SceneRoots:
   - {fileID: 1168387802}
   - {fileID: 812312637}
   - {fileID: 2140215038}
+  - {fileID: 1610740556}
   - {fileID: 519261507}
