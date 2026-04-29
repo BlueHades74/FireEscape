@@ -183,8 +183,8 @@ GameObject:
   - component: {fileID: 2418084779761933246}
   - component: {fileID: 4543875720809289367}
   - component: {fileID: 1521936351534598394}
-  - component: {fileID: 8984904703669302796}
   - component: {fileID: -8628394712133945896}
+  - component: {fileID: 8984904703669302796}
   - component: {fileID: 1634030782087352376}
   - component: {fileID: -4320895757851185695}
   - component: {fileID: -1399837611178861588}
@@ -443,8 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffectSource: {fileID: -8628394712133945896}
-  grid: {fileID: 0}
-  axeChopSound: {fileID: 8300000, guid: 034b80de0ea46684e983ca24050c8d4f, type: 3}
+  axeChopSound: {fileID: 8300000, guid: e1d0040aada4c8d4bb81d93b2056412a, type: 3}
   waterRangePrefab:
   - {fileID: 4708838206759781574, guid: 4904b11fd629324488581973ed505531, type: 3}
   - {fileID: 4176684262262862117, guid: 427482605b1a41746ac0fe1d0643d2ef, type: 3}
@@ -462,7 +461,7 @@ MonoBehaviour:
   carry2PColliderSizeMod: 1.95
   carry2PColliderOffsetMod: 0.75
   carry2pSound: {fileID: 0}
---- !u!82 &8984904703669302796
+--- !u!82 &-8628394712133945896
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,11 +472,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6408033815976896514, guid: ae60fdcffd10bb146a0e4d5f101bce17, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: b9d62759d2566f243a6cde9765ad2ba8, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -559,7 +558,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &-8628394712133945896
+--- !u!82 &8984904703669302796
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,11 +569,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6408033815976896514, guid: ae60fdcffd10bb146a0e4d5f101bce17, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: b9d62759d2566f243a6cde9765ad2ba8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
