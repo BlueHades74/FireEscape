@@ -221,6 +221,12 @@ public class PlayerActionScript : MonoBehaviour
             waterRangeDisplay = null;
         }
 
+        if (extinguisherRangeDisplay != null)
+        {
+            Destroy(extinguisherRangeDisplay);
+            extinguisherRangeDisplay = null;
+        }
+
         if (bx.size !=  boxColliderSizeOrig)
         {
             bx.size = boxColliderSizeOrig;
