@@ -197,9 +197,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444632608957252962, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: linesOnLoad.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444632608957252962, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: 'linesOnLoad.Array.data[0]'
+      value: 'Captain: This building is two stories, so make sure you get everyone
+        from both floors!'
+      objectReference: {fileID: 0}
     - target: {fileID: 1504412268417953496, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.8927
+      value: -4.444458
       objectReference: {fileID: 0}
     - target: {fileID: 1611209801277222244, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_IsActive
@@ -211,11 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4721415007335752225, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.8927
+      value: 4.444458
       objectReference: {fileID: 0}
     - target: {fileID: 4990627565815587818, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.8927
+      value: 4.444458
       objectReference: {fileID: 0}
     - target: {fileID: 6941517145120327073, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -283,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8380467148698342142, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.8927
+      value: -4.444458
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5702,10 +5711,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3475917127361184879, guid: 13748942d34a54c448b515c4f7cd4ab7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13748942d34a54c448b515c4f7cd4ab7, type: 3}
 --- !u!1001 &256348868
 PrefabInstance:

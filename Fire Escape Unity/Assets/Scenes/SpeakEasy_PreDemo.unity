@@ -22210,6 +22210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f120052acd14d4b8309ccf8b2120e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGMFireAudio: {fileID: 0}
 --- !u!114 &281809946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25452,6 +25453,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 887340932}
+    - target: {fileID: 1444632608957252962, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: linesOnLoad.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444632608957252962, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: 'linesOnLoad.Array.data[0]'
+      value: 'Captain: I know it''s dark out, but danger doesn''t have a set time. '
+      objectReference: {fileID: 0}
     - target: {fileID: 1504412268417953496, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.444458
