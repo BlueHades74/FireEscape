@@ -179,6 +179,9 @@ public class PlayerMovementScript : MonoBehaviour
     /// <returns></returns>
     private Vector2 ClampMove(Vector2 input)
     {
+        input.x = Mathf.Sign(input.x);
+        input.y = Mathf.Sign(input.y);
+
         input.x = Mathf.Clamp(input.x, clampDim[0], clampDim[1]) * Mathf.Sign(input.x);
         input.y = Mathf.Clamp(input.y, clampDim[2], clampDim[3]) * Mathf.Sign(input.y);
 
