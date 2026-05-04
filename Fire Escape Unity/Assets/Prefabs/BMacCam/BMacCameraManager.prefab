@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 1021357365934779052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4427786, y: 0, z: -20}
+  m_LocalPosition: {x: -662.4406, y: -378.30646, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,8 +151,8 @@ Camera:
   m_GameObject: {fileID: 1021357365934779052}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -411,7 +411,7 @@ Transform:
   m_GameObject: {fileID: 2168864633609305991}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4458685, y: 0, z: -20}
+  m_LocalPosition: {x: -4.4444447, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -520,7 +520,7 @@ Transform:
   m_GameObject: {fileID: 2657695257209525566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4427786, y: 0, z: -20}
+  m_LocalPosition: {x: -671.3295, y: -378.30646, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -535,8 +535,8 @@ Camera:
   m_GameObject: {fileID: 2657695257209525566}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -706,7 +706,7 @@ Transform:
   m_GameObject: {fileID: 4408622496689305298}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4458685, y: 0, z: -20}
+  m_LocalPosition: {x: 4.4444447, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -842,7 +842,8 @@ MonoBehaviour:
   vDualCamRight: {fileID: 4408622496689305298}
   vSingleCamLeft: {fileID: 5072864041269810223}
   vSingleCamRight: {fileID: 6939194852076567088}
-  breakDistance: 8
+  breakDistanceHorizontal: 8
+  breakDistanceVertical: 5
   vDualLeftCamOutput: {fileID: 8304721839782693355}
   vDualRightCamOutput: {fileID: 6152071397940551823}
   vDualLeftCamComp: {fileID: 4338811120157195157}

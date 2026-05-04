@@ -25456,6 +25456,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -4.444458
       objectReference: {fileID: 0}
+    - target: {fileID: 1504412268417953496, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1611209801277222244, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -25475,6 +25479,10 @@ PrefabInstance:
     - target: {fileID: 4721415007335752225, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.444458
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721415007335752225, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4990627565815587818, guid: 336e797cb57630446a065ba6caa41fb4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26645,6 +26653,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 6, y: -3, z: 0}
     second:
       serializedVersion: 2
@@ -27095,6 +27113,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 6, y: 1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 12, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -27397,13 +27425,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 92
+  - m_RefCount: 94
     m_Data: {fileID: 11400000, guid: 22da27cbcb513004a949a115ca975e13, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 92
+  - m_RefCount: 94
     m_Data: {fileID: -1839023545, guid: 51d73bde03a47e74d8e79737e6d51cc5, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 92
+  - m_RefCount: 94
     m_Data:
       e00: 1
       e01: 0
@@ -27422,7 +27450,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 92
+  - m_RefCount: 94
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -35849,6 +35877,14 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 908866855}
+    - target: {fileID: 1226282074354870652, guid: faae92aa479a80b40b2344387df09be6, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5478446
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226282074354870652, guid: faae92aa479a80b40b2344387df09be6, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.27392232
+      objectReference: {fileID: 0}
     - target: {fileID: 1226282074354870652, guid: faae92aa479a80b40b2344387df09be6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 2
