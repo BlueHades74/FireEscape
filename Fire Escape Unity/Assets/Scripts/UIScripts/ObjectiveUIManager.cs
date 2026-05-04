@@ -27,7 +27,10 @@ public class ObjectiveUIManger : MonoBehaviour
     //For each level will have number of total humans such as 0/4 and then per saved human 1/4 etc
     public int totalHumans;
     public int savedHumans;
-    
+
+    [SerializeField]
+    private Timer timerManager;
+
     private void OnEnable()
     {
         ObjectManager.OnHumanRescued += HandleHumanRescued;
@@ -52,11 +55,15 @@ public class ObjectiveUIManger : MonoBehaviour
         //This will increase the count of saved humans when they hit the rescue zone
         savedHumans++;
         UpdateObjectiveUI();
-
-
+        try
+        {
+            timerManager.Pause();
+        }
+        catch { }
 
         if (savedHumans >= totalHumans)
         {
+
             Debug.Log($"All humans saved in {currentLevelName}, unlocking next level: {nextLevelName}");
             if (LevelUnlockManager.Instance != null)
             {
