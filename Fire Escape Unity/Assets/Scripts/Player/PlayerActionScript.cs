@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class PlayerActionScript : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class PlayerActionScript : MonoBehaviour
     [SerializeField]
     private AudioClip refillSound;
     private int waterColliderRotation = 0;
+    [SerializeField] private VisualEffect splashParticle;
 
     [Header("Crowbar")]
     private float crowbarTimer;
@@ -283,6 +285,16 @@ public class PlayerActionScript : MonoBehaviour
                 var childLocation = tiles[i];
                 Instantiate<GameObject>(waterColliderPrefab, childLocation, Quaternion.identity);
             }
+            // This is used to push the particle effect further in the direction the player is facing.
+            Vector3 displacement = new Vector3(GetComponent<PlayerMovementScript>().FacingDirection.x, GetComponent<PlayerMovementScript>().FacingDirection.y, 0);
+            // Create splash instance at new location.
+            var splashInstance = Instantiate(splashParticle, transform.position + displacement, Quaternion.identity);
+            // Splash size and particle count determined by remaining number of charges.
+            splashInstance.SetFloat("SizeOfSplash", actionItem.GetComponent<WaterBucketScript>().CurrentCharges * 0.1f);
+            splashInstance.SetFloat("AmountOfParticles", actionItem.GetComponent<WaterBucketScript>().CurrentCharges * 24f);
+            // Destroy instance after animation has completed (so that we don't have a memory leak)
+            Destroy(splashInstance, 1.5f);
+
             var selectedSound = Random.Range(0, waterBucketSounds.Length);
             PlayAudio(waterBucketSounds[selectedSound]);
             actionItem.GetComponent<WaterBucketScript>().CurrentCharges--;
