@@ -55,15 +55,15 @@ public class ObjectiveUIManger : MonoBehaviour
         //This will increase the count of saved humans when they hit the rescue zone
         savedHumans++;
         UpdateObjectiveUI();
-        try
-        {
-            timerManager.Pause();
-        }
-        catch { }
+        
 
         if (savedHumans >= totalHumans)
         {
-
+            try
+            {
+                timerManager.Pause();
+            }
+            catch { }
             Debug.Log($"All humans saved in {currentLevelName}, unlocking next level: {nextLevelName}");
             if (LevelUnlockManager.Instance != null)
             {
