@@ -4,7 +4,10 @@ using UnityEngine.LowLevel;
 public class HoleJumpScript : MonoBehaviour
 {
     //Created by: Rafael Gonzalez Atiles
-    //Last Edited by: Logan Shade
+    //Last Edited by: Rafael Gonzalez Atiles
+
+    [SerializeField]
+    private bool canJump = true;
 
     [SerializeField]
     private GameObject exitPoint;
@@ -67,7 +70,7 @@ public class HoleJumpScript : MonoBehaviour
     /// <returns></returns>
     public bool CanWeJump()
     {
-        if (exitPoint == null)
+        if (exitPoint == null || canJump == false)
         {
             return false;
         }
